@@ -18,7 +18,21 @@ gem "decidim-challenges"
 And then execute:
 
 ```bash
-bundle
+bundle install
+```
+
+### Run tests
+
+Create a dummy app in your application (if not present):
+
+```bash
+bin/rails decidim:generate_external_test_app
+```
+
+And run tests:
+
+```bash
+rspec spec
 ```
 
 ## Contributing
