@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 require_dependency "decidim/components/namer"
-require "decidim/challenges/admin"
-require "decidim/challenges/engine"
-require "decidim/challenges/admin_engine"
 
-# Sustainable Development Goals
-Decidim.register_component(:challenges) do |component|
-  component.engine = Decidim::Challenges::Engine
-  component.admin_engine = Decidim::Challenges::AdminEngine
+require "decidim/sdgs/admin"
+require "decidim/sdgs/engine"
+require "decidim/sdgs/admin_engine"
+
+Decidim.register_component(:sdgs) do |component|
+  component.engine = Decidim::Sdgs::Engine
+  component.admin_engine = Decidim::Sdgs::AdminEngine
   component.icon = "decidim/challenges/icon.svg"
 
   # component.on(:before_destroy) do |instance|
@@ -30,8 +30,8 @@ Decidim.register_component(:challenges) do |component|
 
   # component.register_resource(:some_resource) do |resource|
   #   # Register a optional resource that can be references from other resources.
-  #   resource.model_class_name = "Decidim::Challenges::SomeResource"
-  #   resource.template = "decidim/challenges/some_resources/linked_some_resources"
+  #   resource.model_class_name = "Decidim::Sdgs::SomeResource"
+  #   resource.template = "decidim/sdgs/some_resources/linked_some_resources"
   # end
 
   # component.register_stat :some_stat do |context, start_at, end_at|

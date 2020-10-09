@@ -4,3 +4,5 @@ en:
     components:
       challenges:
         name: Challenges
+      sdgs:
+        name: Sustainable Development Goals

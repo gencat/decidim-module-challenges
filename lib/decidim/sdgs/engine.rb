@@ -4,15 +4,15 @@ require "rails"
 require "decidim/core"
 
 module Decidim
-  module Challenges
+  module Sdgs
     # This is the engine that runs on the public interface of challenges.
     class Engine < ::Rails::Engine
-      isolate_namespace Decidim::Challenges
+      isolate_namespace Decidim::Sdgs
 
       routes do
         # Add engine routes here
-        # resources :challenges
-        root to: "challenges#index"
+        resources :sdgs, only: [:index, :show]
+        root to: "sdgs#index"
       end
 
       initializer "decidim_challenges.assets" do |app|

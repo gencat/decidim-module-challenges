@@ -199,8 +199,8 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-challenges (0.22.0)
-      decidim-core (= 0.22.0)
+    decidim-challenges (0.0.1)
+      decidim-core (>= 0.20)
 
 GEM
   remote: https://rubygems.org/

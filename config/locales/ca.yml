@@ -1,0 +1,8 @@
+---
+ca:
+  decidim:
+    components:
+      challenges:
+        name: Reptes
+      sdgs:
+        name: Objectius de Desenvolupament Sostenible
