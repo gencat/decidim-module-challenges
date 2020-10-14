@@ -17,6 +17,7 @@ module Decidim
         #   end
         # end
         root to: "challenges#index"
+        resources :challenges
       end
 
       def load_seed
