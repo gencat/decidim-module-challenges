@@ -19,6 +19,8 @@ And then execute:
 
 ```bash
 bundle install
+bundle exec rails decidim_challenges:install:migrations
+bundle exec rails db:migrate
 ```
 
 ### Run tests
