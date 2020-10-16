@@ -1,8 +1,32 @@
 ---
 ca:
+  activemodel:
+    attributes:
+      challenge:
+        area_id: Territori
+        col_entity: Entitat colaboradora
+        coord_entity: Entitat coordinadora
+        end_date: Data finalització
+        global_description: Description global
+        local_description: Description territorial
+        ods: ODS
+        status: Estat
+        start_date: Start date
+        tags: Paraules clau
+        title: Títol
   decidim:
+    admin:
+      titles:
+        challenges: Llistat de reptes
+    challenges:
+      index:
+        title: Reptes
     components:
       challenges:
         name: Reptes
       sdgs:
         name: Objectius de Desenvolupament Sostenible
+    models:
+      challenge:
+        fields:
+          title: Reptes

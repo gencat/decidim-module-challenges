@@ -1,0 +1,74 @@
+<div class="card with-overflow" id="challenges">
+  <div class="card-divider">
+    <h2 class="card-title">
+
+      <%= t("challenges", scope: "decidim.admin.titles") %>
+
+      <% if allowed_to? :create, :challenge %>
+        <%= link_to t("actions.new_changelles", scope: "decidim.admin"),
+                    new_challenges_path,
+                    class: "button tiny button--title" %>
+      <% end %>
+    </h2>
+  </div>
+  <!-- admin_filter_selector -->
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>
+              <!-- sort_link(query, :title, t("models.challenge.fields.title", scope: "decidim.admin")) -->
+              <%= t("models.challenge.fields.title", scope: "decidim.admin") %>
+            </th>
+            <th>
+              <!-- sort_link(query, :created_at, t("models.challenge.fields.created_at", scope: "decidim.admin"), default_order: :desc) -->
+              <%= t("models.challenge.fields.created_at", scope: "decidim.admin") %>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @challenges.each do |challenge| %>
+            <% next unless allowed_to? :list, :challenge, challenge: challenge %>
+            <tr>
+              <td>
+                <% if allowed_to? :update, :challenge, challenge: challenge %>
+                  <%= link_to translated_attribute(challenge.title), edit_challenge_path(challenge) %><br>
+                <% elsif allowed_to? :read, :component, challenge: challenge %>
+                  <%= link_to translated_attribute(challenge.title), components_path(challenge) %><br>
+                <% elsif allowed_to? :preview, :challenge, challenge: challenge %>
+                  <%= link_to translated_attribute(challenge.title), decidim_challenges.challenge_path(challenge) %><br>
+                <% else %>
+                  <%= translated_attribute(challenge.title) %>
+                <% end %>
+              </td>
+              <td>
+                <%= l(challenge.creation_date, format: :decidim_short) if challenge.creation_date %>
+              </td>
+              <td class="table-list__state">
+                  <strong class="text-success"><%= t("challenges.index.public", scope: "decidim.admin") %></strong>
+              </td>
+              <td class="table-list__state">
+                  <strong class="text-alert"><%= t("challenges.index.not_published", scope: "decidim.admin") %></strong>
+              </td>
+              <td class="table-list__actions">
+
+                <% if allowed_to? :update, :challenge, challenge: challenge %>
+                  <%= icon_link_to "pencil", edit_challenge_path(challenge), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% end %>
+
+                <% if allowed_to? :preview, :challenge, challenge: challenge %>
+                  <%= icon_link_to "eye", decidim_challenges.challenge_path(challenge), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <!-- paginate @challenges, theme: "decidim" -->
+    </div>
+  </div>
+</div>

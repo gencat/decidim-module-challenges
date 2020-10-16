@@ -1,4 +1,47 @@
-module Decidim::Challenges
-  class Challenge < ApplicationRecord
+# frozen_string_literal: true
+
+module Decidim
+  module Challenges
+    # The data store for a Challenge in the Decidim::Challenges component.
+    class Challenge < Challenges::ApplicationRecord
+      include Decidim::Resourceable
+      include Decidim::Authorable
+      include Decidim::HasComponent
+      # include Decidim::ScopableResource
+      include Decidim::Searchable
+      include Decidim::Traceable
+      # include Decidim::TranslatableResource
+      include Decidim::TranslatableAttributes
+
+      # translatable_fields :title, :local_description, :global_description
+
+      belongs_to :area,
+                 foreign_key: "decidim_area_id",
+                 class_name: "Decidim::Area",
+                 optional: true
+
+      component_manifest_name "challenges"
+
+      acts_as_list scope: :decidim_component_id
+
+      # TODO
+      # searchable_fields({
+      #                    scope_id: :decidim_scope_id,
+      #                    participatory_space: :itself,
+      #                    A: :title,
+      #                    B: :local_description,
+      #                    C: :global_description,
+      #                    D: '', # TODO
+      #                    datetime: :published_at
+      #                  },
+      #                  index_on_create: ->(_process) { false },
+      #                  index_on_update: ->(process) { process.visible? })
+      #
+      # # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+      # ransacker :title do |parent|
+      #  Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      # end
+
+    end
   end
 end

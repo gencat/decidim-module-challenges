@@ -2,11 +2,12 @@ class CreateDecidimChallengesChallenges < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_challenges_challenges do |t|
       t.string :title
-      t.string :territory_description
+      t.string :local_description
       t.string :global_description
+      t.references :decidim_component, index: true, null: false
       t.string :tags
       t.string :ods
-      t.integer :territory_id
+      t.integer :area_id
       t.integer :status
       t.date :start_date
       t.date :end_date

@@ -1,0 +1,15 @@
+<% add_decidim_meta_tags(title: t("challenges.index.title", scope: "decidim")) %>
+
+<%
+edit_link(
+  decidim_admin_challenges.challenges_path,
+  :read,
+  :challenge_list
+)
+%>
+
+<div class="row">
+  <div id="challenges" class="columns mediumlarge-8 large-9" aria-live="polite">
+    <%= render partial: "challenges" %>
+  </div>
+</div>

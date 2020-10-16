@@ -1,8 +1,32 @@
 ---
 en:
+  activemodel:
+    attributes:
+      challenge:
+        area_id: Area
+        col_entity: Collaborating entity
+        coord_entity: Coordinating entity
+        end_date: End date
+        global_description: Global description
+        local_description: Local description
+        ods: SDO
+        status: Status
+        start_date: Start date
+        tags: Tags
+        title: Title
   decidim:
+    admin:
+      titles:
+        challenges: Challenges list
+    challenges:
+      index:
+        title: Challenges
     components:
       challenges:
         name: Challenges
       sdgs:
         name: Sustainable Development Goals
+    models:
+      challenge:
+        fields:
+          title: Challenges
