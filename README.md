@@ -29,12 +29,15 @@ Create a dummy app in your application (if not present):
 
 ```bash
 bin/rails decidim:generate_external_test_app
+cd spec/decidim_dummy_app/
+bundle exec rails decidim_challenges:install:migrations
+RAILS_ENV=test bundle exec rails db:migrate
 ```
 
 And run tests:
 
 ```bash
-rspec spec
+bundle exec rspec spec
 ```
 
 ## Contributing
