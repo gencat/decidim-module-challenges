@@ -1,18 +1,18 @@
 class CreateDecidimChallengesChallenges < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_challenges_challenges do |t|
-      t.string :title
-      t.string :local_description
-      t.string :global_description
+      t.jsonb :title
+      t.jsonb :local_description
+      t.jsonb :global_description
       t.references :decidim_component, index: true, null: false
-      t.string :tags
+      t.jsonb :tags
       t.string :ods
-      t.integer :area_id
-      t.integer :status
+      t.references :decidim_scope, index: true
+      t.integer :state, null: false, default: 0
       t.date :start_date
       t.date :end_date
-      t.string :coord_entity
-      t.string :col_entity
+      t.string :coordinating_entities
+      t.string :collaborating_entities
 
       t.timestamps
     end

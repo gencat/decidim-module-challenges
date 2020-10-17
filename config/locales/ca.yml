@@ -16,6 +16,11 @@ ca:
         title: Títol
   decidim:
     admin:
+      models:
+        challenge:
+          fields:
+            title: Títol
+            created_at: Creat
       titles:
         challenges: Llistat de reptes
     challenges:

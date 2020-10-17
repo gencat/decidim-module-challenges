@@ -16,6 +16,11 @@ en:
         title: Title
   decidim:
     admin:
+      models:
+        challenge:
+          fields:
+            title: Title
+            created_at: Created at
       titles:
         challenges: Challenges list
     challenges:

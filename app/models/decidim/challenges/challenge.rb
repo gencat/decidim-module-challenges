@@ -5,15 +5,17 @@ module Decidim
     # The data store for a Challenge in the Decidim::Challenges component.
     class Challenge < Challenges::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Authorable
       include Decidim::HasComponent
       # include Decidim::ScopableResource
+      include Decidim::ScopableComponent
       include Decidim::Searchable
       include Decidim::Traceable
       # include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
       # translatable_fields :title, :local_description, :global_description
+
+      enum state: [:proposal, :executing, :finished]
 
       belongs_to :area,
                  foreign_key: "decidim_area_id",
@@ -22,7 +24,7 @@ module Decidim
 
       component_manifest_name "challenges"
 
-      acts_as_list scope: :decidim_component_id
+      # acts_as_list scope: :decidim_component_id
 
       # TODO
       # searchable_fields({
