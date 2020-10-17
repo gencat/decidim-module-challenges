@@ -16,6 +16,8 @@ ca:
         title: Títol
   decidim:
     admin:
+      actions:
+        new_changelle: Nou Repte
       models:
         challenge:
           fields:

@@ -16,6 +16,8 @@ en:
         title: Title
   decidim:
     admin:
+      actions:
+        new_changelle: New Challenge
       models:
         challenge:
           fields:

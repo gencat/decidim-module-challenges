@@ -15,6 +15,8 @@ Decidim.register_component(:challenges) do |component|
   #   # Code executed before removing the component
   # end
 
+  component.permissions_class_name = "Decidim::Challenges::Permissions"
+
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()
 

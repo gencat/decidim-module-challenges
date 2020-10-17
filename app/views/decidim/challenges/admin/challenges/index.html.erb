@@ -4,11 +4,9 @@
 
       <%= t("challenges", scope: "decidim.admin.titles") %>
 
-      <% if allowed_to? :create, :challenge %>
-        <%= link_to t("actions.new_changelles", scope: "decidim.admin"),
-                    new_challenges_path,
-                    class: "button tiny button--title" %>
-      <% end %>
+      <%= link_to t("actions.new_changelle", scope: "decidim.admin"),
+                  new_challenge_path,
+                  class: "button tiny button--title" %>
     </h2>
   </div>
   <!-- admin_filter_selector -->
