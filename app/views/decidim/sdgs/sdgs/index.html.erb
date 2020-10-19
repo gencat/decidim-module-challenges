@@ -5,11 +5,44 @@
         src: url("Oswald-Medium.ttf");
     }
 
+    #ods-logo-container {
+        width: 250px;
+        height: 250px;
+        padding-top: 25px;
+        background-color: #dedede;
+        margin: auto;
+    }
+
+   #ods-logo-container img {
+       margin: auto;
+       display: block;
+       margin-bottom: 10px;
+   }
+
+   #ods-logo-container p#title {
+       text-align: center;
+       font-weight: bold;
+       font-size: 15pt;
+       line-height: 15px;
+       margin: 0;
+   }
+
+   #ods-logo-container p#subtitle {
+       text-align: center;
+       font-size: 9.5pt;
+   }
+
     .ods {
         width: 175px;
         position: relative;
         margin-bottom: 25px;
     }
+
+   .ods.final {
+       padding: 10px;
+       height: 175px;
+       border: 1px solid #c6c6c6;
+   }
 
     .ods .text-container{
         position: absolute;
@@ -19,15 +52,15 @@
     }
 
     .stretch.text-container {
-        left: 50px;
-        width: 115px;
+        left: 55px;
+        width: 105px;
     }
 
     .ods p {
         margin: 0;
         font-family: Oswald-Medium, 'Open Sans Semibold', sans-serif;
         color: white;
-        font-size: 11.2pt;
+        font-size: 9pt;
         text-size-adjust: 100%;
     }
 
@@ -35,10 +68,12 @@
         width: 100%;
     }
 </style>
-<div class="row">
+<div class="row mb-m">
   <div class="columns large-7">
     <section>
-      <h3> Objectius de Desenvolupament Sostenible </h3>
+      <h3 class="mb-sm">
+        <strong>Objectius de Desenvolupament Sostenible</strong>
+      </h3>
       <p>
         Els 17 <strong>Objectius de Desenvolupament Sostenible (ODS)</strong> - objectius universals, integradors
         i ambiciosos - són els que guien la implementació de l'Agenda 2030 de les Nacions Unides per al
@@ -50,22 +85,26 @@
     </section>
   </div>
   <div class="columns large-5">
-    FOTO
+    <div id="ods-logo-container">
+      <img src="/assets/decidim/sdgs/sdg-wheel.png">
+      <p id="title">OBJECTIUS GLOBALS</p>
+      <p id="subtitle">de Desenvolupament Sostenible</p>
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="columns">
     <div class="row column">
-      <h4>
-        Coneix els 17 Objectius de Desenvolupament Sostenible
+      <h4 class="mb-sm">
+        <strong>Coneix els 17 Objectius de Desenvolupament Sostenible</strong>
       </h4>
     </div>
     <div class="row">
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>FI</p>
+            <p>DE LA POBRESA</p>
           </div>
           <img alt="Logo ODS 01" src="/assets/decidim/sdgs/ods-01.svg">
         </div>
@@ -73,8 +112,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>FAM</p>
+            <p>ZERO</p>
           </div>
           <img alt="Logo ODS 02" src="/assets/decidim/sdgs/ods-02.svg">
         </div>
@@ -82,8 +121,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>SALUT</p>
+            <p>I BENESTAR</p>
           </div>
           <img alt="Logo ODS 03" src="/assets/decidim/sdgs/ods-03.svg">
         </div>
@@ -91,8 +130,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>EDUCACIÓ</p>
+            <p>DE QUALITAT</p>
           </div>
           <img alt="Logo ODS 04" src="/assets/decidim/sdgs/ods-04.svg">
         </div>
@@ -100,8 +139,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>IGUALTAT</p>
+            <p>DE GÈNERE</p>
           </div>
           <img alt="Logo ODS 05" src="/assets/decidim/sdgs/ods-05.svg">
         </div>
@@ -109,8 +148,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>AIGUA NETA</p>
+            <p>I SANEJAMENT</p>
           </div>
           <img alt="Logo ODS 06" src="/assets/decidim/sdgs/ods-06.svg">
         </div>
@@ -118,8 +157,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>ENERGIA NETA</p>
+            <p>I ASSEQUIBLE</p>
           </div>
           <img alt="Logo ODS 07" src="/assets/decidim/sdgs/ods-07.svg">
         </div>
@@ -127,8 +166,9 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>TREBALL DECENT</p>
+            <p>I CREIXEMENT</p>
+            <p>ECONÒMIC</p>
           </div>
           <img alt="Logo ODS 08" src="/assets/decidim/sdgs/ods-08.svg">
         </div>
@@ -136,8 +176,9 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>INDÚSTRIA</p>
+            <p>INOVACIÓ I</p>
+            <p>INFRAESTRUCTURES</p>
           </div>
           <img alt="Logo ODS 09" src="/assets/decidim/sdgs/ods-09.svg">
         </div>
@@ -145,8 +186,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container stretch">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>REDUCCIÓ DE LES</p>
+            <p>DESIGUALTATS</p>
           </div>
           <img alt="Logo ODS 10" src="/assets/decidim/sdgs/ods-10.svg">
         </div>
@@ -154,8 +195,9 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>CIUTATS I</p>
+            <p>COMUNITATS</p>
+            <p>SOSTENIBLES</p>
           </div>
           <img alt="Logo ODS 11" src="/assets/decidim/sdgs/ods-11.svg">
         </div>
@@ -163,8 +205,9 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container stretch">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>CONSUM I</p>
+            <p>PRODUCCIÓ</p>
+            <p>RESPONSABLES</p>
           </div>
           <img alt="Logo ODS 12" src="/assets/decidim/sdgs/ods-12.svg">
         </div>
@@ -172,8 +215,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container stretch">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>ACCIÓ</p>
+            <p>CLIMÀTICA</p>
           </div>
           <img alt="Logo ODS 13" src="/assets/decidim/sdgs/ods-13.svg">
         </div>
@@ -181,8 +224,8 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container stretch">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>VIDA</p>
+            <p>SUBMARINA</p>
           </div>
           <img alt="Logo ODS 14" src="/assets/decidim/sdgs/ods-14.svg">
         </div>
@@ -190,8 +233,9 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container stretch">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>VIDA</p>
+            <p>D'ECOSISTEMES</p>
+            <p>TERRESTRES</p>
           </div>
           <img alt="Logo ODS 15" src="/assets/decidim/sdgs/ods-15.svg">
         </div>
@@ -199,8 +243,9 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container stretch">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>PAU, JUSTÍCIA</p>
+            <p>I INSTITUCIONS</p>
+            <p>SÒLIDES</p>
           </div>
           <img alt="Logo ODS 16" src="/assets/decidim/sdgs/ods-16.svg">
         </div>
@@ -208,19 +253,16 @@
       <div class="columns large-2">
         <div class="ods">
           <div class="text-container stretch">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
+            <p>ALIANÇA PER A</p>
+            <p>ASSOLIR ELS</p>
+            <p>OBJECTIUS</p>
           </div>
           <img alt="Logo ODS 17" src="/assets/decidim/sdgs/ods-17.svg">
         </div>
       </div>
       <div class="columns large-2">
-        <div class="ods">
-          <div class="text-container">
-            <p>FIN</p>
-            <p>DE LA POBREZA</p>
-          </div>
-          <img alt="Logo ODS 17" src="/assets/decidim/sdgs/ods-17.svg">
+        <div class="ods final">
+          <img alt="Logo ODS 17" src="/assets/decidim/sdgs/un_emblem_square.png">
         </div>
       </div>
     </div>
