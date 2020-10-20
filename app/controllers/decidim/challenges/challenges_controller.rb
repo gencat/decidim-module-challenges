@@ -5,6 +5,7 @@ module Decidim
     # Controller that allows managing admin challenges.
     #
     class ChallengesController < Decidim::Challenges::ApplicationController
+      # include Decidim::ApplicationHelper
       include FilterResource
       include Paginable
 

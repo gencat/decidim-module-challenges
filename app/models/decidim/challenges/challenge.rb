@@ -6,25 +6,21 @@ module Decidim
     class Challenge < Challenges::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasComponent
-      # include Decidim::ScopableResource
       include Decidim::ScopableComponent
       include Decidim::Searchable
       include Decidim::Traceable
-      # include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
       # translatable_fields :title, :local_description, :global_description
+      VALID_STATES = [:proposal, :executing, :finished]
+      enum state: VALID_STATES
 
-      enum state: [:proposal, :executing, :finished]
-
-      belongs_to :area,
-                 foreign_key: "decidim_area_id",
-                 class_name: "Decidim::Area",
-                 optional: true
+      # belongs_to :area,
+      #            foreign_key: "decidim_area_id",
+      #            class_name: "Decidim::Area",
+      #            optional: true
 
       component_manifest_name "challenges"
-
-      # acts_as_list scope: :decidim_component_id
 
       # TODO
       # searchable_fields({

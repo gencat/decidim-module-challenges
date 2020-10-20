@@ -26,8 +26,22 @@ en:
       titles:
         challenges: Challenges list
     challenges:
+      admin:
+        challenges:
+          create:
+            invalid: There's been a problem creating this challenge
+            success: Challenge successfully created
+          form:
+            select_states: Select state
+          new:
+            create: Crea
+            title: New challenge
       index:
         title: Challenges
+      states:
+        proposal: Proposal
+        executing: Executing
+        finished: Finished
     components:
       challenges:
         name: Challenges

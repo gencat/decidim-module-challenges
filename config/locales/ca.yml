@@ -26,8 +26,22 @@ ca:
       titles:
         challenges: Llistat de reptes
     challenges:
+      admin:
+        challenges:
+          create:
+            invalid: Hi ha hagut un problema creant aquest repte
+            success: Repte creat correctament
+          form:
+            select_states: Selecciona l'estat
+          new:
+            create: Crea
+            title: Nou repte
       index:
         title: Reptes
+      states:
+        proposal: Proposada
+        executing: En execució
+        finished: Acabada
     components:
       challenges:
         name: Reptes

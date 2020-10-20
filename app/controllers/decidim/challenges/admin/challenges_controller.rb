@@ -6,6 +6,7 @@ module Decidim
       # Controller that allows managing admin challenges.
       #
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
+        include Decidim::ApplicationHelper
         # include Decidim::Challenges::Admin::Filterable
         # include FilterResource
         # include Paginable
@@ -23,12 +24,24 @@ module Decidim
 
         def new
           # enforce_permission_to :create, :challenge
-          @form = form(ChallengesForm).instance
+          @form = form(Decidim::Challenges::Admin::ChallengesForm).instance
         end
 
         def create
           # enforce_permission_to :create, :challenge
-          @form = form(ChallengesForm).from_params(params)
+          @form = form(Decidim::Challenges::Admin::ChallengesForm).from_params(params)
+
+          Decidim::Challenges::Admin::CreateChallenge.call(@form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("challenges.create.success", scope: "decidim.challenges.admin")
+              redirect_to challenges_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("challenges.create.invalid", scope: "decidim.challenges.admin")
+              render action: "new"
+            end
+          end
         end
 
         def edit
@@ -58,7 +71,7 @@ module Decidim
         end
 
         def form_presenter
-          @form_presenter ||= present(@form, presenter_class: Decidim::Challenge::ChallengePresenter)
+          @form_presenter ||= present(@form, presenter_class: Decidim::Challenges::ChallengePresenter)
         end
 
       end
