@@ -38,6 +38,7 @@ ca:
             success: Repte creat correctament
           form:
             select_states: Selecciona l'estat
+            duration: Durada
           new:
             create: Crea
             title: Nou repte

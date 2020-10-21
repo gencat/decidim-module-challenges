@@ -38,6 +38,7 @@ en:
             success: Challenge successfully created
           form:
             select_states: Select state
+            duration: Duration
           new:
             create: Crea
             title: New challenge
