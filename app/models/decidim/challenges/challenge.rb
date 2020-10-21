@@ -12,7 +12,7 @@ module Decidim
       include Decidim::TranslatableAttributes
 
       # translatable_fields :title, :local_description, :global_description
-      VALID_STATES = [:proposal, :executing, :finished]
+      VALID_STATES = %i[proposal executing finished].freeze
       enum state: VALID_STATES
 
       # belongs_to :area,
@@ -20,7 +20,7 @@ module Decidim
       #            class_name: "Decidim::Area",
       #            optional: true
 
-      component_manifest_name "challenges"
+      component_manifest_name 'challenges'
 
       # TODO
       # searchable_fields({
@@ -39,7 +39,6 @@ module Decidim
       # ransacker :title do |parent|
       #  Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       # end
-
     end
   end
 end

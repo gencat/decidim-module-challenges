@@ -41,8 +41,8 @@ module Decidim
         alias organization current_organization
 
         def select_states_collection
-          Decidim::Challenges::Challenge::VALID_STATES.map.with_index do |state,idx|
-            [I18n.t(state, scope: "decidim.challenges.states"), idx]
+          Decidim::Challenges::Challenge::VALID_STATES.map.with_index do |state, idx|
+            [I18n.t(state, scope: 'decidim.challenges.states'), idx]
           end
         end
 
@@ -53,9 +53,7 @@ module Decidim
           @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
         end
 
-        def map_model(model)
-
-        end
+        def map_model(model); end
 
         private
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimChallengesChallenges < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_challenges_challenges do |t|

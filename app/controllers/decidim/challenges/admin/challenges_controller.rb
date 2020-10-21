@@ -14,7 +14,7 @@ module Decidim
         helper_method :challenges, :challenge, :form_presenter, :query
 
         def index
-          # TODO fix permissions
+          # TODO: fix permissions
           # enforce_permission_to :read, :challenge_list
           # @challenges = filtered_collection
           # @challenges = search
@@ -33,23 +33,37 @@ module Decidim
 
           Decidim::Challenges::Admin::CreateChallenge.call(@form) do
             on(:ok) do
-              flash[:notice] = I18n.t("challenges.create.success", scope: "decidim.challenges.admin")
+              flash[:notice] = I18n.t('challenges.create.success', scope: 'decidim.challenges.admin')
               redirect_to challenges_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("challenges.create.invalid", scope: "decidim.challenges.admin")
-              render action: "new"
+              flash.now[:alert] = I18n.t('challenges.create.invalid', scope: 'decidim.challenges.admin')
+              render action: 'new'
             end
           end
         end
 
         def edit
-
+          # enforce_permission_to :edit, :challenge, challenge: challenge
+          @form = form(Decidim::Challenges::Admin::ChallengesForm).from_model(challenge)
         end
 
         def update
+          # enforce_permission_to :edit, :challenge, challenge: challenge
+          @form = form(Decidim::Challenges::Admin::ChallengesForm).from_params(params)
 
+          Decidim::Challenges::Admin::UpdateChallenge.call(@form, challenge) do
+            on(:ok) do |_challenge|
+              flash[:notice] = t('challenges.update.success', scope: 'decidim.challenges.admin')
+              redirect_to challenges_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = t('challenges.update.error', scope: 'decidim.challenges.admin')
+              render :edit
+            end
+          end
         end
 
         private
@@ -73,7 +87,6 @@ module Decidim
         def form_presenter
           @form_presenter ||= present(@form, presenter_class: Decidim::Challenges::ChallengePresenter)
         end
-
       end
     end
   end

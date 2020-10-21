@@ -6,8 +6,8 @@ module Decidim
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::Challenges::Admin
 
-      paths["db/migrate"] = nil
-      paths["lib/tasks"] = nil
+      paths['db/migrate'] = nil
+      paths['lib/tasks'] = nil
 
       routes do
         # Add admin engine routes here
@@ -16,7 +16,7 @@ module Decidim
             resources :exports, only: [:create]
           end
         end
-        root to: "challenges#index"
+        root to: 'challenges#index'
       end
 
       def load_seed

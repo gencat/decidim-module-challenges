@@ -23,7 +23,7 @@ module Decidim
 
       # Handle the state filter
       def search_status
-        apply_scopes(%w(proposed running completed), status)
+        apply_scopes(%w[proposed running completed], status)
       end
     end
   end

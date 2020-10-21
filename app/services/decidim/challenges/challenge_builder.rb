@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "open-uri"
+require 'open-uri'
 
 module Decidim
   module Challenges
@@ -13,7 +13,7 @@ module Decidim
       #
       # Returns a Challenge.
       def create(attributes:, action_user:)
-        Decidim.traceability.perform_action!(:create, Challenge, action_user, visibility: "all") do
+        Decidim.traceability.perform_action!(:create, Challenge, action_user, visibility: 'all') do
           challenge = Challenge.new(attributes)
           challenge.save!
           challenge

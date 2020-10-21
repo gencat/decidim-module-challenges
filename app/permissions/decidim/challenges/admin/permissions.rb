@@ -27,6 +27,7 @@ module Decidim
 
         def admin_edition_is_available?
           return unless challenge
+
           true
         end
 

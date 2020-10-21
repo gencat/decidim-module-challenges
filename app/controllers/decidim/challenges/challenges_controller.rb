@@ -9,34 +9,28 @@ module Decidim
       include FilterResource
       include Paginable
 
-      # helper_method :form_presenter
+      helper_method :form_presenter
 
       def index
-        # TODO fix permissions
+        # TODO: fix permissions
         # enforce_permission_to :read, :challenge_list
         # @challenges = filtered_collection
-        @challenges = search
-           .results
+        @challenges = search.results
       end
 
-      def new
-      end
+      def new; end
 
-      def create
-      end
+      def create; end
 
-      def edit
-      end
+      def edit; end
 
-      def update
-      end
+      def update; end
 
       private
 
-      # def form_presenter
-      #   @form_presenter ||= present(@form, presenter_class: Decidim::Challenge::ChallengePresenter)
-      # end
-
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Challenge::ChallengePresenter)
+      end
     end
   end
 end

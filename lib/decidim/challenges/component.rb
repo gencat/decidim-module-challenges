@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/components/namer"
-require "decidim/challenges/admin"
-require "decidim/challenges/engine"
-require "decidim/challenges/admin_engine"
+require_dependency 'decidim/components/namer'
+require 'decidim/challenges/admin'
+require 'decidim/challenges/engine'
+require 'decidim/challenges/admin_engine'
 
 # Sustainable Development Goals
 Decidim.register_component(:challenges) do |component|
   component.engine = Decidim::Challenges::Engine
   component.admin_engine = Decidim::Challenges::AdminEngine
-  component.icon = "decidim/challenges/icon.svg"
+  component.icon = 'decidim/challenges/icon.svg'
 
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component
   # end
 
-  component.permissions_class_name = "Decidim::Challenges::Permissions"
+  component.permissions_class_name = 'Decidim::Challenges::Permissions'
 
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()

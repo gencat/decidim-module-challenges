@@ -15,23 +15,10 @@ ca:
         tags: Paraules clau
         title: Títol
   decidim:
-    admin:
-      actions:
-        new_changelle: Nou Repte
-      models:
-        challenge:
-          fields:
-            title: Títol
-            created_at: Creat
-            tags: Tags
-            ods: ODS
-            state: Estat
-            start_date: Data inici
-            end_date: Data fi
-      titles:
-        challenges: Llistat de reptes
     challenges:
       admin:
+        actions:
+          new_changelle: Nou Repte
         challenges:
           create:
             invalid: Hi ha hagut un problema creant aquest repte
@@ -39,21 +26,34 @@ ca:
           form:
             select_states: Selecciona l'estat
             duration: Durada
+          edit:
+            update: Actualitza
           new:
             create: Crea
             title: Nou repte
-      index:
-        title: Reptes
+          update:
+            invalid: Hi ha hagut un problema actualitzant aquest repte
+            success: Repte actualitzat correctament
+        index:
+          title: Reptes
+        models:
+          challenge:
+            fields:
+              title: Títol
+              created_at: Creat
+              tags: Tags
+              ods: ODS
+              state: Estat
+              start_date: Data inici
+              end_date: Data fi
       states:
         proposal: Proposada
         executing: En execució
         finished: Acabada
+        titles:
+          challenges_list: Llistat de reptes
     components:
       challenges:
         name: Reptes
       sdgs:
         name: Objectius de Desenvolupament Sostenible
-    models:
-      challenge:
-        fields:
-          title: Reptes
