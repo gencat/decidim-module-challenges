@@ -23,6 +23,11 @@ ca:
           fields:
             title: Títol
             created_at: Creat
+            tags: Tags
+            ods: ODS
+            state: Estat
+            start_date: Data inici
+            end_date: Data fi
       titles:
         challenges: Llistat de reptes
     challenges:

@@ -23,6 +23,11 @@ en:
           fields:
             title: Title
             created_at: Created at
+            tags: Tags
+            ods: ODS
+            state: State
+            start_date: Start date
+            end_date: End date
       titles:
         challenges: Challenges list
     challenges:

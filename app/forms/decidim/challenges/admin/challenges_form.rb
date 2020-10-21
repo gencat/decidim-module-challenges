@@ -40,18 +40,11 @@ module Decidim
 
         alias organization current_organization
 
-        def states_collection
+        def select_states_collection
           Decidim::Challenges::Challenge::VALID_STATES.map.with_index do |state,idx|
-            OpenStruct.new(
-              name: I18n.t(state, scope: "decidim.challenges.states"),
-              value: idx
-            )
+            [I18n.t(state, scope: "decidim.challenges.states"), idx]
           end
         end
-
-        # def state
-        #   super.reject(&:blank?)
-        # end
 
         # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
         #

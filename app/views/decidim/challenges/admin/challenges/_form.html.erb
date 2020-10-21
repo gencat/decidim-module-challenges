@@ -1,27 +1,27 @@
 <div class="card">
   <div class="card-divider">
-    <%= @form.errors.full_messages %>
     <h2 class="card-title"><%= title %></h2>
   </div>
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.translated :text_field, :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip, hashtaggable: true %>
+      <%= form.translated :text_field, :title, value: form_presenter.title(extras: false).strip, hashtaggable: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :local_description, hashtaggable: true, value: form_presenter.local_description(extras: false).strip %>
+      <%= form.translated :editor, :local_description, value: form_presenter.local_description(extras: false).strip %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :global_description, hashtaggable: true, value: form_presenter.global_description(extras: false).strip %>
+      <%= form.translated :editor, :global_description, value: form_presenter.global_description(extras: false).strip %>
     </div>
 
     <div class="row column">
-      <%= form.label t(".select_states") %>
-      <%= form.collection_check_boxes :state, @form.states_collection, :value, :name %>
+      <%= form.select :state, @form.select_states_collection %>
     </div>
+
   </div>
+
 </div>
 
 <%= javascript_include_tag "decidim/challenges/admin/challenges_form" %>
