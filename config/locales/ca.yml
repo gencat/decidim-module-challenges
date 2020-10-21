@@ -18,7 +18,8 @@ ca:
     challenges:
       admin:
         actions:
-          new_changelle: Nou Repte
+          new_challenge: Nou Repte
+          configure: Configura
         challenges:
           create:
             invalid: Hi ha hagut un problema creant aquest repte
@@ -46,12 +47,12 @@ ca:
               state: Estat
               start_date: Data inici
               end_date: Data fi
+        titles:
+          challenges_list: Llistat de reptes
       states:
         proposal: Proposada
         executing: En execució
         finished: Acabada
-        titles:
-          challenges_list: Llistat de reptes
     components:
       challenges:
         name: Reptes

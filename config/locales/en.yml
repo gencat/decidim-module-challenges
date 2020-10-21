@@ -18,7 +18,8 @@ en:
     challenges:
       admin:
         actions:
-          new_changelle: New challenge
+          new_challenge: New challenge
+          configure: Configure
         challenges:
           create:
             invalid: There's been a problem creating this challenge
@@ -46,12 +47,12 @@ en:
               state: State
               start_date: Start date
               end_date: End date
+        titles:
+          challenges_list: Challenges list
       states:
         proposal: Proposal
         executing: Executing
         finished: Finished
-        titles:
-          challenges_list: Challenges list
     components:
       challenges:
         name: Challenges
