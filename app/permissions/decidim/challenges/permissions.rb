@@ -8,7 +8,6 @@ module Decidim
 
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Challenges::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
-        return permission_action if permission_action.scope != :public
 
         if permission_action.subject == :challenge
           apply_challenge_permissions(permission_action)
@@ -24,9 +23,9 @@ module Decidim
       def apply_challenge_permissions(permission_action)
         case permission_action.action
         when :create
-          can_create_proposal?
+          can_create_challenge?
         when :edit
-          can_edit_proposal?
+          can_edit_challenge?
         end
       end
 
@@ -35,11 +34,11 @@ module Decidim
       end
 
       def can_create_challenge?
-        toggle_allow(authorized?(:create) && current_settings&.creation_enabled?)
+        toggle_allow(authorized?(:create))
       end
 
       def can_edit_challenge?
-        toggle_allow(challenge && challenge.editable_by?(user))
+        toggle_allow(challenge)
       end
     end
   end

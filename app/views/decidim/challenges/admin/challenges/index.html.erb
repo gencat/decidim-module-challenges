@@ -2,11 +2,14 @@
   <div class="card-divider">
     <h2 class="card-title">
 
-      <%= t("challenges_list", scope: "decidim.admin.challenges.titles") %>
+      <%= t("titles.challenges_list", scope: "decidim.challenges.admin") %>
 
-      <%= link_to t("actions.new_changelle", scope: "decidim.admin"),
-                  new_challenge_path,
-                  class: "button tiny button--title" %>
+      <% if allowed_to? :create, :challenge %>
+        <%= link_to t("actions.new_challenge", scope: "decidim.challenges.admin"),
+        new_challenge_path,
+        class: "button tiny button--title" %>
+      <% end %>
+
     </h2>
   </div>
   <div class="card-section">
@@ -15,25 +18,25 @@
         <thead>
           <tr>
             <th>
-              <%= t("models.challenge.fields.title", scope: "decidim.admin") %>
+              <%= t("models.challenge.fields.title", scope: "decidim.challenges.admin") %>
             </th>
             <th>
-              <%= t("models.challenge.fields.created_at", scope: "decidim.admin") %>
+              <%= t("models.challenge.fields.created_at", scope: "decidim.challenges.admin") %>
             </th>
             <th>
-              <%= t("models.challenge.fields.tags", scope: "decidim.admin") %>
+              <%= t("models.challenge.fields.tags", scope: "decidim.challenges.admin") %>
             </th>
             <th>
-              <%= t("models.challenge.fields.ods", scope: "decidim.admin") %>
+              <%= t("models.challenge.fields.ods", scope: "decidim.challenges.admin") %>
             </th>
             <th>
-              <%= t("models.challenge.fields.state", scope: "decidim.admin") %>
+              <%= t("models.challenge.fields.state", scope: "decidim.challenges.admin") %>
             </th>
             <th>
-              <%= t("models.challenge.fields.start_date", scope: "decidim.admin") %>
+              <%= t("models.challenge.fields.start_date", scope: "decidim.challenges.admin") %>
             </th>
             <th>
-              <%= t("models.challenge.fields.end_date", scope: "decidim.admin") %>
+              <%= t("models.challenge.fields.end_date", scope: "decidim.challenges.admin") %>
             </th>
             <th class="table-list__actions"></th>
           </tr>
@@ -63,7 +66,9 @@
                 <%= challenge.end_date %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "pencil", edit_challenge_path(challenge), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% if allowed_to? :edit, :challenge %>
+                  <%= icon_link_to "pencil", edit_challenge_path(challenge), t("actions.configure", scope: "decidim.challenges.admin"), class: "action-icon--new" %>
+                <% end %>
               </td>
             </tr>
           <% end %>
