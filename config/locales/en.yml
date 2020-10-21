@@ -9,29 +9,16 @@ en:
         end_date: End date
         global_description: Global description
         local_description: Local description
-        ods: SDO
-        status: Status
+        ods: SDG
+        status: State
         start_date: Start date
         tags: Tags
         title: Title
   decidim:
-    admin:
-      actions:
-        new_changelle: New Challenge
-      models:
-        challenge:
-          fields:
-            title: Title
-            created_at: Created at
-            tags: Tags
-            ods: ODS
-            state: State
-            start_date: Start date
-            end_date: End date
-      titles:
-        challenges: Challenges list
     challenges:
       admin:
+        actions:
+          new_changelle: New challenge
         challenges:
           create:
             invalid: There's been a problem creating this challenge
@@ -39,21 +26,34 @@ en:
           form:
             select_states: Select state
             duration: Duration
+          edit:
+            update: Update
           new:
-            create: Crea
+            create: New
             title: New challenge
-      index:
-        title: Challenges
+          update:
+            invalid: There's been a problem updating this challenge
+            success: Challenge successfully updated
+        index:
+          title: Challenges
+        models:
+          challenge:
+            fields:
+              title: Title
+              created_at: Created at
+              tags: Tags
+              ods: SDG
+              state: State
+              start_date: Start date
+              end_date: End date
       states:
         proposal: Proposal
         executing: Executing
         finished: Finished
+        titles:
+          challenges_list: Challenges list
     components:
       challenges:
         name: Challenges
       sdgs:
         name: Sustainable Development Goals
-    models:
-      challenge:
-        fields:
-          title: Challenges

@@ -11,7 +11,7 @@ ca:
         local_description: Description territorial
         ods: ODS
         status: Estat
-        start_date: Start date
+        start_date: Data d'inici
         tags: Paraules clau
         title: Títol
   decidim:
