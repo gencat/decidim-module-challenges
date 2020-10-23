@@ -53,6 +53,16 @@ ca:
         proposal: Proposada
         executing: En execució
         finished: Acabada
+      index:
+        title: test
+      challenges: 
+        orders:
+          label: test
+          order:
+            best_rated: Més ben valorats
+            most_discussed: Més discutit
+            older: Més antic
+            recent: Recent
     components:
       challenges:
         name: Reptes
