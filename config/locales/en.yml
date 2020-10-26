@@ -49,6 +49,13 @@ en:
               end_date: End date
         titles:
           challenges_list: Challenges list
+      challenges: 
+        orders:
+          label: test
+          order:
+            best_rated: Més ben valorats
+            most_discussed: Més discutit
+            older: Més antic
       states:
         proposal: Proposal
         executing: Executing

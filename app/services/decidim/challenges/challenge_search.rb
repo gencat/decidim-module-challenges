@@ -5,14 +5,14 @@ module Decidim
     # A service to encapsualte all the logic when searching and filtering
     # challenges in a participatory process.
     class ChallengeSearch < ResourceSearch
-      text_search_fields :title
+      # text_search_fields :title
 
       # Public: Initializes the service.
       # component   - A Decidim::Component to get the challenges from.
       # page        - The page number to paginate the results.
       # per_page    - The number of challenges to return per page.
       def initialize(options = {})
-        base = options[:status]
+        base = options.fetch(:status, Challenge.all)
         super(base, options)
       end
 

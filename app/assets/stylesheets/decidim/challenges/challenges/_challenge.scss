@@ -1,0 +1,51 @@
+.card--challenge {
+
+    border-color: rgb(254, 174, 2);
+    border-top-color: rgb(254, 174, 2);
+
+    .card__text--paragraph--estat {
+        color: rgb(254, 174, 2);
+    }
+}
+
+.card--challenge.proposed {
+
+    border-color: rgb(254, 174, 2);
+    border-top-color: rgb(254, 174, 2);
+
+    .card__text--paragraph--estat {
+        color: rgb(254, 174, 2);
+    }
+}
+
+.card--challenge {    
+    .card_text--ods--image {
+        display: inline-block;
+    }
+
+    .card_text--ods--text {
+        display: inline-block;
+    }
+
+    .card__text--paragraph--estat {
+        font-weight: bold;
+    }
+}
+
+.card--challenge.executed {
+    border-color: rgb(0, 163, 144);
+    border-top-color: rgb(0, 163, 144);
+
+    .card__text--paragraph--estat {
+        color: rgb(0, 163, 144);
+    }
+}
+
+.card--challenge.ended {
+    border-color: rgb(0, 188, 255);
+    border-top-color: rgb(0, 188, 255);
+
+    .card__text--paragraph--estat {
+        color: rgb(0, 188, 255);
+    }
+}
