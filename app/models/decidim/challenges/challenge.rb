@@ -4,8 +4,8 @@ module Decidim
   module Challenges
     # The data store for a Challenge in the Decidim::Challenges component.
     class Challenge < Challenges::ApplicationRecord
-      include Decidim::Resourceable
       include Decidim::HasComponent
+      include Decidim::Resourceable
       include Decidim::ScopableComponent
       include Decidim::Searchable
       include Decidim::Traceable
@@ -14,11 +14,6 @@ module Decidim
       # translatable_fields :title, :local_description, :global_description
       VALID_STATES = %i[proposal executing finished].freeze
       enum state: VALID_STATES
-
-      # belongs_to :area,
-      #            foreign_key: "decidim_area_id",
-      #            class_name: "Decidim::Area",
-      #            optional: true
 
       component_manifest_name 'challenges'
 

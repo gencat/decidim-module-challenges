@@ -7,18 +7,12 @@ module Decidim
       #
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
-        # include Decidim::Challenges::Admin::Filterable
-        # include FilterResource
         # include Paginable
 
         helper_method :challenges, :challenge, :form_presenter, :query
 
         def index
-          # TODO: fix permissions
-          # enforce_permission_to :read, :challenge_list
-          # @challenges = filtered_collection
-          # @challenges = search
-          #    .results
+          enforce_permission_to :read, :challenges
           @challenges = challenges
         end
 
@@ -38,7 +32,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t('challenges.create.invalid', scope: 'decidim.challenges.admin')
+              flash.now[:alert] = I18n.t('challenges.create.error', scope: 'decidim.challenges.admin')
               render action: 'new'
             end
           end
@@ -71,7 +65,7 @@ module Decidim
 
           Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("challenges.destroy.success", scope: "decidim.challenges.admin")
+              flash[:notice] = I18n.t('challenges.destroy.success', scope: 'decidim.challenges.admin')
               redirect_to challenges_path
             end
 
@@ -89,7 +83,7 @@ module Decidim
         end
 
         def challenges
-          @challenges ||= collection
+          @challenges ||= collection.page(params[:page]).per(10)
         end
 
         def challenge
