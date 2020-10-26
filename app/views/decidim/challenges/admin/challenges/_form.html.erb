@@ -5,15 +5,15 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.translated :text_field, :title, value: form_presenter.title(extras: false).strip %>
+      <%= form.translated :text_field, :title, autofocus: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :local_description, value: form_presenter.local_description(extras: false).strip %>
+      <%= form.translated :editor, :local_description %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :global_description, value: form_presenter.global_description(extras: false).strip %>
+      <%= form.translated :editor, :global_description %>
     </div>
 
     <div class="row column hashtags__container">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="row column">
-      <%= form.select :state, @form.select_states_collection %>
+      <%= form.select :state, @form.select_states_collection, label: t("models.challenge.fields.state", scope: "decidim.challenges.admin") %>
     </div>
   </div>
 
