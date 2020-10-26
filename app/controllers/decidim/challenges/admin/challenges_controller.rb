@@ -65,7 +65,7 @@ module Decidim
 
           Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("challenges.destroy.success", scope: "decidim.challenges.admin")
+              flash[:notice] = I18n.t('challenges.destroy.success', scope: 'decidim.challenges.admin')
               redirect_to challenges_path
             end
 

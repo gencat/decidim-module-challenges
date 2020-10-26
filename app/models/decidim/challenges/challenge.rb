@@ -17,7 +17,6 @@ module Decidim
       enum state: VALID_STATES
 
       component_manifest_name 'challenges'
-
     end
   end
 end

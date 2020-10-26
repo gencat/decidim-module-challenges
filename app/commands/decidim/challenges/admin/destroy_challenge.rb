@@ -28,7 +28,7 @@ module Decidim
         def destroy_challenge
           transaction do
             Decidim.traceability.perform_action!(
-              "delete",
+              'delete',
               challenge,
               current_user
             ) do
