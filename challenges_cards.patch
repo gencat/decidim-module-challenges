@@ -1,0 +1,176 @@
+diff --git a/app/controllers/concerns/decidim/challenges/orderable_challenges.rb b/app/controllers/concerns/decidim/challenges/orderable_challenges.rb
+new file mode 100644
+index 0000000..6f3ffeb
+--- /dev/null
++++ b/app/controllers/concerns/decidim/challenges/orderable_challenges.rb
+@@ -0,0 +1,37 @@
++# frozen_string_literal: true
++
++require "active_support/concern"
++
++module Decidim
++  module Challenges
++    # Common logic to sorting resources
++    module OrderableChallenges
++      extend ActiveSupport::Concern
++
++      included do
++        include Decidim::Orderable
++
++        private
++
++        def available_orders
++          @available_orders ||= %w(random recent)
++        end
++
++        def default_order
++          "random"
++        end
++
++        def reorder(challenges)
++          case order
++          when "recent"
++            challenges.order("created_at DESC")
++          when "random"
++            challenges.order_randomly(random_seed)
++          else
++            challenges
++          end
++        end
++      end
++    end
++  end
++end
+diff --git a/app/controllers/decidim/challenges/challenges_controller.rb b/app/controllers/decidim/challenges/challenges_controller.rb
+index 22f7728..27af929 100644
+--- a/app/controllers/decidim/challenges/challenges_controller.rb
++++ b/app/controllers/decidim/challenges/challenges_controller.rb
+@@ -8,14 +8,14 @@ module Decidim
+       # include Decidim::ApplicationHelper
+       include FilterResource
+       include Paginable
++      include OrderableChallenges
+ 
+-      helper_method :form_presenter
++      helper_method :challenges
+ 
+       def index
+         # TODO: fix permissions
+         # enforce_permission_to :read, :challenge_list
+         # @challenges = filtered_collection
+-        @challenges = search.results
+       end
+ 
+       def new; end
+@@ -28,9 +28,19 @@ module Decidim
+ 
+       private
+ 
+-      def form_presenter
+-        @form_presenter ||= present(@form, presenter_class: Decidim::Challenge::ChallengePresenter)
++      def challenges
++        # @challenges ||= paginate(search.results.published)
++        @challenges ||= paginate(search.results)
+       end
++
++      # def form_presenter
++      #   @form_presenter ||= present(@form, presenter_class: Decidim::Challenge::ChallengePresenter)
++      # end
++
++      def search_klass
++        Decidim::Challenges::ChallengeSearch
++      end
++
+     end
+   end
+ end
+diff --git a/app/models/decidim/challenges/challenge.rb b/app/models/decidim/challenges/challenge.rb
+index e53ebbf..9c89059 100644
+--- a/app/models/decidim/challenges/challenge.rb
++++ b/app/models/decidim/challenges/challenge.rb
+@@ -22,6 +22,8 @@ module Decidim
+ 
+       component_manifest_name 'challenges'
+ 
++      scope :published, -> { where.not(published_at: nil) }
++
+       # TODO
+       # searchable_fields({
+       #                    scope_id: :decidim_scope_id,
+diff --git a/app/services/decidim/challenges/challenge_search.rb b/app/services/decidim/challenges/challenge_search.rb
+index 5968041..74ceed9 100644
+--- a/app/services/decidim/challenges/challenge_search.rb
++++ b/app/services/decidim/challenges/challenge_search.rb
+@@ -5,14 +5,14 @@ module Decidim
+     # A service to encapsualte all the logic when searching and filtering
+     # challenges in a participatory process.
+     class ChallengeSearch < ResourceSearch
+-      text_search_fields :title
++      # text_search_fields :title
+ 
+       # Public: Initializes the service.
+       # component   - A Decidim::Component to get the challenges from.
+       # page        - The page number to paginate the results.
+       # per_page    - The number of challenges to return per page.
+       def initialize(options = {})
+-        base = options[:status]
++        base = options.fetch(:status, Challenge.all)
+         super(base, options)
+       end
+ 
+diff --git a/app/views/decidim/challenges/challenges/_challenges.html.erb b/app/views/decidim/challenges/challenges/_challenges.html.erb
+index b39b519..82aa5a5 100644
+--- a/app/views/decidim/challenges/challenges/_challenges.html.erb
++++ b/app/views/decidim/challenges/challenges/_challenges.html.erb
+@@ -9,12 +9,12 @@
+ </div>
+ 
+ <div class="row small-up-1 medium-up-2 card-grid">
+-  <%= render @challenges %>
++  <%= render challenges %>
+ </div>
+ 
+ <div class="row">
+   <div class="columns mediumlarge-8 large-9">
+-    <% if @challenges.empty? %>
++    <% if challenges.empty? %>
+       <div class="callout secondary">
+         <% if params[:filter].present? %>
+           <p><%= t(".empty_filters") %></p>
+@@ -25,4 +25,4 @@
+     <% end %>
+   </div>
+ </div>
+-<%= decidim_paginate @challenges %>
++<%= decidim_paginate challenges %>
+diff --git a/app/views/decidim/challenges/challenges/index.html.erb b/app/views/decidim/challenges/challenges/index.html.erb
+index b222d48..381b39e 100644
+--- a/app/views/decidim/challenges/challenges/index.html.erb
++++ b/app/views/decidim/challenges/challenges/index.html.erb
+@@ -2,7 +2,7 @@
+ 
+ <%
+ edit_link(
+-  decidim_admin_challenges.challenges_path,
++  "decidim_challenges.challenges_path",
+   :read,
+   :challenge_list
+ )
+diff --git a/config/locales/ca.yml b/config/locales/ca.yml
+index c0ce99e..242f484 100644
+--- a/config/locales/ca.yml
++++ b/config/locales/ca.yml
+@@ -58,11 +58,8 @@ ca:
+       challenges: 
+         orders:
+           label: test
+-          order:
+-            best_rated: Més ben valorats
+-            most_discussed: Més discutit
+-            older: Més antic
+-            recent: Recent
++          random: Aleatori
++          recent: Més recents
+     components:
+       challenges:
+         name: Reptes

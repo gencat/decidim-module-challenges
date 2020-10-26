@@ -58,11 +58,8 @@ ca:
       challenges: 
         orders:
           label: test
-          order:
-            best_rated: Més ben valorats
-            most_discussed: Més discutit
-            older: Més antic
-            recent: Recent
+          random: Aleatori
+          recent: Més recents
     components:
       challenges:
         name: Reptes

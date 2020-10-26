@@ -22,6 +22,8 @@ module Decidim
 
       component_manifest_name 'challenges'
 
+      scope :published, -> { where.not(published_at: nil) }
+
       # TODO
       # searchable_fields({
       #                    scope_id: :decidim_scope_id,
