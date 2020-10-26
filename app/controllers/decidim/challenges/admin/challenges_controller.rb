@@ -32,7 +32,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t('challenges.create.invalid', scope: 'decidim.challenges.admin')
+              flash.now[:alert] = I18n.t('challenges.create.error', scope: 'decidim.challenges.admin')
               render action: 'new'
             end
           end
@@ -83,7 +83,7 @@ module Decidim
         end
 
         def challenges
-          @challenges ||= collection
+          @challenges ||= collection.page(params[:page]).per(10)
         end
 
         def challenge
