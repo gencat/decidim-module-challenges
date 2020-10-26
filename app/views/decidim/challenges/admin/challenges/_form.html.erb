@@ -25,7 +25,10 @@
     </div>
 
     <div class="row column">
-      <%= form.select :state, @form.select_states_collection, label: t("models.challenge.fields.state", scope: "decidim.challenges.admin") %>
+      <%= form.select :state,
+                      @form.select_states_collection,
+                      selected: [I18n.t(challenge.try(:state), scope: 'decidim.challenges.states'), Decidim::Challenges::Challenge::states[challenge.try(:state)]],
+                      label: t("models.challenge.fields.state", scope: "decidim.challenges.admin") %>
     </div>
   </div>
 
