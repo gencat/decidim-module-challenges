@@ -7,18 +7,12 @@ module Decidim
       #
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
-        # include Decidim::Challenges::Admin::Filterable
-        # include FilterResource
         # include Paginable
 
         helper_method :challenges, :challenge, :form_presenter, :query
 
         def index
-          # TODO: fix permissions
-          # enforce_permission_to :read, :challenge_list
-          # @challenges = filtered_collection
-          # @challenges = search
-          #    .results
+          enforce_permission_to :read, :challenges
           @challenges = challenges
         end
 
@@ -83,10 +77,6 @@ module Decidim
         end
 
         private
-
-        # def search_klass
-        #   ChallengeSearch
-        # end
 
         def collection
           @collection ||= Challenge.where(component: current_component)

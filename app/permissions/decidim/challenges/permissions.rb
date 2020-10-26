@@ -22,6 +22,8 @@ module Decidim
 
       def apply_challenge_permissions(permission_action)
         case permission_action.action
+        when :read
+          can_read_challenges?
         when :create
           can_create_challenge?
         when :edit
@@ -33,6 +35,10 @@ module Decidim
 
       def challenge
         @challenge ||= context.fetch(:challenge, nil) || context.fetch(:resource, nil)
+      end
+
+      def can_read_challenges?
+        toggle_allow(authorized?(:read))
       end
 
       def can_create_challenge?
