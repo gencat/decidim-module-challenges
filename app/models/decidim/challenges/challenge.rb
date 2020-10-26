@@ -7,13 +7,11 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::HasComponent
       include Decidim::ScopableComponent
-      # include Decidim::Searchable
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
-      # include Decidim::TranslatableResource
 
       # translatable_fields :title, :local_description, :global_description
-
       VALID_STATES = %i[proposal executing finished].freeze
       enum state: VALID_STATES
 
@@ -23,6 +21,8 @@ module Decidim
       #            optional: true
 
       component_manifest_name 'challenges'
+
+      scope :published, -> { where.not(published_at: nil) }
 
       # TODO
       # searchable_fields({

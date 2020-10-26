@@ -8,14 +8,14 @@ module Decidim
       # include Decidim::ApplicationHelper
       include FilterResource
       include Paginable
+      include OrderableChallenges
 
-      helper_method :form_presenter
+      helper_method :challenges
 
       def index
         # TODO: fix permissions
         # enforce_permission_to :read, :challenge_list
         # @challenges = filtered_collection
-        @challenges = search.results
       end
 
       def new; end
@@ -28,8 +28,12 @@ module Decidim
 
       private
 
-      def form_presenter
-        @form_presenter ||= present(@form, presenter_class: Decidim::Challenge::ChallengePresenter)
+      def challenges
+        @challenges ||= paginate(search.results.published)
+      end
+
+      def search_klass
+        Decidim::Challenges::ChallengeSearch
       end
     end
   end

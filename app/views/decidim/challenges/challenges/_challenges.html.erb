@@ -9,12 +9,12 @@
 </div>
 
 <div class="row small-up-1 medium-up-2 card-grid">
-  <%= render @challenges %>
+  <%= render challenges %>
 </div>
 
 <div class="row">
   <div class="columns mediumlarge-8 large-9">
-    <% if @challenges.empty? %>
+    <% if challenges.empty? %>
       <div class="callout secondary">
         <% if params[:filter].present? %>
           <p><%= t(".empty_filters") %></p>
@@ -25,4 +25,4 @@
     <% end %>
   </div>
 </div>
-<%= decidim_paginate @challenges %>
+<%= decidim_paginate challenges %>

@@ -84,10 +84,6 @@ module Decidim
 
         private
 
-        # def search_klass
-        #   ChallengeSearch
-        # end
-
         def collection
           @collection ||= Challenge.where(component: current_component)
         end

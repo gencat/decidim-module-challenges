@@ -20,16 +20,10 @@ ca:
         actions:
           new_challenge: Nou Repte
           configure: Configura
-          confirm_destroy: Confirma l'eliminació d'aquest %{name}?
-          destroy: Suprimeix
-          view: Visualitza el repte
         challenges:
           create:
-            error: Hi ha hagut un problema creant aquest repte
+            invalid: Hi ha hagut un problema creant aquest repte
             success: Repte creat correctament
-          destroy:
-            error: Hi ha hagut un problema esborrant aquest repte
-            success: Repte esborrat correctament
           form:
             select_states: Selecciona l'estat
             duration: Durada
@@ -39,7 +33,7 @@ ca:
             create: Crea
             title: Nou repte
           update:
-            error: Hi ha hagut un problema actualitzant aquest repte
+            invalid: Hi ha hagut un problema actualitzant aquest repte
             success: Repte actualitzat correctament
         index:
           title: Reptes
@@ -53,13 +47,21 @@ ca:
               state: Estat
               start_date: Data inici
               end_date: Data fi
-            name: repte
         titles:
           challenges_list: Llistat de reptes
       states:
         proposal: Proposada
         executing: En execució
         finished: Acabada
+      index:
+        title: test
+      challenges: 
+        orders:
+          label: test
+          random: Aleatori
+          recent: Més recents
+        challenges:
+          empty: No s'han pogut trobar reptes
     components:
       challenges:
         name: Reptes
