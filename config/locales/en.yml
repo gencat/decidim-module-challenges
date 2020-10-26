@@ -20,10 +20,16 @@ en:
         actions:
           new_challenge: New challenge
           configure: Configure
+          confirm_destroy: Are you sure you want to delete this %{name}?
+          destroy: Delete
+          view: View challenge
         challenges:
           create:
-            invalid: There's been a problem creating this challenge
+            error: There's been a problem creating this challenge
             success: Challenge successfully created
+          destroy:
+            error: There's been a problem deleting this challenge
+            success: Challenge successfully deleted
           form:
             select_states: Select state
             duration: Duration
@@ -33,7 +39,7 @@ en:
             create: New
             title: New challenge
           update:
-            invalid: There's been a problem updating this challenge
+            error: There's been a problem updating this challenge
             success: Challenge successfully updated
         index:
           title: Challenges

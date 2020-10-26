@@ -26,6 +26,8 @@ module Decidim
           can_create_challenge?
         when :edit
           can_edit_challenge?
+        when :destroy
+          can_destroy_challenge?
         end
       end
 
@@ -38,6 +40,10 @@ module Decidim
       end
 
       def can_edit_challenge?
+        toggle_allow(challenge)
+      end
+
+      def can_destroy_challenge?
         toggle_allow(challenge)
       end
     end
