@@ -7,9 +7,9 @@ en:
         col_entity: Collaborating entity
         coord_entity: Coordinating entity
         end_date: End date
-        global_description: Global description
-        local_description: Local description
-        ods: SDG
+        global_description: Global challenge's description
+        local_description: Local challenge's description
+        ods: Sustainable Development Goals
         status: State
         start_date: Start date
         tags: Tags
@@ -59,6 +59,15 @@ en:
         proposal: Proposal
         executing: Executing
         finished: Finished
+      index:
+        title: test
+      challenges:
+        orders:
+          label: test
+          random: Random
+          recent: Most recent
+        challenges:
+          empty: No challenges could be found
     components:
       challenges:
         name: Challenges
