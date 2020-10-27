@@ -1,19 +1,15 @@
 ---
-ca:
+es:
   decidim:
     components:
       challenges:
-        name: Reptes
+        name: Retos
       sdgs:
-        name: Objectius de Desenvolupament Sostenible
-        subtitle: Coneix els 17 Objectius de Desenvolupament Sostenible
-        ods_logo:
-          title: OBJECTIUS GLOBALS
-          subtitle: de Desenvolupament Sostenible
+        name: Objetivos de Desarrollo Sostenible
         no_poverty:
           logo:
-            line1: FI
-            line2: DE LA POBRESA
+            line1: FIN
+            line2: DE LA POBREZA
           objectives:
             title: Objectiu 1
             subtitle: Fi de la pobresa
@@ -26,8 +22,8 @@ ca:
             objective7: Crear marcs normatius sòlids en els plans nacional, regional i internacional, sobre la base d’estratègies de desenvolupament que tinguin en compte les qüestions de gènere i s’orientin en favor de les persones pobres, per tal d’impulsar la inversió accelerada en mesures d’erradicació de la pobresa.
         zero_hunger:
           logo:
-            line1: FAM
-            line2: ZERO
+            line1: HAMBRE
+            line2: CERO
           objectives:
             title: Objectiu 2
             subtitle: Fam zero
@@ -41,8 +37,8 @@ ca:
             objective8: Adoptar mesures per tal d’assegurar el bon funcionament dels mercats de productes bàsics alimentaris i derivats d’aquests, i facilitar l’accés adequat a informació sobre els mercats, en particular sobre les reserves d’aliments, a fi d’ajudar a limitar l’extrema volatilitat dels preus dels aliments.
         good_health:
           logo:
-            line1: SALUT
-            line2: I BENESTAR
+            line1: SALUD
+            line2: Y BIENESTAR
           objectives:
             title: Objectiu 3
             subtitle: Salut i benestar
@@ -61,8 +57,8 @@ ca:
             objective13: Reforçar la capacitat de tots els països, en particular els països en desenvolupament, en matèria d’alerta primerenca, reducció de riscos i gestió dels riscos per a la salut nacional i mundial.
         quality_education:
           logo:
-            line1: EDUCACIÓ
-            line2: DE QUALITAT
+            line1: EDUCACIÓN
+            line2: DE CALIDAD
           objectives:
             title: Objectiu 4
             subtitle: Educació de qualitat
@@ -78,8 +74,8 @@ ca:
             objective10: Per a 2030, augmentar substancialment l’oferta de mestres qualificats mitjançant, entre d’altres, la cooperació internacional per a la formació de docents als països en desenvolupament, especialment als països menys avançats i als petits estats insulars en desenvolupament.
         gender_equality:
           logo:
-            line1: IGUALTAT
-            line2: DE GÈNERE
+            line1: IGUALDAD
+            line2: DE GÉNERO
           objectives:
             title: Objectiu 5
             subtitle: Igualtat de gènere
@@ -94,8 +90,8 @@ ca:
             objective9: Adoptar i enfortir polítiques encertades i lleis aplicables per a promoure la igualtat entre els gèneres i l’apoderament de dones i nenes a tots els nivells.
         clean_water:
           logo:
-            line1: AIGUA NETA
-            line2: I SANEJAMENT
+            line1: AIGUA LIMPIA
+            line2: Y SANEAMIENTO
           objectives:
             title: Objectiu 6
             subtitle: Aigua neta i sanejament
@@ -109,8 +105,8 @@ ca:
             objective8: Donar suport i enfortir la participació de les comunitats locals en la millora de la gestió de l'aigua i el sanejament.
         clean_energy:
           logo:
-            line1: ENERGIA NETA
-            line2: I ASSEQUIBLE
+            line1: ENERGÍA ASEQUIBLE
+            line2: Y NO CONTAMINANTE
           objectives:
             title: Objectiu 7
             subtitle: Energia neta i assequible
@@ -121,9 +117,9 @@ ca:
             objective5: Per a 2030, ampliar la infraestructura i millorar la tecnologia per tal d’oferir serveis d’energia moderns i sostenibles per a tots els països en desenvolupament, en particular els països menys avançats, els petits estats insulars en desenvolupament i els països en desenvolupament sense litoral, d’acord amb els programes de suport respectius.
         decent_work:
           logo:
-            line1: TREBALL DECENT
-            line2: I CREIXEMENT
-            line3: ECONÒMIC
+            line1: TRABAJO DECENTE
+            line2: Y CRECIMIENTO
+            line3: ECONÓMICO
           objectives:
             title: Objectiu 8
             subtitle: Treball digne i creixement econòmic
@@ -141,9 +137,9 @@ ca:
             objective12: Per a 2020, desenvolupar i posar en marxa una estratègia mundial per a l’ocupació del jovent i aplicar el Pacte mundial per a l’ocupació de l’Organització Internacional del Treball (OIT).
         iiai:
           logo:
-            line1: INDÚSTRIA
-            line2: INOVACIÓ I
-            line3: INFRAESTRUCTURES
+            line1: INDUSTRIA,
+            line2: INNOVACIÓN E
+            line3: INFRAESTRUCTURA
           objectives:
             title: Objectiu 9
             subtitle: Indústria, innovació, infraestructures
@@ -157,8 +153,8 @@ ca:
             objective8: Augmentar de forma significativa l’accés a les tecnologies de la informació i la comunicació i esforçar-se a proporcionar accés universal i assequible a Internet als països menys avançats a tot tardar el 2020.
         reduced_inequalities:
           logo:
-            line1: REDUCCIÓ DE LES
-            line2: DESIGUALTATS
+            line1: REDUCCIÓN DE LES
+            line2: DESIGUALDADES
           objectives:
             title: Objectiu 10
             subtitle: Reduir la desigualtat en i entre els països
@@ -174,8 +170,8 @@ ca:
             objective10: Per a 2030, reduir els costos de transacció de les remeses de migrants per sota del 3% i eliminar els canals de tramesa de remeses amb un cost superior al 5%.
         sustainable_cities:
           logo:
-            line1: CIUTATS I
-            line2: COMUNITATS
+            line1: CIUDADES Y
+            line2: COMUNIDADES
             line3: SOSTENIBLES
           objectives:
             title: Objectiu 11
@@ -192,8 +188,8 @@ ca:
             objective10: Proporcionar suport als països menys avançats, incloent una assistència financera i tècnica, perquè puguin construir edificis sostenibles i resilients utilitzant materials locals.
         responsible_consumption:
           logo:
-            line1: CONSUM I
-            line2: PRODUCCIÓ
+            line1: PRODUCCIÓN
+            line2: Y CONSUMO
             line3: RESPONSABLES
           objectives:
             title: Objectiu 12
@@ -211,8 +207,8 @@ ca:
             objective11: Racionalitzar els subsidis ineficients als combustibles fòssils que encoratgen el consum antieconòmic, mitjançant l’eliminació de les distorsions del mercat d’acord amb les circumstàncies nacionals, també per mitjà d’una reestructuració dels sistemes tributaris i l’eliminació gradual dels subsidis perjudicials, quan existeixin, per tal de reflectir-ne l’impacte ambiental, tenint plenament en compte les necessitats i condicions específiques dels països en desenvolupament i reduint al mínim els possibles efectes adversos en el seu desenvolupament, d’una manera que permeti protegir les persones pobres i les comunitats afectades.
         climate_action:
           logo:
-            line1: ACCIÓ
-            line2: CLIMÀTICA
+            line1: ACCIÓN
+            line2: POR EL CLIMA
           objectives:
             title: Objectiu 13
             subtitle: Acció climàtica
@@ -241,7 +237,7 @@ ca:
         life_on_land:
           logo:
             line1: VIDA
-            line2: D'ECOSISTEMES
+            line2: DE ECOSISTEMAS
             line3: TERRESTRES
           objectives:
             title: Objectiu 15
@@ -260,9 +256,9 @@ ca:
             objective12: Augmentar el suport mundial a la lluita contra la cacera furtiva i el tràfic d’espècies protegides, en particular augmentant la capacitat de les comunitats locals per a cercar oportunitats de subsistència sostenible.
         pjsi:
           logo:
-            line1: PAU, JUSTÍCIA
-            line2: I INSTITUCIONS
-            line3: SÒLIDES
+            line1: PAZ, JUSTICIA
+            line2: E INSTITUCIONES
+            line3: SÓLIDAS
           objectives:
             title: Objectiu 16
             subtitle: Pau, justícia i institucions sòlides
@@ -280,9 +276,9 @@ ca:
             objective12: Promoure i aplicar lleis i polítiques no discriminatòries en favor del desenvolupament sostenible.
         partnership:
           logo:
-            line1: ALIANÇA PER A
-            line2: ASSOLIR ELS
-            line3: OBJECTIUS
+            line1: ALIANZAS PARA
+            line2: LOGRAR
+            line3: LOS OBJETIVOS
           objectives:
             title: Objectiu 17
             subtitle: Aliança per a assolir els objectius
