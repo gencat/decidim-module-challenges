@@ -35,6 +35,9 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validate :valid_state
 
+        validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
+        validates :end_date, presence: true, date: { after_or_equal_to: :start_date }
+
         alias organization current_organization
 
         def select_states_collection
@@ -55,7 +58,7 @@ module Decidim
         private
 
         def valid_state
-          return if Decidim::Challenges::Challenge::VALID_STATES[state].present?
+          return if Decidim::Challenges::Challenge::VALID_STATES[state].present? if state
 
           errors.add(:state, :invalid)
         end
