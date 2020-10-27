@@ -12,18 +12,25 @@ module Decidim
       # page        - The page number to paginate the results.
       # per_page    - The number of challenges to return per page.
       def initialize(options = {})
-        base = options.fetch(:status, Challenge.all)
-        super(base, options)
+        super(Challenge.published.all, options)
       end
 
-      # Handle the activity filter
-      def search_activity
-        query
+      # Handle the search_text filter
+      def search_search_text
+        query.where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
       end
+
 
       # Handle the state filter
-      def search_status
-        apply_scopes(%w[proposed running completed], status)
+      def search_state
+        in_proposal = state.include?("proposal") ? query.in_proposal : nil
+        in_executing = state.member?("executing") ? query.in_executing : nil
+        in_finished = state.member?("finished") ? query.in_finished : nil
+
+        query
+          .where(id: in_proposal)
+          .or(query.where(id: in_executing))
+          .or(query.where(id: in_finished))
       end
     end
   end
