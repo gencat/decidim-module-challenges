@@ -27,7 +27,7 @@
     <div class="row column">
       <%= form.select :state,
                       @form.select_states_collection,
-                      selected: [I18n.t(form.try(:state), scope: 'decidim.challenges.states'), Decidim::Challenges::Challenge::states[form.try(:state)]],
+                      selected: [I18n.t(@form.try(:state), scope: 'decidim.challenges.states'), Decidim::Challenges::Challenge::states[@form.try(:state)]],
                       label: t("models.challenge.fields.state", scope: "decidim.challenges.admin") %>
     </div>
   </div>
@@ -39,11 +39,11 @@
   <div class="card-section">
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.date_field :start_date %>
+        <%= form.date_field :start_date, autocomplete: false %>
       </div>
 
       <div class="columns xlarge-6">
-        <%= form.date_field :end_date %>
+        <%= form.date_field :end_date, autocomplete: false %>
       </div>
     </div>
   </div>
