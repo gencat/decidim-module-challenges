@@ -18,9 +18,9 @@ module Decidim
 
       component_manifest_name 'challenges'
 
-      scope :published, -> { where.not(published_at: nil) }
+      scope :published,   -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal))}
-      scope :in_executing, -> { where(state: VALID_STATES.index(:executing))}
+      scope :in_executing,-> { where(state: VALID_STATES.index(:executing))}
       scope :in_finished, -> { where(state: VALID_STATES.index(:finished))}
 
       searchable_fields({

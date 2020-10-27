@@ -7,9 +7,9 @@ en:
         col_entity: Collaborating entity
         coord_entity: Coordinating entity
         end_date: End date
-        global_description: Global description
-        local_description: Local description
-        ods: SDG
+        global_description: Global challenge's description
+        local_description: Local challenge's description
+        ods: Sustainable Development Goals
         status: State
         start_date: Start date
         tags: Tags
@@ -41,8 +41,6 @@ en:
           update:
             error: There's been a problem updating this challenge
             success: Challenge successfully updated
-        index:
-          title: Challenges
         models:
           challenge:
             fields:
@@ -55,6 +53,40 @@ en:
               end_date: End date
         titles:
           challenges_list: Challenges list
+      challenges:
+        challenges:
+          empty: No challenges could be found
+        count:
+          challenges_count:
+            one: "%{count} repte"
+            other: "%{count} reptes"
+        filters:
+          all: Totes
+          category: Categoria
+          executing: En execució
+          finished: Acabada
+          proposal: Proposta
+          related_to: Relacionat amb
+          scope: Àmbit
+          search: Cerca
+          state: Estat
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplega
+        orders:
+          label: test
+          random: Random
+          recent: Most recent
+      challenges_helper:
+        filter_state_values:
+          all: Tots
+          proposal: Proposta
+          executing: En execució
+          finished: Acabat
+      index:
+        title: test
       states:
         proposal: Proposal
         executing: Executing
