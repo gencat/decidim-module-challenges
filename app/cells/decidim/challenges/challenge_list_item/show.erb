@@ -1,4 +1,4 @@
-<div class="card card--challenge proposed muted">
+<div class="card card--challenge <%= resource_state %> muted">
     <div class="card__content">
         <div class="card__header">
             <a class="card__link">
@@ -25,7 +25,7 @@
         </div>
         <div class="card__text">
             <div class="card__text--paragraph">
-                <%= resource_description%>
+                <span class="card__text--paragraph--estat"><%= t(resource_state, scope: 'decidim.challenges.states') %></span><%= resource_description%>
             </div>
         </div>
         <div class="card__ods">

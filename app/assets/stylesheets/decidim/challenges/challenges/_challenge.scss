@@ -8,7 +8,7 @@
     }
 }
 
-.card--challenge.proposed {
+.card--challenge.proposal {
 
     border-color: rgb(254, 174, 2);
     border-top-color: rgb(254, 174, 2);
@@ -32,7 +32,7 @@
     }
 }
 
-.card--challenge.executed {
+.card--challenge.executing {
     border-color: rgb(0, 163, 144);
     border-top-color: rgb(0, 163, 144);
 
@@ -41,7 +41,7 @@
     }
 }
 
-.card--challenge.ended {
+.card--challenge.finished {
     border-color: rgb(0, 188, 255);
     border-top-color: rgb(0, 188, 255);
 

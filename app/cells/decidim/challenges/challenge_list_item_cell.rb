@@ -34,6 +34,10 @@ module Decidim
         def resource_ods
           model.ods
         end
+
+        def resource_state
+          model.state
+        end
       end
     end
   end
