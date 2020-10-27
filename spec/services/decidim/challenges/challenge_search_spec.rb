@@ -5,13 +5,10 @@ require 'spec_helper'
 module Decidim
   module Challenges
     describe ChallengeSearch do
-      let(:component) { create(:component, manifest_name: 'proposals') }
-      let(:scope1) { create :scope, organization: component.organization }
-      let(:scope2) { create :scope, organization: component.organization }
-      let(:subscope1) { create :scope, organization: component.organization, parent: scope1 }
+      let(:component) { create(:component, manifest_name: 'challenges') }
       let(:participatory_process) { component.participatory_space }
-      let(:user) { create(:user, organization: component.organization) }
-      let!(:challenge) { create(:challenge, component: component, scope: scope1) }
+      let!(:challenges_list) { create_list(:challenge, 3, component: component) }
+
 
       describe 'results' do
         subject do
@@ -34,7 +31,7 @@ module Decidim
         it 'only includes challenges from the given component' do
           other_challenge = create(:challenge)
 
-          expect(subject).to include(challenge)
+          expect(subject).to match_array(challenges_list)
           expect(subject).not_to include(other_challenge)
         end
 
@@ -42,201 +39,140 @@ module Decidim
           let(:search_text) { 'dog' }
 
           it 'returns the challenges containing the search in the title or the body' do
-            create_list(:challenge, 3, component: component)
-            create(:challenge, title: 'A dog', component: component)
-            create(:challenge, body: 'There is a dog in the office', component: component)
+            dog_challenge= create(:challenge, title: {I18n.locale => 'A dog'}, component: component)
 
-            expect(subject.size).to eq(2)
+            expect(subject).to include(dog_challenge)
+            expect(subject.size).to eq(1)
           end
         end
 
         describe 'state filter' do
           context 'when filtering for default states' do
-            it 'returns all except withdrawn proposals' do
-              create_list(:proposal, 3, :withdrawn, component: component)
-              other_proposals = create_list(:proposal, 3, component: component)
-              other_proposals << proposal
-
-              expect(subject.size).to eq(4)
-              expect(subject).to match_array(other_proposals)
+            it 'returns all challenges' do
+              expect(subject.size).to eq(3)
+              expect(subject).to match_array(challenges_list)
             end
           end
 
-          context 'when filtering :except_rejected proposals' do
-            let(:states) { %w[accepted evaluating not_answered] }
+          context 'when filtering challenges in :proposal state' do
+            let(:states) { %w[proposal] }
 
-            it 'hides withdrawn and rejected proposals' do
-              create(:proposal, :withdrawn, component: component)
-              create(:proposal, :rejected, component: component)
-              accepted_proposal = create(:proposal, :accepted, component: component)
+            it 'hides executing and finished proposals' do
+              create(:challenge, :finished, component: component)
+              proposal_challenge = create(:challenge, :proposal, component: component)
 
-              expect(subject.size).to eq(2)
-              expect(subject).to match_array([accepted_proposal, proposal])
+              expect(subject.size).to eq(1)
+              expect(subject).to include(proposal_challenge)
             end
           end
 
-          context 'when filtering accepted proposals' do
-            let(:states) { %w[accepted] }
+          context 'when filtering challenges in :executing state' do
+            let(:states) { %w[executing] }
 
-            it 'returns only accepted proposals' do
-              accepted_proposals = create_list(:proposal, 3, :accepted, component: component)
-              create_list(:proposal, 3, component: component)
+            it 'returns only executing proposals' do
+              create(:challenge, :finished, component: component)
+              create(:challenge, :proposal, component: component)
 
               expect(subject.size).to eq(3)
-              expect(subject).to match_array(accepted_proposals)
+              expect(subject).to match_array(challenges_list)
             end
           end
 
-          context 'when filtering rejected proposals' do
-            let(:states) { %w[rejected] }
+          context 'when filtering challenges in :finished state' do
+            let(:states) { %w[finished] }
 
-            it 'returns only rejected proposals' do
-              create_list(:proposal, 3, component: component)
-              rejected_proposals = create_list(:proposal, 3, :rejected, component: component)
+            it 'returns only finished proposals' do
+              finished_challenge= create(:challenge, :finished, component: component)
+              create(:challenge, :proposal, component: component)
 
-              expect(subject.size).to eq(3)
-              expect(subject).to match_array(rejected_proposals)
-            end
-          end
-
-          context 'when filtering withdrawn proposals' do
-            let(:states) { %w[withdrawn] }
-
-            it 'returns only withdrawn proposals' do
-              create_list(:proposal, 3, component: component)
-              withdrawn_proposals = create_list(:proposal, 3, :withdrawn, component: component)
-
-              expect(subject.size).to eq(3)
-              expect(subject).to match_array(withdrawn_proposals)
+              expect(subject.size).to eq(1)
+              expect(subject).to include(finished_challenge)
             end
           end
         end
 
         describe 'scope_id filter' do
-          let!(:proposal2) { create(:proposal, component: component, scope: scope2) }
-          let!(:proposal3) { create(:proposal, component: component, scope: subscope1) }
+          let(:scope_1) { create :scope, organization: component.organization }
+          let(:scope_2) { create :scope, organization: component.organization }
+          let(:subscope_1) { create :scope, organization: component.organization, parent: scope_1 }
+          let!(:challenge_1) { create(:challenge, component: component, scope: scope_1) }
+          let!(:challenge_2) { create(:challenge, component: component, scope: scope_2) }
+          let!(:challenge_3) { create(:challenge, component: component, scope: subscope_1) }
 
           context 'when a parent scope id is being sent' do
-            let(:scope_ids) { [scope1.id] }
+            let(:scope_ids) { [scope_1.id] }
 
-            it 'filters proposals by scope' do
-              expect(subject).to match_array [proposal, proposal3]
+            it 'filters challenges by scope' do
+              expect(subject).to match_array [challenge_1, challenge_3]
             end
           end
 
           context 'when a subscope id is being sent' do
-            let(:scope_ids) { [subscope1.id] }
+            let(:scope_ids) { [subscope_1.id] }
 
-            it 'filters proposals by scope' do
-              expect(subject).to eq [proposal3]
+            it 'filters challenges by scope' do
+              expect(subject).to eq [challenge_3]
             end
           end
 
           context 'when multiple ids are sent' do
-            let(:scope_ids) { [scope2.id, scope1.id] }
+            let(:scope_ids) { [scope_2.id, scope_1.id] }
 
-            it 'filters proposals by scope' do
-              expect(subject).to match_array [proposal, proposal2, proposal3]
+            it 'filters challenges by scope' do
+              expect(subject).to match_array [challenge_1, challenge_2, challenge_3]
             end
           end
 
           context 'when `global` is being sent' do
-            let!(:resource_without_scope) { create(:proposal, component: component, scope: nil) }
+            let!(:resource_without_scope) { create(:challenge, component: component, scope: nil) }
             let(:scope_ids) { ['global'] }
 
-            it 'returns proposals without a scope' do
+            it 'returns challenges without a scope' do
               expect(subject).to eq [resource_without_scope]
             end
           end
 
           context 'when `global` and some ids is being sent' do
-            let!(:resource_without_scope) { create(:proposal, component: component, scope: nil) }
-            let(:scope_ids) { ['global', scope2.id, scope1.id] }
+            let!(:resource_without_scope) { create(:challenge, component: component, scope: nil) }
+            let(:scope_ids) { ['global', scope_2.id, scope_1.id] }
 
-            it 'returns proposals without a scope and with selected scopes' do
-              expect(subject).to match_array [resource_without_scope, proposal, proposal2, proposal3]
-            end
-          end
-        end
-
-        describe 'category_id filter' do
-          let(:category1) { create :category, participatory_space: participatory_process }
-          let(:category2) { create :category, participatory_space: participatory_process }
-          let(:child_category) { create :category, participatory_space: participatory_process, parent: category2 }
-          let!(:proposal2) { create(:proposal, component: component, category: category1) }
-          let!(:proposal3) { create(:proposal, component: component, category: category2) }
-          let!(:proposal4) { create(:proposal, component: component, category: child_category) }
-
-          context 'when no category filter is present' do
-            it 'includes all proposals' do
-              expect(subject).to match_array [proposal, proposal2, proposal3, proposal4]
-            end
-          end
-
-          context 'when a category is selected' do
-            let(:category_ids) { [category2.id] }
-
-            it 'includes only proposals for that category and its children' do
-              expect(subject).to match_array [proposal3, proposal4]
-            end
-          end
-
-          context 'when a subcategory is selected' do
-            let(:category_ids) { [child_category.id] }
-
-            it 'includes only proposals for that category' do
-              expect(subject).to eq [proposal4]
-            end
-          end
-
-          context 'when `without` is being sent' do
-            let(:category_ids) { ['without'] }
-
-            it 'returns proposals without a category' do
-              expect(subject).to eq [proposal]
-            end
-          end
-
-          context 'when `without` and some category id is being sent' do
-            let(:category_ids) { ['without', category1.id] }
-
-            it 'returns proposals without a category and with the selected category' do
-              expect(subject).to match_array [proposal, proposal2]
+            it 'returns challenges without a scope and with selected scopes' do
+              expect(subject).to match_array [resource_without_scope, challenge_1, challenge_2, challenge_3]
             end
           end
         end
 
         describe 'related_to filter' do
           context 'when filtering by related to problems' do
-            let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
-            let(:meetings_component) { create(:component, manifest_name: 'meetings', participatory_space: participatory_process) }
-            let(:meeting) { create :meeting, component: meetings_component }
+          #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
+          #   let(:problems_component) { create(:component, manifest_name: 'problems', participatory_space: participatory_process) }
+          #   let(:problem) { create :problem, component: problems_component }
 
-            it 'returns only proposals related to meetings' do
-              related_proposal = create(:proposal, :accepted, component: component)
-              related_proposal2 = create(:proposal, :accepted, component: component)
-              create_list(:proposal, 3, component: component)
-              meeting.link_resources([related_proposal], 'proposals_from_meeting')
-              related_proposal2.link_resources([meeting], 'proposals_from_meeting')
+            it 'returns only challenges related to problems'
+          #     related_challenge = create(:challenge, :accepted, component: component)
+          #     related_challenge_2 = create(:challenge, :accepted, component: component)
+          #     create_list(:challenge, 3, component: component)
+          #     problem.link_resources([related_challenge], 'challenges_from_problem')
+          #     related_challenge_2.link_resources([problem], 'challenges_from_problem')
 
-              expect(subject).to match_array([related_proposal, related_proposal2])
-            end
+          #     expect(subject).to match_array([related_proposal, related_proposal2])
+          #   end
           end
 
           context 'when filtering by related to resources' do
-            let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
-            let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
-            let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+          #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
+          #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
+          #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
-            it 'returns only proposals related to results' do
-              related_proposal = create(:proposal, :accepted, component: component)
-              related_proposal2 = create(:proposal, :accepted, component: component)
-              create_list(:proposal, 3, component: component)
-              dummy_resource.link_resources([related_proposal], 'included_proposals')
-              related_proposal2.link_resources([dummy_resource], 'included_proposals')
+            it 'returns only proposals related to results'
+          #     related_proposal = create(:proposal, :accepted, component: component)
+          #     related_proposal2 = create(:proposal, :accepted, component: component)
+          #     create_list(:proposal, 3, component: component)
+          #     dummy_resource.link_resources([related_proposal], 'included_proposals')
+          #     related_proposal2.link_resources([dummy_resource], 'included_proposals')
 
-              expect(subject).to match_array([related_proposal, related_proposal2])
-            end
+          #     expect(subject).to match_array([related_proposal, related_proposal2])
+          #   end
           end
         end
       end
