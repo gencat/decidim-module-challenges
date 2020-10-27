@@ -50,6 +50,7 @@ ca:
       challenges:
         challenges:
           empty: No s'han pogut trobar reptes
+          empty_filters: No s'han pogut trobar reptes
         count:
           challenges_count:
             one: "%{count} repte"
