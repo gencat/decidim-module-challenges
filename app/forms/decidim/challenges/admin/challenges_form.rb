@@ -18,7 +18,6 @@ module Decidim
         attribute :decidim_scope_id, Integer
         attribute :tags, String
         attribute :ods, String
-        # attribute :area_id, Integer
         attribute :state, Integer
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
@@ -32,9 +31,7 @@ module Decidim
         translatable_attribute :global_description, String
 
         validates :title, :local_description, :global_description, translatable_presence: true
-
         # validates :ods, presence: true, if: proc { |object| object.ods.present? }
-        # validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validate :valid_state
 
