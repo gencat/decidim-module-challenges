@@ -9,7 +9,6 @@ module Decidim
       let(:participatory_process) { component.participatory_space }
       let!(:challenges_list) { create_list(:challenge, 3, component: component) }
 
-
       describe 'results' do
         subject do
           described_class.new(
@@ -39,7 +38,7 @@ module Decidim
           let(:search_text) { 'dog' }
 
           it 'returns the challenges containing the search in the title or the body' do
-            dog_challenge= create(:challenge, title: {I18n.locale => 'A dog'}, component: component)
+            dog_challenge = create(:challenge, title: { I18n.locale => 'A dog' }, component: component)
 
             expect(subject).to include(dog_challenge)
             expect(subject.size).to eq(1)
@@ -82,7 +81,7 @@ module Decidim
             let(:states) { %w[finished] }
 
             it 'returns only finished proposals' do
-              finished_challenge= create(:challenge, :finished, component: component)
+              finished_challenge = create(:challenge, :finished, component: component)
               create(:challenge, :proposal, component: component)
 
               expect(subject.size).to eq(1)
@@ -144,35 +143,35 @@ module Decidim
 
         describe 'related_to filter' do
           context 'when filtering by related to problems' do
-          #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
-          #   let(:problems_component) { create(:component, manifest_name: 'problems', participatory_space: participatory_process) }
-          #   let(:problem) { create :problem, component: problems_component }
+            #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
+            #   let(:problems_component) { create(:component, manifest_name: 'problems', participatory_space: participatory_process) }
+            #   let(:problem) { create :problem, component: problems_component }
 
             it 'returns only challenges related to problems'
-          #     related_challenge = create(:challenge, :accepted, component: component)
-          #     related_challenge_2 = create(:challenge, :accepted, component: component)
-          #     create_list(:challenge, 3, component: component)
-          #     problem.link_resources([related_challenge], 'challenges_from_problem')
-          #     related_challenge_2.link_resources([problem], 'challenges_from_problem')
+            #     related_challenge = create(:challenge, :accepted, component: component)
+            #     related_challenge_2 = create(:challenge, :accepted, component: component)
+            #     create_list(:challenge, 3, component: component)
+            #     problem.link_resources([related_challenge], 'challenges_from_problem')
+            #     related_challenge_2.link_resources([problem], 'challenges_from_problem')
 
-          #     expect(subject).to match_array([related_proposal, related_proposal2])
-          #   end
+            #     expect(subject).to match_array([related_proposal, related_proposal2])
+            #   end
           end
 
           context 'when filtering by related to resources' do
-          #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
-          #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
-          #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+            #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
+            #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
+            #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
             it 'returns only proposals related to results'
-          #     related_proposal = create(:proposal, :accepted, component: component)
-          #     related_proposal2 = create(:proposal, :accepted, component: component)
-          #     create_list(:proposal, 3, component: component)
-          #     dummy_resource.link_resources([related_proposal], 'included_proposals')
-          #     related_proposal2.link_resources([dummy_resource], 'included_proposals')
+            #     related_proposal = create(:proposal, :accepted, component: component)
+            #     related_proposal2 = create(:proposal, :accepted, component: component)
+            #     create_list(:proposal, 3, component: component)
+            #     dummy_resource.link_resources([related_proposal], 'included_proposals')
+            #     related_proposal2.link_resources([dummy_resource], 'included_proposals')
 
-          #     expect(subject).to match_array([related_proposal, related_proposal2])
-          #   end
+            #     expect(subject).to match_array([related_proposal, related_proposal2])
+            #   end
           end
         end
       end

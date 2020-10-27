@@ -58,7 +58,7 @@ module Decidim
         private
 
         def valid_state
-          return if Decidim::Challenges::Challenge::VALID_STATES[state].present? if state
+          return if state && Decidim::Challenges::Challenge::VALID_STATES[state].present?
 
           errors.add(:state, :invalid)
         end

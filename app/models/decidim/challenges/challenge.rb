@@ -18,22 +18,22 @@ module Decidim
       component_manifest_name 'challenges'
 
       scope :published, -> { where.not(published_at: nil) }
-      scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal))}
-      scope :in_executing, -> { where(state: VALID_STATES.index(:executing))}
-      scope :in_finished, -> { where(state: VALID_STATES.index(:finished))}
-      # TODO
-      # searchable_fields({
-      #                    scope_id: :decidim_scope_id,
-      #                    participatory_space: :itself,
-      #                    A: :title,
-      #                    B: :local_description,
-      #                    C: :global_description,
-      #                    D: '', # TODO
-      #                    datetime: :published_at
-      #                  },
-      #                  index_on_create: ->(_process) { false },
-      #                  index_on_update: ->(process) { process.visible? })
-      #
+      scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
+      scope :in_executing, -> { where(state: VALID_STATES.index(:executing)) }
+      scope :in_finished, -> { where(state: VALID_STATES.index(:finished)) }
+
+      searchable_fields({
+                          scope_id: :decidim_scope_id,
+                          participatory_space: :itself,
+                          A: :title,
+                          B: :local_description,
+                          C: :global_description,
+                          D: '', # TODO
+                          datetime: :published_at
+                        },
+                        index_on_create: ->(_process) { false },
+                        index_on_update: ->(process) { process.visible? })
+
       # # Allow ransacker to search for a key in a hstore column (`title`.`en`)
       # ransacker :title do |parent|
       #  Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
