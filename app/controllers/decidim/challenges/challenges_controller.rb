@@ -2,10 +2,10 @@
 
 module Decidim
   module Challenges
-    # Controller that allows managing admin challenges.
+    # Controller that allows browsing challenges.
     #
     class ChallengesController < Decidim::Challenges::ApplicationController
-      # include Decidim::ApplicationHelper
+      include Decidim::ApplicationHelper
       include FilterResource
       include Paginable
       include OrderableChallenges
@@ -17,14 +17,6 @@ module Decidim
         # enforce_permission_to :read, :challenge_list
         # @challenges = filtered_collection
       end
-
-      def new; end
-
-      def create; end
-
-      def edit; end
-
-      def update; end
 
       private
 
