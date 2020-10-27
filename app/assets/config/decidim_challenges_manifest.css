@@ -12,40 +12,5 @@
  *
  *= require_tree .
  *= require_self
+ *= link decidim/sdgs/ods.scss
  */
-
-
-@font-face {
-  font-family: Oswald-Medium;
-  src: url("Oswald-Medium.ttf");
-}
-
-.ods {
-  width: 175px;
-  position: relative;
-  margin-bottom: 25px;
-}
-
-.ods .text-container{
-  position: absolute;
-  top: 10.2px;
-  left: 45px;
-  width: 120px;
-}
-
-.stretch.text-container {
-  left: 50px;
-  width: 115px;
-}
-
-.ods p {
-  margin: 0;
-  font-family: Oswald-Medium, 'Open Sans Semibold', sans-serif;
-  color: white;
-  font-size: 11.2pt;
-  text-size-adjust: 100%;
-}
-
-.ods object {
-  width: 100%;
-}
