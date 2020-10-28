@@ -108,12 +108,12 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        # context "when start date is bigger than end date" do
-        #   let(:end_time) { 2.days.from_now }
-        #   let(:start_time) { 1.days.from_now + 4.hours }
-        #
-        #   it { is_expected.to be_invalid }
-        # end
+        context "when start date is bigger than end date" do
+          let(:start_date) { 2.days.from_now }
+          let(:end_date) { 1.days.from_now }
+
+          it { is_expected.to be_invalid }
+        end
       end
     end
   end
