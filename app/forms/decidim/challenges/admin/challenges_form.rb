@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A form object used to create challenges from the admin dashboard.
       #
-      class ChallengesForm < Form
+      class ChallengesForm < Decidim::Form
         include TranslatableAttributes
 
         mimic :challenge
