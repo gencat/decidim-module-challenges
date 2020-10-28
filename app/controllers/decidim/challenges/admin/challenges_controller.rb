@@ -7,28 +7,22 @@ module Decidim
       #
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
-        # include Decidim::Challenges::Admin::Filterable
-        # include FilterResource
         # include Paginable
 
         helper_method :challenges, :challenge, :form_presenter, :query
 
         def index
-          # TODO: fix permissions
-          # enforce_permission_to :read, :challenge_list
-          # @challenges = filtered_collection
-          # @challenges = search
-          #    .results
+          enforce_permission_to :read, :challenges
           @challenges = challenges
         end
 
         def new
-          # enforce_permission_to :create, :challenge
+          enforce_permission_to :create, :challenge
           @form = form(Decidim::Challenges::Admin::ChallengesForm).instance
         end
 
         def create
-          # enforce_permission_to :create, :challenge
+          enforce_permission_to :create, :challenge
           @form = form(Decidim::Challenges::Admin::ChallengesForm).from_params(params)
 
           Decidim::Challenges::Admin::CreateChallenge.call(@form) do
@@ -38,19 +32,19 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t('challenges.create.invalid', scope: 'decidim.challenges.admin')
+              flash.now[:alert] = I18n.t('challenges.create.error', scope: 'decidim.challenges.admin')
               render action: 'new'
             end
           end
         end
 
         def edit
-          # enforce_permission_to :edit, :challenge, challenge: challenge
+          enforce_permission_to :edit, :challenge, challenge: challenge
           @form = form(Decidim::Challenges::Admin::ChallengesForm).from_model(challenge)
         end
 
         def update
-          # enforce_permission_to :edit, :challenge, challenge: challenge
+          enforce_permission_to :edit, :challenge, challenge: challenge
           @form = form(Decidim::Challenges::Admin::ChallengesForm).from_params(params)
 
           Decidim::Challenges::Admin::UpdateChallenge.call(@form, challenge) do
@@ -66,18 +60,30 @@ module Decidim
           end
         end
 
-        private
+        def destroy
+          enforce_permission_to :destroy, :challenge, challenge: challenge
 
-        # def search_klass
-        #   ChallengeSearch
-        # end
+          Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t('challenges.destroy.success', scope: 'decidim.challenges.admin')
+              redirect_to challenges_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = t('challenges.destroy.error', scope: 'decidim.challenges.admin')
+              redirect_to challenges_path
+            end
+          end
+        end
+
+        private
 
         def collection
           @collection ||= Challenge.where(component: current_component)
         end
 
         def challenges
-          @challenges ||= collection
+          @challenges ||= collection.page(params[:page]).per(10)
         end
 
         def challenge

@@ -9,6 +9,7 @@
 
 # rspec failure tracking
 .rspec-failures
+.byebug_history
 
 # default test application
 spec/decidim_dummy_app

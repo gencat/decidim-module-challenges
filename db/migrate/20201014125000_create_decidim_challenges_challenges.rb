@@ -13,6 +13,7 @@ class CreateDecidimChallengesChallenges < ActiveRecord::Migration[5.2]
       t.integer :state, null: false, default: 0
       t.date :start_date
       t.date :end_date
+      t.timestamp :published_at
       t.string :coordinating_entities
       t.string :collaborating_entities
 

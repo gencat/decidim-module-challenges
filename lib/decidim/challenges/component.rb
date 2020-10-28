@@ -31,11 +31,13 @@ Decidim.register_component(:challenges) do |component|
   #   # Add your settings per step
   # end
 
-  # component.register_resource(:some_resource) do |resource|
-  #   # Register a optional resource that can be references from other resources.
-  #   resource.model_class_name = "Decidim::Challenges::SomeResource"
-  #   resource.template = "decidim/challenges/some_resources/linked_some_resources"
-  # end
+  component.register_resource(:challenge) do |resource|
+    # Register a optional resource that can be references from other resources.
+    resource.model_class_name = "Decidim::Challenges::Challenge"
+    resource.card = "decidim/challenges/challenge"
+    # resource.template = "decidim/challenges/some_resources/linked_some_resources"
+    resource.searchable = true
+  end
 
   # component.register_stat :some_stat do |context, start_at, end_at|
   #   # Register some stat number to the application

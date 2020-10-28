@@ -7,9 +7,9 @@ ca:
         col_entity: Entitat colaboradora
         coord_entity: Entitat coordinadora
         end_date: Data finalització
-        global_description: Description global
-        local_description: Description territorial
-        ods: ODS
+        global_description: Descripció del repte a escala global
+        local_description: Descripció del repte al territori
+        ods: Objectius de Desenvolupament Sostenible
         status: Estat
         start_date: Data d'inici
         tags: Paraules clau
@@ -20,10 +20,16 @@ ca:
         actions:
           new_challenge: Nou Repte
           configure: Configura
+          confirm_destroy: Estàs segur que vols destruir aquest %{name}?
+          destroy: Esborra
+          view: Veure repte
         challenges:
           create:
-            invalid: Hi ha hagut un problema creant aquest repte
+            error: Hi ha hagut un problema creant aquest repte
             success: Repte creat correctament
+          destroy:
+            error: There's been a problem deleting this challenge
+            success: Challenge successfully deleted
           form:
             select_states: Selecciona l'estat
             duration: Durada
@@ -33,10 +39,8 @@ ca:
             create: Crea
             title: Nou repte
           update:
-            invalid: Hi ha hagut un problema actualitzant aquest repte
+            error: Hi ha hagut un problema actualitzant aquest repte
             success: Repte actualitzat correctament
-        index:
-          title: Reptes
         models:
           challenge:
             fields:
@@ -49,6 +53,41 @@ ca:
               end_date: Data fi
         titles:
           challenges_list: Llistat de reptes
+      challenges:
+        challenges:
+          empty: No s'han pogut trobar reptes
+          empty_filters: No s'han pogut trobar reptes
+        count:
+          challenges_count:
+            one: "%{count} repte"
+            other: "%{count} reptes"
+        filters:
+          all: Totes
+          category: Categoria
+          executing: En execució
+          finished: Acabada
+          proposal: Proposta
+          related_to: Relacionat amb
+          scope: Àmbit
+          search: Cerca
+          state: Estat
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplega
+        orders:
+          label: test
+          random: Aleatori
+          recent: Més recents
+      challenges_helper:
+        filter_state_values:
+          all: Tots
+          proposal: Proposta
+          executing: En execució
+          finished: Acabat
+      index:
+        title: test
       states:
         proposal: Proposada
         executing: En execució

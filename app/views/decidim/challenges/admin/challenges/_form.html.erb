@@ -5,15 +5,15 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.translated :text_field, :title, value: form_presenter.title(extras: false).strip %>
+      <%= form.translated :text_field, :title, autofocus: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :local_description, value: form_presenter.local_description(extras: false).strip %>
+      <%= form.translated :editor, :local_description %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :global_description, value: form_presenter.global_description(extras: false).strip %>
+      <%= form.translated :editor, :global_description %>
     </div>
 
     <div class="row column hashtags__container">
@@ -25,7 +25,18 @@
     </div>
 
     <div class="row column">
-      <%= form.select :state, @form.select_states_collection %>
+      <%= form.select :state,
+                      @form.select_states_collection,
+                      selected: [I18n.t(@form.try(:state), scope: 'decidim.challenges.states'), Decidim::Challenges::Challenge::states[@form.try(:state)]],
+                      label: t("models.challenge.fields.state", scope: "decidim.challenges.admin") %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.text_field :collaborating_entities %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.text_field :coordinating_entities %>
     </div>
   </div>
 
@@ -36,11 +47,11 @@
   <div class="card-section">
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.date_field :start_date %>
+        <%= form.date_field :start_date, autocomplete: "off" %>
       </div>
 
       <div class="columns xlarge-6">
-        <%= form.date_field :end_date %>
+        <%= form.date_field :end_date, autocomplete: "off" %>
       </div>
     </div>
   </div>
