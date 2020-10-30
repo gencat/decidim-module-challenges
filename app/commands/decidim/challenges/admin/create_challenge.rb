@@ -22,7 +22,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           transaction do
-            create_challenge
+            create_challenge!
           end
 
           broadcast(:ok, challenge)
@@ -32,18 +32,11 @@ module Decidim
 
         attr_reader :form, :challenge
 
-        def create_challenge
-          @challenge = Decidim::Challenges::ChallengeBuilder.create(
-            attributes: attributes,
-            action_user: form.current_user
-          )
-        end
-
-        def attributes
+        def create_challenge!
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_local_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.local_description, current_organization: form.current_organization).rewrite
           parsed_global_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.global_description, current_organization: form.current_organization).rewrite
-          {
+          params = {
             title: parsed_title,
             local_description: parsed_local_description,
             global_description: parsed_global_description,
@@ -57,6 +50,13 @@ module Decidim
             coordinating_entities: form.coordinating_entities,
             collaborating_entities: form.collaborating_entities
           }
+
+          @challenge = Decidim.traceability.create!(
+            Decidim::Challenges::Challenge,
+            form.current_user,
+            params,
+            visibility: "all"
+          )
         end
       end
     end
