@@ -58,8 +58,6 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        it_behaves_like "a scopable resource"
-
         context 'when default language in title is missing' do
           let(:title) do
             {
