@@ -7,7 +7,6 @@ module Decidim
       #
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
-        # include Paginable
 
         helper_method :challenges, :challenge, :form_presenter, :query
 
