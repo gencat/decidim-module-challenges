@@ -45,6 +45,28 @@ module Decidim
           end
         end
 
+        def select_sdg_collection
+          [
+            I18n.t('no_poverty.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('zero_hunger.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('good_health.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('quality_education.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('gender_equality.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('clean_water.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('clean_energy.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('decent_work.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('iiai.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('reduced_inequalities.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('sustainable_cities.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('responsible_consumption.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('climate_action.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('life_below_water.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('life_on_land.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('pjsi.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('partnership.objectives.subtitle', scope: 'decidim.components.sdgs'),
+          ]
+        end
+
         # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
         #
         # Returns a Decidim::Scope
