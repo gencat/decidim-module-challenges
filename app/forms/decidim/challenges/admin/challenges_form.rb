@@ -63,7 +63,7 @@ module Decidim
             I18n.t('life_below_water.objectives.subtitle', scope: 'decidim.components.sdgs'),
             I18n.t('life_on_land.objectives.subtitle', scope: 'decidim.components.sdgs'),
             I18n.t('pjsi.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('partnership.objectives.subtitle', scope: 'decidim.components.sdgs'),
+            I18n.t('partnership.objectives.subtitle', scope: 'decidim.components.sdgs')
           ]
         end
 

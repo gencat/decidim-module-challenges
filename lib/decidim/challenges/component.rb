@@ -32,8 +32,8 @@ Decidim.register_component(:challenges) do |component|
 
   component.register_resource(:challenge) do |resource|
     # Register a optional resource that can be references from other resources.
-    resource.model_class_name = "Decidim::Challenges::Challenge"
-    resource.card = "decidim/challenges/challenge"
+    resource.model_class_name = 'Decidim::Challenges::Challenge'
+    resource.card = 'decidim/challenges/challenge'
     # resource.template = "decidim/challenges/some_resources/linked_some_resources"
     resource.searchable = true
   end
