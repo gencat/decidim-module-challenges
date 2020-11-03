@@ -8,7 +8,7 @@ class CreateDecidimChallengesChallenges < ActiveRecord::Migration[5.2]
       t.jsonb :global_description
       t.references :decidim_component, index: true, null: false
       t.jsonb :tags
-      t.string :ods
+      t.string :sdg
       t.references :decidim_scope, index: true
       t.integer :state, null: false, default: 0
       t.date :start_date

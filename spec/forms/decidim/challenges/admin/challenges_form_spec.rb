@@ -31,7 +31,7 @@ module Decidim
             ca: 'Descripció global'
           }
         end
-        let(:ods) { 'ods' }
+        let(:sdg) { 'sdg' }
         let(:tags) { 'tag1, tag2, tag3' }
         let(:state) { 2 }
         let(:start_date) { 2.days.from_now }
@@ -43,7 +43,7 @@ module Decidim
             'title' => title,
             'local_description' => local_description,
             'global_description' => global_description,
-            'ods' => ods,
+            'sdg' => sdg,
             'tags' => tags,
             'state' => state,
             'start_date' => start_date,

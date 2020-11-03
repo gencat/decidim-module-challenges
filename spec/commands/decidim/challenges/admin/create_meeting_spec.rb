@@ -13,7 +13,7 @@ module Decidim
         let(:participatory_process) { create :participatory_process, organization: organization }
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "challenges" }
         let(:scope) { create :scope, organization: organization }
-        let(:ods) { 'ods' }
+        let(:sdg) { 'sdg' }
         let(:tags) { 'tag1, tag2, tag3' }
         let(:state) { 2 }
         let(:start_date) { 2.days.from_now }
@@ -28,7 +28,7 @@ module Decidim
             local_description: { en: "local desc" },
             global_description: { en: "global desc" },
             tags: tags,
-            ods: ods,
+            sdg: sdg,
             state: state,
             start_date: start_date,
             end_date: end_date,

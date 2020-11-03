@@ -9,7 +9,7 @@ ca:
         end_date: Data finalització
         global_description: Descripció del repte a escala global
         local_description: Descripció del repte al territori
-        ods: Objectius de Desenvolupament Sostenible
+        sdg: Objectius de Desenvolupament Sostenible
         status: Estat
         start_date: Data d'inici
         tags: Paraules clau
@@ -47,7 +47,7 @@ ca:
               title: Títol
               created_at: Creat
               tags: Tags
-              ods: ODS
+              sdg: ODS
               state: Estat
               start_date: Data inici
               end_date: Data fi
