@@ -8,7 +8,7 @@ module Decidim
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
 
-        helper_method :challenges, :challenge, :form_presenter, :query
+        helper_method :challenges, :challenge, :form_presenter
 
         def index
           enforce_permission_to :read, :challenges
