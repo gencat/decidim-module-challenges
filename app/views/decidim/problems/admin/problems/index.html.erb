@@ -1,0 +1,72 @@
+<div class="card with-overflow" id="challenges">
+  <div class="card-divider">
+    <h2 class="card-title">
+
+      <%= t("titles.problems_list", scope: "decidim.problems.admin") %>
+
+      <% if allowed_to? :create, :challenge %>
+        <%= link_to t("actions.new_challenge", scope: "decidim.problems.admin"),
+        new_problem_path,
+        class: "button tiny button--title" %>
+      <% end %>
+
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>
+              <%= t("models.problem.fields.title", scope: "decidim.problems.admin") %>
+            </th>
+            <th>
+              <%= t("models.problem.fields.created_at", scope: "decidim.problems.admin") %>
+            </th>
+            <th>
+              <%= t("models.problem.fields.state", scope: "decidim.problems.admin") %>
+            </th>
+            <th>
+              <%= t("models.problem.fields.start_date", scope: "decidim.problems.admin") %>
+            </th>
+            <th>
+              <%= t("models.problem.fields.end_date", scope: "decidim.problems.admin") %>
+            </th>
+            <th class="table-list__actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @problems.each do |problem| %>
+            <tr>
+              <td>
+                <%= translated_attribute(problem.title) %>
+              </td>
+              <td>
+                <%= l(problem.created_at, format: :decidim_short) if problem.created_at %>
+              </td>
+              <td>
+                <%= I18n.t(problem.state, scope: "decidim.problems.states") %>
+              </td>
+              <td>
+                <%= problem.start_date %>
+              </td>
+              <td>
+                <%= problem.end_date %>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to? :edit, :problem %>
+                  <%= icon_link_to "pencil", edit_problem_path(problem), t("actions.configure", scope: "decidim.problems.admin"), class: "action-icon--new" %>
+                <% end %>
+                <%= icon_link_to "eye", '', t("actions.view", scope: "decidim.problems.admin"), class: "action-icon--preview" %>
+                <% if allowed_to? :destroy, :problem, problem: problem %>
+                  <%= icon_link_to "circle-x", problem, t("actions.destroy", scope: "decidim.problems.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.problems.admin", name: translated_attribute(problem.title)) } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @problems, theme: "decidim" %>
+    </div>
+  </div>
+</div>
