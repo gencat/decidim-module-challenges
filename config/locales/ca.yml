@@ -3,12 +3,12 @@ ca:
   activemodel:
     attributes:
       challenge:
-        area_id: Territori
         col_entity: Entitat colaboradora
         coord_entity: Entitat coordinadora
         end_date: Data finalització
         global_description: Descripció del repte a escala global
         local_description: Descripció del repte al territori
+        scope: Territori
         sdg: Objectius de Desenvolupament Sostenible
         status: Estat
         start_date: Data d'inici
