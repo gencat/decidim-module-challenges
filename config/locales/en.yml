@@ -14,6 +14,18 @@ en:
         start_date: Start date
         tags: Tags
         title: Title
+      problem:
+        causes: Causes
+        col_entity: Entitat colaboradora
+        description: Descripció
+        end_date: Data finalització
+        prop_entity: Entitat proposant
+        published: Publicat
+        scope: Territori
+        start_date: Data d'inici
+        status: Estat
+        tags: Paraules clau
+        title: Títol
   decidim:
     challenges:
       admin:
@@ -94,5 +106,7 @@ en:
     components:
       challenges:
         name: Challenges
+      problems:
+        name: Problems
       sdgs:
         name: Sustainable Development Goals
