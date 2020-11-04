@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateDecidimChallengesProblems < ActiveRecord::Migration[5.2]
+class CreateDecidimProblemsProblems < ActiveRecord::Migration[5.2]
   def change
-    create_table :decidim_challenges_problems do |t|
+    create_table :decidim_problems_problems do |t|
       t.jsonb :title
       t.jsonb :description
       t.references :decidim_component, index: true, null: false
