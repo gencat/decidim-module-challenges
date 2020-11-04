@@ -154,7 +154,7 @@ module Decidim
             #     problem.link_resources([related_challenge], 'challenges_from_problem')
             #     related_challenge_2.link_resources([problem], 'challenges_from_problem')
 
-            #     expect(subject).to match_array([related_proposal, related_proposal2])
+            #     expect(subject).to match_array([related_challenge, related_challenge_2])
             #   end
           end
 
@@ -163,14 +163,14 @@ module Decidim
             #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
             #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
-            it 'returns only proposals related to results'
-            #     related_proposal = create(:proposal, :accepted, component: component)
-            #     related_proposal2 = create(:proposal, :accepted, component: component)
-            #     create_list(:proposal, 3, component: component)
-            #     dummy_resource.link_resources([related_proposal], 'included_proposals')
-            #     related_proposal2.link_resources([dummy_resource], 'included_proposals')
+            it 'returns only challenges related to results'
+            #     related_challenge = create(:challenge, :accepted, component: component)
+            #     related_challenge_2 = create(:challenge, :accepted, component: component)
+            #     create_list(:challenge, 3, component: component)
+            #     dummy_resource.link_resources([related_challenge], 'included_challenges')
+            #     related_challenge_2.link_resources([dummy_resource], 'included_challenges')
 
-            #     expect(subject).to match_array([related_proposal, related_proposal2])
+            #     expect(subject).to match_array([related_challenge, related_challenge_2])
             #   end
           end
         end
