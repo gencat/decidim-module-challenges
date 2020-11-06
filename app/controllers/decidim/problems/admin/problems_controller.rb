@@ -24,7 +24,7 @@ module Decidim
           enforce_permission_to :create, :problem
           @form = form(Decidim::Problems::Admin::ProblemsForm).from_params(params)
 
-          Decidim::Problems::Admin::ProblemChallenge.call(@form) do
+          Decidim::Problems::Admin::ProblemProblem.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t('problems.create.success', scope: 'decidim.problems.admin')
               redirect_to problems_path

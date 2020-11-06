@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Challenges
-    # Controller that allows browsing challenges.
+  module Problems
+    # Controller that allows browsing problems.
     #
-    class ChallengesController < Decidim::Challenges::ApplicationController
+    class ProblemsController < Decidim::Problems::ApplicationController
       include Decidim::ApplicationHelper
       include FilterResource
       include Paginable
-      include OrderableChallenges
-      include ChallengesHelper
+      include OrderableProblems
+      include ProblemsHelper
 
       helper Decidim::CheckBoxesTreeHelper
 
-      helper_method :challenges
+      helper_method :problems
 
       def index; end
 
@@ -45,12 +45,12 @@ module Decidim
         end
       end
 
-      def challenges
-        @challenges ||= paginate(search.results.published)
+      def problems
+        @problems ||= paginate(search.results.published)
       end
 
       def search_klass
-        Decidim::Challenges::ChallengeSearch
+        Decidim::Problems::ProblemSearch
       end
     end
   end
