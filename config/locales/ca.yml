@@ -111,3 +111,80 @@ ca:
         name: Problemes
       sdgs:
         name: Objectius de Desenvolupament Sostenible
+    problems:
+      admin:
+        actions:
+          new_problem: Nou Problema
+          configure: Configura
+          confirm_destroy: Estàs segur que vols destruir aquest %{name}?
+          destroy: Esborra
+          view: Veure problema
+        problems:
+          create:
+            error: Hi ha hagut un error creant aquest problema
+            success: Problema creat correctament
+          destroy:
+            error: Hi ha hagut un error esborrant aquest problema
+            success: Problema esborrat correctament
+          form:
+            select_states: Selecciona l'estat
+            duration: Durada
+          edit:
+            update: Actualitza
+          new:
+            create: Crea
+            title: Nou problema
+          update:
+            error: Hi ha hagut un error actualitzant aquest problema
+            success: Problema actualitzat correctament
+        models:
+          problem:
+            fields:
+              title: Títol
+              created_at: Creat
+              tags: Tags
+              challenge: Repte
+              state: Estat
+              start_date: Data inici
+              end_date: Data fi
+        titles:
+          problems_list: Llistat de problemes
+      problems:
+        problems:
+          empty: No s'han pogut trobar problems
+          empty_filters: No s'han pogut trobar problems
+        count:
+          problems_count:
+            one: "%{count} problem"
+            other: "%{count} problems"
+        filters:
+          all: Totes
+          category: Categoria
+          executing: En execució
+          finished: Acabada
+          proposal: Proposta
+          related_to: Relacionat amb
+          scope: Àmbit
+          search: Cerca
+          state: Estat
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplega
+        orders:
+          label: test
+          random: Aleatori
+          recent: Més recents
+      problems_helper:
+        filter_state_values:
+          all: Tots
+          proposal: Proposta
+          executing: En execució
+          finished: Acabat
+      index:
+        title: test
+      states:
+        proposal: Proposada
+        executing: En execució
+        finished: Acabada
