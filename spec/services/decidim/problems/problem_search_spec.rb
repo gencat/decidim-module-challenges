@@ -3,8 +3,8 @@
 require 'spec_helper'
 
 module Decidim
-  module Challenges
-    describe ChallengeSearch do
+  module Problems
+    describe ProblemSearch do
       let(:component) { create(:component, manifest_name: 'challenges') }
       let(:participatory_process) { component.participatory_space }
       let!(:challenges_list) { create_list(:challenge, 3, component: component) }
