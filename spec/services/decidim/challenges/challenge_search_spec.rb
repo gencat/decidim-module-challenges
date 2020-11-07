@@ -141,6 +141,10 @@ module Decidim
           end
         end
 
+        describe "ods filter" do
+          it "is pending"          
+        end
+
         describe "related_to filter" do
           context "when filtering by related to problems" do
             #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }

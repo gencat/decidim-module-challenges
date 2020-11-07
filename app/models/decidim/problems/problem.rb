@@ -18,6 +18,8 @@ module Decidim
 
       component_manifest_name "problems"
 
+      belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge"
+
       scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
       scope :in_executing, -> { where(state: VALID_STATES.index(:executing)) }
@@ -34,6 +36,7 @@ module Decidim
                         },
                         index_on_create: ->(problem) { problem.published? },
                         index_on_update: ->(problem) { problem.published? })
+
 
       def published?
         published_at.present?
