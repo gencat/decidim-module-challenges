@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Public Sustainable Development Goals', type: :system do
-  include_context 'with a component'
+describe "Public Sustainable Development Goals", type: :system do
+  include_context "with a component"
 
   let(:manifest_name) { "sdgs" }
   let(:sdgs_names) do
@@ -32,13 +32,13 @@ describe 'Public Sustainable Development Goals', type: :system do
     switch_to_host(organization.host)
   end
 
-  describe 'Show SDGs' do
-    context 'when requesting the SDGs path' do
+  describe "Show SDGs" do
+    context "when requesting the SDGs path" do
       before do
         visit_component
       end
 
-      it 'shows the list of all SDGs' do
+      it "shows the list of all SDGs" do
         sdgs_names.each do |name|
           expect(page).to have_content(name)
         end

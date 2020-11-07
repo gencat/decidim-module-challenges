@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rails'
-require 'decidim/core'
+require "rails"
+require "decidim/core"
 
 module Decidim
   module Problems
@@ -12,11 +12,11 @@ module Decidim
       routes do
         # Add engine routes here
         resources :problems
-        root to: 'problems#index'
+        root to: "problems#index"
       end
 
-      initializer 'decidim_problems.assets' do |app|
-        app.config.assets.precompile += %w[decidim_problems_manifest.js decidim_problems_manifest.css]
+      initializer "decidim_problems.assets" do |app|
+        app.config.assets.precompile += %w(decidim_problems_manifest.js decidim_problems_manifest.css)
       end
     end
   end

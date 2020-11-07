@@ -55,7 +55,7 @@ module Decidim
             Decidim::Challenges::Challenge,
             form.current_user,
             params,
-            visibility: 'all'
+            visibility: "all"
           )
         end
       end

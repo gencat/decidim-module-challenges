@@ -44,7 +44,7 @@ module Decidim
 
         def select_states_collection
           Decidim::Problems::Problem::VALID_STATES.map.with_index do |state, idx|
-            [I18n.t(state, scope: 'decidim.problems.states'), idx]
+            [I18n.t(state, scope: "decidim.problems.states"), idx]
           end
         end
 

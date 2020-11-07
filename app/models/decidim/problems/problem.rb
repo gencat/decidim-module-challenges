@@ -13,12 +13,12 @@ module Decidim
       include Decidim::TranslatableAttributes
 
       # FIX define possible states !
-      VALID_STATES = %i[proposal executing finished].freeze
+      VALID_STATES = [:proposal, :executing, :finished].freeze
       enum state: VALID_STATES
 
-      component_manifest_name 'problems'
+      component_manifest_name "problems"
 
-      scope :published,   -> { where.not(published_at: nil) }
+      scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
       scope :in_executing, -> { where(state: VALID_STATES.index(:executing)) }
       scope :in_finished, -> { where(state: VALID_STATES.index(:finished)) }
@@ -28,8 +28,8 @@ module Decidim
                           participatory_space: :itself,
                           A: :title,
                           B: :description,
-                          C: '',
-                          D: '',
+                          C: "",
+                          D: "",
                           datetime: :published_at
                         },
                         index_on_create: ->(problem) { problem.published? },

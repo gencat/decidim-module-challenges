@@ -14,12 +14,12 @@ module Decidim
 
       # translatable_fields :title, :local_description, :global_description
 
-      VALID_STATES = %i[proposal executing finished].freeze
+      VALID_STATES = [:proposal, :executing, :finished].freeze
       enum state: VALID_STATES
 
-      component_manifest_name 'challenges'
+      component_manifest_name "challenges"
 
-      scope :published,   -> { where.not(published_at: nil) }
+      scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
       scope :in_executing, -> { where(state: VALID_STATES.index(:executing)) }
       scope :in_finished, -> { where(state: VALID_STATES.index(:finished)) }
@@ -30,7 +30,7 @@ module Decidim
                           A: :title,
                           B: :local_description,
                           C: :global_description,
-                          D: '',
+                          D: "",
                           datetime: :published_at
                         },
                         index_on_create: ->(challenge) { challenge.published? },
