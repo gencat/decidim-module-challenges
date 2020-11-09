@@ -39,7 +39,7 @@ module Decidim
             title: parsed_title,
             description: parsed_description,
             component: form.current_component,
-            challenges_challenges: form.current_challenges_challenges,
+            decidim_challenges_challenge_id: form.decidim_challenges_challenge_id,
             scope: form.decidim_scope_id,
             tags: form.tags,
             causes: form.causes,
@@ -47,7 +47,6 @@ module Decidim
             state: form.state,
             start_date: form.start_date,
             end_date: form.end_date,
-            published_at: form.published_at,
             proposing_entities: form.proposing_entities,
             collaborating_entities: form.collaborating_entities
           }
