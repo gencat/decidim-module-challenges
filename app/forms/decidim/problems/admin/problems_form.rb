@@ -14,14 +14,11 @@ module Decidim
         translatable_attribute :description, String
 
         attribute :decidim_component_id, Integer
-        attribute :decidim_challenge_id, Integer
+        attribute :decidim_challenges_challenge_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :tags, String
         attribute :causes, String
         attribute :groups_affected, String
-        attribute :sectorial_scope, String
-        attribute :technological_scope, String
-        attribute :territory, String
         attribute :state, Integer
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
@@ -36,15 +33,24 @@ module Decidim
         validates :title, :description, translatable_presence: true
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validate :valid_state
+        validates :decidim_challenges_challenge_id, presence: true
 
         validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
         validates :end_date, presence: true, date: { after_or_equal_to: :start_date }
 
         alias organization current_organization
 
+        # Return a problem's valid states list
         def select_states_collection
           Decidim::Problems::Problem::VALID_STATES.map.with_index do |state, idx|
             [I18n.t(state, scope: "decidim.problems.states"), idx]
+          end
+        end
+
+        # Return a challenge's list
+        def select_challenge_collection
+          Decidim::Challenges::Challenge.all.map do |ch|
+            [translated_attribute(ch.title), ch.id]
           end
         end
 
@@ -55,12 +61,19 @@ module Decidim
           @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
         end
 
+        # Finds the Challenge from the given decidim_challenges_challenge_id
+        #
+        # Returns a Decidim::Challenges::Challenge
+        def challenge
+          @challenge ||= @decidim_challenges_challenge_id ? Decidim::Challenges::Challenge.find(@decidim_challenges_challenge_id) : false
+        end
+
         def map_model(model); end
 
         private
 
         def valid_state
-          return if state && Decidim::Problems::Problem::VALID_STATES[state].present?
+          return if state.present? && Decidim::Problems::Problem::VALID_STATES[state].present?
 
           errors.add(:state, :invalid)
         end
