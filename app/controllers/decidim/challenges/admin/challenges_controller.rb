@@ -26,13 +26,8 @@ module Decidim
 
           Decidim::Challenges::Admin::CreateChallenge.call(@form) do
             on(:ok) do
-<<<<<<< HEAD
-              flash[:notice] = I18n.t("challenges.create.success", scope: "decidim.challenges.admin")
-              redirect_to challenges_path
-=======
               flash[:notice] = I18n.t('challenges.create.success', scope: 'decidim.challenges.admin')
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
->>>>>>> feat/challenges_crud
             end
 
             on(:invalid) do
@@ -53,13 +48,8 @@ module Decidim
 
           Decidim::Challenges::Admin::UpdateChallenge.call(@form, challenge) do
             on(:ok) do |_challenge|
-<<<<<<< HEAD
-              flash[:notice] = t("challenges.update.success", scope: "decidim.challenges.admin")
-              redirect_to challenges_path
-=======
               flash[:notice] = t('challenges.update.success', scope: 'decidim.challenges.admin')
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
->>>>>>> feat/challenges_crud
             end
 
             on(:invalid) do
@@ -74,15 +64,6 @@ module Decidim
 
           Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
             on(:ok) do
-<<<<<<< HEAD
-              flash[:notice] = I18n.t("challenges.destroy.success", scope: "decidim.challenges.admin")
-              redirect_to challenges_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = t("challenges.destroy.error", scope: "decidim.challenges.admin")
-              redirect_to challenges_path
-=======
               flash[:notice] = I18n.t('challenges.destroy.success', scope: 'decidim.challenges.admin')
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
             end
@@ -90,7 +71,6 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = t('challenges.destroy.error', scope: 'decidim.challenges.admin')
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
->>>>>>> feat/challenges_crud
             end
           end
         end
