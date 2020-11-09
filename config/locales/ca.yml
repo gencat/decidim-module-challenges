@@ -129,6 +129,7 @@ ca:
           form:
             select_states: Selecciona l'estat
             duration: Durada
+            challenge: Repte associat
           edit:
             update: Actualitza
           new:
