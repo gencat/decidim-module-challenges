@@ -6,6 +6,7 @@
                     <%= resource_title %>
                 </div>
             </a>
+            <%= cell("decidim/coauthorships", challenge, has_actions: false, context: { current_user: current_user }) %>
             <div class="author--inline">
                 <div class="author-data">
                     <div class="author-data__main">
