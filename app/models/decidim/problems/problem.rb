@@ -37,7 +37,6 @@ module Decidim
                         index_on_create: ->(problem) { problem.published? },
                         index_on_update: ->(problem) { problem.published? })
 
-
       def published?
         published_at.present?
       end

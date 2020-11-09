@@ -55,7 +55,7 @@ module Decidim
             Decidim::Problems::Problem,
             form.current_user,
             params,
-            visibility: 'all'
+            visibility: "all"
           )
         end
       end

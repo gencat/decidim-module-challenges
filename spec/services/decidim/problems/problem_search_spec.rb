@@ -143,7 +143,7 @@ module Decidim
         end
 
         describe "ods filter" do
-          it "is pending"          
+          it "is pending"
         end
 
         describe "related_to filter" do
