@@ -24,27 +24,8 @@
       <%= form.text_field :groups_affected %>
     </div>
 
-    <div class="card-section">
-      <div class="row column">
-        <%= form.check_box :scopes_enabled %>
-      </div>
-
-      <div class="row column">
-        <%= scopes_picker_field form, :scope_id, root: nil %>
-      </div>
-
-    </div>
-
-    <div class="row column hashtags__container">
-      <%= form.text_field :sectorial_scope %>
-    </div>
-
-    <div class="row column hashtags__container">
-      <%= form.text_field :technological_scope %>
-    </div>
-
-    <div class="row column hashtags__container">
-      <%= form.text_field :territory %>
+    <div class="row column">
+      <%= scopes_picker_field form, :decidim_scope_id, root: nil %>
     </div>
 
     <div class="row column">
@@ -59,8 +40,24 @@
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.text_field :coordinating_entities %>
+      <%= form.text_field :collaborating_entities %>
     </div>
+  </div>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".challenge") %></h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="row column">
+      <%= form.select :decidim_challenges_challenge_id,
+                      @form.select_challenge_collection,
+                      selected: @form.try(:challenge) ? [translated_attribute(@form.try(:challenge).title), @form.try(:challenge).id] : '',
+                      label: t("models.problem.fields.challenge", scope: "decidim.problems.admin"),
+                      include_blank: "" %>
+    </div>
+
   </div>
 
   <div class="card-divider">
@@ -79,5 +76,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag "decidim/problems/admin/problems_form" %>
