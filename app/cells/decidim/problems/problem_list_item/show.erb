@@ -1,0 +1,41 @@
+<div class="card card--problem <%= resource_state %> muted">
+    <div class="card__content">
+        <div class="card__header">
+            <a class="card__link">
+                <div class="card__title">
+                    <%= resource_title %>
+                </div>
+            </a>
+            <div class="author--inline">
+                <div class="author-data">
+                    <div class="author-data__main">
+                        <div class="author-data__main">
+                            <div class="author author--inline">
+                                <a>
+                                    <span class="author__avatar">
+                                        <%= image_tag asset_path("decidim/default-avatar.svg"), alt: "member-avatar" %>
+                                    </span>
+                                    <span class="author__name">nom</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card__text">
+            <div class="card__text--paragraph">
+                <span class="card__text--paragraph--estat"><%= t(resource_state, scope: 'decidim.problems.states') %></span><%= resource_description%>
+            </div>
+        </div>
+        <div class="card__ods">
+            <div class="card__ods--paragraph">
+                
+            </div>
+        </div>
+    </div>
+    <div class="card__status">
+    </div>
+    <div class="card__footer">
+    </div>
+</div> 

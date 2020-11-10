@@ -20,6 +20,11 @@ module Decidim
       initializer "decidim_problems.assets" do |app|
         app.config.assets.precompile += %w(decidim_problems_manifest.js decidim_problems_manifest.css)
       end
+
+      initializer "decidim_problems.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Problems::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Problems::Engine.root}/app/views") # for partials
+      end
     end
   end
 end
