@@ -10,6 +10,7 @@ module Decidim
       include Paginable
       include OrderableChallenges
       include ChallengesHelper
+      include Decidim::Sdgs::SdgsPickerDataModal
 
       helper Decidim::CheckBoxesTreeHelper
 
@@ -25,7 +26,8 @@ module Decidim
           category_id: default_filter_category_params,
           state: %w(proposal executing finished),
           scope_id: default_filter_scope_params,
-          related_to: ""
+          related_to: "",
+          sdgs_ids: []
         }
       end
 

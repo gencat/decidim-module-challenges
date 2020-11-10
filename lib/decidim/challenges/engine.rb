@@ -11,7 +11,9 @@ module Decidim
 
       routes do
         # Add engine routes here
-        # resources :challenges
+        resources :challenges do
+          get :data_picker_modal_content, on: :collection
+        end
         root to: "challenges#index"
       end
 

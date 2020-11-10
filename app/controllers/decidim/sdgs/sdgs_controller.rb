@@ -3,7 +3,7 @@
 module Decidim
   module Sdgs
     # Exposes the SustainableDevelopmentGoal resource so users can view and create them.
-    class SdgsController < Decidim::Proposals::ApplicationController
+    class SdgsController < Decidim::Sdgs::ApplicationController
       helper_method :sdgs, :sdg
 
       def index; end
