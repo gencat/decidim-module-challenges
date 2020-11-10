@@ -14,7 +14,7 @@ module Decidim
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "challenges" }
         let(:scope) { create :scope, organization: organization }
         let(:title) { "title" }
-        let(:sdg) { "sdg" }
+        let(:sdg) { 8 }
         let(:tags) { "tag1, tag2, tag3" }
         let(:state) { 2 }
         let(:start_date) { 2.days.from_now }
