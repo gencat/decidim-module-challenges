@@ -6,6 +6,7 @@ module Decidim
     class Challenge < Challenges::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Loggable
+      include Decidim::Publicable
       include Decidim::Resourceable
       include Decidim::ScopableComponent
       include Decidim::Searchable
