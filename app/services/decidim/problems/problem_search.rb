@@ -31,6 +31,10 @@ module Decidim
           .or(query.where(id: in_executing))
           .or(query.where(id: in_finished))
       end
+
+      def search_sdg_id
+        query.where(sdg_id: sdg_id)
+      end
     end
   end
 end

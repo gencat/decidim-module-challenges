@@ -18,7 +18,8 @@ module Decidim
             state: states,
             related_to: related_to,
             scope_id: scope_ids,
-            category_id: category_ids
+            category_id: category_ids,
+            sdg_id: sdg_id
           ).results
         end
 
@@ -27,6 +28,7 @@ module Decidim
         let(:states) { nil }
         let(:scope_ids) { nil }
         let(:category_ids) { nil }
+        let(:sdg_id) { nil }
 
         it "only includes problems from the given component" do
           other_problem = create(:problem)
@@ -142,8 +144,21 @@ module Decidim
           end
         end
 
-        describe "ods filter" do
-          it "is pending"
+        describe "SDGs filter" do
+          context "when none is selected" do
+            it "does not apply the filter" do
+              expect(subject).to match_array(problems_list)
+            end
+          end
+
+          context "when one SDG is selected" do
+            let(:sdg_id) { Decidim::Sdgs::Sdg::SDGS.index(:zero_hunger) }
+            let!(:problem_w_sdg) { create(:problem, component: component, challenge: challenge, sdg_id: sdg_id) }
+
+            it "returns the problems associated to the given SDG" do
+              expect(subject.pluck(:id)).to match_array([problem_w_sdg.id])
+            end
+          end
         end
 
         describe "related_to filter" do
