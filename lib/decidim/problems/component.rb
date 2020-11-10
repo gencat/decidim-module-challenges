@@ -8,6 +8,7 @@ require 'decidim/problems/admin_engine'
 # Sustainable Development Goals
 Decidim.register_component(:problems) do |component|
   component.engine = Decidim::Problems::Engine
+  component.stylesheet = 'decidim/problems/problems'
   component.admin_engine = Decidim::Problems::AdminEngine
   component.icon = 'decidim/problems/icon.svg'
 
