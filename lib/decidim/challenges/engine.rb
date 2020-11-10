@@ -15,8 +15,8 @@ module Decidim
         root to: 'challenges#index'
       end
 
-      initializer 'decidim_challenges.assets' do |app|
-        app.config.assets.precompile += %w[decidim_challenges_manifest.js decidim_challenges_manifest.css]
+      initializer "decidim_challenges.assets" do |app|
+        app.config.assets.precompile += %w(decidim_challenges_manifest.js decidim_challenges_manifest.css)
       end
     end
   end
