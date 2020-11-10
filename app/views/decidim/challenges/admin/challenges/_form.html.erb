@@ -25,7 +25,7 @@
         <div class="row column hashtags__container">
           <%= form.select :sdg,
                           @form.select_sdg_collection,
-                          selected: @form.try(:sdg),
+                          selected: [I18n.t("#{@form.try(:sdg)}.objectives.subtitle", scope: 'decidim.components.sdgs'), @form.try(:sdg)],
                           label: t("models.challenge.fields.sdg", scope: "decidim.challenges.admin") %>
         </div>
       <% end %>

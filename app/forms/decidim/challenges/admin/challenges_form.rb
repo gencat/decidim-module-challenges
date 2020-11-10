@@ -46,8 +46,8 @@ module Decidim
         end
 
         def select_sdg_collection
-          Decidim::Sdgs::Sdg::SDGS.map do |sdg_name|
-            I18n.t("#{sdg_name}.objectives.subtitle", scope: "decidim.components.sdgs")
+          Decidim::Sdgs::Sdg::SDGS.map.with_index do |sdg_name, idx|
+            [I18n.t("#{sdg_name}.objectives.subtitle", scope: "decidim.components.sdgs"), idx]
           end
         end
 
