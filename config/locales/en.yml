@@ -6,6 +6,11 @@ en:
         name: Challenges
       sdgs:
         name: Sustainable Development Goals
+        description: Els 17 Objectius de Desenvolupament Sostenible (ODS) - objectius universals, integradors i ambiciosos - són els que guien la implementació de l'Agenda 2030 de les Nacions Unides per al Desenvolupament Sostenible, aprovada el 25 de setembre de 2015. Les temàtiques que aborden van des de la pobresa, la fam, la pau, la salut, l'educació, les desigualtats, la inclusió, la prosperitat econòmica, la protecció del planeta, la lluita contra el canvi climàtic, les ciutats i els territoris, l'energia, el consum i la producció sostenibles i la governança.
+        subtitle: Coneix els 17 Objectius de Desenvolupament Sostenible
+        ods_logo:
+          title: OBJECTIUS GLOBALS
+          subtitle: de Desenvolupament Sostenible
         no_poverty:
           logo:
             line1: NO
@@ -119,7 +124,7 @@ en:
           logo:
             line1: DECENT WORK AND
             line2: ECONOMIC GROWTH
-            line3:
+            line3: ""
           objectives:
             title: Objectiu 8
             subtitle: Treball digne i creixement econòmic
@@ -139,7 +144,7 @@ en:
           logo:
             line1: INDUSTRY, INNOVATION
             line2: AND INSFRASTRUCTURE
-            line3:
+            line3: ""
           objectives:
             title: Objectiu 9
             subtitle: Indústria, innovació, infraestructures
@@ -172,7 +177,7 @@ en:
           logo:
             line1: SUSTAINABLE CITIES
             line2: AND COMMUNITIES
-            line3:
+            line3: ""
           objectives:
             title: Objectiu 11
             subtitle: Ciutats i comunitats sostebibles
@@ -238,7 +243,7 @@ en:
           logo:
             line1: LIFE
             line2: ON LAND
-            line3:
+            line3: ""
           objectives:
             title: Objectiu 15
             subtitle: Vida d'ecosistemes terrestres
@@ -278,7 +283,7 @@ en:
           logo:
             line1: PARTNERSHIPS
             line2: FOR THE GOALS
-            line3:
+            line3: ""
           objectives:
             title: Objectiu 17
             subtitle: Aliança per a assolir els objectius
