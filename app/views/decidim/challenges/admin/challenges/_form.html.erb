@@ -20,9 +20,16 @@
       <%= form.text_field :tags %>
     </div>
 
-    <div class="row column hashtags__container">
-      <%= form.text_field :ods %>
-    </div>
+    <% if params[:component_id] %>
+      <% if Decidim::Component.where(participatory_space: Decidim::Component.find(params[:component_id]).participatory_space).pluck(:manifest_name).include? 'sdgs' %>
+        <div class="row column hashtags__container">
+          <%= form.select :sdg,
+                          @form.select_sdg_collection,
+                          selected: @form.try(:sdg),
+                          label: t("models.challenge.fields.sdg", scope: "decidim.challenges.admin") %>
+        </div>
+      <% end %>
+    <% end %>
 
     <div class="row column">
       <%= form.select :state,

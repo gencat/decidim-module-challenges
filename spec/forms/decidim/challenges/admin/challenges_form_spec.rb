@@ -31,7 +31,7 @@ module Decidim
             ca: 'Descripció global'
           }
         end
-        let(:ods) { 'ods' }
+        let(:sdg) { 'sdg' }
         let(:tags) { 'tag1, tag2, tag3' }
         let(:state) { 2 }
         let(:start_date) { 2.days.from_now }
@@ -43,7 +43,7 @@ module Decidim
             'title' => title,
             'local_description' => local_description,
             'global_description' => global_description,
-            'ods' => ods,
+            'sdg' => sdg,
             'tags' => tags,
             'state' => state,
             'start_date' => start_date,
@@ -57,8 +57,6 @@ module Decidim
         context 'when everything is OK' do
           it { is_expected.to be_valid }
         end
-
-        # it_behaves_like "a scopable resource"
 
         context 'when default language in title is missing' do
           let(:title) do
@@ -108,7 +106,7 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when start date is bigger than end date" do
+        context 'when start date is bigger than end date' do
           let(:start_date) { 2.days.from_now }
           let(:end_date) { 1.days.from_now }
 

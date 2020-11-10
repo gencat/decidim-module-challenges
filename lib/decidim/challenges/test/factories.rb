@@ -22,8 +22,7 @@ FactoryBot.define do
     coordinating_entities { [1..5].collect { generate(:name) }.join(', ') }
     collaborating_entities { [1..5].collect { generate(:name) }.join(', ') }
     published_at { Time.current }
-    scope { create(:scope, organization: component.organization) }
-
+    # scope { create(:scope, organization: component.organization) }
     trait :finished do
       state { 'finished' }
     end

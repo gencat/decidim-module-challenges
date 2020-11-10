@@ -52,7 +52,7 @@ module Decidim
             global_description: parsed_global_description,
             component: form.current_component,
             tags: form.tags,
-            ods: form.ods,
+            sdg: form.sdg,
             scope: form.decidim_scope_id,
             state: form.state,
             start_date: form.start_date,

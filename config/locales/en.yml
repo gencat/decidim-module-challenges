@@ -3,13 +3,13 @@ en:
   activemodel:
     attributes:
       challenge:
-        area_id: Area
         col_entity: Collaborating entity
         coord_entity: Coordinating entity
         end_date: End date
         global_description: Global challenge's description
         local_description: Local challenge's description
-        ods: Sustainable Development Goals
+        scope: Territory
+        sdg: Sustainable Development Goals
         status: State
         start_date: Start date
         tags: Tags
@@ -47,7 +47,7 @@ en:
               title: Title
               created_at: Created at
               tags: Tags
-              ods: SDG
+              sdg: SDG
               state: State
               start_date: Start date
               end_date: End date
