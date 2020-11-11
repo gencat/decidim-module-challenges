@@ -9,9 +9,11 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
+      # Add admin engine routes here
       routes do
-        # Add admin engine routes here
-        resources :problems
+        resources :problems do
+          resource :publish, controller: "problem_publications", only: [:create, :destroy]
+        end
         root to: "problems#index"
       end
 

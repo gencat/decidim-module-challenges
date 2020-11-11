@@ -122,7 +122,20 @@ en:
           configure: Configure
           confirm_destroy: Are you sure you want to delete this %{name}?
           destroy: Delete
+          publish: Publicash
+          unpublish: Unpublish
           view: See problem
+        models:
+          problem:
+            fields:
+              challenge: Challenge
+              created_at: Created at
+              end_date: End date
+              published: Published
+              state: State
+              start_date: Start date
+              tags: Tags
+              title: Title
         problems:
           create:
             error: There's been an error creating this challenge
@@ -142,16 +155,13 @@ en:
           update:
             error: There's been an error creating this problem
             success: Problem updated successfully
-        models:
-          problem:
-            fields:
-              title: Title
-              created_at: Created at
-              tags: Tags
-              challenge: Challenge
-              state: State
-              start_date: Start date
-              end_date: End date
+        problem_publications:
+          create:
+            error: There's been an error publishing this challenge
+            success: Problem successfully published
+          destroy:
+            error: There's been an error unpublishing this problem
+            success: Problem successfully unpublished
         titles:
           problems_list: Problems list
       problems:
@@ -189,6 +199,8 @@ en:
           finished: Finished
       index:
         title: test
+        published: Publicat
+        not_published: No Publicat
       states:
         proposal: Proposal
         executing: Executing

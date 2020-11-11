@@ -42,8 +42,8 @@ ca:
             error: Hi ha hagut un problema creant aquest repte
             success: Repte creat correctament
           destroy:
-            error: There's been a problem deleting this challenge
-            success: Challenge successfully deleted
+            error: Hi ha hagut un problema esborrant aquest repte
+            success: Repte esborrat correctament
           form:
             select_states: Selecciona l'estat
             duration: Durada
@@ -131,7 +131,20 @@ ca:
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
+          publish: Publicar
+          unpublish: Despublicar
           view: Veure problema
+        models:
+          problem:
+            fields:
+              challenge: Repte
+              created_at: Creat
+              end_date: Data fi
+              published: Publicat
+              state: Estat
+              start_date: Data inici
+              tags: Tags
+              title: Títol
         problems:
           create:
             error: Hi ha hagut un error creant aquest problema
@@ -151,16 +164,13 @@ ca:
           update:
             error: Hi ha hagut un error actualitzant aquest problema
             success: Problema actualitzat correctament
-        models:
-          problem:
-            fields:
-              title: Títol
-              created_at: Creat
-              tags: Tags
-              challenge: Repte
-              state: Estat
-              start_date: Data inici
-              end_date: Data fi
+        problem_publications:
+          create:
+            error: Hi ha hagut un error publicant aquest problema
+            success: Problema publicat correctament
+          destroy:
+            error: Hi ha hagut un error despublicant aquest problema
+            success: Problema despublicat correctament
         titles:
           problems_list: Llistat de problemes
       problems:
@@ -198,6 +208,8 @@ ca:
           finished: Acabat
       index:
         title: test
+        published: Publicat
+        not_published: No Publicat
       states:
         proposal: Proposada
         executing: En execució

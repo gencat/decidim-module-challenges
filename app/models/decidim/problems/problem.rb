@@ -6,6 +6,7 @@ module Decidim
     class Problem < Problems::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Loggable
+      include Decidim::Publicable
       include Decidim::Resourceable
       include Decidim::ScopableComponent
       include Decidim::Searchable
