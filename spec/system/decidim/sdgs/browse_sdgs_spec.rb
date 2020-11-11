@@ -43,5 +43,4 @@ describe "Public Sustainable Development Goals", type: :system do
       end
     end
   end
-
 end
