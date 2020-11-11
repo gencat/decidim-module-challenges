@@ -32,27 +32,37 @@
             <th>
               <%= t("models.challenge.fields.end_date", scope: "decidim.challenges.admin") %>
             </th>
+            <th>
+              <%= t("models.challenge.fields.published", scope: "decidim.challenges.admin") %>
+            </th>
             <th class="table-list__actions"></th>
           </tr>
         </thead>
         <tbody>
           <% @challenges.each do |challenge| %>
             <tr>
-              <td>
+              <td class="table-list__state">
                 <%= translated_attribute(challenge.title) %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= l(challenge.created_at, format: :decidim_short) if challenge.created_at %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= I18n.t(challenge.state, scope: "decidim.challenges.states") %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= challenge.start_date %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= challenge.end_date %>
               </td>
+              <td class="table-list__state">
+              <% if challenge.published? %>
+                <strong class="text-success"><%= t("index.published", scope: "decidim.challenges") %></strong>
+              <% else %>
+                <strong class="text-alert"><%= t("index.not_published", scope: "decidim.challenges") %></strong>
+              <% end %>
+            </td>
               <td class="table-list__actions">
                 <% if allowed_to? :edit, :challenge %>
                   <%= icon_link_to "pencil", edit_challenge_path(challenge), t("actions.configure", scope: "decidim.challenges.admin"), class: "action-icon--new" %>

@@ -10,8 +10,7 @@ module Decidim
       isolate_namespace Decidim::Challenges
 
       routes do
-        # Add engine routes here
-        # resources :challenges
+        resources :challenges
         root to: "challenges#index"
       end
 

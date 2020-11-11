@@ -34,6 +34,8 @@ en:
           configure: Configure
           confirm_destroy: Are you sure you want to delete this %{name}?
           destroy: Delete
+          publish: Publish
+          unpublish: Unpublish
           view: View challenge
         challenges:
           create:
@@ -58,6 +60,7 @@ en:
             fields:
               title: Title
               created_at: Created at
+              published: Published
               tags: Tags
               sdg: SDG
               state: State
@@ -99,6 +102,8 @@ en:
           finished: Acabat
       index:
         title: test
+        published: Published
+        not_published: Unpublished
       states:
         proposal: Proposal
         executing: Executing

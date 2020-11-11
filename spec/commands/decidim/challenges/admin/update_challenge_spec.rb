@@ -29,6 +29,7 @@ module Decidim
             local_description: { en: "local desc" },
             global_description: { en: "global desc" },
             tags: tags,
+            scope: scope,
             sdg: sdg,
             state: state,
             start_date: start_date,
@@ -37,8 +38,7 @@ module Decidim
             collaborating_entities: collaborating_entities,
             current_user: current_user,
             current_organization: organization,
-            current_component: current_component,
-            decidim_scope_id: scope
+            current_component: current_component
           )
         end
         let(:invalid) { false }
@@ -68,14 +68,14 @@ module Decidim
             expect(challenge.sdg).to eq(sdg)
           end
 
-          it "sets the state" do
-            subject.call
-            expect(Decidim::Challenges::Challenge.states[challenge.state]).to eq(state)
-          end
-
           it "sets the tags" do
             subject.call
             expect(challenge.tags).to eq(tags)
+          end
+
+          it "sets the state" do
+            subject.call
+            expect(Decidim::Challenges::Challenge.states[challenge.state]).to eq(state)
           end
 
           it "sets the collaborating_entities and coordinating_entities" do

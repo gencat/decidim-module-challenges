@@ -20,6 +20,10 @@
       <%= form.text_field :tags %>
     </div>
 
+    <div class="row column">
+      <%= scopes_picker_field form, :decidim_scope_id, root: nil %>
+    </div>
+
     <% if params[:component_id] %>
       <% if Decidim::Component.where(participatory_space: Decidim::Component.find(params[:component_id]).participatory_space).pluck(:manifest_name).include? 'sdgs' %>
         <div class="row column hashtags__container">
