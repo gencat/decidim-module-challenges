@@ -6,8 +6,8 @@ describe "Public Sustainable Development Goals", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "sdgs" }
-  let(:ods_ids) { [*1..17].map! { |n| "#ods-#{sprintf '%02d', n}"} }
-  let(:objective_ids) { [*1..17].map! { |n| "#objective_#{sprintf '%02d', n}"} }
+  let(:ods_ids) { [*1..17].map! { |n| "#ods-#{format "%02d", n}" } }
+  let(:objective_ids) { [*1..17].map! { |n| "#objective_#{format "%02d", n}" } }
 
   before do
     switch_to_host(organization.host)
@@ -20,7 +20,7 @@ describe "Public Sustainable Development Goals", type: :system do
       end
 
       it "shows the list of all SDGs" do
-        expect(page).to have_selector('.ods', count: 18)
+        expect(page).to have_selector(".ods", count: 18)
       end
 
       it "has all the objective texts" do
@@ -33,10 +33,10 @@ describe "Public Sustainable Development Goals", type: :system do
 
       describe "ods logo click" do
         context "when a ODS logo is clicked" do
-          it "should display an element containing the objective explanation after clicking its logo" do
-            for i in [0..16] do
+          it "has to display an element containing the objective explanation" do
+            [*0..16].each do |i|
               page.find(ods_ids[i]).click
-              expect(page).to have_css(objective_ids[i], visible: true)
+              expect(page).to have_selector(objective_ids[i], visible: :visible)
             end
           end
         end
