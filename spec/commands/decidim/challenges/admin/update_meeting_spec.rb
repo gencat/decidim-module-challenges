@@ -79,11 +79,6 @@ module Decidim
             expect(Decidim::Challenges::Challenge.states[challenge.state]).to eq(state)
           end
 
-          it "sets the tags" do
-            subject.call
-            expect(challenge.tags).to eq(tags)
-          end
-
           it "sets the collaborating_entities and coordinating_entities" do
             subject.call
             expect(challenge.collaborating_entities).to eq(collaborating_entities)

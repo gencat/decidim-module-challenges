@@ -54,7 +54,7 @@ shared_examples "manage challenges" do
         expect(page).to have_css("input", text: challenge.local_description[:es], visible: :visible)
       end
 
-      it "shows the local description correctly in all available locales" do
+      it "shows the global description correctly in all available locales" do
         within "#challenge-global_description-tabs" do
           click_link "English"
         end

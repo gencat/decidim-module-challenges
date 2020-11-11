@@ -127,7 +127,7 @@ module Decidim
             let(:scope_ids) { ["global"] }
 
             it "returns challenges without a scope" do
-              expect(subject).to eq [resource_without_scope]
+              expect(subject).to match_array([resource_without_scope] + challenges_list)
             end
           end
 
@@ -136,7 +136,7 @@ module Decidim
             let(:scope_ids) { ["global", scope_2.id, scope_1.id] }
 
             it "returns challenges without a scope and with selected scopes" do
-              expect(subject).to match_array [resource_without_scope, challenge_1, challenge_2, challenge_3]
+              expect(subject).to match_array [resource_without_scope, challenge_1, challenge_2, challenge_3] + challenges_list
             end
           end
         end
