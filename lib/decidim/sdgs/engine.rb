@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rails'
-require 'decidim/core'
+require "rails"
+require "decidim/core"
 
 module Decidim
   module Sdgs
@@ -11,8 +11,8 @@ module Decidim
 
       routes do
         # Add engine routes here
-        resources :sdgs, only: %i[index show]
-        root to: 'sdgs#index'
+        resources :sdgs, only: [:index, :show]
+        root to: "sdgs#index"
       end
 
       initializer "decidim_challenges.assets" do |app|

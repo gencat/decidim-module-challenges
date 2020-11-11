@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 module Decidim
   module Challenges
@@ -9,46 +9,34 @@ module Decidim
         routes { Decidim::Challenges::AdminEngine.routes }
 
         let(:organization) { create :organization, available_locales: [:en] }
-        let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-        let(:participatory_process) { create :participatory_process, organization: organization }
-        let(:component) { create :component, participatory_space: participatory_process, manifest_name: 'challenges', organization: organization }
-        let(:scope) { create :scope, organization: organization }
-
-        before do
-          request.env['decidim.current_organization'] = organization
-          request.env['decidim.current_participatory_space'] = component.participatory_space
-          request.env['decidim.current_component'] = component
-          sign_in current_user
-        end
-
         let(:title) do
           {
-            en: 'Challenge title',
-            es: 'Título reto',
-            ca: 'Títol repte'
+            en: "Challenge title",
+            es: "Título reto",
+            ca: "Títol repte"
           }
         end
         let(:local_description) do
           {
-            en: 'Local description',
-            es: 'Descripción local',
-            ca: 'Descripció local'
+            en: "Local description",
+            es: "Descripción local",
+            ca: "Descripció local"
           }
         end
         let(:global_description) do
           {
-            en: 'Global description',
-            es: 'Descripción global',
-            ca: 'Descripció global'
+            en: "Global description",
+            es: "Descripción global",
+            ca: "Descripció global"
           }
         end
-        let(:sdg) { 'sdg' }
-        let(:tags) { 'tag1, tag2, tag3' }
+        let(:sdg) { "sdg" }
+        let(:tags) { "tag1, tag2, tag3" }
+        let(:start_date) { 2.days.from_now.strftime("%d/%m/%Y") }
+        let(:end_date) { (2.days.from_now + 4.hours).strftime("%d/%m/%Y") }
+        let(:collaborating_entities) { "collaborating_entities" }
+        let(:coordinating_entities) { "coordinating_entities" }
         let(:state) { 2 }
-        let(:start_date) { 2.days.from_now.strftime('%d/%m/%Y') }
-        let(:end_date) { (2.days.from_now + 4.hours).strftime('%d/%m/%Y') }
-        let(:collaborating_entities) { 'collaborating_entities' }
-        let(:coordinating_entities) { 'coordinating_entities' }
         let(:params) do
           {
             challenge: {
@@ -68,10 +56,21 @@ module Decidim
             participatory_process_slug: component.participatory_space.slug
           }
         end
+        let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+        let(:participatory_process) { create :participatory_process, organization: organization }
+        let(:component) { create :component, participatory_space: participatory_process, manifest_name: "challenges", organization: organization }
+        let(:scope) { create :scope, organization: organization }
 
-        describe 'POST #create' do
-          context 'with all mandatory fields' do
-            it 'creates a challenge' do
+        before do
+          request.env["decidim.current_organization"] = organization
+          request.env["decidim.current_participatory_space"] = component.participatory_space
+          request.env["decidim.current_component"] = component
+          sign_in current_user
+        end
+
+        describe "POST #create" do
+          context "with all mandatory fields" do
+            it "creates a challenge" do
               post :create, params: params
 
               expect(flash[:notice]).not_to be_empty
@@ -79,7 +78,7 @@ module Decidim
             end
           end
 
-          context 'without some mandatory fields' do
+          context "without some mandatory fields" do
             let(:title) do
               {
                 en: nil,
@@ -87,6 +86,7 @@ module Decidim
                 ca: nil
               }
             end
+
             it "doesn't create a challenge" do
               post :create, params: params
 
@@ -96,7 +96,7 @@ module Decidim
           end
         end
 
-        describe 'DELETE #destroy' do
+        describe "DELETE #destroy" do
           let(:challenge) { create :challenge, component: component }
           let(:params) do
             {
@@ -106,7 +106,8 @@ module Decidim
               participatory_process_slug: component.participatory_space.slug
             }
           end
-          it 'deletes a challenge' do
+
+          it "deletes a challenge" do
             delete :destroy, params: params
 
             expect(flash[:notice]).not_to be_empty

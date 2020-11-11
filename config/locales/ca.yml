@@ -22,6 +22,8 @@ ca:
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
+          publish: Publicar
+          unpublish: Despublicar
           view: Veure repte
         challenges:
           create:
@@ -41,11 +43,19 @@ ca:
           update:
             error: Hi ha hagut un problema actualitzant aquest repte
             success: Repte actualitzat correctament
+        challenge_publications:
+          create:
+            error: Hi ha hagut un problema publicant aquest repte
+            success: Repte publicat correctament
+          destroy:
+            error: Hi ha hagut un problema despublicant aquest repte
+            success: Repte despublicat correctament
         models:
           challenge:
             fields:
               title: Títol
               created_at: Creat
+              published: Publicat
               tags: Tags
               sdg: ODS
               state: Estat
@@ -88,6 +98,8 @@ ca:
           finished: Acabat
       index:
         title: test
+        published: Publicat
+        not_published: No Publicat
       states:
         proposal: Proposada
         executing: En execució
