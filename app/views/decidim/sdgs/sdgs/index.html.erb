@@ -194,7 +194,7 @@
 </div>
 
 <div id="objective_container">
-  <div id="objective_01" class="hide">i
+  <div id="objective_01" class="hide">
     <div class="objectives_container" >
       <p class="objectives_title"><%= t("no_poverty.objectives.title", scope: "decidim.components.sdgs") %> </p>
       <p class="objectives_subtitle"> <%= t("no_poverty.objectives.subtitle", scope: "decidim.components.sdgs") %> </p>
@@ -517,13 +517,13 @@
   </div>
 </div>
 <script>
-  document.querySelector("#ods-container").addEventListener('click', function(e) {
-      e.preventDefault();
-      var wrapperElement = e.path.find(_e => _e.classList.contains("ods"));
+  document.querySelector("#ods-container").addEventListener('click', function(event) {
+      event.preventDefault();
+      var wrapperElement = event.path.find(function(e) { return e.classList.contains("ods"); });
       var id = wrapperElement.id.split('ods-')[1];
 
       var objectiveWrapper = document.querySelector("#objective_container");
-      Array.from(objectiveWrapper.children).forEach(e => {
+      Array.from(objectiveWrapper.children).forEach(function (e) {
           if (!e.classList.contains('hide')) {
               e.classList.add('hide');
           }
