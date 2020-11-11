@@ -519,18 +519,25 @@
 <script>
   document.querySelector("#ods-container").addEventListener('click', function(event) {
       event.preventDefault();
-      var wrapperElement = event.path.find(function(e) { return e.classList.contains("ods"); });
-      var id = wrapperElement.id.split('ods-')[1];
 
-      var objectiveWrapper = document.querySelector("#objective_container");
-      Array.from(objectiveWrapper.children).forEach(function (e) {
-          if (!e.classList.contains('hide')) {
-              e.classList.add('hide');
-          }
+      var node = event.target;
+      while(!node.classList.contains("ods")) {
+          node = node.parentNode;
+      }
 
-          if (e.id.includes(id)) {
-              e.classList.remove('hide');
-          }
-      });
+      if (node) {
+          var id = node.id.split('ods-')[1];
+
+          var objectiveContainer = document.querySelector("#objective_container");
+          Array.from(objectiveContainer.children).forEach(function (e) {
+              if (!e.classList.contains('hide')) {
+                  e.classList.add('hide');
+              }
+
+              if (e.id.includes(id)) {
+                  e.classList.remove('hide');
+              }
+          });
+      }
   });
 </script>
