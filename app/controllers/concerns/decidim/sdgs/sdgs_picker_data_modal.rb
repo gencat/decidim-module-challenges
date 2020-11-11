@@ -10,7 +10,7 @@ module Decidim
 
       included do
         def data_picker_modal_content
-            render partial: "decidim/sdgs/sdgs_picker_data/sdgs_picker_content"
+          render partial: "decidim/sdgs/sdgs_picker_data/sdgs_picker_content"
         end
       end
     end
