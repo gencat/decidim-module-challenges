@@ -50,7 +50,7 @@ module Decidim
             description: parsed_description,
             component: form.current_component,
             decidim_challenges_challenge_id: form.decidim_challenges_challenge_id,
-            scope: form.decidim_scope_id,
+            scope: form.scope,
             tags: form.tags,
             causes: form.causes,
             groups_affected: form.groups_affected,
