@@ -27,7 +27,7 @@ describe "Public Sustainable Development Goals", type: :system do
         container = page.find("#objective_container")
 
         objective_ids.each do |objective|
-          expect(container).to have_selector(objective)
+          expect(container).to have_selector(objective, visible: :hidden)
         end
       end
 
