@@ -92,6 +92,7 @@ ca:
           related_to: Relacionat amb
           scope: Àmbit
           search: Cerca
+          select: Selecciona
           state: Estat
         filters_small_view:
           close_modal: Tancar finestra

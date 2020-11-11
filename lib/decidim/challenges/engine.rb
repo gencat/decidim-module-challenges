@@ -10,7 +10,10 @@ module Decidim
       isolate_namespace Decidim::Challenges
 
       routes do
-        resources :challenges
+        # Add engine routes here
+        resources :challenges do
+          get :data_picker_modal_content, on: :collection
+        end
         root to: "challenges#index"
       end
 

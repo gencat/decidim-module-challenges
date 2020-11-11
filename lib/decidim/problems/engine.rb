@@ -11,7 +11,9 @@ module Decidim
 
       routes do
         # Add engine routes here
-        resources :problems
+        resources :problems do
+          get :data_picker_modal_content, on: :collection
+        end
         root to: "problems#index"
       end
 
