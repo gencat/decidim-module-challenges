@@ -16,6 +16,8 @@ module Decidim
 
           allow! if permission_action.subject == :problem && permission_action.action == :destroy && destroy_permission_action?
 
+          allow! if permission_action.subject == :problem && permission_action.action == :publish && publish_permission_action?
+
           permission_action
         end
 
@@ -35,6 +37,10 @@ module Decidim
 
         def destroy_permission_action?
           permission_action.action == :destroy
+        end
+
+        def publish_permission_action?
+          permission_action.action == :publish
         end
 
         def problem

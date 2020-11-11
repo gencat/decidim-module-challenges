@@ -58,7 +58,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
+          @scope ||= current_organization.scopes.find_by(id: decidim_scope_id)
         end
 
         # Finds the Challenge from the given decidim_challenges_challenge_id
