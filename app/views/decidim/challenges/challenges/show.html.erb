@@ -1,0 +1,141 @@
+<%= stylesheet_link_tag "decidim/challenges/challenges" %>
+<div class="row column">
+  <div class="row">
+
+    <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+
+      <div class="card extra">
+        <div class="card__content">
+          <%= render partial: "decidim/shared/follow_button",
+                    locals: { followable: current_participatory_space, large: false } %>
+        </div>
+      </div>
+
+      <div class="card extra definition-data">
+
+        <div class="definition-data__item status">
+          <span class="definition-data__title"><%= t("status", scope: "activemodel.attributes.challenge") %></span>
+          <%= t(@challenge.state, scope: "decidim.challenges.states") %>
+        </div>
+
+        <div class="definition-data__item area_id">
+          <span class="definition-data__title"><%= t("area_id", scope: "activemodel.attributes.challenge") %></span>
+          <%= present(@challenge).decidim_scope_id %>
+        </div>
+
+        <div class="definition-data__item coord_entity">
+          <span
+            class="definition-data__title"><%= t("coord_entity", scope: "activemodel.attributes.challenge") %></span>
+          <%= present(@challenge).coordinating_entities %>
+        </div>
+
+        <div class="definition-data__item col_entity">
+          <span class="definition-data__title"><%= t("col_entity", scope: "activemodel.attributes.challenge") %></span>
+          <%= present(@challenge).collaborating_entities %>
+        </div>
+
+        <div class="definition-data__item ods">
+          <span class="definition-data__title"><%= t("ods", scope: "activemodel.attributes.challenge") %></span>
+          <%= present(@challenge).ods %><br/>
+          <img class="definition-data__image" src="https://via.placeholder.com/100/FF0000/FFFFFF">
+        </div>
+        </div>
+
+      <%= resource_reference(current_participatory_space) %>
+      <%= render partial: "decidim/shared/share_modal" %>
+      <!-- embed_modal_for participatory_process_participatory_process_widget_url(current_participatory_space, format: :js)  -->
+
+  </div>
+
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <button class="button secondary hollow small has-tip">
+      < Tornar al llistat </button> <br />
+
+      <div class="section">
+        <h2 class="heading2"><strong><%= present(@challenge).title %></strong></h2><br />
+
+        <h3><strong><%= t("local_description", scope: "activemodel.attributes.challenge") %></strong></h3>
+        <p><%= present(@challenge).local_description %></p>
+
+        <h3><strong><%= t("global_description", scope: "activemodel.attributes.challenge") %></strong></h3>
+        <p><%= present(@challenge).global_description %></p>
+
+        <h3><strong><%= t("tags", scope: "activemodel.attributes.challenge") %></strong></h3>
+        <p class="tags"><%= present(@challenge).tags %></p>
+
+        <h3><strong>Problemes associats</strong></h3>
+
+        <div class="row small-up-1 medium-up-2 card-grid">
+
+          <div class="column">
+            <article class="card">
+              <div class="card__content">
+                <div class="card__header">
+                  <a class="card__link" href="/processes/PDUAECOConcaOdena/f/2843/debates/31">
+                    <h5 class="card__title">
+                      <strong>Problema #1</strong>
+                    </h5>
+                  </a>
+                </div>
+                <div class="card__text">
+                  <div class="card__text--paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in ex a neque pellentesque
+                    pretium. Mauris odio purus, fermentum at magna sit amet, elementum luctus mauris.
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="column">
+            <article class="card">
+              <div class="card__content">
+                <div class="card__header">
+                  <a class="card__link" href="/processes/PDUAECOConcaOdena/f/2843/debates/31">
+                    <h5 class="card__title">
+                      <strong>Problema #2</strong>
+                    </h5>
+                  </a>
+                </div>
+                <div class="card__text">
+                  <div class="card__text--paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in ex a neque pellentesque
+                    pretium. Mauris odio purus, fermentum at magna sit amet, elementum luctus mauris.
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <h3><strong>Solucions proposades</strong></h3>
+
+        <div class="row small-up-1 medium-up-2 card-grid">
+
+          <div class="column">
+            <article class="card">
+              <div class="card__content">
+                <div class="card__header">
+                  <a class="card__link" href="/processes/PDUAECOConcaOdena/f/2843/debates/31">
+                    <h5 class="card__title">
+                      <strong>Solució #1</strong>
+                    </h5>
+                  </a>
+                </div>
+                <div class="card__text">
+                  <div class="card__text--paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in ex a neque pellentesque
+                    pretium. Mauris odio purus, fermentum at magna sit amet, elementum luctus mauris.
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+      </div>
+  </div>
+</div>
+</div>
