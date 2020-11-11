@@ -5,26 +5,26 @@ require 'spec_helper'
 describe 'Public Sustainable Development Goals', type: :system do
   include_context 'with a component'
 
-  let(:manifest_name) { 'sdgs' }
+  let(:manifest_name) { "sdgs" }
   let(:sdgs_names) do
     [
-      '(1) No Poverty',
-      '(2) Zero Hunger',
-      '(3) Good Health and Well-being',
-      '(4) Quality Education',
-      '(5) Gender Equality',
-      '(6) Clean Water and Sanitation',
-      '(7) Affordable and Clean Energy',
-      '(8) Decent Work and Economic Growth',
-      '(9) Industry Innovation and Infrastructure',
-      '(10) Reducing Inequality',
-      '(11) Sustainable Cities and Communities',
-      '(12) Responsible Consumption and Production',
-      '(13) Climate Action',
-      '(14) Life Below Water',
-      '(15) Life On Land',
-      '(16) Peace Justice and Strong Institutions',
-      '(17) Partnerships for the Goals'
+      "(1) No Poverty",
+      "(2) Zero Hunger",
+      "(3) Good Health and Well-being",
+      "(4) Quality Education",
+      "(5) Gender Equality",
+      "(6) Clean Water and Sanitation",
+      "(7) Affordable and Clean Energy",
+      "(8) Decent Work and Economic Growth",
+      "(9) Industry Innovation and Infrastructure",
+      "(10) Reducing Inequality",
+      "(11) Sustainable Cities and Communities",
+      "(12) Responsible Consumption and Production",
+      "(13) Climate Action",
+      "(14) Life Below Water",
+      "(15) Life On Land",
+      "(16) Peace Justice and Strong Institutions",
+      "(17) Partnerships for the Goals"
     ]
   end
 
