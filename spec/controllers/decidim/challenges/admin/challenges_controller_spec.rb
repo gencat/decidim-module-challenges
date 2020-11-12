@@ -96,6 +96,66 @@ module Decidim
           end
         end
 
+        describe "PUT #update" do
+          let(:challenge) { create :challenge, component: component }
+          context "with all mandatory fields" do
+            let(:params) do
+              {
+                id: challenge.id,
+                challenge: {
+                  title: {
+                    en: "Updated challenge title",
+                    es: "Título reto actualizado",
+                    ca: "Títol repte actualitzat"
+                  },
+                  local_description: local_description,
+                  global_description: global_description,
+                  state: state,
+                  sdg: sdg,
+                  tags: tags,
+                  start_date: start_date,
+                  end_date: end_date,
+                  collaborating_entities: collaborating_entities,
+                  coordinating_entities: coordinating_entities
+                },
+                component: component,
+                scope: scope,
+                participatory_process_slug: component.participatory_space.slug
+              }
+            end
+            it "updates a challenge" do
+              put :update, params: params
+
+              expect(flash[:notice]).not_to be_empty
+              expect(response).to have_http_status(:found)
+            end
+          end
+
+          context "without some mandatory fields" do
+            let(:params) do
+              {
+                id: challenge.id,
+                challenge: {
+                  title: {
+                    en: nil,
+                    es: nil,
+                    ca: nil
+                  }
+                },
+                component: component,
+                scope: scope,
+                participatory_process_slug: component.participatory_space.slug
+              }
+            end
+            it "doesn't update a challenge" do
+              put :update, params: params
+
+              expect(flash[:alert]).not_to be_empty
+              expect(response).to have_http_status(:ok)
+            end
+          end
+        end
+
         describe "DELETE #destroy" do
           let(:challenge) { create :challenge, component: component }
           let(:params) do
