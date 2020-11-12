@@ -3,6 +3,7 @@ ca:
   activemodel:
     attributes:
       challenge:
+        area_id: Territori
         col_entity: Entitat colaboradora
         coord_entity: Entitat coordinadora
         end_date: Data finalització
