@@ -60,8 +60,8 @@ shared_examples "manage problems" do
       let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
       let!(:problem) do
         create(:problem, scope: scope, component: component,
-                           title: { en: "Problem title" },
-                           description: { en: "Problem description" })
+                         title: { en: "Problem title" },
+                         description: { en: "Problem description" })
       end
 
       it "shows the title correctly" do
