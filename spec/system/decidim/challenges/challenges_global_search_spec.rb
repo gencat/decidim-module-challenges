@@ -13,5 +13,5 @@ describe "Search challenges", type: :system do
   end
 
   # FIX uncomment when challenge's cells are available
-  # include_examples "searchable results"
+  include_examples "searchable results"
 end
