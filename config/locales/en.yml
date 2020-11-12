@@ -1,6 +1,101 @@
 ---
 en:
+  activemodel:
+    attributes:
+      challenge:
+        col_entity: Collaborating entity
+        coord_entity: Coordinating entity
+        end_date: End date
+        global_description: Global challenge's description
+        local_description: Local challenge's description
+        scope: Territory
+        sdg: Sustainable Development Goals
+        status: State
+        start_date: Start date
+        tags: Tags
+        title: Title
   decidim:
+    challenges:
+      admin:
+        actions:
+          new_challenge: New challenge
+          configure: Configure
+          confirm_destroy: Are you sure you want to delete this %{name}?
+          destroy: Delete
+          publish: Publish
+          unpublish: Unpublish
+          view: View challenge
+        challenges:
+          create:
+            error: There's been a problem creating this challenge
+            success: Challenge successfully created
+          destroy:
+            error: There's been a problem deleting this challenge
+            success: Challenge successfully deleted
+          form:
+            select_states: Select state
+            duration: Duration
+          edit:
+            update: Update
+          new:
+            create: New
+            title: New challenge
+          update:
+            error: There's been a problem updating this challenge
+            success: Challenge successfully updated
+        models:
+          challenge:
+            fields:
+              title: Title
+              created_at: Created at
+              published: Published
+              tags: Tags
+              sdg: SDG
+              state: State
+              start_date: Start date
+              end_date: End date
+        titles:
+          challenges_list: Challenges list
+      challenges:
+        challenges:
+          empty: No challenges could be found
+        count:
+          challenges_count:
+            one: "%{count} repte"
+            other: "%{count} reptes"
+        filters:
+          all: Totes
+          category: Categoria
+          executing: En execució
+          finished: Acabada
+          proposal: Proposta
+          related_to: Relacionat amb
+          scope: Àmbit
+          search: Cerca
+          state: Estat
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplega
+        orders:
+          label: test
+          random: Random
+          recent: Most recent
+      challenges_helper:
+        filter_state_values:
+          all: Tots
+          proposal: Proposta
+          executing: En execució
+          finished: Acabat
+      index:
+        title: test
+        published: Published
+        not_published: Unpublished
+      states:
+        proposal: Proposal
+        executing: Executing
+        finished: Finished
     components:
       challenges:
         name: Challenges
