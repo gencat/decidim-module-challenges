@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Challenges::Permissions do
+describe Decidim::Challenges::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let!(:organization) { create :organization }
