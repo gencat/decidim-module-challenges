@@ -98,6 +98,7 @@ module Decidim
 
         describe "PUT #update" do
           let(:challenge) { create :challenge, component: component }
+
           context "with all mandatory fields" do
             let(:params) do
               {
@@ -123,6 +124,7 @@ module Decidim
                 participatory_process_slug: component.participatory_space.slug
               }
             end
+
             it "updates a challenge" do
               put :update, params: params
 
@@ -147,6 +149,7 @@ module Decidim
                 participatory_process_slug: component.participatory_space.slug
               }
             end
+
             it "doesn't update a challenge" do
               put :update, params: params
 
