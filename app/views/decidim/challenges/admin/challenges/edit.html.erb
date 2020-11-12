@@ -2,5 +2,13 @@
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
     <%= f.submit t(".update"), class: "button" %>
+
+    <% if challenge.published? %>
+      <%= link_to t("actions.unpublish", scope: "decidim.challenges.admin"), challenge_publish_path(challenge), method: :delete, class: "button muted" %>
+    <% else %>
+      <%= link_to t("actions.publish", scope: "decidim.challenges.admin"), challenge_publish_path(challenge), method: :post, class: "button hollow" %>
+    <% end %>
+    <% if allowed_to? :publish, :challenge, challenge: challenge %>
+    <% end %>
   </div>
 <% end %>

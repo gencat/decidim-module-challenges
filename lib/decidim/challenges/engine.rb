@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rails'
-require 'decidim/core'
+require "rails"
+require "decidim/core"
 
 module Decidim
   module Challenges
@@ -10,8 +10,6 @@ module Decidim
       isolate_namespace Decidim::Challenges
 
       routes do
-        # Add engine routes here
-        # resources :challenges
         root to: 'challenges#index'
         resources :challenges, only: [:show] do end
       end
