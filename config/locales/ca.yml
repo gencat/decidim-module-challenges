@@ -109,3 +109,303 @@ ca:
         name: Reptes
       sdgs:
         name: Objectius de Desenvolupament Sostenible
+        description: Els 17 Objectius de Desenvolupament Sostenible (ODS) - objectius universals, integradors i ambiciosos - són els que guien la implementació de l'Agenda 2030 de les Nacions Unides per al Desenvolupament Sostenible, aprovada el 25 de setembre de 2015. Les temàtiques que aborden van des de la pobresa, la fam, la pau, la salut, l'educació, les desigualtats, la inclusió, la prosperitat econòmica, la protecció del planeta, la lluita contra el canvi climàtic, les ciutats i els territoris, l'energia, el consum i la producció sostenibles i la governança.
+        subtitle: Coneix els 17 Objectius de Desenvolupament Sostenible
+        ods_logo:
+          title: OBJECTIUS GLOBALS
+          subtitle: de Desenvolupament Sostenible
+        no_poverty:
+          logo:
+            line1: FI
+            line2: DE LA POBRESA
+          objectives:
+            title: Objectiu 1
+            subtitle: Fi de la pobresa
+            objective1: Per a 2030, reduir la taxa mundial de mortalitat materna a menys de 70 per cada 100.000 nascuts vius.
+            objective2: Per a 2030, reduir com a mínim a la meitat la proporció d’homes, dones, nens i nenes de totes les edats que viuen en la pobresa en totes les seves dimensions d’acord amb les definicions nacionals.
+            objective3: Posar en pràctica en l’àmbit nacional mesures i sistemes apropiats de protecció social per a totes les persones, nivells mínims inclosos, i, per a 2030, aconseguir una àmplia cobertura per a les persones pobres i vulnerables.
+            objective4: Per a 2030, garantir que tots els homes i dones, en particular les persones pobres i vulnerables, tinguin els mateixos drets als recursos econòmics, així com accés als serveis bàsics, propietat i control de les terres i altres béns, herència, recursos naturals, noves tecnologies apropiades i serveis financers, incloses les microfinances.
+            objective5: Per a 2030, fomentar la resiliència de les persones pobres i aquelles que es troben en situacions vulnerables, i reduir-ne l’exposició i vulnerabilitat als fenòmens extrems relacionats amb el clima, així com altres crisis i desastres econòmics, socials i ambientals.
+            objective6: Garantir una mobilització important de recursos procedents de diverses fonts, fins i tot mitjançant la millora de la cooperació per al desenvolupament, a fi de proporcionar mitjans suficients i previsibles als països en desenvolupament, en particular els països menys avançats, per tal de posar en pràctica programes i polítiques encaminats a l’erradicació de la pobresa en totes les seves dimensions.
+            objective7: Crear marcs normatius sòlids en els plans nacional, regional i internacional, sobre la base d’estratègies de desenvolupament que tinguin en compte les qüestions de gènere i s’orientin en favor de les persones pobres, per tal d’impulsar la inversió accelerada en mesures d’erradicació de la pobresa.
+        zero_hunger:
+          logo:
+            line1: FAM
+            line2: ZERO
+          objectives:
+            title: Objectiu 2
+            subtitle: Fam zero
+            objective1: Per a 2030, posar fi a la fam i assegurar l’accés de totes les persones, en particular de les persones pobres i en situacions vulnerables, inclosos els lactants, a una alimentació sana, nutritiva i suficient durant tot l’any.
+            objective2: Per a 2030, posar fi a totes les formes de malnutrició, incloent-hi aconseguir, a tot tardar el 2025, les fites convingudes internacionalment sobre el retard del creixement i l’emaciació dels menors de 5 anys, i abordar les necessitats de nutrició de les adolescents, dones embarassades i lactants, així com de les persones grans.
+            objective3: Per a 2030, duplicar la productivitat agrícola i els ingressos dels productors/es d’aliments de petita escala, en particular les dones, els pobles indígenes, agricultors/es familiars, pastors/es i pescadors/es, a través, entre d’altres, d’un accés segur i equitatiu a les terres, a altres recursos de producció i inputs, coneixements, serveis financers, mercats i oportunitats per a la generació de valor afegit i treball no agrícola.
+            objective4: Per a 2030, assegurar la sostenibilitat dels sistemes de producció d’aliments i aplicar pràctiques agrícoles resilients que augmentin la productivitat i la producció, contribueixin al manteniment dels ecosistemes, enforteixin la capacitat d’adaptació al canvi climàtic, fenòmens meteorològics extrems, sequeres, inundacions i altres desastres, i millorin progressivament la qualitat del sòl i la terra.
+            objective5: Per a 2020, mantenir la diversitat genètica de les llavors, cultius i animals de granja i domesticats així com les espècies silvestres connexes, a través, entre d’altres, d’una bona gestió i diversificació dels bancs de llavors i plantes a escala nacional, regional i internacional, i promoure l’accés als beneficis que es derivin de la utilització dels recursos genètics i coneixements tradicionals, així com la distribució justa i equitativa d’aquests, com s’ha convingut internacionalment.
+            objective6: Augmentar les inversions, fins i tot mitjançant una cooperació internacional més àmplia, en infraestructura rural, investigació agrícola i serveis d’extensió, així com en desenvolupament tecnològic i bancs de gens de plantes i bestiar, a fi de millorar la capacitat de producció agrícola als països en desenvolupament, en particular als països menys avançats.
+            objective7: Corregir i prevenir les restriccions i distorsions comercials dels mercats agropecuaris mundials, a través, entre d’altres, de l’eliminació paral·lela de totes les formes de subvencions a les exportacions agrícoles i totes les mesures d’exportació d’efectes equivalents, de conformitat amb el mandat de la Ronda de Doha per al Desenvolupament.
+            objective8: Adoptar mesures per tal d’assegurar el bon funcionament dels mercats de productes bàsics alimentaris i derivats d’aquests, i facilitar l’accés adequat a informació sobre els mercats, en particular sobre les reserves d’aliments, a fi d’ajudar a limitar l’extrema volatilitat dels preus dels aliments.
+        good_health:
+          logo:
+            line1: SALUT
+            line2: I BENESTAR
+          objectives:
+            title: Objectiu 3
+            subtitle: Salut i benestar
+            objective1: Per a 2030, reduir la taxa mundial de mortalitat materna a menys de 70 per cada 100.000 nascuts vius.
+            objective2: Per a 2030, posar fi a les morts evitables de nounats i dels menors de 5 anys, aconseguint que tots els països intentin reduir la mortalitat neonatal almenys fins a 12 per cada 1.000 nascuts vius, i la mortalitat dels menors de 5 anys almenys fins a 25 per cada 1.000 nascuts vius.
+            objective3: Per a 2030, posar fi a les epidèmies de la sida, tuberculosi, malària i les malalties tropicals desateses, i combatre l’hepatitis, les malalties transmeses per l’aigua i altres malalties transmissibles.
+            objective4: Per a 2030, reduir en un terç la mortalitat prematura per malalties no transmissibles, mitjançant la prevenció i el tractament, i promoure la salut mental i el benestar.
+            objective5: Enfortir la prevenció i el tractament de l’abús de substàncies addictives, inclosos l’ús indegut d’estupefaents i el consum nociu d’alcohol.
+            objective6: Per a 2020, reduir a la meitat el nombre mundial de morts i lesions causats per accidents de trànsit.
+            objective7: Per a 2030, garantir l’accés universal als serveis de salut sexual i reproductiva, inclosos els de planificació familiar, informació i educació, així com la integració de la salut reproductiva a les estratègies i els programes nacionals.
+            objective8: Assolir la cobertura sanitària universal, en particular la protecció contra els riscos financers, l’accés a serveis de salut essencials de qualitat i l’accés a medicaments i vacunes segurs, eficaços, assequibles i de qualitat per a totes les persones.
+            objective9: Per a 2030, reduir substancialment el nombre de morts i malalties causats per productes químics perillosos i la pol·lució de l’aire, l’aigua i el sòl.
+            objective10: Enfortir a tots els països, segons escaigui, l’aplicació del Conveni marc de l’Organització Mundial de la Salut per al control del tabac.
+            objective11: Donar suport a les activitats d’investigació i desenvolupament de vacunes i medicaments per a les malalties transmissibles i no transmissibles que afecten primordialment països en desenvolupament, i facilitar l’accés a medicaments i a vacunes essencials assequibles de conformitat amb la Declaració de Doha relativa a l’Acord sobre els aspectes dels drets de propietat intel·lectual relacionats amb el comerç (ADPIC) i la salut pública, en la qual s’afirma el dret dels països en desenvolupament a utilitzar al màxim les disposicions de l’ADPIC pel que fa a la flexibilitat per a protegir la salut pública, i en particular, proporcionar accés a medicaments per a totes les persones.
+            objective12: Incrementar substancialment el finançament de la salut i la contractació, el desenvolupament, la capacitació i la retenció del personal sanitari als països en desenvolupament, especialment als països menys avançats i als petits estats insulars en desenvolupament.
+            objective13: Reforçar la capacitat de tots els països, en particular els països en desenvolupament, en matèria d’alerta primerenca, reducció de riscos i gestió dels riscos per a la salut nacional i mundial.
+        quality_education:
+          logo:
+            line1: EDUCACIÓ
+            line2: DE QUALITAT
+          objectives:
+            title: Objectiu 4
+            subtitle: Educació de qualitat
+            objective1: Per a 2030, vetllar perquè totes les nenes i nens acabin els cicles de l’ensenyament primari i secundari, que ha de ser gratuït, equitatiu i de qualitat i ha de produir resultats escolars pertinents i eficaços.
+            objective2: Per a 2030, vetllar perquè totes les nenes i nens tinguin accés a serveis d’atenció i desenvolupament en la primera infantesa, i a un ensenyament preescolar de qualitat, a fi que estiguin preparats per a l’ensenyament primari.
+            objective3: Per a 2030, assegurar l’accés en condicions d’igualtat per a tots els homes i dones a una formació tècnica, professional i superior de qualitat, inclòs l’ensenyament universitari.
+            objective4: Per a 2030, augmentar substancialment el nombre de joves i persones adultes que tenen les competències necessàries, en particular tècniques i professionals, per a accedir a l’ocupació, el treball digne i l’emprenedoria.
+            objective5: Per a 2030, eliminar les disparitats de gènere en l’educació i garantir l’accés en condicions d’igualtat a les persones vulnerables, incloses les persones amb discapacitat, els pobles indígenes i els nens i nenes en situacions de vulnerabilitat, a tots els nivells de l’ensenyament i la formació professional.
+            objective6: Per a 2030, garantir que tot el jovent i almenys una proporció substancial d’adults, tant homes com dones, tinguin competències de lectura, escriptura i aritmètica.
+            objective7: Per a 2030, garantir que tot l’alumnat adquireixi els coneixements teòrics i pràctics necessaris per a promoure el desenvolupament sostenible, a través, entre d’altres, de l’educació per al desenvolupament sostenible i l’adopció d’estils de vida sostenibles, els drets humans, la igualtat de gènere, la promoció d’una cultura de pau i no-violència, la ciutadania mundial i la valoració de la diversitat cultural i de la contribució de la cultura al desenvolupament sostenible.
+            objective8: Construir i adequar instal·lacions escolars que responguin a les necessitats dels infants i les persones discapacitades, tinguin en compte les qüestions de gènere, i ofereixin entorns d’aprenentatge segurs, no violents, inclusius i eficaços per a totes les persones.
+            objective9: Per a 2020, augmentar substancialment a escala mundial el nombre de beques disponibles per als països en desenvolupament, en particular els països menys avançats, els petits estats insulars en desenvolupament i els països d’Àfrica, perquè els seus estudiants puguin matricular-se en programes d’estudis superiors, inclosos programes de formació professional i programes tècnics, científics, d’enginyeria i de tecnologies de la informació i la comunicació, a països desenvolupats i a països en desenvolupament.
+            objective10: Per a 2030, augmentar substancialment l’oferta de mestres qualificats mitjançant, entre d’altres, la cooperació internacional per a la formació de docents als països en desenvolupament, especialment als països menys avançats i als petits estats insulars en desenvolupament.
+        gender_equality:
+          logo:
+            line1: IGUALTAT
+            line2: DE GÈNERE
+          objectives:
+            title: Objectiu 5
+            subtitle: Igualtat de gènere
+            objective1: Posar fi a totes les formes de discriminació contra totes les dones i nenes a tot el món.
+            objective2: Eliminar totes les formes de violència contra totes les dones i nenes en els àmbits públic i privat, inclosos el tràfic i l’explotació sexual, així com altres tipus d’explotació.
+            objective3: Eliminar totes les pràctiques nocives, com el matrimoni infantil, precoç i forçat, així com la mutilació genital femenina.
+            objective4: Reconèixer i valorar les cures no remunerades i el treball domèstic no remunerat, mitjançant la prestació de serveis públics, la provisió d’infraestructures i la formulació de polítiques de protecció social, així com mitjançant la promoció de la responsabilitat compartida a la llar i la família, segons escaigui a cada país.
+            objective5: Vetllar per la participació plena i efectiva de les dones, i per la igualtat d’oportunitats de lideratge en tots els àmbits de presa de decisions en la vida política, econòmica i pública.
+            objective6: Garantir l’accés universal a la salut sexual i reproductiva i als drets reproductius, de conformitat amb el Programa d’acció de la Conferència Internacional sobre la Població i el Desenvolupament, la Plataforma d’Acció de Beijing i els documents finals de les conferències d’examen respectives.
+            objective7: Emprendre reformes que atorguin a les dones el dret als recursos econòmics en condicions d’igualtat, així com l’accés a la propietat i al control de les terres i altres béns, els serveis financers, l’herència i els recursos naturals, de conformitat amb les lleis nacionals.
+            objective8: Millorar l’ús de la tecnologia instrumental, en particular les tecnologies de la informació i la comunicació, per tal de promoure l’apoderament de les dones.
+            objective9: Adoptar i enfortir polítiques encertades i lleis aplicables per a promoure la igualtat entre els gèneres i l’apoderament de dones i nenes a tots els nivells.
+        clean_water:
+          logo:
+            line1: AIGUA NETA
+            line2: I SANEJAMENT
+          objectives:
+            title: Objectiu 6
+            subtitle: Aigua neta i sanejament
+            objective1: Per a 2030, aconseguir l’accés universal i equitatiu a l’aigua potable, a un preu assequible per a totes les persones.
+            objective2: Per a 2030, aconseguir l’accés equitatiu a serveis de sanejament i higiene adequats per a totes les persones, i posar fi a la defecació a l’aire lliure, amb especial atenció a les necessitats de les dones i nenes, així com de les persones en situacions vulnerables.
+            objective3: Per a 2030, millorar la qualitat de l’aigua mitjançant la reducció de la contaminació, l’eliminació dels abocaments i la reducció al mínim de la descàrrega de materials i productes químics perillosos, la reducció a la meitat del percentatge d’aigües residuals sense tractar, i un augment substancial a escala mundial del reciclat i de la reutilització en condicions de seguretat.
+            objective4: Per a 2030, augmentar substancialment la utilització eficient dels recursos hídrics a tots els sectors, i assegurar la sostenibilitat de l’extracció i del subministrament d’aigua potable per tal de fer front a l’escassetat d’aigua i reduir substancialment el nombre de persones que pateixen d’escassetat d’aigua.
+            objective5: Per a 2030, dur a terme una gestió integrada dels recursos hídrics a tots els nivells, també mitjançant la cooperació transfronterera, de la manera que sigui convenient.
+            objective6: Per a 2020, protegir i restablir els ecosistemes relacionats amb l’aigua, inclosos boscos, muntanyes, aiguamolls, rius, aqüífers i llacs.
+            objective7: Per a 2030, ampliar la cooperació internacional i el suport ofert als països en desenvolupament per a la capacitació en matèria d’activitats i programes relatius a l’aigua i el sanejament, incloent la provisió i l’emmagatzematge d’aigua, la dessalinització, l’aprofitament eficient dels recursos hídrics, el tractament d’aigües residuals i les tecnologies de reciclatge i reutilització.
+            objective8: Donar suport i enfortir la participació de les comunitats locals en la millora de la gestió de l'aigua i el sanejament.
+        clean_energy:
+          logo:
+            line1: ENERGIA NETA
+            line2: I ASSEQUIBLE
+          objectives:
+            title: Objectiu 7
+            subtitle: Energia neta i assequible
+            objective1: Per a 2030, garantir l’accés universal a serveis d’energia assequibles, confiables i moderns.
+            objective2: Per a 2030, augmentar substancialment el percentatge d’energia renovable en el conjunt de fonts d’energia.
+            objective3: Per a 2030, duplicar la taxa mundial de millora de l’eficiència energètica.
+            objective4: Per a 2030, augmentar la cooperació internacional per tal de facilitar l’accés a la investigació i a les tecnologies energètiques no contaminants, incloses les fonts d’energia renovables, l’eficiència energètica i les tecnologies de combustibles fòssils avançades i menys contaminants, i promoure la inversió en infraestructures energètiques i tecnologies d’energia no contaminant.
+            objective5: Per a 2030, ampliar la infraestructura i millorar la tecnologia per tal d’oferir serveis d’energia moderns i sostenibles per a tots els països en desenvolupament, en particular els països menys avançats, els petits estats insulars en desenvolupament i els països en desenvolupament sense litoral, d’acord amb els programes de suport respectius.
+        decent_work:
+          logo:
+            line1: TREBALL DECENT
+            line2: I CREIXEMENT
+            line3: ECONÒMIC
+          objectives:
+            title: Objectiu 8
+            subtitle: Treball digne i creixement econòmic
+            objective1: Mantenir el creixement econòmic per càpita de conformitat amb les circumstàncies nacionals i, en particular, un creixement del producte interior brut d’almenys un 7% anual als països menys avançats.
+            objective2: Aconseguir nivells més elevats de productivitat econòmica mitjançant la diversificació, la modernització tecnològica i la innovació, entre d’altres maneres centrant l’atenció en sectors de més valor afegit i ús intensiu de mà d’obra.
+            objective3: Promoure polítiques orientades al desenvolupament que donin suport a les activitats productives, la creació d’ocupació digna, l’emprenedoria, la creativitat i la innovació, i encoratjar la regularització i el creixement de les microempreses i les petites i mitjanes empreses, a través, entre d’altres, de l’accés a serveis financers.
+            objective4: Millorar progressivament, per a 2030, la producció i el consum eficients dels recursos mundials i procurar desvincular el creixement econòmic de la degradació del medi ambient, de conformitat amb el Marc decennal de programes sobre modalitats sostenibles de consum i producció, començant pels països desenvolupats.
+            objective5: Per a 2030, aconseguir l’ocupació plena i productiva i garantir un treball digne per a tots els homes i dones, inclosos el jovent i les persones amb discapacitat, així com la igualtat de remuneració per treball d’igual valor.
+            objective6: Per a 2020, reduir substancialment la proporció de joves sense ocupació i que no cursen estudis ni reben formació.
+            objective7: Adoptar mesures immediates i eficaces per a erradicar el treball forçat, posar fi a les formes modernes d’esclavitud i el tràfic d’éssers humans i assegurar la prohibició i l’eliminació de les pitjors formes de treball infantil, incloent el reclutament i la utilització d’infants soldats, i, a tot tardar el 2025, posar fi al treball infantil en totes les seves formes.
+            objective8: Protegir els drets laborals i promoure un entorn de treball segur i protegit per a totes les persones treballadores, incloses les migrants, en particular les dones migrants i les persones amb ocupacions precàries.
+            objective9: Per a 2030, elaborar i posar en pràctica polítiques de promoció d’un turisme sostenible que creï ocupació i promogui la cultura i els productes locals.
+            objective10: Reforçar les institucions financeres nacionals per a encoratjar i ampliar l’accés als serveis bancaris, financers i d’assegurances per a tothom.
+            objective11: Augmentar el suport a la iniciativa d’ajut per al comerç als països en desenvolupament, en particular els països menys avançats, també en el context del Marc integrat millorat d’assistència tècnica relacionada amb el comerç per als països menys avançats.
+            objective12: Per a 2020, desenvolupar i posar en marxa una estratègia mundial per a l’ocupació del jovent i aplicar el Pacte mundial per a l’ocupació de l’Organització Internacional del Treball (OIT).
+        iiai:
+          logo:
+            line1: INDÚSTRIA
+            line2: INOVACIÓ I
+            line3: INFRAESTRUCTURES
+          objectives:
+            title: Objectiu 9
+            subtitle: Indústria, innovació, infraestructures
+            objective1: Desenvolupar infraestructures fiables, sostenibles, resilients i de qualitat, incloent infraestructures regionals i transfrontereres, per tal de donar suport al desenvolupament econòmic i al benestar humà, amb especial atenció a l’accés assequible i equitatiu per a totes les persones.
+            objective2: Promoure una industrialització inclusiva i sostenible i, a tot tardar el 2030, augmentar de manera significativa la contribució de la indústria a l’ocupació i al producte interior brut, d’acord amb les circumstàncies nacionals, i duplicar aquesta contribució als països menys avançats.
+            objective3: Augmentar l’accés de les petites indústries i altres empreses, en particular en els països en desenvolupament, als serveis financers, incloent els crèdits assequibles, i la integració en les cadenes de valor i els mercats.
+            objective4: Per a 2030, modernitzar les infraestructures i reconvertir les indústries perquè siguin sostenibles, usant els recursos amb més eficàcia i promovent l’adopció de tecnologies i processos industrials nets i racionals ambientalment, i aconseguint que tots els països adoptin mesures d’acord amb les capacitats respectives.
+            objective5: Augmentar la investigació científica i millorar la capacitat tecnològica dels sectors industrials de tots els països, en particular els països en desenvolupament, entre d’altres maneres fomentant la innovació i augmentant substancialment, d’aquí al 2030, el nombre de persones que treballen en el camp de la investigació i el desenvolupament per cada milió d’habitants, així com la despesa en investigació i desenvolupament dels sectors públic i privat.
+            objective6: Facilitar el desenvolupament d’infraestructures sostenibles i resilients als països en desenvolupament per mitjà de més suport financer, tecnològic i tècnic als països africans, països menys avançats, països en desenvolupament sense litoral i petits estats insulars en desenvolupament.
+            objective7: Donar suport al desenvolupament de tecnologies, investigació i innovació nacionals als països en desenvolupament, garantint també un entorn normatiu propici a la diversificació industrial i l’addició de valor als productes bàsics, entre d’altres.
+            objective8: Augmentar de forma significativa l’accés a les tecnologies de la informació i la comunicació i esforçar-se a proporcionar accés universal i assequible a Internet als països menys avançats a tot tardar el 2020.
+        reduced_inequalities:
+          logo:
+            line1: REDUCCIÓ DE LES
+            line2: DESIGUALTATS
+          objectives:
+            title: Objectiu 10
+            subtitle: Reduir la desigualtat en i entre els països
+            objective1: Per a 2030, aconseguir progressivament i mantenir el creixement dels ingressos del 40% més pobre de la població a una taxa superior a la mitjana nacional.
+            objective2: Per a 2030, potenciar i promoure la inclusió social, econòmica i política de totes les persones, independentment de l’edat, sexe, discapacitat, raça, ètnia, origen, religió, situació econòmica o altra condició.
+            objective3: Garantir la igualtat d’oportunitats i reduir la desigualtat dels resultats, també eliminant les lleis, polítiques i pràctiques discriminatòries i promovent legislació, polítiques i mesures adequades a aquest efecte.
+            objective4: Adoptar polítiques, en especial fiscals, salarials i de protecció social, i aconseguir progressivament més igualtat.
+            objective5: Millorar la reglamentació i la vigilància de les institucions i dels mercats financers mundials i enfortir l’aplicació d’aquesta reglamentació.
+            objective6: Assegurar més representació i intervenció dels països en desenvolupament en les decisions adoptades per les institucions econòmiques i financeres internacionals per tal d’augmentar l’eficàcia, la fiabilitat, la rendició de comptes i la legitimitat d’aquestes institucions.
+            objective7: Facilitar una migració i mobilitat ordenades, segures, regulars i responsables de les persones, també mitjançant l’aplicació de polítiques migratòries planificades i ben gestionades.
+            objective8: Aplicar el principi del tracte especial i diferenciat per als països en desenvolupament, en particular per als països menys avançats, de conformitat amb els acords de l’Organització Mundial del Comerç.
+            objective9: Fomentar l’ajut oficial al desenvolupament i els fluxos financers, inclosa la inversió estrangera directa, per als estats amb majors necessitats, en particular els països menys avançats, països africans, petits estats insulars en desenvolupament i països en desenvolupament sense litoral, d’acord amb els respectius plans i programes nacionals.
+            objective10: Per a 2030, reduir els costos de transacció de les remeses de migrants per sota del 3% i eliminar els canals de tramesa de remeses amb un cost superior al 5%.
+        sustainable_cities:
+          logo:
+            line1: CIUTATS I
+            line2: COMUNITATS
+            line3: SOSTENIBLES
+          objectives:
+            title: Objectiu 11
+            subtitle: Ciutats i comunitats sostebibles
+            objective1: Per a 2030, assegurar l’accés de totes les persones a habitatges i a serveis bàsics adequats, segurs i assequibles, i millorar els barris marginals.
+            objective2: Per a 2030, proporcionar accés a sistemes de transport segurs, assequibles, accessibles i sostenibles per a totes les persones, i millorar la seguretat viària, en particular mitjançant l’ampliació del transport públic, amb especial atenció a les necessitats de les persones en situació vulnerable, dones, nenes, nens, persones amb discapacitat i persones grans.
+            objective3: Per a 2030, augmentar la urbanització inclusiva i sostenible, així com la capacitat de planificar i gestionar de manera participativa, integrada i sostenible els assentaments humans a tots els països.
+            objective4: Redoblar els esforços per a protegir i salvaguardar el patrimoni cultural i natural del món.
+            objective5: Per a 2030, reduir de forma significativa el nombre de morts causades per desastres, inclosos els relacionats amb l’aigua, i de persones afectades per aquests, i reduir substancialment les pèrdues econòmiques directes causades per desastres relacionades amb el producte interior brut mundial, fent un èmfasi especial en la protecció de les persones pobres i de les persones en situacions de vulnerabilitat.
+            objective6: Per a 2030, reduir l’impacte ambiental negatiu per capita de les ciutats, amb especial atenció a la qualitat de l’aire, així com a la gestió dels residus municipals i d’altre tipus.
+            objective7: Per a 2030, proporcionar accés universal a zones verdes i espais públics segurs, inclusius i accessibles, en particular per a les dones i els infants, les persones grans i les persones amb discapacitat.
+            objective8: Donar suport als vincles econòmics, socials i ambientals positius entre les zones urbanes, periurbanes i rurals enfortint la planificació del desenvolupament nacional i regional.
+            objective9: Per a 2020, augmentar substancialment el nombre de ciutats i assentaments humans que adopten i posen en marxa polítiques i plans integrats per promoure la inclusió, l’ús eficient dels recursos, la mitigació del canvi climàtic i l’adaptació a aquest, així com la resiliència davant dels desastres, i desenvolupar i posar en pràctica una gestió integral dels riscos de desastre a tots els nivells, d’acord amb el Marc de Sendai per a la reducció del risc de desastres 2015-2030.
+            objective10: Proporcionar suport als països menys avançats, incloent una assistència financera i tècnica, perquè puguin construir edificis sostenibles i resilients utilitzant materials locals.
+        responsible_consumption:
+          logo:
+            line1: CONSUM I
+            line2: PRODUCCIÓ
+            line3: RESPONSABLES
+          objectives:
+            title: Objectiu 12
+            subtitle: Consum i producció responsables
+            objective1: Aplicar el Marc decennal de programes sobre modalitats de consum i producció sostenibles, amb la participació de tots els països i el lideratge dels països desenvolupats, tenint en compte el grau de desenvolupament i les capacitats dels països en desenvolupament.
+            objective2: Per a 2030, assolir la gestió sostenible i l’ús eficient dels recursos naturals.
+            objective3: Per a 2030, reduir a la meitat el malbaratament d’aliments per càpita mundial en la venda al detall i el consum, així com les pèrdues d’aliments a les cadenes de producció i distribució, incloses les pèrdues postcollita.
+            objective4: Per a 2020, aconseguir la gestió ecològicament racional dels productes químics i de tots els residus al llarg del seu cicle de vida, de conformitat amb els marcs internacionals convinguts, i reduir-ne de manera significativa l’alliberament a l’atmosfera, a l’aigua i al sòl a fi de minimitzar-ne els efectes adversos sobre la salut humana i el medi ambient.
+            objective5: Per a 2030, disminuir de manera substancial la generació de residus mitjançant polítiques de prevenció, reducció, reciclatge i reutilització.
+            objective6: Encoratjar les empreses, en especial les grans empreses i les empreses transnacionals, a adoptar pràctiques sostenibles i a incorporar informació sobre la sostenibilitat en el seu cicle de presentació d’informes.
+            objective7: Promoure pràctiques de contractació pública que siguin sostenibles, de conformitat amb les polítiques i prioritats nacionals.
+            objective8: Per a 2030, assegurar que les persones de tot el món tinguin informació i conscienciació pertinents per al desenvolupament i els estils de vida sostenibles, en harmonia amb la natura.
+            objective9: Ajudar els països en desenvolupament a enfortir la seva capacitat científica i tecnològica a fi d’avançar cap a modalitats de consum i producció més sostenibles.
+            objective10: Elaborar i aplicar instruments que permetin vigilar els efectes en el desenvolupament sostenible a fi d’aconseguir un turisme sostenible que creï llocs de treball i promogui la cultura i els productes locals.
+            objective11: Racionalitzar els subsidis ineficients als combustibles fòssils que encoratgen el consum antieconòmic, mitjançant l’eliminació de les distorsions del mercat d’acord amb les circumstàncies nacionals, també per mitjà d’una reestructuració dels sistemes tributaris i l’eliminació gradual dels subsidis perjudicials, quan existeixin, per tal de reflectir-ne l’impacte ambiental, tenint plenament en compte les necessitats i condicions específiques dels països en desenvolupament i reduint al mínim els possibles efectes adversos en el seu desenvolupament, d’una manera que permeti protegir les persones pobres i les comunitats afectades.
+        climate_action:
+          logo:
+            line1: ACCIÓ
+            line2: CLIMÀTICA
+          objectives:
+            title: Objectiu 13
+            subtitle: Acció climàtica
+            objective1: Enfortir la resiliència i la capacitat d’adaptació als riscos relacionats amb el clima i els desastres naturals a tots els països.
+            objective2: Incorporar mesures relatives al canvi climàtic en les polítiques, les estratègies i els plans nacionals.
+            objective3: Millorar l’educació, la conscienciació i la capacitat humana i institucional en relació amb la mitigació del canvi climàtic, l’adaptació a aquest, la reducció dels efectes i l’alerta primerenca.
+            objective4: Complir el compromís dels països desenvolupats que són part de la Convenció marc de les Nacions Unides sobre el canvi climàtic d’assolir, l’any 2020, l’objectiu de mobilitzar conjuntament 100.000 milions de dòlars anuals, procedents del conjunt de les fonts, a fi d’atendre les necessitats dels països en desenvolupament respecte de l’adopció de mesures concretes de mitigació i la transparència en l’aplicació, i posar en ple funcionament el Fons verd per al clima capitalitzant-lo com més aviat millor.
+            objective5: Promoure mecanismes per a augmentar la capacitat de planificació i gestió eficaces en relació amb el canvi climàtic als països menys avançats i als petits estats insulars en desenvolupament, centrats concretament en les dones, persones joves i comunitats locals i marginades.
+        life_below_water:
+          logo:
+            line1: VIDA
+            line2: SUBMARINA
+          objectives:
+            title: Objectiu 14
+            subtitle: Vida submarina
+            objective1: Per al 2025, prevenir i reduir de manera significativa la contaminació marina de tota mena, en particular la contaminació produïda per activitats realitzades en terra ferma, inclosos els detritus marins i la contaminació per nutrients.
+            objective2: Per al 2020, gestionar i protegir de manera sostenible dels ecosistemes marins i costaners amb vista a evitar efectes nocius importants, fins i tot mitjançant l'enfortiment de la seva resiliència, i adoptar mesures de restauració a fi de restablir la salut i la productivitat dels oceans.
+            objective3: Reduir al mínim els efectes de l'acidificació dels oceans i fer-hi front, incloent la intensificació de la cooperació científica a tots els nivells.
+            objective4: Per al 2020, reglamentar eficaçment l'explotació pesquera i posar fi a la sobrepesca, la pesca il·legal, la pesca no declarada i no reglamentada i les pràctiques de pesca destructives, i aplicar plans de gestió amb fonament científic per tal de restablir les poblacions de peixos en el termini més breu possible, almenys a nivells que puguin produir el màxim rendiment sostenible d'acord amb les seves característiques biològiques.
+            objective5: Per al 2020, conservar almenys el 10% de les zones costaneres i marines, de conformitat amb les lleis nacionals i el dret internacional i sobre la base de la millor informació científica disponible.
+            objective6: Per al 2020, prohibir certes formes de subvencions a la pesca que contribueixen a la capacitat de sobrepesca i a la sobreexplotació pesquera, eliminar les subvencions que contribueixen a la pesca il·legal, no declarada i no reglamentada i abstenir d'introduir noves subvencions d'aquesta índole, reconeixent que la negociació sobre les subvencions a la pesca en el marc de l'Organització Mundial del Comerç ha d'incloure un tracte especial i diferenciat, apropiat i efectiu per als països en desenvolupament i els països menys avançats.
+            objective7: Per al 2030, augmentar els beneficis econòmics que els petits Estats insulars en desenvolupament i els països menys avançats reben de l'ús sostenible dels recursos marins, en particular mitjançant la gestió sostenible de la pesca, l'aqüicultura i el turisme.
+            objective8: Augmentar els coneixements científics, desenvolupar la capacitat de recerca i transferir la tecnologia marina, tenint en compte els criteris i directrius per a la transferència de tecnologia marina de la Comissió Oceanogràfica Intergovernamental, a fi de millorar la salut dels oceans i potenciar la contribució de la biodiversitat marina al desenvolupament dels països en desenvolupament, en particular els petits Estats insulars en desenvolupament i els països menys avançats.
+            objective9: Facilitar l'accés dels pescadors artesanals en petita escala als recursos marins i als mercats.
+            objective10: Millorar la conservació i l'ús sostenible dels oceans i els seus recursos aplicant el dret internacional reflectit en la Convenció de les Nacions Unides sobre el Dret del Mar, que proporciona el marc jurídic per a la conservació i la utilització sostenible dels oceans i els seus recursos, com es recorda en el paràgraf 158 del document «El futur que volem».
+        life_on_land:
+          logo:
+            line1: VIDA
+            line2: D'ECOSISTEMES
+            line3: TERRESTRES
+          objectives:
+            title: Objectiu 15
+            subtitle: Vida d'ecosistemes terrestres
+            objective1: Per a 2020, vetllar per la conservació, el restabliment i l’ús sostenible dels ecosistemes terrestres i els ecosistemes interiors d’aigua dolça i els serveis que proporcionen, en particular els boscos, els aiguamolls, les muntanyes i les zones àrides, d’acord amb les obligacions marcades pels acords internacionals.
+            objective2: Per a 2020, promoure la gestió sostenible de tots els tipus de boscos, posar fi a la desforestació, recuperar els boscos degradats i incrementar substancialment la repoblació forestal i la reforestació a escala mundial.
+            objective3: Per a 2030, lluitar contra la desertificació, rehabilitar les terres i els sòls degradats, incloses les terres afectades per la desertificació, la sequera i les inundacions, i procurar assolir un món neutral quant a la degradació de les terres.
+            objective4: Per a 2030, vetllar per la conservació dels ecosistemes muntanyosos, incloent-hi la biodiversitat, a fi de millorar-ne la capacitat de proporcionar beneficis essencials per al desenvolupament sostenible.
+            objective5: Emprendre accions urgents i significatives per a reduir la degradació dels hàbitats naturals, aturar la pèrdua de biodiversitat i, per a 2020, protegir les espècies amenaçades i evitar-ne l’extinció.
+            objective6: Promoure la participació justa i equitativa dels beneficis que es derivin de la utilització de recursos genètics i promoure l’accés adequat a aquests recursos, tal com s’ha acordat internacionalment.
+            objective7: Adoptar mesures urgents per a posar fi a la cacera furtiva i al tràfic d’espècies protegides de flora i fauna, i abordar la demanda i l’oferta il·legals de productes silvestres.
+            objective8: Per a 2020, adoptar mesures per a prevenir la introducció d’espècies exòtiques invasores i reduir-ne de forma significativa els efectes en els ecosistemes terrestres i aquàtics, i controlar o erradicar les espècies prioritàries.
+            objective9: Per a 2020, integrar els valors dels ecosistemes i de la biodiversitat a la planificació nacional i local i als processos de desenvolupament, així com a les estratègies i als informes de reducció de la pobresa.
+            objective10: Mobilitzar i augmentar de forma significativa els recursos financers procedents de totes les fonts per tal de conservar i utilitzar de forma sostenible la biodiversitat i els ecosistemes.
+            objective11: Mobilitzar un volum apreciable de recursos procedents de totes les fonts i a tots els nivells per a finançar una gestió forestal sostenible i proporcionar incentius adequats als països en desenvolupament perquè promoguin aquest tipus de gestió, en particular amb vista a la conservació i la reforestació.
+            objective12: Augmentar el suport mundial a la lluita contra la cacera furtiva i el tràfic d’espècies protegides, en particular augmentant la capacitat de les comunitats locals per a cercar oportunitats de subsistència sostenible.
+        pjsi:
+          logo:
+            line1: PAU, JUSTÍCIA
+            line2: I INSTITUCIONS
+            line3: SÒLIDES
+          objectives:
+            title: Objectiu 16
+            subtitle: Pau, justícia i institucions sòlides
+            objective1: Reduir considerablement totes les formes de violència i les taxes de mortalitat connexes a tot el món.
+            objective2: Posar fi al maltractament, l’explotació, el tràfic, la tortura i totes les formes de violència contra els infants.
+            objective3: Promoure l’estat de dret en els àmbits nacionals i internacionals, i garantir la igualtat d’accés a la justícia per a totes les persones.
+            objective4: Per a 2030, reduir de forma significativa el tràfic il·lícit de finances i d’armes, enfortir la recuperació i devolució de béns robats, i lluitar contra totes les formes de delinqüència organitzada.
+            objective5: Reduir substancialment totes les formes de corrupció i suborn.
+            objective6: Crear unes institucions eficaces, responsables i transparents a tots els nivells.
+            objective7: Garantir l’adopció de decisions inclusives, participatives i representatives que responguin a les necessitats a tots els nivells.
+            objective8: Ampliar i enfortir la participació dels països en desenvolupament en les institucions de governança mundial.
+            objective9: Per a 2030, proporcionar l’accés a una identitat jurídica per a totes les persones, en particular mitjançant el registre de naixements.
+            objective10: Garantir l’accés públic a la informació i protegir les llibertats fonamentals, de conformitat amb les lleis nacionals i els acords internacionals.
+            objective11: Enfortir les institucions nacionals pertinents, mitjançant, entre d’altres, la cooperació internacional, amb vista a realitzar formació a tots els nivells, en particular als països en desenvolupament, per tal de prevenir la violència i combatre el terrorisme i la delinqüència.
+            objective12: Promoure i aplicar lleis i polítiques no discriminatòries en favor del desenvolupament sostenible.
+        partnership:
+          logo:
+            line1: ALIANÇA PER A
+            line2: ASSOLIR ELS
+            line3: OBJECTIUS
+          objectives:
+            title: Objectiu 17
+            subtitle: Aliança per a assolir els objectius
+            objective1: Enfortir la mobilització de recursos interns, també mitjançant la prestació de suport internacional als països en desenvolupament, a fi de millorar la capacitat nacional per a recaptar ingressos fiscals i d’altra índole.
+            objective2: Vetllar perquè els països desenvolupats compleixin plenament els seus compromisos en relació amb l’ajut oficial al desenvolupament (AOD), inclòs el compromís adquirit per nombrosos països desenvolupats d’assolir l’objectiu de destinar el 0,7% del producte nacional brut (PNB) a l’AOD i del 0,15% al 0,20% del PNB a l’AOD dels països menys avançats, i encoratjar els proveïdors d’AOD que considerin fixar una meta per tal de destinar almenys el 0,20% del PNB a l’AOD dels països menys avançats.
+            objective3: Mobilitzar recursos financers addicionals provinents de múltiples fonts per als països en desenvolupament.
+            objective4: Assistir els països en desenvolupament per a aconseguir la sostenibilitat del deute a llarg termini amb polítiques coordinades orientades a fomentar el finançament, l’alleujament i la reestructuració del deute, si escau, i fer front al deute extern dels països pobres altament endeutats a fi de reduir l’endeutament excessiu.
+            objective5: Adoptar i aplicar sistemes de promoció d’inversió a favor dels països menys avançats.
+            objective6: Millorar la cooperació regional i internacional nord-sud, sud-sud i triangular i l’accés a la ciència, tecnologia i innovació, i augmentar l’intercanvi de coneixements en condicions mútuament convingudes, entre d’altres maneres millorant la coordinació entre els mecanismes existents, en particular en l’àmbit de les Nacions Unides, i mitjançant un mecanisme global de facilitació de la tecnologia.
+            objective7: Promoure el desenvolupament, així com la transferència, divulgació i difusió de tecnologies ecològicament racionals als països en desenvolupament en condicions favorables, incloent condicions concessionàries i preferencials, de mutu acord.
+            objective8: Posar en ple funcionament, a tot tardar el 2017, el banc de tecnologia i el mecanisme de suport a la ciència, tecnologia i innovació per als països menys avançats, i augmentar l’ús de tecnologies instrumentals, en particular de les tecnologies de la informació i la comunicació.
+            objective9: Augmentar el suport internacional a la implementació eficaç i amb objectius concrets de programes de formació als països en desenvolupament per tal de donar suport als plans nacionals orientats a aplicar tots els Objectius de Desenvolupament Sostenible, mitjançant, entre d’altres, la cooperació nord-sud, sud-sud i triangular.
+            objective10: Promoure un sistema de comerç multilateral universal, basat en normes, obert, no discriminatori i equitatiu en el marc de l’Organització Mundial del Comerç, mitjançant, entre d’altres, la conclusió de negociacions d’acord amb el Programa de Doha per al desenvolupament.
+            objective11: Augmentar de manera significativa les exportacions dels països en desenvolupament, en particular amb la perspectiva de duplicar la participació dels països menys avançats en les exportacions mundials per a 2020.
+            objective12: Aconseguir la implementació oportuna d’un accés permanent als mercats, sense aranzels ni quotes per a tots els països menys avançats, de conformitat amb les decisions de l’Organització Mundial del Comerç, i, entre d’altres, vetllant per tal que les normes d’origen preferencials aplicables a les importacions dels països menys avançats siguin transparents i senzilles, i contribueixin a facilitar l’accés als mercats.
+            objective13: Augmentar l’estabilitat macroeconòmica mundial, mitjançant, entre d’altres, la coordinació i coherència de polítiques.
+            objective14: Millorar la coherència de polítiques per al desenvolupament sostenible.
+            objective15: Respectar el lideratge i la política de cada país per a establir i aplicar polítiques orientades a l’erradicació de la pobresa i la promoció del desenvolupament sostenible.
+            objective16: Enfortir l’Aliança Mundial per al Desenvolupament Sostenible, complementada per aliances entre múltiples actors que mobilitzin i promoguin l’intercanvi de coneixements, expertesa, tecnologies i recursos financers, amb la finalitat de donar suport a l’assoliment dels Objectius de Desenvolupament Sostenible a tots els països, en particular als països en desenvolupament.
+            objective17: Encoratjar i promoure la constitució d’aliances eficaces en els àmbits públic, publicoprivat i de la societat civil, aprofitant l’experiència i les estratègies d’obtenció de recursos dels partenariats.
+            objective18: Per a 2020, millorar la prestació de suport a la formació per als països en desenvolupament, inclosos els països menys avançats i els petits estats insulars en desenvolupament, amb la perspectiva d’augmentar de forma significativa la disponibilitat de dades actualitzades, fiables i de qualitat, desglossades per grups d’ingressos, gènere, edat, raça, origen ètnic, condició migratòria, discapacitat, ubicació geogràfica i altres característiques pertinents segons el context nacional.
+            objective19: Per a 2030, aprofitar les iniciatives existents per a elaborar indicadors que permetin mesurar els progressos aconseguits en matèria de desenvolupament sostenible i constitueixin un complement dels indicadors utilitzats per a mesurar el producte interior brut, i donar suport a la formació en estadística als països en desenvolupament.
