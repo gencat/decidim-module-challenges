@@ -56,15 +56,6 @@ module Decidim
       def search_klass
         Decidim::Challenges::ChallengeSearch
       end
-
-      # def form_presenter
-      #   @form_presenter ||= present(@form, presenter_class: Decidim::Challenge::ChallengePresenter)
-      # end
-
-      def search_klass
-        Decidim::Challenges::ChallengeSearch
-      end
-
     end
   end
 end

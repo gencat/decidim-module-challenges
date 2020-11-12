@@ -15,6 +15,10 @@ module Decidim
   
         private
         
+        def challenge_path
+          resource_locator(model).path
+        end
+
         def show
           render
         end
@@ -31,8 +35,8 @@ module Decidim
           translated_attribute model.global_description
         end
 
-        def resource_ods
-          model.ods
+        def resource_sdg
+          model.sdg
         end
 
         def resource_state

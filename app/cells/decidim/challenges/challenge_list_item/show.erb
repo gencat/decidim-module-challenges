@@ -1,37 +1,20 @@
 <div class="card card--challenge <%= resource_state %> muted">
     <div class="card__content">
         <div class="card__header">
-            <a class="card__link">
+            <%= link_to challenge_path, class: "card__link" do %>
                 <div class="card__title">
                     <%= resource_title %>
                 </div>
-            </a>
-            <%= cell("decidim/coauthorships", challenge, has_actions: false, context: { current_user: current_user }) %>
-            <div class="author--inline">
-                <div class="author-data">
-                    <div class="author-data__main">
-                        <div class="author-data__main">
-                            <div class="author author--inline">
-                                <a>
-                                    <span class="author__avatar">
-                                        <%= image_tag asset_path("decidim/default-avatar.svg"), alt: "member-avatar" %>
-                                    </span>
-                                    <span class="author__name">nom</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <% end %>
         </div>
         <div class="card__text">
             <div class="card__text--paragraph">
                 <span class="card__text--paragraph--estat"><%= t(resource_state, scope: 'decidim.challenges.states') %></span><%= resource_description%>
             </div>
         </div>
-        <div class="card__ods">
-            <div class="card__ods--paragraph">
-                <%= resource_ods%>
+        <div class="card__sdg">
+            <div class="card__sdg--paragraph">
+                <%= resource_sdg%>
             </div>
         </div>
     </div>
