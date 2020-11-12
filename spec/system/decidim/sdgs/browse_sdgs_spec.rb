@@ -23,14 +23,6 @@ describe "Public Sustainable Development Goals", type: :system do
         expect(page).to have_selector(".ods", count: 18)
       end
 
-      it "has all the objective texts" do
-        container = page.find("#objective_container")
-
-        objective_ids.each do |objective|
-          expect(container).to have_selector(objective, visible: :hidden)
-        end
-      end
-
       describe "ods logo click" do
         context "when a ODS logo is clicked" do
           it "has to display an element containing the objective explanation" do
