@@ -1,4 +1,4 @@
-name: "[CI] Test"
+name: "[CI] Main Test"
 
 on:
   push:
@@ -72,7 +72,7 @@ jobs:
         with:
           timeout_minutes: 10
           max_attempts: 3
-          command: SIMPLECOV=1 CODECOV=1 bundle exec rake --backtrace -t
+          command: SIMPLECOV=1 CODECOV=1 bundle exec rake --backtrace
 
       - name: Publish code coverage
         run: |
