@@ -214,3 +214,30 @@ ca:
         proposal: Proposada
         executing: En execució
         finished: Acabada
+    sdgs:
+      names:
+        no_poverty: Fi de la pobresa
+        zero_hunger: Fam zero
+        good_health: Salut i benestar
+        quality_education: Educació de qualitat
+        gender_equality: Igualtat de gènere
+        clean_water: Aigua neta i sanejament
+        clean_energy: Energia neta i assequible
+        decent_work: Treball digne i creixement econòmic
+        iiai: Indústria, innovació, infraestructures
+        reduced_inequalities: Reduir la desigualtat en i entre els països
+        sustainable_cities: Ciutats i comunitats sostebibles
+        responsible_consumption: Consum i producció responsables
+        climate_action: Acció climàtica
+        life_below_water: Vida submarina
+        life_on_land: Vida d'ecosistemes terrestres
+        pjsi: Pau, justícia i institucions sòlides
+        partnership: Aliança per a assolir els objectius
+      sdgs_filter:
+        modal:
+          close: Selecciona
+          title: Objectius de Desenvolupament Sostenible
+      sdgs_picker_data:
+        sdgs_picker_content:
+          close: Selecciona
+          title: Objectius de Desenvolupament Sostenible
