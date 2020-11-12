@@ -14,6 +14,8 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     state { "executing" }
+    causes { "causes" }
+    groups_affected { "groups affected" }
     start_date { 1.day.from_now }
     end_date { start_date + 2.months }
     component { build(:component, manifest_name: "problems") }
