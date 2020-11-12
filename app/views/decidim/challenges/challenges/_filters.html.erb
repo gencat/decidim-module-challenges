@@ -22,32 +22,14 @@
     <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
-  <%# byebug %>
   <% if current_participatory_space.components.published.where(manifest_name: "sdgs").any? %>
-  <div class="filters__section">
-    <div id="sdg-ids-selector" class="data-picker picker-multiple" data-picker-name="filter[sdgs_ids]">
-      <div class="picker-values">
-        <div><a href="<%= params[:url] %>" data-picker-value="<%= 666 %>"><%= "params[:text]!" %></a></div>
-      </div>
-      <div class="picker-prompt"><a href="#"><%= t(".select") %></a></div>
-    </div>
-
-
-    <%           picker_options = {
-            id: sanitize_to_id("sdgs_ids"),
-            class: "picker-multiple",
-            name: "#{form.object_name}[#{"sdgs_ids"}]",
-            multiple: true,
-            autosort: true
-          }
-          prompt_params = {
-            url: data_picker_modal_content_challenges_path,
-            text: t(".select")
-          }
- %>
-    <%= form.data_picker(:sdgs_ids, picker_options, prompt_params) do |item|
-            { url: data_picker_modal_content_challenges_path, text: present(item).id_and_title }
-          end %>
+  <div class="filters__section sdgs-filter">
+    <button class="button expanded" data-open="sdgs-modal"><%= t(".select") %></button>
+    <% Decidim::Sdgs::Sdg::SDGS.each_with_index do |sdg_name, idx|
+      idx+= 1
+      %>
+      <input type="hidden" name="filter[sdgs_ids]" value="<%= form.object.sdgs_ids.include?(idx.to_s) ? idx : '' %>" data-value="<%= idx %>">
+    <% end %>
   </div>
   <% end %>
 

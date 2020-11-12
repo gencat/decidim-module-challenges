@@ -13,6 +13,7 @@ module Decidim
       include Decidim::Sdgs::SdgsPickerDataModal
 
       helper Decidim::CheckBoxesTreeHelper
+      helper Decidim::Sdgs::SdgsHelper
 
       helper_method :challenges
 
