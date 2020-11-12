@@ -8,15 +8,15 @@ module Decidim
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
-          allow! if permission_action.subject == :challenges && permission_action.action == :read && read_permission_action?
+          allow! if permission_action.subject == :challenges && read_permission_action?
 
-          allow! if permission_action.subject == :challenge && permission_action.action == :create && create_permission_action?
+          allow! if permission_action.subject == :challenge && create_permission_action?
 
-          allow! if permission_action.subject == :challenge && permission_action.action == :edit && edit_permission_action?
+          allow! if permission_action.subject == :challenge && edit_permission_action?
 
-          allow! if permission_action.subject == :challenge && permission_action.action == :destroy && destroy_permission_action?
+          allow! if permission_action.subject == :challenge && destroy_permission_action?
 
-          allow! if permission_action.subject == :challenge && permission_action.action == :publish && publish_permission_action?
+          allow! if permission_action.subject == :challenge && publish_permission_action?
 
           permission_action
         end
