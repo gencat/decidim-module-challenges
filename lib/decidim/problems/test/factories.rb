@@ -10,7 +10,7 @@ FactoryBot.define do
     scope
   end
 
-  factory :problem, class: "Decidim::Problems::Problem" do
+  factory :problem, traits: [:finished, :proposal], class: "Decidim::Problems::Problem" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     state { "executing" }
