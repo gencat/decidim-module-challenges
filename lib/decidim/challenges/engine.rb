@@ -13,6 +13,7 @@ module Decidim
         # Add engine routes here
         # resources :challenges
         root to: 'challenges#index'
+        resources :challenges, only: [:show] do end
       end
 	  
       initializer 'decidim_challenges.assets' do |app|
