@@ -18,7 +18,7 @@ module Decidim
       def index; end
 
       def show
-        @challenge = Challenge.find(params[:id]); 
+        @challenge = Challenge.find(params[:id])
       end
 
       private
