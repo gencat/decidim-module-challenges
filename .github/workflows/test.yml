@@ -72,7 +72,8 @@ jobs:
         with:
           timeout_minutes: 10
           max_attempts: 3
-          command: SIMPLECOV=1 CODECOV=1 bundle exec rake --backtrace -t
+          retry_on: error
+          command: SIMPLECOV=1 CODECOV=1 bundle exec rake --backtrace -t --retry 3
 
       - name: Publish code coverage
         run: |
