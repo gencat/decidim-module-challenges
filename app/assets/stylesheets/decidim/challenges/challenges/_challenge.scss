@@ -25,10 +25,16 @@
 
     .card_text--sdg--image {
         display: inline-block;
+        width: 20%;
+
+        img {
+            vertical-align: bottom;
+        }
     }
 
     .card_text--sdg--text {
         display: inline-block;
+        width: 75%;
     }
 
     .card__text--paragraph--estat {
@@ -70,4 +76,26 @@
 .section p.tags{
     color: #D04040;
     font-weight: 600;
+}
+
+.ods {
+    .text-container {
+        top: 2px !important;
+        left: 12px !important;
+        width: 60px !important;
+    }
+    .text-container.show {
+        top: 2px !important;
+        left: 37% !important;
+        width: 60px !important;
+        text-align: start;
+    }
+
+    p {
+        font-size: 6pt !important;
+    }
+
+    img {
+        max-width: 100px !important;
+    }
 }

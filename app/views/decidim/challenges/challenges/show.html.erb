@@ -1,4 +1,27 @@
 <%= stylesheet_link_tag "decidim/challenges/challenges" %>
+<%= stylesheet_link_tag "decidim/sdgs/ods" %>
+
+<%
+  sdgs = [
+    I18n.t("no_poverty.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("zero_hunger.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("good_health.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("quality_education.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("gender_equality.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("clean_water.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("clean_energy.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("decent_work.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("iiai.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("reduced_inequalities.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("sustainable_cities.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("responsible_consumption.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("climate_action.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("life_below_water.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("life_on_land.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("pjsi.objectives.subtitle", scope: "decidim.components.sdgs"),
+    I18n.t("partnership.objectives.subtitle", scope: "decidim.components.sdgs")
+  ];
+%>
 <div class="row column">
   <div class="row">
 
@@ -36,8 +59,15 @@
 
         <div class="definition-data__item sdg">
           <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
-          <%= present(@challenge).sdg %><br/>
-          <img class="definition-data__image" src="https://via.placeholder.com/100/FF0000/FFFFFF">
+          <%= sdgs[present(@challenge).sdg] %><br/>
+          <div class="ods">
+              <div class="text-container show">
+                  <p><%= t("no_poverty.logo.line1", scope: "decidim.components.sdgs") %></p>
+                  <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
+              </div>
+              <img alt="Logo ODS <%= (present(@challenge).sdg + 1).to_s.rjust(2, '0') %>"
+                src="/assets/decidim/sdgs/ods-<%= (present(@challenge).sdg + 1).to_s.rjust(2, '0') %>.svg">
+          </div>
         </div>
         </div>
 

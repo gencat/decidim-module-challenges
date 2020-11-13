@@ -13,8 +13,22 @@
             </div>
         </div>
         <div class="card__sdg">
-            <div class="card__sdg--paragraph">
-                <%= resource_sdg%>
+            <div class="card_text--sdg--image">
+                <div class="ods">
+                    <div class="text-container">
+                        <p><%= t("no_poverty.logo.line1", scope: "decidim.components.sdgs") %></p>
+                        <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
+                    </div>
+                    <img alt="Logo ODS <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg">
+                </div>
+            </div>
+            <div class="card_text--sdg--text">
+                <div>
+                    <%= t('sdg', scope: "activemodel.attributes.challenge") %>
+                </div>
+                <div>
+                    <strong><%= resource_sdg%></strong>
+                </div>
             </div>
         </div>
     </div>
