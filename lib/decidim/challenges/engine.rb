@@ -11,7 +11,7 @@ module Decidim
 
       routes do
         root to: "challenges#index"
-        resources :challenges, only: [:show] {}
+        resources :challenges, only: [:show] do end
       end
 
       initializer "decidim_challenges.assets" do |app|
