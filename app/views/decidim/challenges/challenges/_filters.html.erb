@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "decidim/sdgs/sdgs_filter/button" %>
 <%= filter_form_for filter do |form| %>
   <div class="filters__section">
     <div class="filters__search">
@@ -24,11 +25,11 @@
 
   <% if current_participatory_space.components.published.where(manifest_name: "sdgs").any? %>
   <div class="filters__section sdgs-filter">
-    <button class="button expanded" data-open="sdgs-modal"><%= t(".select") %></button>
+    <button class="" data-open="sdgs-modal"><%= t(".select") %></button>
     <% Decidim::Sdgs::Sdg::SDGS.each_with_index do |sdg_name, idx|
       idx+= 1
       %>
-      <input type="hidden" name="filter[sdgs_ids]" value="<%= form.object.sdgs_ids.include?(idx.to_s) ? idx : '' %>" data-value="<%= idx %>">
+      <input type="hidden" name="filter[sdgs_ids][]" value="<%= form.object.sdgs_ids.include?(idx.to_s) ? idx : '' %>" data-value="<%= idx %>">
     <% end %>
   </div>
   <% end %>

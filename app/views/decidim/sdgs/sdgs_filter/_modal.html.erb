@@ -1,4 +1,4 @@
- <%= stylesheet_link_tag "decidim/sdgs/sdgs_filter/modal" %> 
+<%= stylesheet_link_tag "decidim/sdgs/sdgs_filter/modal" %>
 <div id="sdgs-modal" class="reveal" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title"><%= t(".title") %></h3>
@@ -14,8 +14,10 @@
           idx_str= idx.to_s.rjust(2, "0")
           %>
           <div class="sdg-cell columns mediumlarge-4" data-value="<%= idx %>">
-            <%# <img alt="Logo SDG <%= idx_str % >" src="< %= image_path("decidim/sdgs/ods-#{idx_str}.svg") % >""> %>
-            <p><%= "#{idx_str}. #{t_sdg(sdg_name)}" %></p>
+            <img alt="Logo SDG <%= idx_str %>" src="<%= image_path("decidim/sdgs/ods-#{idx_str}.svg") %>">
+            <div class="text">
+              <p><%= "#{idx_str}. #{t_sdg(sdg_name)}" %></p>
+            </div>
           </div>
         <% end %>
       </div>

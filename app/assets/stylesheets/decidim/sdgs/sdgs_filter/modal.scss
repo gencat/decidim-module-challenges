@@ -2,5 +2,22 @@
   .sdg-cell{
     cursor: pointer;
     text-align: center;
+    border: 3px solid white;
+
+    img {
+      width: 100%;
+    }
+    div.text{
+      height: 3em;
+      background-color: lightgrey;
+    }
+    p{
+      height: 3em;
+      //line-height: 3em;
+      padding-top: 0.5em;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0.8em;
+    }
   }
 }

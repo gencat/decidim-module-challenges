@@ -14,5 +14,6 @@
  *= require_self
  *= link decidim/sdgs/ods.scss
  *= link decidim/challenges/challenges.css
+ *= link decidim/sdgs/sdgs_filter/button.css
  *= link decidim/sdgs/sdgs_filter/modal.css
  */
