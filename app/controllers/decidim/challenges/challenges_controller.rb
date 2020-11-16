@@ -19,6 +19,7 @@ module Decidim
 
       def show
         @challenge = Challenge.find(params[:id])
+        @sdg = sdgs[@challenge.sdg]
       end
 
       private
@@ -55,6 +56,12 @@ module Decidim
 
       def search_klass
         Decidim::Challenges::ChallengeSearch
+      end
+
+      def sdgs
+        Decidim::Sdgs::Sdg::SDGS.map do |sdg_name|
+          I18n.t("#{sdg_name}.objectives.subtitle", scope: "decidim.components.sdgs")
+        end
       end
     end
   end
