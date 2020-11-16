@@ -25,7 +25,7 @@ es:
         start_date: Fecha inicio
         status: Estado
         tags: Palabras clave
-        title: Titulo
+        title: Título
   decidim:
     challenges:
       admin:
@@ -77,15 +77,15 @@ es:
           challenges_list: Listado de retos
       challenges:
         challenges:
-          empty: No se han podido encontrar retos
-          empty_filters: No se han podido encontrar retos
+          empty: No se han encontrado retos
+          empty_filters: No se han encontrado retos
         count:
           challenges_count:
             one: "%{count} reto"
             other: "%{count} retos"
         filters:
           all: Todas
-          category: Categoria
+          category: Categoría
           executing: En ejecución
           finished: Acabada
           proposal: Propuesta
@@ -100,7 +100,7 @@ es:
           filter_by: Filtrar por
           unfold: Despliega
         orders:
-          label: test
+          label: Ordenaciones
           random: Aleatorio
           recent: Más recientes
       challenges_helper:
@@ -112,7 +112,7 @@ es:
       index:
         not_published: No Publicado
         published: Publicado
-        title: test
+        title: Retos
       states:
         executing: En ejecución
         finished: Acabada
@@ -1042,9 +1042,5 @@ es:
         zero_hunger: Hambre zero
       sdgs_filter:
         modal:
-          close: Selecciona
-          title: Objetivos de Desarrollo Sostenible
-      sdgs_picker_data:
-        sdgs_picker_content:
           close: Selecciona
           title: Objetivos de Desarrollo Sostenible

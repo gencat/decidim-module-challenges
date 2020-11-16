@@ -10,7 +10,6 @@ module Decidim
       include Paginable
       include OrderableChallenges
       include ChallengesHelper
-      include Decidim::Sdgs::SdgsPickerDataModal
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper

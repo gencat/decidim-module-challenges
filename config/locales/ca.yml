@@ -100,7 +100,7 @@ ca:
           filter_by: Filtra per
           unfold: Desplega
         orders:
-          label: test
+          label: Ordenacions
           random: Aleatori
           recent: Més recents
       challenges_helper:
@@ -110,6 +110,8 @@ ca:
           finished: Acabat
           proposal: Proposta
       index:
+        title: Reptes
+        published: Publicat
         not_published: No Publicat
         published: Publicat
         title: test
@@ -1020,6 +1022,10 @@ ca:
         gender_equality: Igualtat de gènere
         good_health: Salut i benestar
         iiai: Indústria, innovació, infraestructures
+        reduced_inequalities: Reduir la desigualtat en i entre els països
+        sustainable_cities: Ciutats i comunitats sostenibles
+        responsible_consumption: Consum i producció responsables
+        climate_action: Acció climàtica
         life_below_water: Vida submarina
         life_on_land: Vida d'ecosistemes terrestres
         no_poverty: Fi de la pobresa
@@ -1032,9 +1038,5 @@ ca:
         zero_hunger: Fam zero
       sdgs_filter:
         modal:
-          close: Selecciona
-          title: Objectius de Desenvolupament Sostenible
-      sdgs_picker_data:
-        sdgs_picker_content:
           close: Selecciona
           title: Objectius de Desenvolupament Sostenible

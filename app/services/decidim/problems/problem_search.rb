@@ -32,8 +32,8 @@ module Decidim
           .or(query.where(id: in_finished))
       end
 
-      def search_sdg_id
-        query.where(sdg_id: sdg_id)
+      def search_sdgs_ids
+        query.where(sdg_id: Decidim::Sdgs::Sdg.names_from_idxs(sdgs_ids))
       end
     end
   end
