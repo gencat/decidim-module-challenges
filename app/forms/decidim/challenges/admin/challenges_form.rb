@@ -17,7 +17,7 @@ module Decidim
         attribute :decidim_component_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :tags, String
-        attribute :sdg, String
+        attribute :sdg, Integer
         attribute :state, Integer
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
