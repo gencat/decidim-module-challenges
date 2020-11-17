@@ -86,7 +86,7 @@ es:
         filters:
           all: Todas
           category: Categoría
-          executing: En ejecución
+          execution: En ejecución
           finished: Acabada
           proposal: Propuesta
           related_to: Relacionado con
@@ -106,7 +106,7 @@ es:
       challenges_helper:
         filter_state_values:
           all: Todos
-          executing: En ejecución
+          execution: En ejecución
           finished: Acabado
           proposal: Propuesta
       index:
@@ -114,7 +114,7 @@ es:
         published: Publicado
         title: Retos
       states:
-        executing: En ejecución
+        execution: En ejecución
         finished: Acabada
         proposal: Propuesta
     components:
@@ -992,7 +992,7 @@ es:
         filters:
           all: Todas
           category: Categoria
-          executing: En ejecución
+          execution: En ejecución
           finished: Acabada
           proposal: Propuesta
           related_to: Relacionado con
@@ -1014,11 +1014,11 @@ es:
       problems_helper:
         filter_state_values:
           all: Todos
-          executing: En ejecución
+          execution: En ejecución
           finished: Acabado
           proposal: Propuesta
       states:
-        executing: En ejecución
+        execution: En ejecución
         finished: Acabada
         proposal: Propuesta
     sdgs:

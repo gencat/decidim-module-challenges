@@ -23,7 +23,7 @@ module Decidim
         {
           search_text: "",
           category_id: default_filter_category_params,
-          state: %w(proposal executing finished),
+          state: %w(proposal execution finished),
           scope_id: default_filter_scope_params,
           related_to: ""
         }

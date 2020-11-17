@@ -86,7 +86,7 @@ ca:
         filters:
           all: Totes
           category: Categoria
-          executing: En execució
+          execution: En execució
           finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
@@ -106,7 +106,7 @@ ca:
       challenges_helper:
         filter_state_values:
           all: Tots
-          executing: En execució
+          execution: En execució
           finished: Acabat
           proposal: Proposta
       index:
@@ -116,7 +116,7 @@ ca:
         published: Publicat
         title: test
       states:
-        executing: En execució
+        execution: En execució
         finished: Acabada
         proposal: Proposada
     components:
@@ -984,7 +984,7 @@ ca:
         filters:
           all: Totes
           category: Categoria
-          executing: En execució
+          execution: En execució
           finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
@@ -1006,11 +1006,11 @@ ca:
       problems_helper:
         filter_state_values:
           all: Tots
-          executing: En execució
+          execution: En execució
           finished: Acabat
           proposal: Proposta
       states:
-        executing: En execució
+        execution: En execució
         finished: Acabada
         proposal: Proposada
     sdgs:

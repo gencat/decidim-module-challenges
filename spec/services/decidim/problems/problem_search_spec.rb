@@ -59,7 +59,7 @@ module Decidim
           context "when filtering problems in :proposal state" do
             let(:states) { %w(proposal) }
 
-            it "hides executing and finished proposals" do
+            it "hides execution and finished proposals" do
               create(:problem, :finished, component: component)
               proposal_problem = create(:problem, :proposal, component: component)
 
@@ -68,10 +68,10 @@ module Decidim
             end
           end
 
-          context "when filtering problems in :executing state" do
-            let(:states) { %w(executing) }
+          context "when filtering problems in :execution state" do
+            let(:states) { %w(execution) }
 
-            it "returns only executing proposals" do
+            it "returns only execution proposals" do
               create(:problem, :finished, component: component, challenge: challenge)
               create(:problem, :proposal, component: component, challenge: challenge)
 

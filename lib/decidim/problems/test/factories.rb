@@ -13,7 +13,7 @@ FactoryBot.define do
   factory :problem, traits: [:finished, :proposal], class: "Decidim::Problems::Problem" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    state { "executing" }
+    state { "execution" }
     causes { "causes" }
     groups_affected { "groups affected" }
     start_date { 1.day.from_now }

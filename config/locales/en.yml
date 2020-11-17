@@ -93,7 +93,7 @@ en:
         filters:
           all: All
           category: Category
-          executing: Executing
+          execution: Execution
           finished: Finished
           proposal: Proposal
           related_to: Related to
@@ -113,7 +113,7 @@ en:
       challenges_helper:
         filter_state_values:
           all: All
-          executing: Executing
+          execution: Execution
           finished: Finished
           proposal: Proposal
       index:
@@ -121,7 +121,7 @@ en:
         published: Published
         title: test
       states:
-        executing: Executing
+        execution: Execution
         finished: Finished
         proposal: Proposal
     components:
@@ -989,7 +989,7 @@ en:
         filters:
           all: All
           category: Category
-          executing: Executing
+          execution: Execution
           finished: Finished
           proposal: Proposal
           related_to: Related to
@@ -1011,11 +1011,11 @@ en:
       problems_helper:
         filter_state_values:
           all: All
-          executing: Executing
+          execution: Execution
           finished: Finished
           proposal: Proposal
       states:
-        executing: Executing
+        execution: Execution
         finished: Finished
         proposal: Proposal
     sdgs:
