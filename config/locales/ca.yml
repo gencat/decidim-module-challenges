@@ -92,7 +92,6 @@ ca:
           related_to: Relacionat amb
           scope: Àmbit
           search: Cerca
-          select: Selecciona
           state: Estat
         filters_small_view:
           close_modal: Tancar finestra
@@ -1037,6 +1036,8 @@ ca:
         sustainable_cities: Ciutats i comunitats sostenibles
         zero_hunger: Fam zero
       sdgs_filter:
+        filter_selector:
+          select: Selecciona
         modal:
           close: Selecciona
           title: Objectius de Desenvolupament Sostenible

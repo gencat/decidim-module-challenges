@@ -92,7 +92,6 @@ es:
           related_to: Relacionado con
           scope: Ámbito
           search: Búsqueda
-          select: Selecciona
           state: Estado
         filters_small_view:
           close_modal: Cerrar ventana
@@ -1041,6 +1040,8 @@ es:
         sustainable_cities: Ciudades y comunidades sostenibles
         zero_hunger: Hambre zero
       sdgs_filter:
+        filter_selector:
+          select: Selecciona
         modal:
           close: Selecciona
           title: Objetivos de Desarrollo Sostenible

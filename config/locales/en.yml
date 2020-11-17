@@ -99,7 +99,6 @@ en:
           related_to: Related to
           scope: Scope
           search: Search
-          select: Select
           state: State
         filters_small_view:
           close_modal: Close window
@@ -1038,6 +1037,8 @@ en:
         sustainable_cities: Sustinable cities
         zero_hunger: Zero hunger
       sdgs_filter:
+        filter_selector:
+          select: Select
         modal:
           close: Select
           title: Sustainable development objectives
