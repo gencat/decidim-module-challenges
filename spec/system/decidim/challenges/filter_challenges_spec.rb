@@ -109,7 +109,7 @@ describe "Filter Challenges", :slow, type: :system do
       visit_component
 
       within "form.new_filter" do
-        expect(page).to have_content(/Status/i)
+        expect(page).to have_content(/State/i)
       end
     end
 

@@ -112,7 +112,7 @@ en:
           recent: Most recent
       challenges_helper:
         filter_state_values:
-          all: Tots
+          all: All
           executing: Executing
           finished: Finished
           proposal: Proposal

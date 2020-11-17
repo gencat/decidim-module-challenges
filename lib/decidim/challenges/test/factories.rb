@@ -10,7 +10,7 @@ FactoryBot.define do
     scope
   end
 
-  factory :challenge, traits: [:finished, :proposal], class: "Decidim::Challenges::Challenge" do
+  factory :challenge, traits: [:proposal, :execution, :finished], class: "Decidim::Challenges::Challenge" do
     title { generate_localized_title }
     local_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     global_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -22,12 +22,16 @@ FactoryBot.define do
     collaborating_entities { [1..5].collect { generate(:name) }.join(", ") }
     published_at { Time.current }
 
-    trait :finished do
-      state { "finished" }
+    trait :execution do
+      state { "execution" }
     end
 
     trait :proposal do
       state { "proposal" }
+    end
+
+    trait :finished do
+      state { "finished" }
     end
   end
 end
