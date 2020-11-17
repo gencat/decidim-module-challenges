@@ -35,7 +35,7 @@ module Decidim
       # Parameter
       # idx - The index of the Sdg, between 1 and 17
       def self.name_from_idx(idx)
-        SDGS[idx.to_i-1]
+        SDGS[idx.to_i - 1]
       end
     end
   end

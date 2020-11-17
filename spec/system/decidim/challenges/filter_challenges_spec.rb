@@ -157,12 +157,13 @@ describe "Filter Challenges", :slow, type: :system do
       end
 
       it "the filter is not rendered" do
-        expect(page).to_not have_css(".filters__section.sdgs-filter")
+        expect(page).not_to have_css(".filters__section.sdgs-filter")
       end
     end
 
     context "when the participatory_space DOES contain an SDGs component" do
       let!(:sdgs_component) { create(:component, participatory_space: participatory_process, manifest_name: "sdgs") }
+
       before do
         create_list(:challenge, 2, component: component, sdg: :no_poverty)
         create(:challenge, component: component, sdg: :zero_hunger)
@@ -186,8 +187,8 @@ describe "Filter Challenges", :slow, type: :system do
         before do
           find(".filters__section.sdgs-filter button").click
           expect(page).to have_css("#sdgs-modal")
-          find(%q(#sdgs-modal .sdg-cell[data-value="1"])).click
-          find(%q(#sdgs-modal .sdg-cell[data-value="3"])).click
+          find('#sdgs-modal .sdg-cell[data-value="1"]').click
+          find('#sdgs-modal .sdg-cell[data-value="3"]').click
           find("#sdgs-modal .reveal__footer a.button").click
         end
 
