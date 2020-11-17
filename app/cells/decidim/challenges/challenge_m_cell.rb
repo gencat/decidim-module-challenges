@@ -6,12 +6,16 @@ module Decidim
     # for an given instance of a Project
     class ChallengeMCell < Decidim::CardMCell
       include ActiveSupport::NumberHelper
-      include Decidim::Challenges::ChallengeHelper
+      include Decidim::Challenges::ChallengesHelper
 
       private
 
       def resource_icon
         icon "challenges", class: "icon--big"
+      end
+
+      def description
+        translated_attribute model.global_description
       end
     end
   end

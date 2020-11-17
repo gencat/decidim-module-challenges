@@ -2,9 +2,9 @@
 
 module Decidim
   module Challenges
-    # This cell renders the budget project card for an instance of a project
-    # the default size is the Medium Card (:m)
     class ChallengeCell < Decidim::ViewModel
+      include ChallengeCellsHelper
+      include Decidim::SanitizeHelper
       include Cell::ViewModel::Partial
 
       def show

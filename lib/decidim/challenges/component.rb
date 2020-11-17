@@ -43,7 +43,7 @@ Decidim.register_component(:challenges) do |component|
   #   # Register some stat number to the application
   # end
 
-  # component.seeds do |participatory_space|
-  #   # Add some seeds for this component
-  # end
+  component.seeds do |participatory_space|
+    # Add some seeds for this component
+  end
 end

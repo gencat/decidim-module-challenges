@@ -4,14 +4,7 @@ module Decidim
   module Challenges
     # This cell renders a horizontal challenge card
     # for an given instance of a challenge in a challenges list
-    class ChallengeListItemCell < Decidim::ViewModel
-      include ActiveSupport::NumberHelper
-      include Decidim::LayoutHelper
-      include Decidim::ActionAuthorizationHelper
-      include Decidim::Challenges::ApplicationHelper
-      include Decidim::Challenges::Engine.routes.url_helpers
-
-      delegate :current_user, :current_settings, :current_order, :current_component, :current_participatory_space, to: :parent_controller
+    class ChallengeListItemCell < Decidim::Challenges::ChallengeCell
 
       private
 
@@ -42,15 +35,27 @@ module Decidim
       end
 
       def resource_sdg
-        resource_sdgs[model.sdg]
+        if model.sdg
+          resource_sdgs[model.sdg]
+        else
+          nil
+        end
       end
 
       def resource_sdg_index
-        (model.sdg + 1).to_s.rjust(2, "0")
+        if model.sdg
+          (1 + model.sdg).to_s.rjust(2, "0")
+        else
+          nil
+        end
       end
 
       def resource_state
         model.state
+      end
+
+      def current_organization
+        current_organization
       end
     end
   end

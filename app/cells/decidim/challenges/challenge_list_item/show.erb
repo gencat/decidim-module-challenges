@@ -19,16 +19,20 @@
                         <p><%= t("no_poverty.logo.line1", scope: "decidim.components.sdgs") %></p>
                         <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
                     </div>
-                    <img alt="Logo ODS <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg">
+                    <% if resource_sdg_index %>
+                        <img alt="Logo ODS <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg">
+                    <% end %>
                 </div>
             </div>
             <div class="card_text--sdg--text">
-                <div>
-                    <%= t('sdg', scope: "activemodel.attributes.challenge") %>
-                </div>
-                <div>
-                    <strong><%= resource_sdg %></strong>
-                </div>
+                <% if resource_sdg %>
+                    <div>
+                        <%= t('sdg', scope: "activemodel.attributes.challenge") %>
+                    </div>
+                    <div>
+                        <strong><%= resource_sdg %></strong>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
