@@ -13,7 +13,7 @@ module Decidim
         let(:participatory_process) { create :participatory_process, organization: organization }
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "challenges" }
         let(:scope) { create :scope, organization: organization }
-        let(:sdg) { "sdg" }
+        let(:sdg) { 8 }
         let(:tags) { "tag1, tag2, tag3" }
         let(:state) { 2 }
         let(:start_date) { 2.days.from_now }
@@ -38,7 +38,6 @@ module Decidim
             current_user: current_user,
             current_organization: organization,
             current_component: current_component
-            # decidim_scope_id: scope
           )
         end
         let(:invalid) { false }
@@ -61,6 +60,27 @@ module Decidim
           it "sets the scope" do
             subject.call
             expect(challenge.scope).to eq scope
+          end
+
+          it "sets sdg" do
+            subject.call
+            expect(challenge.sdg).to eq(sdg)
+          end
+
+          it "sets the tags" do
+            subject.call
+            expect(challenge.tags).to eq(tags)
+          end
+
+          it "sets the state" do
+            subject.call
+            expect(Decidim::Challenges::Challenge.states[challenge.state]).to eq(state)
+          end
+
+          it "sets the collaborating_entities and coordinating_entities" do
+            subject.call
+            expect(challenge.collaborating_entities).to eq(collaborating_entities)
+            expect(challenge.coordinating_entities).to eq(coordinating_entities)
           end
 
           it "sets the component" do

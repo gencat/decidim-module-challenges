@@ -62,7 +62,7 @@
               <% else %>
                 <strong class="text-alert"><%= t("index.not_published", scope: "decidim.challenges") %></strong>
               <% end %>
-            </td>
+              </td>
               <td class="table-list__actions">
                 <% if allowed_to? :edit, :challenge %>
                   <%= icon_link_to "pencil", edit_challenge_path(challenge), t("actions.configure", scope: "decidim.challenges.admin"), class: "action-icon--new" %>

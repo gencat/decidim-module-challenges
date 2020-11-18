@@ -56,7 +56,7 @@ module Decidim
           context "when filtering challenges in :proposal state" do
             let(:states) { %w(proposal) }
 
-            it "hides executing and finished proposals" do
+            it "hides execution and finished proposals" do
               create(:challenge, :finished, component: component)
               proposal_challenge = create(:challenge, :proposal, component: component)
 
@@ -65,10 +65,10 @@ module Decidim
             end
           end
 
-          context "when filtering challenges in :executing state" do
-            let(:states) { %w(executing) }
+          context "when filtering challenges in :execution state" do
+            let(:states) { %w(execution) }
 
-            it "returns only executing proposals" do
+            it "returns only execution proposals" do
               create(:challenge, :finished, component: component)
               create(:challenge, :proposal, component: component)
 
@@ -139,6 +139,10 @@ module Decidim
               expect(subject).to match_array [resource_without_scope, challenge_1, challenge_2, challenge_3] + challenges_list
             end
           end
+        end
+
+        describe "ods filter" do
+          it "is pending"
         end
 
         describe "related_to filter" do

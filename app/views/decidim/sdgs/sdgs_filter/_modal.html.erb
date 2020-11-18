@@ -1,0 +1,101 @@
+<%= stylesheet_link_tag "decidim/sdgs/sdgs_filter/modal" %>
+<div id="sdgs-modal" class="reveal" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".title") %></h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="ods">
+    <div id="sdg-container">
+      <div class="row">
+        <% Decidim::Sdgs::Sdg::SDGS.each_with_index do |sdg_name, idx|
+          idx+= 1
+          idx_str= idx.to_s.rjust(2, "0") %>
+          <div class="sdg-cell columns mediumlarge-4" data-value="<%= idx %>">
+            <img alt="Logo SDG <%= idx_str %>" src="<%= image_path("decidim/sdgs/ods-#{idx_str}.svg") %>">
+            <div class="text">
+              <p><%= "#{idx_str}. #{t_sdg(sdg_name)}" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="reveal__footer">
+    <div class="buttons button--double">
+      <a class="button" data-close="" role="button"><%= t(".close") %></a>
+    </div>
+  </div>
+</div>
+<script>
+// WARN: The filter is rendered twice, small view and normal, although this modal is only rendered once
+//   so it should update both filters
+//
+
+const border_style_selected= "3px solid #555"
+const border_style_unselected= "3px"
+
+function toggle_sdg_filter_cell_select(cell, selected) {
+  if(selected) {
+    cell.css("border", border_style_selected);
+  } else {
+    cell.css("border", border_style_unselected);
+  }
+}
+
+$( document ).ready(function() {
+  /**
+    * Setup Sdgs selector
+    */
+  $('div.sdgs-filter input[type=hidden]').each(function () {
+    const input= $(this);
+    const current_value= input.val()
+
+    // initial activation
+    if (current_value != "" && !isNaN(current_value)) {
+      const cell= $('#sdgs-modal .sdg-cell[data-value=' + current_value + ']')
+      toggle_sdg_filter_cell_select(cell, true)
+    }
+  })
+
+  /**
+    * Configure click event
+    */
+  $('#sdgs-modal .sdg-cell').each(function (idx) {
+    const cell= $(this)
+    const current_value= cell.attr("data-value")
+
+    cell.click(function () {
+      let selected= false
+
+      // toggle inputs
+      const inputs= $('div.sdgs-filter input[type=hidden][data-value=' + current_value + ']')
+      inputs.each(function () {
+        const input= $(this)
+        if(input.val() == "") {
+          input.val(current_value)
+          selected= true
+        } else {
+          input.val("")
+        }
+      })
+
+      // update cell
+      toggle_sdg_filter_cell_select(cell, selected)
+    });
+  });
+
+  /**
+    * Send the filter form when done
+    */
+  let sdgs_opener= null;
+  $('.sdgs-filter').click(function() {
+    sdgs_opener= $(this)
+  });
+  $('#sdgs-modal .reveal__footer a.button').click(function() {
+    sdgs_opener.parent("form").submit()
+    sdgs_opener= null
+  });
+})
+</script>

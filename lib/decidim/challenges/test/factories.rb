@@ -10,25 +10,28 @@ FactoryBot.define do
     scope
   end
 
-  factory :challenge, class: "Decidim::Challenges::Challenge" do
+  factory :challenge, traits: [:proposal, :execution, :finished], class: "Decidim::Challenges::Challenge" do
     title { generate_localized_title }
     local_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     global_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    state { "executing" }
+    state { "execution" }
     start_date { 1.day.from_now }
     end_date { start_date + 2.months }
     component { build(:component, manifest_name: "challenges") }
-    # tags { [1..5].collect { generate_localized_title }.map(&:merge) }
     coordinating_entities { [1..5].collect { generate(:name) }.join(", ") }
     collaborating_entities { [1..5].collect { generate(:name) }.join(", ") }
     published_at { Time.current }
-    # scope { create(:scope, organization: component.organization) }
-    trait :finished do
-      state { "finished" }
+
+    trait :execution do
+      state { "execution" }
     end
 
     trait :proposal do
       state { "proposal" }
+    end
+
+    trait :finished do
+      state { "finished" }
     end
   end
 end

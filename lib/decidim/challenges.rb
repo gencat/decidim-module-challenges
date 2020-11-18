@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/challenges/component"
+require "decidim/problems/component"
 require "decidim/sdgs/component"
 
 module Decidim
