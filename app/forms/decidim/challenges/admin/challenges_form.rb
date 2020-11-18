@@ -17,7 +17,7 @@ module Decidim
         attribute :decidim_component_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :tags, String
-        attribute :sdg, Integer
+        attribute :sdg_code, String
         attribute :state, Integer
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
@@ -46,8 +46,8 @@ module Decidim
         end
 
         def select_sdg_collection
-          Decidim::Sdgs::Sdg::SDGS.map.with_index do |sdg_name, idx|
-            [I18n.t("#{sdg_name}.objectives.subtitle", scope: "decidim.components.sdgs"), idx]
+          Decidim::Sdgs::Sdg::SDGS.map do |sdg_code|
+            [I18n.t("#{sdg_code}.objectives.subtitle", scope: "decidim.components.sdgs"), sdg_code]
           end
         end
 

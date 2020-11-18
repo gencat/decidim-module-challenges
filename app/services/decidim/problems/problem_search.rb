@@ -32,8 +32,8 @@ module Decidim
           .or(query.where(id: in_finished))
       end
 
-      def search_sdgs_ids
-        query.where(sdg_id: Decidim::Sdgs::Sdg.names_from_idxs(sdgs_ids))
+      def search_sdgs_codes
+        query.joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: sdgs_codes })
       end
     end
   end
