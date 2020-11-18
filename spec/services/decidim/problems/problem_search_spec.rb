@@ -19,7 +19,7 @@ module Decidim
             related_to: related_to,
             scope_id: scope_ids,
             category_id: category_ids,
-            sdg_id: sdg_id
+            sdgs_ids: sdgs_ids
           ).results
         end
 
@@ -28,7 +28,7 @@ module Decidim
         let(:states) { nil }
         let(:scope_ids) { nil }
         let(:category_ids) { nil }
-        let(:sdg_id) { nil }
+        let(:sdgs_ids) { nil }
 
         it "only includes problems from the given component" do
           other_problem = create(:problem)
@@ -154,6 +154,7 @@ module Decidim
           context "when one SDG is selected" do
             let(:sdg_id) { Decidim::Sdgs::Sdg::SDGS.index(:zero_hunger) }
             let!(:problem_w_sdg) { create(:problem, component: component, challenge: challenge, sdg_id: sdg_id) }
+            let(:sdgs_ids) { [sdg_id] }
 
             it "returns the problems associated to the given SDG" do
               expect(subject.pluck(:id)).to match_array([problem_w_sdg.id])

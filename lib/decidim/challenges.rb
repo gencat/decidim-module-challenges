@@ -3,6 +3,7 @@
 require "decidim/challenges/component"
 require "decidim/problems/component"
 require "decidim/sdgs/component"
+require "decidim/solutions/component"
 
 module Decidim
   # This namespace holds the logic of the `Challenges` component. This component
