@@ -15,37 +15,37 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("problem_publications.create.error", scope: "decidim.problems.admin")
+              flash.now[:alert] = I18n.t("solution_publications.create.error", scope: "decidim.solutions.admin")
             end
 
-            redirect_back(fallback_location: problems_path)
+            redirect_back(fallback_location: solutions_path)
           end
         end
 
         def destroy
-          enforce_permission_to :publish, :problem, problem: problem
+          enforce_permission_to :publish, :solution, solution: solution
 
-          Decidim::Problems::Admin::UnpublishProblem.call(problem, current_user) do
+          Decidim::Solutions::Admin::UnpublishSolution.call(solution, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("problem_publications.destroy.success", scope: "decidim.problems.admin")
+              flash[:notice] = I18n.t("solution_publications.destroy.success", scope: "decidim.solutions.admin")
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("problem_publications.destroy.error", scope: "decidim.problems.admin")
+              flash.now[:alert] = I18n.t("solution_publications.destroy.error", scope: "decidim.solutions.admin")
             end
 
-            redirect_back(fallback_location: problems_path)
+            redirect_back(fallback_location: solutions_path)
           end
         end
 
         private
 
         def collection
-          @collection ||= Problem.where(component: current_component)
+          @collection ||= Solution.where(component: current_component)
         end
 
-        def problem
-          @problem ||= collection.find(params[:problem_id])
+        def solution
+          @solution ||= collection.find(params[:solution_id])
         end
       end
     end

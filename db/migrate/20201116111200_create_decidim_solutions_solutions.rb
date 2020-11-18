@@ -6,11 +6,9 @@ class CreateDecidimSolutionsSolutions < ActiveRecord::Migration[5.2]
       t.jsonb :title
       t.jsonb :description
       t.references :decidim_component, index: true, null: false
-      t.references :decidim_challenges_challenge, index: { name: "decidim_challenges_challenges_solutions" }, null: false
       t.references :decidim_problems_problem, index: { name: "decidim_challenges_problems_solutions" }, null: false
       t.references :decidim_scope, index: true
       t.jsonb :tags
-      t.references :sdg
       t.string :indicators
       t.string :beneficiaries
       t.integer :requirements, null: false, default: 0

@@ -8,7 +8,7 @@ module Decidim
       include Decidim::ApplicationHelper
       include FilterResource
       include Paginable
-      include OrderableProblems
+      include OrderableSolutions
       include SolutionsHelper
 
       helper Decidim::CheckBoxesTreeHelper

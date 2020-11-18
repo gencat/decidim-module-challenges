@@ -1,0 +1,10 @@
+var $solutions = $('#solutions');
+var $solutionsCount = $('#solutions-count');
+var $orderFilterInput = $('.order_filter');
+
+$solutions.html('<%= j(render partial: "solutions").strip.html_safe %>');
+$solutionsCount.html('<%= j(render partial: "count").strip.html_safe %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $solutions);
+$dropdownMenu.foundation();

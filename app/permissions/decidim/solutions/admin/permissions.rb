@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Problems
+  module Solutions
     module Admin
       class Permissions < Decidim::DefaultPermissions
         def permissions
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
-          allow! if permission_action.subject == :problems && read_permission_action?
+          allow! if permission_action.subject == :solutions  && read_permission_action?
 
-          allow! if permission_action.subject == :problem && create_permission_action?
+          allow! if permission_action.subject == :solution && create_permission_action?
 
-          allow! if permission_action.subject == :problem && edit_permission_action?
+          allow! if permission_action.subject == :solution && edit_permission_action?
 
-          allow! if permission_action.subject == :problem && destroy_permission_action?
+          allow! if permission_action.subject == :solution && destroy_permission_action?
 
-          allow! if permission_action.subject == :problem && publish_permission_action?
+          allow! if permission_action.subject == :solution && publish_permission_action?
 
           permission_action
         end
@@ -43,8 +43,8 @@ module Decidim
           permission_action.action == :publish
         end
 
-        def problem
-          @problem ||= context.fetch(:problem, nil)
+        def solution
+          @solution ||= context.fetch(:solution, nil)
         end
       end
     end
