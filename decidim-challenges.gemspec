@@ -19,9 +19,9 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  DECIDIM_VER = ">= 0.20"
-  s.add_dependency "decidim-core", DECIDIM_VER
+  CHALLENGES_DECIDIM_VER = ">= 0.22"
+  s.add_dependency "decidim-core", CHALLENGES_DECIDIM_VER
 
-  s.add_development_dependency "decidim", DECIDIM_VER
-  s.add_development_dependency "decidim-dev", DECIDIM_VER
+  s.add_development_dependency "decidim", CHALLENGES_DECIDIM_VER
+  s.add_development_dependency "decidim-dev", CHALLENGES_DECIDIM_VER
 end
