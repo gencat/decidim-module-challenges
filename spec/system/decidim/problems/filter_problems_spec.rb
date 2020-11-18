@@ -166,13 +166,13 @@ describe "Filter Problems", :slow, type: :system do
       let!(:challenges_component) { create(:challenges_component, participatory_space: participatory_process) }
 
       before do
-        challenge= create(:challenge, component: challenges_component, sdg_code: :no_poverty)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
         create_list(:problem, 2, component: component, challenge: challenge)
-        challenge= create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
         create(:problem, component: component, challenge: challenge)
-        challenge= create(:challenge, component: challenges_component, sdg_code: :good_health)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
         create(:problem, component: component, challenge: challenge)
-        challenge= create(:challenge, component: challenges_component)
+        challenge = create(:challenge, component: challenges_component)
         create(:problem, component: component, challenge: challenge)
         visit_component
       end
