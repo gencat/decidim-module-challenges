@@ -8,7 +8,7 @@ module Decidim
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
-          allow! if permission_action.subject == :solutions  && read_permission_action?
+          allow! if permission_action.subject == :solutions && read_permission_action?
 
           allow! if permission_action.subject == :solution && create_permission_action?
 
