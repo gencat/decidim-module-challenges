@@ -27,9 +27,9 @@
     <% if params[:component_id] %>
       <% if Decidim::Component.where(participatory_space: Decidim::Component.find(params[:component_id]).participatory_space).pluck(:manifest_name).include? 'sdgs' %>
         <div class="row column hashtags__container">
-          <%= form.select :sdg,
+          <%= form.select :sdg_code,
                           @form.select_sdg_collection,
-                          selected: [I18n.t("#{@form.try(:sdg)}.objectives.subtitle", scope: 'decidim.components.sdgs'), @form.try(:sdg)],
+                          selected: [t_sdg(@form.sdg_code), @form.sdg_code],
                           label: t("models.challenge.fields.sdg", scope: "decidim.challenges.admin") %>
         </div>
       <% end %>

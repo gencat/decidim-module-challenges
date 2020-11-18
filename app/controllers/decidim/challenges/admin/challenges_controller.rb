@@ -8,6 +8,8 @@ module Decidim
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
 
+        helper Decidim::Sdgs::SdgsHelper
+
         helper_method :challenges, :challenge, :form_presenter
 
         def index
@@ -27,6 +29,9 @@ module Decidim
           Decidim::Challenges::Admin::CreateChallenge.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("challenges.create.success", scope: "decidim.challenges.admin")
+              # maybe used together?
+              # Rails.application.routes.mounted_helpers
+              # ResourceLocatorPresenter.new(resource).edit
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
             end
 

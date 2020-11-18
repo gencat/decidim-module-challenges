@@ -26,15 +26,15 @@ module Decidim
 
       # Parameter
       # idxs - Array of Sdgs indexes, between 1 and 17
-      def self.names_from_idxs(idxs)
+      def self.codes_from_idxs(idxs)
         idxs.collect do |idx|
-          name_from_idx(idx)
+          code_from_idx(idx)
         end
       end
 
       # Parameter
       # idx - The index of the Sdg, between 1 and 17
-      def self.name_from_idx(idx)
+      def self.code_from_idx(idx)
         SDGS[idx.to_i - 1]
       end
     end
