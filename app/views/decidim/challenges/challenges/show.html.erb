@@ -57,9 +57,11 @@
   </div>
 
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
-    <button class="button secondary hollow small has-tip">
-      < Tornar al llistat </button> <br />
-
+  
+    <%= link_to :challenges, class: "small hollow" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t("return_to_list", scope: "decidim.challenges.show") %>
+    <% end %>
       <div class="section">
         <h2 class="heading2"><strong><%= present(@challenge).title %></strong></h2><br />
 
@@ -73,48 +75,18 @@
         <p class="tags"><%= present(@challenge).tags %></p>
 
         <h3><strong><% t("associated_problems", scope: "decidim.challenges.show") %></strong></h3>
-        <%# TODO: when problems are realased %>
+        <%# TODO: when problems cards are realased %>
         <div class="row small-up-1 medium-up-2 card-grid">
 
           <div class="column">
-            <article class="card">
-              <div class="card__content">
-                <div class="card__header">
-                  <a class="card__link" href="">
-                    <h5 class="card__title">
-                      <strong></strong>
-                    </h5>
-                  </a>
-                </div>
-                <div class="card__text">
-                  <div class="card__text--paragraph">
-                  </div>
-                </div>
-              </div>
-            </article>
           </div>
         </div>
 
         <h3><strong><% t("proposed_solutions", scope: "decidim.challenges.show") %></strong></h3>
-        <%# TODO: when solutions are realased %>
+        <%# TODO: when solutions cards are realased %>
         <div class="row small-up-1 medium-up-2 card-grid">
 
           <div class="column">
-            <article class="card">
-              <div class="card__content">
-                <div class="card__header">
-                  <a class="card__link" href="">
-                    <h5 class="card__title">
-                      <strong></strong>
-                    </h5>
-                  </a>
-                </div>
-                <div class="card__text">
-                  <div class="card__text--paragraph">
-                  </div>
-                </div>
-              </div>
-            </article>
           </div>
 
         </div>
