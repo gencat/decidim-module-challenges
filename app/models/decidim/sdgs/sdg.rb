@@ -2,17 +2,8 @@
 
 module Decidim
   module Sdgs
-    # The data store for a Sdg in the Decidim::Sdgs component.
-    class Sdg < Sdgs::ApplicationRecord
-      include Decidim::HasComponent
-      include Decidim::Loggable
-      include Decidim::Publicable
-      include Decidim::Resourceable
-      include Decidim::ScopableComponent
-      include Decidim::Searchable
-      include Decidim::Traceable
-      include Decidim::TranslatableAttributes
-
+    # A Sustainable Development Goal
+    class Sdg
       SDGS = [
         :no_poverty,
         :zero_hunger,
@@ -32,10 +23,19 @@ module Decidim
         :pjsi,
         :partnership
       ].freeze
+      # Parameter
+      # idxs - Array of Sdgs indexes, between 1 and 17
+      def self.codes_from_idxs(idxs)
+        idxs.collect do |idx|
+          code_from_idx(idx)
+        end
+      end
 
-      enum sdg_name: SDGS
-
-      component_manifest_name "sdgs"
+      # Parameter
+      # idx - The index of the Sdg, between 1 and 17
+      def self.code_from_idx(idx)
+        SDGS[idx.to_i - 1]
+      end
     end
   end
 end

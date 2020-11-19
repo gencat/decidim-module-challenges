@@ -23,13 +23,17 @@ module Decidim
       # Handle the state filter
       def search_state
         in_proposal = state.include?("proposal") ? query.in_proposal : nil
-        in_executing = state.member?("executing") ? query.in_executing : nil
+        in_execution = state.member?("execution") ? query.in_execution : nil
         in_finished = state.member?("finished") ? query.in_finished : nil
 
         query
           .where(id: in_proposal)
-          .or(query.where(id: in_executing))
+          .or(query.where(id: in_execution))
           .or(query.where(id: in_finished))
+      end
+
+      def search_sdgs_codes
+        query.where(sdg_code: sdgs_codes)
       end
     end
   end

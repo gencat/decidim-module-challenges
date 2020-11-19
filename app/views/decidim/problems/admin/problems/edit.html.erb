@@ -1,0 +1,12 @@
+<%= decidim_form_for(@form, html: { class: "form edit_problem problem_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".update"), class: "button" %>
+
+    <% if problem.published? %>
+      <%= link_to t("actions.unpublish", scope: "decidim.problems.admin"), problem_publish_path(problem), method: :delete, class: "button muted" %>
+    <% else %>
+      <%= link_to t("actions.publish", scope: "decidim.problems.admin"), problem_publish_path(problem), method: :post, class: "button hollow" %>
+    <% end %>
+  </div>
+<% end %>

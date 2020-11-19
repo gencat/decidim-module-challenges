@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "decidim/sdgs/sdgs_filter/button" %>
 <%= filter_form_for filter do |form| %>
   <div class="filters__section">
     <div class="filters__search">
@@ -20,6 +21,10 @@
 
   <% if current_component.categories.any? %>
     <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
+  <% end %>
+
+  <% if current_participatory_space.components.published.where(manifest_name: "sdgs").any? %>
+    <%= sdgs_filter_selector(form) %>
   <% end %>
 
   <%# if linked_classes_for(Decidim::Proposals::Proposal).any? %>

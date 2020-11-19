@@ -14,7 +14,7 @@ module Decidim
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "challenges" }
         let(:scope) { create :scope, organization: organization }
         let(:title) { "title" }
-        let(:sdg) { 0 }
+        let(:sdg_code) { Sdgs::Sdg::SDGS.first }
         let(:tags) { "tag1, tag2, tag3" }
         let(:state) { 2 }
         let(:start_date) { 2.days.from_now }
@@ -30,7 +30,7 @@ module Decidim
             global_description: { en: "global desc" },
             tags: tags,
             scope: scope,
-            sdg: sdg,
+            sdg_code: sdg_code,
             state: state,
             start_date: start_date,
             end_date: end_date,
@@ -39,7 +39,6 @@ module Decidim
             current_user: current_user,
             current_organization: organization,
             current_component: current_component
-            # decidim_scope_id: scope
           )
         end
         let(:invalid) { false }
@@ -64,9 +63,9 @@ module Decidim
             expect(challenge.scope).to eq scope
           end
 
-          it "sets sdg" do
+          it "sets sdg_code" do
             subject.call
-            expect(challenge.sdg).to eq(sdg)
+            expect(challenge.sdg_code).to eq(sdg_code.to_s)
           end
 
           it "sets the tags" do

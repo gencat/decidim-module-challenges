@@ -1,0 +1,47 @@
+name: "[CI] Lint / Lint code"
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+      - "*-stable"
+  pull_request:
+
+env:
+  RUBY_VERSION: 2.6.6
+
+jobs:
+  test-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
+
+      - name: Install Ruby deps
+        uses: nick-invision/retry@v1
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: bundle install --path vendor/bundle --jobs 4 --retry 3
+
+      - name: Lint and Rubocop
+        run: |
+          bundle exec rubocop -P
+          bundle exec erblint app/views/**/*.erb
