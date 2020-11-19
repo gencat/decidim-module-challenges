@@ -80,23 +80,23 @@
 
 .ods {
     .text-container {
-        top: 2px !important;
-        left: 12px !important;
-        width: 60px !important;
+        top: 2px;
+        left: 12px;
+        width: 60px;
     }
     .text-container.show {
-        top: 2px !important;
-        left: 37% !important;
-        width: 60px !important;
+        top: 2px;
+        left: 37%;
+        width: 60px;
         text-align: start;
     }
 
     p {
-        font-size: 6pt !important;
+        font-size: 6pt;
     }
 
-    img {
+    img.challenge--view {
         width: 100%;
-        max-width: 100px !important;
+        max-width: 100px;
     }
 }

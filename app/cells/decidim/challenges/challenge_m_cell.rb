@@ -7,6 +7,7 @@ module Decidim
     class ChallengeMCell < Decidim::CardMCell
       include ActiveSupport::NumberHelper
       include Decidim::Challenges::ChallengesHelper
+      include Decidim::Sdgs::SdgsHelper
 
       private
 
@@ -35,23 +36,17 @@ module Decidim
         translated_attribute model.title
       end
 
-      def resource_sdgs
-        Decidim::Sdgs::Sdg::SDGS.map do |sdg_name|
-          [I18n.t("#{sdg_name}.objectives.subtitle", scope: "decidim.components.sdgs")]
-        end
-      end
-
       def resource_sdg
-        if model.sdg
-          resource_sdgs[model.sdg]
+        if model.sdg_code
+          t_sdg(model.sdg_code)
         else
           nil
         end
       end
 
       def resource_sdg_index
-        if model.sdg
-          (1 + model.sdg).to_s.rjust(2, "0")
+        if model.sdg_code
+          (1 + Decidim::Sdgs::Sdg.index_from_code(model.sdg_code.to_sym)).to_s.rjust(2, "0")
         else
           nil
         end

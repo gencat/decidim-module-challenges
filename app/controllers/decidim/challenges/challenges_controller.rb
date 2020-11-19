@@ -10,17 +10,19 @@ module Decidim
       include Paginable
       include OrderableChallenges
       include ChallengesHelper
+      include Decidim::Sdgs::SdgsHelper
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
 
       helper_method :challenges
-
+      
       def index; end
 
       def show
         @challenge = Challenge.find(params[:id])
-        @sdg = sdgs[@challenge.sdg]
+        @sdg = t_sdg(@challenge.sdg_code)
+        @sdg_index = (1 + Decidim::Sdgs::Sdg.index_from_code(@challenge.sdg_code.to_sym)).to_s.rjust(2, "0")
       end
 
       private
@@ -58,12 +60,6 @@ module Decidim
 
       def search_klass
         Decidim::Challenges::ChallengeSearch
-      end
-
-      def sdgs
-        Decidim::Sdgs::Sdg::SDGS.map do |sdg_name|
-          I18n.t("#{sdg_name}.objectives.subtitle", scope: "decidim.components.sdgs")
-        end
       end
     end
   end
