@@ -19,8 +19,6 @@ module Decidim
         translated_attribute model.global_description
       end
 
-      private
-
       def challenge_path
         resource_locator(model).path
       end
@@ -38,15 +36,11 @@ module Decidim
       end
 
       def resource_sdg
-        if model.sdg_code
-          t_sdg(model.sdg_code)
-        end
+        model.sdg_code ? t_sdg(model.sdg_code) : nil
       end
 
       def resource_sdg_index
-        if model.sdg_code
-          (1 + Decidim::Sdgs::Sdg.index_from_code(model.sdg_code.to_sym)).to_s.rjust(2, "0")
-        end
+        model.sdg_code ? (1 + Decidim::Sdgs::Sdg.index_from_code(model.sdg_code.to_sym)).to_s.rjust(2, "0") : nil
       end
 
       def resource_state
