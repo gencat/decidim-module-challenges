@@ -9,7 +9,7 @@
         </div>
         <div class="card__text">
             <div class="card__text--paragraph">
-                <span class="card__text--paragraph--estat"><%= t(resource_state, scope: 'decidim.challenges.states') %></span><div class="card__text--paragraph--description"><%= resource_description%></div>
+                <span class="card__text--paragraph--estat"><%= t(resource_state, scope: 'decidim.challenges.states') %></span><div class="card__text--paragraph--description"><%= description%></div>
             </div>
         </div>
         <div class="card__sdg">
@@ -20,7 +20,7 @@
                         <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
                     </div>
                     <% if resource_sdg_index %>
-                        <img alt="Logo ODS <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg">
+                        <img alt="Logo SDG <%= resource_sdg_index%>" src="/assets/decidim/sdgs/sdg-<%= resource_sdg_index%>.svg" class="challenge--view">
                     <% end %>
                 </div>
             </div>

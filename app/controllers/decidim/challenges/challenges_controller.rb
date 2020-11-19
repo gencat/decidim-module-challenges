@@ -16,7 +16,7 @@ module Decidim
       helper Decidim::Sdgs::SdgsHelper
 
       helper_method :challenges
-      
+
       def index; end
 
       def show

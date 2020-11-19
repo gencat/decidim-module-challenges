@@ -46,9 +46,9 @@ module Decidim
         published_at.present?
       end
 
-      has_many  :problems,
-                class_name: 'Problems',
-                foreign_key: 'decidim_challenges_challenge_id'
+      has_many :problems,
+                class_name: "Problems",
+                foreign_key: "decidim_challenges_challenge_id"
     end
   end
 end
