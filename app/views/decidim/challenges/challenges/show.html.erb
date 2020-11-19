@@ -72,70 +72,45 @@
         <h3><strong><%= t("tags", scope: "activemodel.attributes.challenge") %></strong></h3>
         <p class="tags"><%= present(@challenge).tags %></p>
 
-        <h3><strong>Problemes associats</strong></h3>
-
+        <h3><strong><% t("associated_problems", scope: "decidim.challenges.show") %></strong></h3>
+        <%# TODO: when problems are realased %>
         <div class="row small-up-1 medium-up-2 card-grid">
 
           <div class="column">
             <article class="card">
               <div class="card__content">
                 <div class="card__header">
-                  <a class="card__link" href="/processes/PDUAECOConcaOdena/f/2843/debates/31">
+                  <a class="card__link" href="">
                     <h5 class="card__title">
-                      <strong>Problema #1</strong>
+                      <strong></strong>
                     </h5>
                   </a>
                 </div>
                 <div class="card__text">
                   <div class="card__text--paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in ex a neque pellentesque
-                    pretium. Mauris odio purus, fermentum at magna sit amet, elementum luctus mauris.
                   </div>
                 </div>
               </div>
             </article>
           </div>
-
-          <div class="column">
-            <article class="card">
-              <div class="card__content">
-                <div class="card__header">
-                  <a class="card__link" href="/processes/PDUAECOConcaOdena/f/2843/debates/31">
-                    <h5 class="card__title">
-                      <strong>Problema #2</strong>
-                    </h5>
-                  </a>
-                </div>
-                <div class="card__text">
-                  <div class="card__text--paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in ex a neque pellentesque
-                    pretium. Mauris odio purus, fermentum at magna sit amet, elementum luctus mauris.
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
         </div>
 
-        <h3><strong>Solucions proposades</strong></h3>
-
+        <h3><strong><% t("proposed_solutions", scope: "decidim.challenges.show") %></strong></h3>
+        <%# TODO: when solutions are realased %>
         <div class="row small-up-1 medium-up-2 card-grid">
 
           <div class="column">
             <article class="card">
               <div class="card__content">
                 <div class="card__header">
-                  <a class="card__link" href="/processes/PDUAECOConcaOdena/f/2843/debates/31">
+                  <a class="card__link" href="">
                     <h5 class="card__title">
-                      <strong>Solució #1</strong>
+                      <strong></strong>
                     </h5>
                   </a>
                 </div>
                 <div class="card__text">
                   <div class="card__text--paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in ex a neque pellentesque
-                    pretium. Mauris odio purus, fermentum at magna sit amet, elementum luctus mauris.
                   </div>
                 </div>
               </div>

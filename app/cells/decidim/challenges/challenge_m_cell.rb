@@ -2,8 +2,8 @@
 
 module Decidim
   module Challenges
-    # This cell renders the Medium (:m) project card
-    # for an given instance of a Project
+    # This cell renders the Medium (:m) Challenge card
+    # for an given instance of a Challenge
     class ChallengeMCell < Decidim::CardMCell
       include ActiveSupport::NumberHelper
       include Decidim::Challenges::ChallengesHelper
