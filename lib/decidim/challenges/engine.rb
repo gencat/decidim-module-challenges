@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rails'
-require 'decidim/core'
+require "rails"
+require "decidim/core"
 
 module Decidim
   module Challenges
@@ -11,8 +11,10 @@ module Decidim
 
       routes do
         # Add engine routes here
-        # resources :challenges
-        root to: 'challenges#index'
+        resources :challenges do
+          get :data_picker_modal_content, on: :collection
+        end
+        root to: "challenges#index"
       end
 
       initializer "decidim_challenges.assets" do |app|

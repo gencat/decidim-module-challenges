@@ -39,15 +39,14 @@ module Decidim
             title: parsed_title,
             description: parsed_description,
             component: form.current_component,
-            challenges_challenges: form.current_challenges_challenges,
-            scope: form.decidim_scope_id,
+            decidim_challenges_challenge_id: form.decidim_challenges_challenge_id,
+            scope: form.scope,
             tags: form.tags,
             causes: form.causes,
             groups_affected: form.groups_affected,
             state: form.state,
             start_date: form.start_date,
             end_date: form.end_date,
-            published_at: form.published_at,
             proposing_entities: form.proposing_entities,
             collaborating_entities: form.collaborating_entities
           }
@@ -56,7 +55,7 @@ module Decidim
             Decidim::Problems::Problem,
             form.current_user,
             params,
-            visibility: 'all'
+            visibility: "all"
           )
         end
       end

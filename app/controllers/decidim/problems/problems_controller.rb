@@ -12,6 +12,7 @@ module Decidim
       include ProblemsHelper
 
       helper Decidim::CheckBoxesTreeHelper
+      helper Decidim::Sdgs::SdgsHelper
 
       helper_method :problems
 
@@ -21,27 +22,28 @@ module Decidim
 
       def default_filter_params
         {
-          search_text: '',
+          search_text: "",
           category_id: default_filter_category_params,
-          state: %w[proposal executing finished],
+          state: %w(proposal execution finished),
           scope_id: default_filter_scope_params,
-          related_to: ''
+          related_to: "",
+          sdgs_codes: []
         }
       end
 
       def default_filter_category_params
-        return 'all' unless current_component.participatory_space.categories.any?
+        return "all" unless current_component.participatory_space.categories.any?
 
-        ['all'] + current_component.participatory_space.categories.map { |category| category.id.to_s }
+        ["all"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
       end
 
       def default_filter_scope_params
-        return 'all' unless current_component.participatory_space.scopes.any?
+        return "all" unless current_component.participatory_space.scopes.any?
 
         if current_component.participatory_space.scope
-          ['all', current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
         else
-          %w[all global] + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
+          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
         end
       end
 

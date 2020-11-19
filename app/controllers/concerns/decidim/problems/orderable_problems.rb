@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_support/concern'
+require "active_support/concern"
 
 module Decidim
   module Problems
@@ -14,18 +14,18 @@ module Decidim
         private
 
         def available_orders
-          @available_orders ||= %w[random recent]
+          @available_orders ||= %w(random recent)
         end
 
         def default_order
-          'random'
+          "random"
         end
 
         def reorder(problems)
           case order
-          when 'recent'
-            problems.order('created_at DESC')
-          when 'random'
+          when "recent"
+            problems.order("created_at DESC")
+          when "random"
             problems.order_randomly(random_seed)
           else
             problems

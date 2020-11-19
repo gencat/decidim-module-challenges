@@ -2,7 +2,6 @@ var $challenges = $('#challenges');
 var $challengesCount = $('#challenges-count');
 var $orderFilterInput = $('.order_filter');
 
-
 $challenges.html('<%= j(render partial: "challenges").strip.html_safe %>');
 $challengesCount.html('<%= j(render partial: "count").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');

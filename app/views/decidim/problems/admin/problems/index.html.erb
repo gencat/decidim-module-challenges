@@ -32,26 +32,36 @@
             <th>
               <%= t("models.problem.fields.end_date", scope: "decidim.problems.admin") %>
             </th>
+            <th>
+              <%= t("models.problem.fields.published", scope: "decidim.problems.admin") %>
+            </th>
             <th class="table-list__actions"></th>
           </tr>
         </thead>
         <tbody>
           <% @problems.each do |problem| %>
             <tr>
-              <td>
+              <td class="table-list__state">
                 <%= translated_attribute(problem.title) %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= l(problem.created_at, format: :decidim_short) if problem.created_at %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= I18n.t(problem.state, scope: "decidim.problems.states") %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= problem.start_date %>
               </td>
-              <td>
+              <td class="table-list__state">
                 <%= problem.end_date %>
+              </td>
+              <td class="table-list__state">
+              <% if problem.published? %>
+                <strong class="text-success"><%= t("index.published", scope: "decidim.problems") %></strong>
+              <% else %>
+                <strong class="text-alert"><%= t("index.not_published", scope: "decidim.problems") %></strong>
+              <% end %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :edit, :problem %>

@@ -17,7 +17,7 @@ module Decidim
         attribute :decidim_component_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :tags, String
-        attribute :sdg, String
+        attribute :sdg_code, String
         attribute :state, Integer
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
@@ -41,37 +41,21 @@ module Decidim
 
         def select_states_collection
           Decidim::Challenges::Challenge::VALID_STATES.map.with_index do |state, idx|
-            [I18n.t(state, scope: 'decidim.challenges.states'), idx]
+            [I18n.t(state, scope: "decidim.challenges.states"), idx]
           end
         end
 
         def select_sdg_collection
-          [
-            I18n.t('no_poverty.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('zero_hunger.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('good_health.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('quality_education.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('gender_equality.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('clean_water.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('clean_energy.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('decent_work.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('iiai.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('reduced_inequalities.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('sustainable_cities.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('responsible_consumption.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('climate_action.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('life_below_water.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('life_on_land.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('pjsi.objectives.subtitle', scope: 'decidim.components.sdgs'),
-            I18n.t('partnership.objectives.subtitle', scope: 'decidim.components.sdgs')
-          ]
+          Decidim::Sdgs::Sdg::SDGS.map do |sdg_code|
+            [I18n.t("#{sdg_code}.objectives.subtitle", scope: "decidim.components.sdgs"), sdg_code]
+          end
         end
 
         # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
+          @scope ||= current_organization.scopes.find_by(id: decidim_scope_id)
         end
 
         def map_model(model); end

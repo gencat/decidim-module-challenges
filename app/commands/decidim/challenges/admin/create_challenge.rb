@@ -42,8 +42,8 @@ module Decidim
             global_description: parsed_global_description,
             component: form.current_component,
             tags: form.tags,
-            sdg: form.sdg,
-            scope: form.decidim_scope_id,
+            sdg_code: form.sdg_code,
+            scope: form.scope,
             state: form.state,
             start_date: form.start_date,
             end_date: form.end_date,
@@ -55,7 +55,7 @@ module Decidim
             Decidim::Challenges::Challenge,
             form.current_user,
             params,
-            visibility: 'all'
+            visibility: "all"
           )
         end
       end

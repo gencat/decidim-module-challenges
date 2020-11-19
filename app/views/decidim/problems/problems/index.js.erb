@@ -2,8 +2,7 @@ var $problems = $('#problems');
 var $problemsCount = $('#problems-count');
 var $orderFilterInput = $('.order_filter');
 
-
-problems.html('<%= j(render partial: "problems").strip.html_safe %>');
+$problems.html('<%= j(render partial: "problems").strip.html_safe %>');
 $problemsCount.html('<%= j(render partial: "count").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');
 

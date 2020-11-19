@@ -8,6 +8,8 @@ module Decidim
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
 
+        helper Decidim::Sdgs::SdgsHelper
+
         helper_method :challenges, :challenge, :form_presenter
 
         def index
@@ -26,13 +28,16 @@ module Decidim
 
           Decidim::Challenges::Admin::CreateChallenge.call(@form) do
             on(:ok) do
-              flash[:notice] = I18n.t('challenges.create.success', scope: 'decidim.challenges.admin')
+              flash[:notice] = I18n.t("challenges.create.success", scope: "decidim.challenges.admin")
+              # maybe used together?
+              # Rails.application.routes.mounted_helpers
+              # ResourceLocatorPresenter.new(resource).edit
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t('challenges.create.error', scope: 'decidim.challenges.admin')
-              render action: 'new'
+              flash.now[:alert] = I18n.t("challenges.create.error", scope: "decidim.challenges.admin")
+              render action: "new"
             end
           end
         end
@@ -48,12 +53,12 @@ module Decidim
 
           Decidim::Challenges::Admin::UpdateChallenge.call(@form, challenge) do
             on(:ok) do |_challenge|
-              flash[:notice] = t('challenges.update.success', scope: 'decidim.challenges.admin')
+              flash[:notice] = t("challenges.update.success", scope: "decidim.challenges.admin")
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
             end
 
             on(:invalid) do
-              flash.now[:alert] = t('challenges.update.error', scope: 'decidim.challenges.admin')
+              flash.now[:alert] = t("challenges.update.error", scope: "decidim.challenges.admin")
               render :edit
             end
           end
@@ -64,12 +69,12 @@ module Decidim
 
           Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t('challenges.destroy.success', scope: 'decidim.challenges.admin')
+              flash[:notice] = I18n.t("challenges.destroy.success", scope: "decidim.challenges.admin")
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
             end
 
             on(:invalid) do
-              flash.now[:alert] = t('challenges.destroy.error', scope: 'decidim.challenges.admin')
+              flash.now[:alert] = t("challenges.destroy.error", scope: "decidim.challenges.admin")
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
             end
           end
