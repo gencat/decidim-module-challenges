@@ -27,7 +27,7 @@ module Decidim
           state: %w(proposal execution finished),
           scope_id: default_filter_scope_params,
           related_to: "",
-          sdgs_ids: []
+          sdgs_codes: []
         }
       end
 

@@ -2,23 +2,23 @@
 
 require "spec_helper"
 
-describe "Filter Challenges", :slow, type: :system do
+describe "Filter Problems", :slow, type: :system do
   include_context "with a component"
-  let(:manifest_name) { "challenges" }
+  let(:manifest_name) { "problems" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  describe "when filtering challenges by SCOPE" do
+  describe "when filtering problems by SCOPE" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
     let!(:scope_2) { create :scope, organization: participatory_process.organization }
 
     before do
-      create_list(:challenge, 2, component: component, scope: scope)
-      create(:challenge, component: component, scope: scope_2)
-      create(:challenge, component: component, scope: nil)
+      create_list(:problem, 2, component: component, scope: scope)
+      create(:problem, component: component, scope: scope_2)
+      create(:problem, component: component, scope: nil)
       visit_component
     end
 
@@ -29,44 +29,44 @@ describe "Filter Challenges", :slow, type: :system do
     end
 
     context "when selecting the global scope" do
-      it "lists the filtered challenges", :slow do
+      it "lists the filtered problems", :slow do
         within ".filters .scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check "Global"
         end
 
-        expect(page).to have_css(".card--challenge", count: 1)
-        expect(page).to have_content("1 CHALLENGE")
+        expect(page).to have_css(".card--problem", count: 1)
+        expect(page).to have_content("1 PROBLEM")
       end
     end
 
     context "when selecting one scope" do
-      it "lists the filtered challenges", :slow do
+      it "lists the filtered problems", :slow do
         within ".filters .scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--challenge", count: 2)
-        expect(page).to have_content("2 CHALLENGES")
+        expect(page).to have_css(".card--problem", count: 2)
+        expect(page).to have_content("2 PROBLEMS")
       end
     end
 
     context "when selecting the global scope and another scope" do
-      it "lists the filtered challenges", :slow do
+      it "lists the filtered problems", :slow do
         within ".filters .scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check "Global"
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--challenge", count: 3)
-        expect(page).to have_content("3 CHALLENGES")
+        expect(page).to have_css(".card--problem", count: 3)
+        expect(page).to have_content("3 PROBLEMS")
       end
     end
 
     context "when unselecting the selected scope" do
-      it "lists the filtered challenges" do
+      it "lists the filtered problems" do
         within ".filters .scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
@@ -74,8 +74,8 @@ describe "Filter Challenges", :slow, type: :system do
           uncheck scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--challenge", count: 1)
-        expect(page).to have_content("1 CHALLENGE")
+        expect(page).to have_css(".card--problem", count: 1)
+        expect(page).to have_content("1 PROBLEM")
       end
     end
 
@@ -104,7 +104,7 @@ describe "Filter Challenges", :slow, type: :system do
     end
   end
 
-  describe "when filtering challenges by STATE" do
+  describe "when filtering problems by STATE" do
     it "can be filtered by state" do
       visit_component
 
@@ -113,8 +113,8 @@ describe "Filter Challenges", :slow, type: :system do
       end
     end
 
-    it "lists proposal challenges" do
-      create(:challenge, :proposal, component: component, scope: scope)
+    it "lists proposal problems" do
+      create(:problem, :proposal, component: component, scope: scope)
       visit_component
 
       within ".filters .state_check_boxes_tree_filter" do
@@ -123,16 +123,16 @@ describe "Filter Challenges", :slow, type: :system do
         check "Proposal"
       end
 
-      expect(page).to have_css(".card--challenge", count: 1)
-      expect(page).to have_content("1 CHALLENGE")
+      expect(page).to have_css(".card--problem", count: 1)
+      expect(page).to have_content("1 PROBLEM")
 
-      within ".card--challenge" do
+      within ".card--problem" do
         expect(page).to have_content("PROPOSAL")
       end
     end
 
-    it "lists the filtered challenges" do
-      create(:challenge, :execution, component: component, scope: scope)
+    it "lists the filtered problems" do
+      create(:problem, :execution, component: component, scope: scope)
       visit_component
 
       within ".filters .state_check_boxes_tree_filter" do
@@ -141,16 +141,16 @@ describe "Filter Challenges", :slow, type: :system do
         check "Execution"
       end
 
-      expect(page).to have_css(".card--challenge", count: 1)
-      expect(page).to have_content("1 CHALLENGE")
+      expect(page).to have_css(".card--problem", count: 1)
+      expect(page).to have_content("1 PROBLEM")
 
-      within ".card--challenge" do
+      within ".card--problem" do
         expect(page).to have_content("EXECUTION")
       end
     end
   end
 
-  describe "when filtering challenges by SDG" do
+  describe "when filtering problems by SDG" do
     context "when the participatory_space does NOT contain an SDGs component" do
       before do
         visit_component
@@ -162,13 +162,18 @@ describe "Filter Challenges", :slow, type: :system do
     end
 
     context "when the participatory_space DOES contain an SDGs component" do
-      let!(:sdgs_component) { create(:component, participatory_space: participatory_process, manifest_name: "sdgs") }
+      let!(:sdgs_component) { create(:sdgs_component, participatory_space: participatory_process) }
+      let!(:challenges_component) { create(:challenges_component, participatory_space: participatory_process) }
 
       before do
-        create_list(:challenge, 2, component: component, sdg_code: :no_poverty)
-        create(:challenge, component: component, sdg_code: :zero_hunger)
-        create(:challenge, component: component, sdg_code: :good_health)
-        create(:challenge, component: component, sdg_code: nil)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
+        create_list(:problem, 2, component: component, challenge: challenge)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
+        create(:problem, component: component, challenge: challenge)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
+        create(:problem, component: component, challenge: challenge)
+        challenge = create(:challenge, component: challenges_component)
+        create(:problem, component: component, challenge: challenge)
         visit_component
       end
 
@@ -177,9 +182,9 @@ describe "Filter Challenges", :slow, type: :system do
       end
 
       context "when NOT selecting any SDG" do
-        it "lists all the challenges" do
-          expect(page).to have_css(".card--challenge", count: 5)
-          expect(page).to have_content("5 CHALLENGES")
+        it "lists all the problems" do
+          expect(page).to have_css(".card--problem", count: 5)
+          expect(page).to have_content("5 PROBLEMS")
         end
       end
 
@@ -192,21 +197,21 @@ describe "Filter Challenges", :slow, type: :system do
           find("#sdgs-modal .reveal__footer a.button").click
         end
 
-        it "lists the challenges with the selected SDGs" do
-          expect(page).to have_css(".card--challenge", count: 3)
-          expect(page).to have_content("3 CHALLENGES")
+        it "lists the problems with the selected SDGs" do
+          expect(page).to have_css(".card--problem", count: 3)
+          expect(page).to have_content("3 PROBLEMS")
         end
       end
     end
   end
 
-  # context "when filtering challenges by CATEGORY", :slow do
+  # context "when filtering problems by CATEGORY", :slow do
   #   context "when the user is logged in" do
   #     let!(:category2) { create :category, participatory_space: participatory_process }
   #     let!(:category3) { create :category, participatory_space: participatory_process }
-  #     let!(:challenge1) { create(:challenge, component: component, category: category) }
-  #     let!(:challenge2) { create(:challenge, component: component, category: category2) }
-  #     let!(:challenge3) { create(:challenge, component: component, category: category3) }
+  #     let!(:problem1) { create(:problem, component: component, category: category) }
+  #     let!(:problem2) { create(:problem, component: component, category: category2) }
+  #     let!(:problem3) { create(:problem, component: component, category: category3) }
 
   #     before do
   #       login_as user, scope: :user
@@ -220,7 +225,7 @@ describe "Filter Challenges", :slow, type: :system do
   #         check category.name[I18n.locale.to_s]
   #       end
 
-  #       expect(page).to have_css(".card--challenge", count: 1)
+  #       expect(page).to have_css(".card--problem", count: 1)
   #     end
 
   #     it "can be filtered by two categories" do
@@ -232,17 +237,17 @@ describe "Filter Challenges", :slow, type: :system do
   #         check category2.name[I18n.locale.to_s]
   #       end
 
-  #       expect(page).to have_css(".card--challenge", count: 2)
+  #       expect(page).to have_css(".card--problem", count: 2)
   #     end
   #   end
   # end
 
   # context "when using the browser history", :slow do
   #   before do
-  #     create_list(:challenge, 2, component: component)
-  #     create_list(:challenge, 2, :official, component: component)
-  #     create_list(:challenge, 2, :official, :accepted, component: component)
-  #     create_list(:challenge, 2, :official, :rejected, component: component)
+  #     create_list(:problem, 2, component: component)
+  #     create_list(:problem, 2, :official, component: component)
+  #     create_list(:problem, 2, :official, :accepted, component: component)
+  #     create_list(:problem, 2, :official, :rejected, component: component)
 
   #     visit_component
   #   end
@@ -252,11 +257,11 @@ describe "Filter Challenges", :slow, type: :system do
   #       check "Rejected"
   #     end
 
-  #     expect(page).to have_css(".card.card--challenge", count: 8)
+  #     expect(page).to have_css(".card.card--problem", count: 8)
 
   #     page.go_back
 
-  #     expect(page).to have_css(".card.card--challenge", count: 6)
+  #     expect(page).to have_css(".card.card--problem", count: 6)
   #   end
 
   #   it "recover filters from previous pages" do
@@ -276,19 +281,19 @@ describe "Filter Challenges", :slow, type: :system do
   #       check "Accepted"
   #     end
 
-  #     expect(page).to have_css(".card.card--challenge", count: 2)
+  #     expect(page).to have_css(".card.card--problem", count: 2)
 
   #     page.go_back
 
-  #     expect(page).to have_css(".card.card--challenge", count: 6)
+  #     expect(page).to have_css(".card.card--problem", count: 6)
 
   #     page.go_back
 
-  #     expect(page).to have_css(".card.card--challenge", count: 8)
+  #     expect(page).to have_css(".card.card--problem", count: 8)
 
   #     page.go_forward
 
-  #     expect(page).to have_css(".card.card--challenge", count: 6)
+  #     expect(page).to have_css(".card.card--problem", count: 6)
   #   end
   # end
 end

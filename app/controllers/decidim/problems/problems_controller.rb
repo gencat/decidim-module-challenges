@@ -12,6 +12,7 @@ module Decidim
       include ProblemsHelper
 
       helper Decidim::CheckBoxesTreeHelper
+      helper Decidim::Sdgs::SdgsHelper
 
       helper_method :problems
 
@@ -25,7 +26,8 @@ module Decidim
           category_id: default_filter_category_params,
           state: %w(proposal execution finished),
           scope_id: default_filter_scope_params,
-          related_to: ""
+          related_to: "",
+          sdgs_codes: []
         }
       end
 
