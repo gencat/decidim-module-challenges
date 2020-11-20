@@ -17,26 +17,23 @@
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.text_field :indicators %>
+      <%= form.translated :editor, :indicators %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.text_field :beneficiaries %>
+      <%= form.translated :editor, :beneficiaries %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :requirements %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :financing_type %>
     </div>
 
     <div class="row column">
       <%= scopes_picker_field form, :decidim_scope_id, root: nil %>
-    </div>
-
-    <div class="row column">
-      <%= form.select :requirements,
-                      @form.select_requirements_collection,
-                      selected: [I18n.t(@form.try(:requirements), scope: 'decidim.solutions.requirements'), Decidim::Solutions::Solution::requirements[@form.try(:requirements)]],
-                      label: t("models.solution.fields.requirements", scope: "decidim.solutions.admin") %>
-    </div>
-
-    <div class="row column hashtags__container">
-      <%= form.text_field :financing_type %>
     </div>
   </div>
 

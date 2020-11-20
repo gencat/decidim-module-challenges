@@ -10,26 +10,22 @@ module Decidim
 
         mimic :solution
 
-        translatable_attribute :title, String
+        translatable_attribute :title, String do |field, _locale|
+          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
+        end
         translatable_attribute :description, String
 
         attribute :decidim_component_id, Integer
         attribute :decidim_problems_problem_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :tags, String
-        attribute :indicators, String
-        attribute :beneficiaries, String
-        attribute :requirements, Integer
-        attribute :financing_type, String
-
-        translatable_attribute :title, String do |field, _locale|
-          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
-        end
-        translatable_attribute :description, String
+        translatable_attribute :indicators, String
+        translatable_attribute :beneficiaries, String
+        translatable_attribute :requirements, String
+        translatable_attribute :financing_type, String
 
         validates :title, :description, translatable_presence: true
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validate :valid_requirements
         validates :decidim_problems_problem_id, presence: true
 
         alias organization current_organization
@@ -63,14 +59,6 @@ module Decidim
         end
 
         def map_model(model); end
-
-        private
-
-        def valid_requirements
-          return if requirements.present? && Decidim::Solutions::Solution::VALID_REQUIREMENTS[requirements].present?
-
-          errors.add(:requirements, :invalid)
-        end
       end
     end
   end

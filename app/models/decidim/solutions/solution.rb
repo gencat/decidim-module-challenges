@@ -13,18 +13,11 @@ module Decidim
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
 
-      # FIX define possible requirements !
-      VALID_REQUIREMENTS = [:technical, :economic, :financial].freeze
-      enum requirements: VALID_REQUIREMENTS
-
       component_manifest_name "solutions"
 
       belongs_to :problem, foreign_key: "decidim_problems_problem_id", class_name: "Decidim::Problems::Problem"
 
       scope :published, -> { where.not(published_at: nil) }
-      scope :in_technical, -> { where(requirements: VALID_REQUIREMENTS.index(:technical)) }
-      scope :in_economic, -> { where(requirements: VALID_REQUIREMENTS.index(:economic)) }
-      scope :in_financial, -> { where(requirements: VALID_REQUIREMENTS.index(:financial)) }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,

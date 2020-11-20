@@ -12,8 +12,6 @@
     </div>
   </div>
 
-  <%= form.check_boxes_tree :requirements, filter_solutions_requirements_values, legend_title: t(".requirements") %>
-
   <% if current_participatory_space.has_subscopes? %>
     <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>

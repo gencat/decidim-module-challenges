@@ -9,7 +9,6 @@ module Decidim
       include FilterResource
       include Paginable
       include OrderableSolutions
-      include SolutionsHelper
 
       helper Decidim::CheckBoxesTreeHelper
 

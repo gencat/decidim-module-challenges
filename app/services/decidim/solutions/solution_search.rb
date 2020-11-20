@@ -20,18 +20,6 @@ module Decidim
         query.where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
       end
 
-      # Handle the requirements filter
-      def search_requirements
-        in_technical = state.include?("technical") ? query.in_technical : nil
-        in_economic = state.member?("economic") ? query.in_economic : nil
-        in_financial = state.member?("financial") ? query.in_financial : nil
-
-        query
-          .where(id: in_technical)
-          .or(query.where(id: in_economic))
-          .or(query.where(id: in_financial))
-      end
-
       def search_sdgs_ids
         query.where(sdg_id: Decidim::Sdgs::Sdg.names_from_idxs(sdgs_ids))
       end

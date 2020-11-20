@@ -27,9 +27,6 @@
               <%= t("models.solution.fields.problem", scope: "decidim.solutions.admin") %>
             </th>
             <th>
-              <%= t("models.solution.fields.requirements", scope: "decidim.solutions.admin") %>
-            </th>
-            <th>
               <%= t("models.solution.fields.published", scope: "decidim.solutions.admin") %>
             </th>
             <th class="table-list__actions"></th>
@@ -46,9 +43,6 @@
               </td>
               <td class="table-list__state">
                 <%= translated_attribute(solution.problem.title) %>
-              </td>
-              <td class="table-list__state">
-                <%= I18n.t(solution.requirements, scope: "decidim.solutions.requirements") %>
               </td>
               <td class="table-list__state">
               <% if solution.published? %>

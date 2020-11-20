@@ -35,6 +35,10 @@ module Decidim
         def create_solution!
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
+          parsed_indicators = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.indicators, current_organization: form.current_organization).rewrite
+          parsed_beneficiaries = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.beneficiaries, current_organization: form.current_organization).rewrite
+          parsed_requirements = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.requirements, current_organization: form.current_organization).rewrite
+          parsed_financing_type = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.financing_type, current_organization: form.current_organization).rewrite
           params = {
             title: parsed_title,
             description: parsed_description,
@@ -42,10 +46,10 @@ module Decidim
             decidim_problems_problem_id: form.decidim_problems_problem_id,
             scope: form.scope,
             tags: form.tags,
-            indicators: form.indicators,
-            beneficiaries: form.beneficiaries,
-            requirements: form.requirements,
-            financing_type: form.financing_type
+            indicators: parsed_indicators,
+            beneficiaries: parsed_beneficiaries,
+            requirements: parsed_requirements,
+            financing_type: parsed_financing_type
           }
 
           @solution = Decidim.traceability.create!(
