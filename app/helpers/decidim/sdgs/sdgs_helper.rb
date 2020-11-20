@@ -9,8 +9,10 @@ module Decidim
         render partial: "decidim/sdgs/sdgs_filter/filter_selector", locals: { form: form }
       end
 
-      def t_sdg(name)
-        t(name, scope: "decidim.sdgs.names")
+      def t_sdg(code)
+        return if code.blank?
+
+        t(code, scope: "decidim.sdgs.names")
       end
     end
   end

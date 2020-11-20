@@ -1,7 +1,6 @@
 <div class="filters__section sdgs-filter">
   <button class="" data-open="sdgs-modal"><%= t(".select") %></button>
-  <% Decidim::Sdgs::Sdg::SDGS.each_with_index do |sdg_name, idx|
-    idx+= 1 %>
-    <input type="hidden" name="filter[sdgs_ids][]" value="<%= form.object.sdgs_ids.include?(idx.to_s) ? idx : '' %>" data-value="<%= idx %>">
+  <% Decidim::Sdgs::Sdg::SDGS.each do |sdg_code| %>
+    <input type="hidden" name="filter[sdgs_codes][]" value="<%= form.object.sdgs_codes.include?(sdg_code.to_s) ? sdg_code : '' %>" data-value="<%= sdg_code %>">
   <% end %>
 </div>
