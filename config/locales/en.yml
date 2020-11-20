@@ -16,12 +16,14 @@ en:
         title: Title
       problem:
         causes: Causes
+        groups_affected: Groups affected
         col_entity: Collaborating entity
         description: Description
         end_date: End date
         prop_entity: Proposing entity
         published: Published
         scope: Territory
+        sdg: Sustainable Development Goals
         start_date: Start date
         status: State
         tags: Keywords
@@ -976,6 +978,9 @@ en:
             success: Problem updated successfully
         titles:
           problems_list: Problems list
+      show:
+        proposed_solutions: Proposed solutions
+        return_to_list: Return to list
       index:
         not_published: Not published
         published: Published
@@ -1017,6 +1022,7 @@ en:
         execution: Execution
         finished: Finished
         proposal: Proposal
+      challenge: Challenge
     sdgs:
       names:
         clean_energy: Clean energy

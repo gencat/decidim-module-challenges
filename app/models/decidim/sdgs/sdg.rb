@@ -37,6 +37,12 @@ module Decidim
       def self.code_from_idx(idx)
         SDGS[idx.to_i - 1]
       end
+
+      # Parameter
+      # sdg - the sdg
+      def self.index_from_code(code)
+        SDGS.index(code)
+      end
     end
   end
 end

@@ -23,12 +23,18 @@
         margin-bottom: 5px;
     }
 
-    .card_text--ods--image {
+    .card_text--sdg--image {
         display: inline-block;
+        width: 20%;
+
+        img {
+            vertical-align: bottom;
+        }
     }
 
-    .card_text--ods--text {
+    .card_text--sdg--text {
         display: inline-block;
+        width: 75%;
     }
 
     .card__text--paragraph--estat {
@@ -37,6 +43,15 @@
     }
 
     .card__text--paragraph--description {
+        display: inline-block;
+    }
+
+    .card__text--paragraph--challenge {
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .card__text--paragraph--challenge--title {
         display: inline-block;
     }
 }
@@ -58,3 +73,43 @@
         color: rgb(0, 188, 255);
     }
 }
+
+.definition-data__image {
+    padding-top: 0.1em;
+}
+
+.definition-data__title {
+    font-weight: bold;
+}
+
+.status{
+    text-transform: uppercase;
+}
+
+.section p.tags{
+    color: #D04040;
+    font-weight: 600;
+}
+
+.ods {
+    .text-container {
+        top: 2px;
+        left: 12px;
+        width: 60px;
+    }
+    .text-container.show {
+        top: 2px;
+        left: 37%;
+        width: 60px;
+        text-align: start;
+    }
+
+    p {
+        font-size: 6pt;
+    }
+
+    img.problem--view {
+        width: 100%;
+        max-width: 100px;
+    }
+} 
