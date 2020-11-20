@@ -15,6 +15,7 @@ module Decidim
           get :data_picker_modal_content, on: :collection
         end
         root to: "problems#index"
+        resources :problems, only: [:index, :show]
       end
 
       initializer "decidim_problems.assets" do |app|

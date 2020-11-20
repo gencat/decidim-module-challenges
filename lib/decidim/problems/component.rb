@@ -35,6 +35,7 @@ Decidim.register_component(:problems) do |component|
     # Register a optional resource that can be references from other resources.
     resource.model_class_name = "Decidim::Problems::Problem"
     resource.card = "decidim/problems/problem"
+    component.stylesheet = "decidim/problems/problems"
     # resource.template = "decidim/problems/some_resources/linked_some_resources"
     resource.searchable = true
   end

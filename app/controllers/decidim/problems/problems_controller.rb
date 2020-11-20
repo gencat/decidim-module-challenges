@@ -10,6 +10,7 @@ module Decidim
       include Paginable
       include OrderableProblems
       include ProblemsHelper
+      include Decidim::Sdgs::SdgsHelper
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
@@ -17,6 +18,12 @@ module Decidim
       helper_method :problems
 
       def index; end
+
+      def show
+        @problem = Decidim::Problems::Problem.find(params[:id])
+        @sdg = t_sdg(@problem.challenge.sdg_code)
+        @sdg_index = (1 + Decidim::Sdgs::Sdg.index_from_code(@problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0")
+      end
 
       private
 
