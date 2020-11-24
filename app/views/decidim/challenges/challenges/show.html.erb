@@ -38,11 +38,11 @@
 
         <div class="definition-data__item sdg">
           <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
-          <%= @sdg %><br/>
+          <%= t_sdg(@sdg) %><br/>
           <div class="ods">
               <div class="text-container show">
-                  <p><%= t("no_poverty.logo.line1", scope: "decidim.components.sdgs") %></p>
-                  <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
+                  <p><%= t(@sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
+                  <p><%= t(@sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
               </div>
               <img alt="Logo ODS <%= @sdg_index %>"
                 src="/assets/decidim/sdgs/ods-<%= @sdg_index %>.svg" class="challenge--view">
