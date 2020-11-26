@@ -41,7 +41,12 @@ jobs:
           max_attempts: 3
           command: bundle install --path vendor/bundle --jobs 4 --retry 3
 
-      - name: Lint and Rubocop
-        run: |
-          bundle exec rubocop -P
-          bundle exec erblint app/views/**/*.erb
+      - name: Rubocop
+        run: bundle exec rubocop -P
+
+      # erb-lint < 0.0.33 raises a NameError but can't upgrade due to gem dependency incompatibilities
+      # These incompabilities are already solved in decidim v0.24 but it still has to be released
+      # Uncomment the following lines after the upgrade
+      #
+      # - name: Erb linter
+      #   run: bundle exec erblint app/views/**/*.erb
