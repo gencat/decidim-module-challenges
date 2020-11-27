@@ -984,6 +984,7 @@ Layout/TrailingBlankLines:
     - final_blank_line
 
 Style/TrailingCommaInArguments:
+  Enabled: false
   # If `comma`, the cop requires a comma after the last argument, but only for
   # parenthesized method calls where each argument is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last argument,

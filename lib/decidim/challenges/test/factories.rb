@@ -16,7 +16,7 @@ FactoryBot.define do
     state { "execution" }
     start_date { 1.day.from_now }
     end_date { start_date + 2.months }
-    component { build(:component, manifest_name: "challenges") }
+    component { build(:challenges_component) }
     coordinating_entities { [1..5].collect { generate(:name) }.join(", ") }
     collaborating_entities { [1..5].collect { generate(:name) }.join(", ") }
     published_at { Time.current }
