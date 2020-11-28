@@ -23,7 +23,6 @@ module Decidim
         :pjsi,
         :partnership
       ].freeze
-
       # Parameter
       # idxs - Array of Sdgs indexes, between 1 and 17
       def self.codes_from_idxs(idxs)
@@ -36,6 +35,12 @@ module Decidim
       # idx - The index of the Sdg, between 1 and 17
       def self.code_from_idx(idx)
         SDGS[idx.to_i - 1]
+      end
+
+      # Parameter
+      # sdg - the sdg
+      def self.index_from_code(code)
+        SDGS.index(code)
       end
     end
   end

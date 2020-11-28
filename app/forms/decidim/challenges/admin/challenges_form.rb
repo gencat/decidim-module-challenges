@@ -7,6 +7,7 @@ module Decidim
       #
       class ChallengesForm < Decidim::Form
         include TranslatableAttributes
+        include Decidim::Sdgs::SdgsHelper
 
         mimic :challenge
 
