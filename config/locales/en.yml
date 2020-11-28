@@ -1083,7 +1083,6 @@ en:
             update: Update
           form:
             problem: Related problem
-            select_requirements: Requirements select
           new:
             create: Create
             title: New solution
@@ -1128,17 +1127,7 @@ en:
           label: Sorts
           random: Random
           recent: Most recent
-      solutions_helper:
-        filter_requirements_values:
-          all: All
-          technical: Technical
-          economic: Economics
-          financial: Financial
       index:
         title: Solutions
         published: Published
         not_published: Unpublished
-      requirements:
-        technical: Technical
-        economic: Economics
-        financial: Financial

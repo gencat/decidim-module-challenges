@@ -1082,7 +1082,6 @@ ca:
             update: Actualitza
           form:
             problem: Problema associat
-            select_requirements: Selecciona els requeriments
           new:
             create: Crea
             title: Nova solució
@@ -1127,17 +1126,7 @@ ca:
           label: Ordenacions
           random: Aleatori
           recent: Més recents
-      solutions_helper:
-        filter_requirements_values:
-          all: Tots
-          technical: Tècnics
-          economic: Econòmics
-          financial: Finançers
       index:
         title: Solucions
         published: Publicada
         not_published: No Publicada
-      requirements:
-        technical: Tècnics
-        economic: Econòmics
-        financial: Finançers

@@ -1086,7 +1086,6 @@ es:
             update: Actualiza
           form:
             problem: Problema asociado
-            select_requirements: Selecciona los requisitos
           new:
             create: Crea
             title: Nueva solución
@@ -1131,17 +1130,7 @@ es:
           label: Ordenaciones
           random: Aleatorio
           recent: Más recientes
-      solutions_helper:
-        filter_requirements_values:
-          all: Todos
-          technical: Técnicos
-          economic: Económicos
-          financial: Financieros
       index:
         title: Soluciones
         published: Publicada
         not_published: No Publicada
-      requirements:
-        technical: Técnicos
-        economic: Económicos
-        financial: Financieros

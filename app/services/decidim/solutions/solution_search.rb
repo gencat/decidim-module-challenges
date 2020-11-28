@@ -20,8 +20,8 @@ module Decidim
         query.where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
       end
 
-      def search_sdgs_ids
-        query.where(sdg_id: Decidim::Sdgs::Sdg.names_from_idxs(sdgs_ids))
+      def search_sdgs_codes
+        query.joins(problem: :challenge).where("decidim_challenges_challenges.sdg_code" => sdgs_codes)
       end
     end
   end

@@ -7,8 +7,19 @@ FactoryBot.define do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :solutions).i18n_name }
     manifest_name { :solutions }
     participatory_space { create(:participatory_process, :with_steps) }
-    scope
   end
 
-  # Add engine factories here
+  factory :solution, class: "Decidim::Solutions::Solution" do
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    component { build(:solutions_component) }
+    problem { build(:problem) }
+
+    tags { Decidim::Faker::Localized.localized { generate(:hashtag_name) } }
+    indicators { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    beneficiaries { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    requirements { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    financing_type { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    published_at { 1.day.ago }
+  end  
 end

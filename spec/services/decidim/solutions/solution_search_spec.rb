@@ -6,9 +6,10 @@ module Decidim
   module Solutions
     describe SolutionSearch do
       let!(:challenge) { create(:challenge) }
-      let(:component) { create(:component, organization: challenge.component.organization, manifest_name: "solutions") }
+      let!(:problem) { create(:problem, challenge: challenge) }
+      let(:component) { create(:solutions_component, organization: challenge.component.organization) }
       let(:participatory_process) { component.participatory_space }
-      let!(:solutions_list) { create_list(:solution, 3, component: component, challenge: challenge) }
+      let!(:solutions_list) { create_list(:solution, 3, component: component, problem: problem) }
 
       describe "results" do
         subject do
@@ -31,7 +32,7 @@ module Decidim
         let(:sdgs_codes) { nil }
 
         it "only includes solutions from the given component" do
-          other_solution = create(:solution)
+          other_solution = create(:solution, problem: problem)
 
           expect(subject).to match_array(solutions_list)
           expect(subject).not_to include(other_solution)
@@ -45,51 +46,6 @@ module Decidim
 
             expect(subject).to include(dog_solution)
             expect(subject.size).to eq(1)
-          end
-        end
-
-        describe "state filter" do
-          context "when filtering for default states" do
-            it "returns all solutions" do
-              expect(subject.size).to eq(3)
-              expect(subject).to match_array(solutions_list)
-            end
-          end
-
-          context "when filtering solutions in :proposal state" do
-            let(:states) { %w(proposal) }
-
-            it "hides execution and finished proposals" do
-              create(:solution, :finished, component: component)
-              proposal_solution = create(:solution, :proposal, component: component)
-
-              expect(subject.size).to eq(1)
-              expect(subject).to include(proposal_solution)
-            end
-          end
-
-          context "when filtering solutions in :execution state" do
-            let(:states) { %w(execution) }
-
-            it "returns only execution proposals" do
-              create(:solution, :finished, component: component, challenge: challenge)
-              create(:solution, :proposal, component: component, challenge: challenge)
-
-              expect(subject.size).to eq(3)
-              expect(subject).to match_array(solutions_list)
-            end
-          end
-
-          context "when filtering solutions in :finished state" do
-            let(:states) { %w(finished) }
-
-            it "returns only finished proposals" do
-              finished_solution = create(:solution, :finished, component: component)
-              create(:solution, :proposal, component: component)
-
-              expect(subject.size).to eq(1)
-              expect(subject).to include(finished_solution)
-            end
           end
         end
 
@@ -152,13 +108,11 @@ module Decidim
           end
 
           context "when one SDG is selected" do
-            let(:sdgs_code) { Decidim::Sdgs::Sdg::SDGS.index(:zero_hunger) }
-            let!(:solution_w_sdg) { create(:solution, component: component, challenge: challenge) }
-            let(:sdgs_codes) { [sdgs_code] }
-
-            before do
-              challenge.update!(sdgs_code: sdgs_code)
-            end
+            let(:sdg_code) { :partnership }
+            let!(:challenge_w_sdg) { create(:challenge, component: challenge.component, sdg_code: sdg_code) }
+            let!(:problem_w_sdg) { create(:problem, component: problem.component, challenge: challenge_w_sdg) }
+            let!(:solution_w_sdg) { create(:solution, component: component, problem: problem_w_sdg) }
+            let(:sdgs_codes) { [sdg_code] }
 
             it "returns the solutions associated to the given SDG" do
               expect(subject.pluck(:id)).to match_array([solution_w_sdg.id])
