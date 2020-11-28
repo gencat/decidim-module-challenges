@@ -11,6 +11,7 @@ module Decidim
       include OrderableSolutions
 
       helper Decidim::CheckBoxesTreeHelper
+      helper Decidim::Sdgs::SdgsHelper
 
       helper_method :solutions
 
