@@ -21,7 +21,7 @@ module Decidim
         :life_below_water,
         :life_on_land,
         :pjsi,
-        :partnership
+        :partnership,
       ].freeze
 
       # Parameter
