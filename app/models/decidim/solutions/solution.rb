@@ -26,7 +26,7 @@ module Decidim
                           B: :description,
                           C: "",
                           D: "",
-                          datetime: :published_at
+                          datetime: :published_at,
                         },
                         index_on_create: ->(solution) { solution.published? },
                         index_on_update: ->(solution) { solution.published? })

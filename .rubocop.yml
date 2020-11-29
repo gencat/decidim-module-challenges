@@ -984,7 +984,6 @@ Layout/TrailingBlankLines:
     - final_blank_line
 
 Style/TrailingCommaInArguments:
-  Enabled: false
   # If `comma`, the cop requires a comma after the last argument, but only for
   # parenthesized method calls where each argument is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last argument,
@@ -996,14 +995,14 @@ Style/TrailingCommaInArrayLiteral:
   # hash, but only when each item is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last item of all
   # non-empty array and hash literals.
-  EnforcedStyleForMultiline: no_comma
+  EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInHashLiteral:
   # If `comma`, the cop requires a comma after the last item in an array or
   # hash, but only when each item is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last item of all
   # non-empty array and hash literals.
-  EnforcedStyleForMultiline: no_comma
+  EnforcedStyleForMultiline: comma
 
 # TrivialAccessors requires exact name matches and doesn't allow
 # predicated methods by default.

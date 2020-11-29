@@ -33,7 +33,7 @@ module Decidim
                           B: :description,
                           C: "",
                           D: "",
-                          datetime: :published_at
+                          datetime: :published_at,
                         },
                         index_on_create: ->(problem) { problem.published? },
                         index_on_update: ->(problem) { problem.published? })

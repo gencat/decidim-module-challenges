@@ -32,7 +32,7 @@ module Decidim
                           B: :local_description,
                           C: :global_description,
                           D: "",
-                          datetime: :published_at
+                          datetime: :published_at,
                         },
                         index_on_create: ->(challenge) { challenge.published? },
                         index_on_update: ->(challenge) { challenge.published? })

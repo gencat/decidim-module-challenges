@@ -49,7 +49,7 @@ module Decidim
             indicators: parsed_indicators,
             beneficiaries: parsed_beneficiaries,
             requirements: parsed_requirements,
-            financing_type: parsed_financing_type
+            financing_type: parsed_financing_type,
           }
 
           @solution = Decidim.traceability.create!(

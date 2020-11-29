@@ -58,7 +58,7 @@ module Decidim
             start_date: form.start_date,
             end_date: form.end_date,
             coordinating_entities: form.coordinating_entities,
-            collaborating_entities: form.collaborating_entities
+            collaborating_entities: form.collaborating_entities,
           }
         end
       end

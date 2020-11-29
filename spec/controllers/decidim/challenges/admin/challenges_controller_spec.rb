@@ -13,21 +13,21 @@ module Decidim
           {
             en: "Challenge title",
             es: "Título reto",
-            ca: "Títol repte"
+            ca: "Títol repte",
           }
         end
         let(:local_description) do
           {
             en: "Local description",
             es: "Descripción local",
-            ca: "Descripció local"
+            ca: "Descripció local",
           }
         end
         let(:global_description) do
           {
             en: "Global description",
             es: "Descripción global",
-            ca: "Descripció global"
+            ca: "Descripció global",
           }
         end
         let(:sdg_code) { Sdgs::Sdg::SDGS.first }
@@ -49,11 +49,11 @@ module Decidim
               start_date: start_date,
               end_date: end_date,
               collaborating_entities: collaborating_entities,
-              coordinating_entities: coordinating_entities
+              coordinating_entities: coordinating_entities,
             },
             component_id: component,
             scope: scope,
-            participatory_process_slug: component.participatory_space.slug
+            participatory_process_slug: component.participatory_space.slug,
           }
         end
         let(:current_user) { create :user, :admin, :confirmed, organization: organization }
@@ -83,7 +83,7 @@ module Decidim
               {
                 en: nil,
                 es: nil,
-                ca: nil
+                ca: nil,
               }
             end
 
@@ -107,7 +107,7 @@ module Decidim
                   title: {
                     en: "Updated challenge title",
                     es: "Título reto actualizado",
-                    ca: "Títol repte actualitzat"
+                    ca: "Títol repte actualitzat",
                   },
                   local_description: local_description,
                   global_description: global_description,
@@ -117,11 +117,11 @@ module Decidim
                   start_date: start_date,
                   end_date: end_date,
                   collaborating_entities: collaborating_entities,
-                  coordinating_entities: coordinating_entities
+                  coordinating_entities: coordinating_entities,
                 },
                 component: component,
                 scope: scope,
-                participatory_process_slug: component.participatory_space.slug
+                participatory_process_slug: component.participatory_space.slug,
               }
             end
 
@@ -141,12 +141,12 @@ module Decidim
                   title: {
                     en: nil,
                     es: nil,
-                    ca: nil
-                  }
+                    ca: nil,
+                  },
                 },
                 component: component,
                 scope: scope,
-                participatory_process_slug: component.participatory_space.slug
+                participatory_process_slug: component.participatory_space.slug,
               }
             end
 
@@ -166,7 +166,7 @@ module Decidim
               id: challenge.id,
               component: component,
               scope: scope,
-              participatory_process_slug: component.participatory_space.slug
+              participatory_process_slug: component.participatory_space.slug,
             }
           end
 

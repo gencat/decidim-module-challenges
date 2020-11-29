@@ -18,7 +18,7 @@ module Decidim
             related_to: related_to,
             scope_id: scope_ids,
             category_id: category_ids,
-            sdgs_codes: sdgs_codes,
+            sdgs_codes: sdgs_codes
           ).results
         end
 
