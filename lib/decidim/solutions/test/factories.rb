@@ -21,5 +21,5 @@ FactoryBot.define do
     requirements { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     financing_type { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     published_at { 1.day.ago }
-  end  
+  end
 end
