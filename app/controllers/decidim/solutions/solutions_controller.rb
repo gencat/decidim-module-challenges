@@ -31,7 +31,7 @@ module Decidim
           category_id: default_filter_category_params,
           state: Decidim::Solutions::Solution::VALID_REQUIREMENTS,
           scope_id: default_filter_scope_params,
-          related_to: ""
+          related_to: "",
         }
       end
 

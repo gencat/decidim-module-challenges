@@ -94,6 +94,10 @@ en:
               title: Title
         titles:
           challenges_list: Challenges list
+      show:
+        associated_problems: Associated problems
+        proposed_solutions: Proposed solutions
+        return_to_list: Return to list
       challenges:
         challenges:
           empty: No challenges could be found

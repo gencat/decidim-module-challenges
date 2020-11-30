@@ -11,7 +11,7 @@ module Decidim
           [
             Decidim::CheckBoxesTreeHelper::TreePoint.new("proposal", t("decidim.problems.problems_helper.filter_state_values.proposal")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("execution", t("decidim.problems.problems_helper.filter_state_values.execution")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("finished", t("decidim.problems.problems_helper.filter_state_values.finished"))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("finished", t("decidim.problems.problems_helper.filter_state_values.finished")),
           ]
         )
       end

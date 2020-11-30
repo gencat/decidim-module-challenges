@@ -32,7 +32,7 @@ module Decidim
                           B: :local_description,
                           C: :global_description,
                           D: "",
-                          datetime: :published_at
+                          datetime: :published_at,
                         },
                         index_on_create: ->(challenge) { challenge.published? },
                         index_on_update: ->(challenge) { challenge.published? })
@@ -45,6 +45,10 @@ module Decidim
       def published?
         published_at.present?
       end
+
+      has_many :problems,
+               class_name: "Problems",
+               foreign_key: "decidim_challenges_challenge_id"
     end
   end
 end

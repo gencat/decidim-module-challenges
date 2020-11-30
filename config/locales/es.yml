@@ -87,6 +87,10 @@ es:
               title: Titulo
         titles:
           challenges_list: Listado de retos
+      show:
+        associated_problems: Problemas asociados
+        proposed_solutions: Soluciones propuestas
+        return_to_list: Volver al listado
       challenges:
         challenges:
           empty: No se han encontrado retos

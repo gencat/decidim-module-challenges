@@ -15,10 +15,16 @@ module Decidim
           get :data_picker_modal_content, on: :collection
         end
         root to: "challenges#index"
+        resources :challenges, only: [:index, :show]
       end
 
       initializer "decidim_challenges.assets" do |app|
         app.config.assets.precompile += %w(decidim_challenges_manifest.js decidim_challenges_manifest.css)
+      end
+
+      initializer "decidim_challenges.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Challenges::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Challenges::Engine.root}/app/views") # for partials
       end
     end
   end

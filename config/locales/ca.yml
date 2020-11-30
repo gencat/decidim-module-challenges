@@ -87,6 +87,10 @@ ca:
               title: Títol
         titles:
           challenges_list: Llistat de reptes
+      show:
+        associated_problems: Problemes associats
+        proposed_solutions: Solucions proposades
+        return_to_list: Tornar al llistat
       challenges:
         challenges:
           empty: No s'han pogut trobar reptes
