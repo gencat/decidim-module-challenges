@@ -1,0 +1,74 @@
+.card--solution {    
+    .card__title {
+        margin-bottom: 5px;
+    }
+
+    .card_text--sdg--image {
+        display: inline-block;
+        width: 20%;
+
+        img {
+            vertical-align: bottom;
+        }
+    }
+
+    .card__sdg {
+        display: inline-flex;
+    }
+
+    .card_text--sdg--text {
+        display: inline-block;
+        width: 75%;
+        padding-left: 5px;
+    }
+
+    .card__text--paragraph--status {
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .card__text--paragraph--description {
+        display: inline-block;
+    }
+
+    .card__text--paragraph--problem {
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .card__text--paragraph--problem--title {
+        display: inline-block;
+    }
+
+    .card__text--paragraph--challenge {
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .card__text--paragraph--challenge--title {
+        display: inline-block;
+    }
+}
+
+.ods {
+    .text-container {
+        top: 2px;
+        left: 14px;
+        width: 60px;
+    }
+    .text-container.show {
+        top: 2px;
+        left: 37%;
+        width: 60px;
+        text-align: start;
+    }
+
+    p {
+        font-size: 6pt;
+    }
+
+    img.problem--view {
+        width: 100%;
+        max-width: 100px;
+    }
+}

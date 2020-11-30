@@ -34,6 +34,7 @@ ca:
         problem: Problema
         published: Publicat
         requirements: Requeriments
+        sdg: Objectius de Desenvolupament Sostenible
         scope: Territori
         tags: Paraules clau
         title: Títol
@@ -1055,6 +1056,8 @@ ca:
           close: Selecciona
           title: Objectius de Desenvolupament Sostenible
     solutions:
+      problem: Problema
+      challenge: Repte
       admin:
         actions:
           configure: Configura
