@@ -30,13 +30,6 @@ module Decidim
 
         alias organization current_organization
 
-        # Return a solution's valid requirements list
-        def select_requirements_collection
-          Decidim::Solutions::Solution::VALID_REQUIREMENTS.map.with_index do |requirement, idx|
-            [I18n.t(requirement, scope: "decidim.solutions.requirements"), idx]
-          end
-        end
-
         # Return a problem's list
         def select_problem_collection
           Decidim::Problems::Problem.all.map do |p|
