@@ -152,13 +152,10 @@ module Decidim
           end
 
           context "when one SDG is selected" do
-            let(:sdgs_code) { Decidim::Sdgs::Sdg::SDGS.index(:zero_hunger) }
-            let!(:problem_w_sdg) { create(:problem, component: component, challenge: challenge) }
-            let(:sdgs_codes) { [sdgs_code] }
-
-            before do
-              challenge.update!(sdgs_code: sdgs_code)
-            end
+            let(:sdg_code) { :zero_hunger }
+            let!(:challenge_w_sdg) { create(:challenge, component: challenge.component, sdg_code: sdg_code) }
+            let!(:problem_w_sdg) { create(:problem, component: component, challenge: challenge_w_sdg) }
+            let(:sdgs_codes) { [sdg_code] }
 
             it "returns the problems associated to the given SDG" do
               expect(subject.pluck(:id)).to match_array([problem_w_sdg.id])

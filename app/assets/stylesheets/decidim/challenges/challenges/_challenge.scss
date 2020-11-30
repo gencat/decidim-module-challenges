@@ -1,0 +1,106 @@
+.card--challenge {
+
+    border-color: rgb(254, 174, 2);
+    border-top-color: rgb(254, 174, 2);
+
+    .card__text--paragraph--estat {
+        color: rgb(254, 174, 2);
+    }
+}
+
+.card--challenge.proposal {
+
+    border-color: rgb(254, 174, 2);
+    border-top-color: rgb(254, 174, 2);
+
+    .card__text--paragraph--estat {
+        color: rgb(254, 174, 2);
+    }
+}
+
+.card--challenge {    
+    .card__title {
+        margin-bottom: 5px;
+    }
+
+    .card_text--sdg--image {
+        display: inline-block;
+        width: 20%;
+
+        img {
+            vertical-align: bottom;
+        }
+    }
+
+    .card__sdg {
+        display: inline-flex;
+    }
+
+    .card_text--sdg--text {
+        display: inline-block;
+        width: 75%;
+    }
+
+    .card__text--paragraph--estat {
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .card__text--paragraph--description {
+        display: inline-block;
+    }
+}
+
+.card--challenge.executing {
+    border-color: rgb(0, 163, 144);
+    border-top-color: rgb(0, 163, 144);
+
+    .card__text--paragraph--estat {
+        color: rgb(0, 163, 144);
+    }
+}
+
+.card--challenge.finished {
+    border-color: rgb(0, 188, 255);
+    border-top-color: rgb(0, 188, 255);
+
+    .card__text--paragraph--estat {
+        color: rgb(0, 188, 255);
+    }
+}
+
+.definition-data__image {
+    padding-top: 0.1em;
+}
+
+.status{
+    text-transform: uppercase;
+}
+
+.section p.tags{
+    color: #D04040;
+    font-weight: 600;
+}
+
+.ods {
+    .text-container {
+        top: 2px;
+        left: 12px;
+        width: 60px;
+    }
+    .text-container.show {
+        top: 2px;
+        left: 37%;
+        width: 60px;
+        text-align: start;
+    }
+
+    p {
+        font-size: 6pt;
+    }
+
+    img.challenge--view {
+        width: 100%;
+        max-width: 100px;
+    }
+}

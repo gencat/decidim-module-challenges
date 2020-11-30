@@ -8,6 +8,7 @@ require "decidim/challenges/admin_engine"
 # Sustainable Development Goals
 Decidim.register_component(:challenges) do |component|
   component.engine = Decidim::Challenges::Engine
+  component.stylesheet = "decidim/challenges/challenges"
   component.admin_engine = Decidim::Challenges::AdminEngine
   component.icon = "decidim/challenges/icon.svg"
 
@@ -42,7 +43,7 @@ Decidim.register_component(:challenges) do |component|
   #   # Register some stat number to the application
   # end
 
-  # component.seeds do |participatory_space|
-  #   # Add some seeds for this component
-  # end
+  component.seeds do |participatory_space|
+    # Add some seeds for this component
+  end
 end
