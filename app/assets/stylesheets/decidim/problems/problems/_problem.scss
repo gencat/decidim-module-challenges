@@ -3,7 +3,7 @@
     border-color: rgb(254, 174, 2);
     border-top-color: rgb(254, 174, 2);
 
-    .card__text--paragraph--estat {
+    .card__text--paragraph--status {
         color: rgb(254, 174, 2);
     }
 }
@@ -13,7 +13,7 @@
     border-color: rgb(254, 174, 2);
     border-top-color: rgb(254, 174, 2);
 
-    .card__text--paragraph--estat {
+    .card__text--paragraph--status {
         color: rgb(254, 174, 2);
     }
 }
@@ -37,9 +37,10 @@
         width: 75%;
     }
 
-    .card__text--paragraph--estat {
+    .card__text--paragraph--status {
         font-weight: bold;
         display: inline-block;
+        text-transform: uppercase;
     }
 
     .card__text--paragraph--description {
@@ -60,7 +61,7 @@
     border-color: rgb(0, 163, 144);
     border-top-color: rgb(0, 163, 144);
 
-    .card__text--paragraph--estat {
+    .card__text--paragraph--status {
         color: rgb(0, 163, 144);
     }
 }
@@ -69,7 +70,7 @@
     border-color: rgb(0, 188, 255);
     border-top-color: rgb(0, 188, 255);
 
-    .card__text--paragraph--estat {
+    .card__text--paragraph--status {
         color: rgb(0, 188, 255);
     }
 }

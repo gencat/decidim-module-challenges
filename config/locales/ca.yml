@@ -80,7 +80,7 @@ ca:
       show:
         associated_problems: Problemes associats
         proposed_solutions: Solucions proposades
-        return_to_list: Tornar al llistat
+        return_to_list: Torna al llistat
       challenges:
         challenges:
           empty: No s'han pogut trobar reptes
@@ -979,7 +979,7 @@ ca:
           problems_list: Llistat de problemes
       show:
         proposed_solutions: Solucions proposades
-        return_to_list: Tornar al llistat
+        return_to_list: Torna al llistat
       index:
         not_published: No Publicat
         published: Publicat
