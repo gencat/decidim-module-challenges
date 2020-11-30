@@ -11,10 +11,17 @@ module Decidim
       include OrderableSolutions
 
       helper Decidim::CheckBoxesTreeHelper
+      helper Decidim::Sdgs::SdgsHelper
 
       helper_method :solutions
 
       def index; end
+
+      def show
+        @solution = Solution.find(params[:id]);
+        @sdg = t_sdg(@solution.problem.challenge.sdg_code)
+        @sdg_index = (1 + Decidim::Sdgs::Sdg.index_from_code(@solution.problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0")
+      end
 
       private
 

@@ -16,6 +16,7 @@ es:
         title: Título
       problem:
         causes: Causas
+        challenge: Reto
         col_entity: Entidad colaboradora
         description: Descripción
         end_date: Fecha finalización
@@ -1145,3 +1146,5 @@ es:
         technical: Técnicos
         economic: Económicos
         financial: Financieros
+      show:
+        return_to_list: Return to list

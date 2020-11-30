@@ -16,6 +16,7 @@ ca:
         title: Títol
       problem:
         causes: Causes
+        challenge: Repte
         col_entity: Entitat colaboradora
         description: Descripció
         end_date: Data finalització
@@ -1141,3 +1142,5 @@ ca:
         technical: Tècnics
         economic: Econòmics
         financial: Finançers
+      show:
+        return_to_list: Tornar al llistat

@@ -16,6 +16,7 @@ en:
         title: Title
       problem:
         causes: Causes
+        challenge: Challenge
         col_entity: Collaborating entity
         description: Description
         end_date: End date
@@ -1142,3 +1143,5 @@ en:
         technical: Technical
         economic: Economics
         financial: Financial
+      show:
+        return_to_list: Volver al listado

@@ -1,0 +1,43 @@
+//= require_self
+
+h3.parents{
+  line-height: 1;
+}
+
+h3.parents span.title{
+  text-transform: uppercase;
+}
+  
+.status{
+  text-transform: uppercase;
+}
+
+.section p.tags, .section p.indicators{
+  color: #D04040;
+  font-weight: 600;
+}
+
+.ods {
+  .text-container {
+      top: 2px;
+      left: 12px;
+      width: 60px;
+  }
+  .text-container.show {
+      top: 2px;
+      left: 37%;
+      width: 60px;
+      text-align: start;
+  }
+
+  p {
+      font-size: 6pt;
+  }
+
+  img.challenge--view {
+      width: 100%;
+      max-width: 100px;
+  }
+}
+  
+  
