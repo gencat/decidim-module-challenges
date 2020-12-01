@@ -17,7 +17,6 @@ module Decidim::Problems
     let(:html) { cell("decidim/problems/problem", problem, context: { show_space: show_space }).call }
 
     context "when rendering" do
-
       let(:show_space) { false }
 
       it "renders the card" do

@@ -12,7 +12,7 @@ module Decidim
       def resource_icon
         icon "problems", class: "icon--big"
       end
-      
+
       def show
         render
       end
