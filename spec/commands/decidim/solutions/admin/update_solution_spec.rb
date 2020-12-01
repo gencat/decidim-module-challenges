@@ -17,6 +17,9 @@ module Decidim
         let(:scope) { create :scope, organization: organization }
         let(:title) { "Solution title" }
         let(:tags) { "tag1, tag2, tag3" }
+        let(:objectives) do
+          { en: "objectives" }
+        end
         let(:indicators) do
           { en: "indicators" }
         end
@@ -38,6 +41,7 @@ module Decidim
             decidim_problems_problem_id: problem.id,
             scope: scope,
             tags: tags,
+            objectives: objectives,
             indicators: indicators,
             beneficiaries: beneficiaries,
             financing_type: financing_type,
@@ -79,9 +83,10 @@ module Decidim
             expect(solution.tags).to eq(tags)
           end
 
-          it "sets the requirements, indicators, beneficiaries and financing_type" do
+          it "sets the requirements, objectives, indicators, beneficiaries and financing_type" do
             subject.call
             expect(translated(solution.requirements)).to eq(requirements[:en])
+            expect(translated(solution.objectives)).to eq(objectives[:en])
             expect(translated(solution.indicators)).to eq(indicators[:en])
             expect(translated(solution.beneficiaries)).to eq(beneficiaries[:en])
             expect(translated(solution.financing_type)).to eq(financing_type[:en])

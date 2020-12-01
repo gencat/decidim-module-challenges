@@ -14,6 +14,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     tags { [1..5].collect { generate(:name) }.join(", ") }
     indicators { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    objectives { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     beneficiaries { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     financing_type { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     requirements { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }

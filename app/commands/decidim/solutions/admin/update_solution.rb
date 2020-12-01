@@ -45,6 +45,7 @@ module Decidim
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
+          parsed_objectives = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.objectives, current_organization: form.current_organization).rewrite
           parsed_indicators = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.indicators, current_organization: form.current_organization).rewrite
           parsed_beneficiaries = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.beneficiaries, current_organization: form.current_organization).rewrite
           parsed_requirements = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.requirements, current_organization: form.current_organization).rewrite
@@ -56,6 +57,7 @@ module Decidim
             decidim_problems_problem_id: form.decidim_problems_problem_id,
             scope: form.scope,
             tags: form.tags,
+            objectives: parsed_objectives,
             indicators: parsed_indicators,
             beneficiaries: parsed_beneficiaries,
             requirements: parsed_requirements,

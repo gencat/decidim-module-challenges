@@ -31,6 +31,7 @@ ca:
         description: Descripció
         financing_type: Tipus finançament
         indicators: Indicadors
+        objectives: Objectius
         problem: Problema
         published: Publicat
         requirements: Requeriments

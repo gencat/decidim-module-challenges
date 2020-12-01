@@ -27,6 +27,13 @@ module Decidim
         let(:challenge) { create :challenge }
         let(:problem) { create :problem, challenge: challenge }
         let(:tags) { "tag1, tag2, tag3" }
+        let(:objectives) do
+          {
+            en: "Solution's objectives",
+            es: "Objetivo de solución",
+            ca: "Objectius de solució",
+          }
+        end
         let(:indicators) do
           {
             en: "Solution's indicators",
@@ -61,6 +68,7 @@ module Decidim
             "description" => description,
             "decidim_problems_problem_id" => problem&.id,
             "tags" => tags,
+            "objectives" => objectives,
             "indicators" => indicators,
             "beneficiaries" => beneficiaries,
             "financing_type" => financing_type,
