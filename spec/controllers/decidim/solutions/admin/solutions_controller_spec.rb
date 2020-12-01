@@ -3,49 +3,52 @@
 require "spec_helper"
 
 module Decidim
-  module Problems
+  module Solutions
     module Admin
-      describe ProblemsController, type: :controller do
-        routes { Decidim::Problems::AdminEngine.routes }
+      describe SolutionsController, type: :controller do
+        routes { Decidim::Solutions::AdminEngine.routes }
 
         let(:organization) { create :organization, available_locales: [:en] }
         let(:title) do
           {
-            en: "Problem title",
-            es: "Título problema",
-            ca: "Títol problema"
+            en: "Solution title",
+            es: "Título solución",
+            ca: "Títol solució"
           }
         end
         let(:description) do
           {
-            en: "Problem description",
-            es: "Descripción problema",
-            ca: "Descripció problema"
+            en: "Solution description",
+            es: "Descripción solución",
+            ca: "Descripció solució"
           }
         end
         let(:challenge) { create :challenge }
+        let(:problem) { create :problem, challenge: challenge }
         let(:tags) { "tag1, tag2, tag3" }
-        let(:causes) { "causes" }
-        let(:groups_affected) { "groups affected" }
-        let(:start_date) { 2.days.from_now.strftime("%d/%m/%Y") }
-        let(:end_date) { (2.days.from_now + 4.hours).strftime("%d/%m/%Y") }
-        let(:collaborating_entities) { "collaborating_entities" }
-        let(:proposing_entities) { "proposing_entities" }
-        let(:state) { 2 }
+        let(:indicators) do
+          { en: "indicators" }
+        end
+        let(:beneficiaries) do
+          { en: "beneficiaries" }
+        end
+        let(:financing_type) do
+          { en: "financing_type" }
+        end
+        let(:requirements) do
+           { en: "requirements" }
+        end
         let(:params) do
           {
-            problem: {
+            solution: {
               title: title,
               description: description,
-              state: state,
-              decidim_challenges_challenge_id: challenge.id,
+              decidim_problems_problem_id: problem.id,
               tags: tags,
-              causes: causes,
-              groups_affected: groups_affected,
-              start_date: start_date,
-              end_date: end_date,
-              collaborating_entities: collaborating_entities,
-              proposing_entities: proposing_entities
+              indicators: indicators,
+              beneficiaries: beneficiaries,
+              financing_type: financing_type,
+              requirements: requirements
             },
             component_id: component,
             scope: scope,
@@ -54,7 +57,7 @@ module Decidim
         end
         let(:current_user) { create :user, :admin, :confirmed, organization: organization }
         let(:participatory_process) { create :participatory_process, organization: organization }
-        let(:component) { create :component, participatory_space: participatory_process, manifest_name: "problems", organization: organization }
+        let(:component) { create :component, participatory_space: participatory_process, manifest_name: "solutions", organization: organization }
         let(:scope) { create :scope, organization: organization }
 
         before do
@@ -66,7 +69,7 @@ module Decidim
 
         describe "POST #create" do
           context "with all mandatory fields" do
-            it "creates a problem" do
+            it "creates a solution" do
               post :create, params: params
 
               expect(flash[:notice]).not_to be_empty
@@ -83,7 +86,7 @@ module Decidim
               }
             end
 
-            it "doesn't create a problem" do
+            it "doesn't create a solution" do
               post :create, params: params
 
               expect(flash[:alert]).not_to be_empty
@@ -93,28 +96,25 @@ module Decidim
         end
 
         describe "PUT #update" do
-          let(:problem) { create :problem, component: component }
+          let(:solution) { create :solution, component: component }
 
           context "with all mandatory fields" do
             let(:params) do
               {
-                id: problem.id,
-                problem: {
+                id: solution.id,
+                solution: {
                   title: {
-                    en: "Updated problem title",
-                    es: "Título problema actualizado",
-                    ca: "Títol problema actualitzat"
+                    en: "Updated solution title",
+                    es: "Título solución actualizada",
+                    ca: "Títol solució actualitzada"
                   },
                   description: description,
-                  state: state,
-                  decidim_challenges_challenge_id: challenge.id,
+                  decidim_problems_problem_id: problem.id,
                   tags: tags,
-                  causes: causes,
-                  groups_affected: groups_affected,
-                  start_date: start_date,
-                  end_date: end_date,
-                  collaborating_entities: collaborating_entities,
-                  proposing_entities: proposing_entities
+                  indicators: indicators,
+                  beneficiaries: beneficiaries,
+                  financing_type: financing_type,
+                  requirements: requirements
                 },
                 component: component,
                 scope: scope,
@@ -122,7 +122,7 @@ module Decidim
               }
             end
 
-            it "updates a problem" do
+            it "updates a solution" do
               put :update, params: params
 
               expect(flash[:notice]).not_to be_empty
@@ -133,7 +133,7 @@ module Decidim
           context "without some mandatory fields" do
             let(:params) do
               {
-                id: problem.id,
+                id: solution.id,
                 problem: {
                   title: {
                     en: nil,
@@ -147,7 +147,7 @@ module Decidim
               }
             end
 
-            it "doesn't update a problem" do
+            it "doesn't update a solution" do
               put :update, params: params
 
               expect(flash[:alert]).not_to be_empty
@@ -157,7 +157,7 @@ module Decidim
         end
 
         describe "DELETE #destroy" do
-          let(:problem) { create :problem, component: component }
+          let(:solution) { create :solution, component: component }
           let(:params) do
             {
               id: problem.id,
@@ -167,7 +167,7 @@ module Decidim
             }
           end
 
-          it "deletes a challenge" do
+          it "deletes a solution" do
             delete :destroy, params: params
 
             expect(flash[:notice]).not_to be_empty
