@@ -9,59 +9,56 @@
             <div class="card extra definition-data">
 
                 <div class="definition-data__item status">
-                    <span
-                        class="definition-data__title"><%= t("status", scope: "activemodel.attributes.problem") %></span>
+                    <span class="definition-data__title"><%= t("status", scope: "activemodel.attributes.problem") %></span>
                     <%= t(@solution.problem.state, scope: "decidim.problems.states") %>
                 </div>
 
                 <div class="definition-data__item scope">
-                    <span
-                        class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.solution") %></span>
+                    <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.solution") %></span>
                     <%= present(@solution).scope %>
                 </div>
 
                 <div class="definition-data__item prop_entity">
-                    <span
-                        class="definition-data__title"><%= t("prop_entity", scope: "activemodel.attributes.problem") %></span>
+                    <span class="definition-data__title"><%= t("prop_entity", scope: "activemodel.attributes.problem") %></span>
                     <%= present(@solution.problem).proposing_entities %>
                 </div>
 
                 <div class="definition-data__item col_entity">
-                    <span
-                        class="definition-data__title"><%= t("col_entity", scope: "activemodel.attributes.problem") %></span>
+                    <span class="definition-data__title"><%= t("col_entity", scope: "activemodel.attributes.problem") %></span>
                     <%= present(@solution.problem).collaborating_entities %>
                 </div>
 
                 <div class="definition-data__item causes">
-                    <span
-                        class="definition-data__title"><%= t("causes", scope: "activemodel.attributes.problem") %></span>
+                    <span class="definition-data__title"><%= t("causes", scope: "activemodel.attributes.problem") %></span>
                     <%= present(@solution.problem).causes %>
                 </div>
 
+                <!--
                 <div class="definition-data__item causes">
                     <span class="definition-data__title">Col·lectius Afectats</span>
-                    TO-DO <%# TODO: when problems get the missing attribute %>
+                    <%# TODO: when problems get the missing attribute %>
                 </div>
+                -->
 
                 <div class="definition-data__item financing_type">
-                    <span
-                        class="definition-data__title"><%= t("financing_type", scope: "activemodel.attributes.solution") %></span>
+                    <span class="definition-data__title"><%= t("financing_type", scope: "activemodel.attributes.solution") %></span>
                     <%= present(@solution).financing_type %>
                 </div>
 
+                <!--
                 <div class="definition-data__item causes">
                     <span class="definition-data__title">ambit sectorial</span>
-                    TO-DO <%# TODO: when problems get the missing attribute %>
+                    <%# TODO: when problems get the missing attribute %>
                 </div>
 
                 <div class="definition-data__item causes">
                     <span class="definition-data__title">ambit tecnologic</span>
-                    TO-DO <%# TODO: when problems get the missing attribute %>
+                    <%# TODO: when problems get the missing attribute %>
                 </div>
+                -->
 
                 <div class="definition-data__item sdg">
-                    <span
-                        class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
+                    <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
                     <%= t_sdg(@sdg) %><br />
                     <div class="ods">
                         <div class="text-container show">
@@ -98,8 +95,10 @@
                 <h3><strong><%= t("description", scope: "activemodel.attributes.solution") %></strong></h3>
                 <p><%= present(@solution).description %></p>
 
+                <!--
                 <h3><strong>Objectius</strong></h3>
-                <p>TO-DO: Crear atribut objectius a l'objecte solution</p>
+                <p><%# TODO: when solucions get the missing attribute %></p>
+                -->
 
                 <h3><strong><%= t("beneficiaries", scope: "activemodel.attributes.solution") %></strong></h3>
                 <p><%= present(@solution).beneficiaries %></p>
@@ -108,7 +107,7 @@
                 <p><%= present(@solution).requirements %></p>
 
                 <h3><strong><%= t("indicators", scope: "activemodel.attributes.solution") %></strong></h3>
-                <p class="indicators"><%= present(@solution).indicators %><%= debug(@solution.indicators) %></p>
+                <p class="indicators"><%= present(@solution).indicators %></p>
 
                 <h3><strong><%= t("tags", scope: "activemodel.attributes.solution") %></strong></h3>
                 <p class="tags"><%= present(@solution).tags %></p>
