@@ -13,6 +13,7 @@ FactoryBot.define do
     title { generate_localized_title }
     local_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     global_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    tags { [1..5].collect { generate(:name) }.join(", ") }
     state { "execution" }
     start_date { 1.day.from_now }
     end_date { start_date + 2.months }
@@ -21,16 +22,16 @@ FactoryBot.define do
     collaborating_entities { [1..5].collect { generate(:name) }.join(", ") }
     published_at { Time.current }
 
-    trait :execution do
-      state { "execution" }
+    trait :proposal do
+      state { 0 }
     end
 
-    trait :proposal do
-      state { "proposal" }
+    trait :execution do
+      state { 1 }
     end
 
     trait :finished do
-      state { "finished" }
+      state { 2 }
     end
   end
 end
