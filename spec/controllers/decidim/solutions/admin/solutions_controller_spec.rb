@@ -160,7 +160,7 @@ module Decidim
           let(:solution) { create :solution, component: component }
           let(:params) do
             {
-              id: problem.id,
+              id: solution.id,
               component: component,
               scope: scope,
               participatory_process_slug: component.participatory_space.slug
