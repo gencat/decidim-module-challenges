@@ -35,6 +35,7 @@
     .card_text--sdg--text {
         display: inline-block;
         width: 75%;
+        padding-left: 5px;
     }
 
     .card__text--paragraph--status {
@@ -93,14 +94,22 @@
 }
 
 .ods {
+    cursor: default;
+    &:hover {
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+        -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+        transition: all 0.0s ease;
+    }
+
     .text-container {
         top: 2px;
-        left: 12px;
+        left: 14px;
         width: 60px;
     }
     .text-container.show {
-        top: 2px;
-        left: 37%;
+        top: 4px;
+        left: 37.5%;
         width: 60px;
         text-align: start;
     }
