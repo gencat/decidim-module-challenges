@@ -16,7 +16,6 @@ module Decidim::Challenges
     let!(:challenge_description) { translated(challenge.global_description) }
 
     context "when rendering" do
-
       let(:show_space) { false }
 
       it "renders the card" do
