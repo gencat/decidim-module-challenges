@@ -3,7 +3,7 @@
 module Decidim
   module Solutions
     # The data store for a Solution in the Decidim::Solutions component.
-    class Solution < Challenges::ApplicationRecord
+    class Solution < Decidim::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Loggable
       include Decidim::Publicable

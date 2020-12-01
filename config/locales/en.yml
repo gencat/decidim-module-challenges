@@ -32,6 +32,7 @@ en:
         description: Description
         financing_type: Financing Type
         indicators: Indicators
+        objectives: Objectives
         problem: Problem
         published: Published
         requirements: Requeriments

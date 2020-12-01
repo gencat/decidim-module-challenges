@@ -127,7 +127,7 @@ describe "Filter Challenges", :slow, type: :system do
       expect(page).to have_content("1 CHALLENGE")
 
       within ".card--challenge" do
-        expect(page).to have_content("PROPOSAL")
+        expect(page).to have_content("Proposal")
       end
     end
 
@@ -145,7 +145,7 @@ describe "Filter Challenges", :slow, type: :system do
       expect(page).to have_content("1 CHALLENGE")
 
       within ".card--challenge" do
-        expect(page).to have_content("EXECUTION")
+        expect(page).to have_content("Execution")
       end
     end
   end

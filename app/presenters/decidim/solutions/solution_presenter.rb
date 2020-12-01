@@ -59,14 +59,14 @@ module Decidim
         text
       end
 
-      # Render the solution objectives
+      # Render the solution indicators
       #
       # links - should render hashtags as links?
       # extras - should include extra hashtags?
       #
       # Returns a String.
-      def objectives(links: false, extras: true, strip_tags: false)
-        text = translated_attribute(solution.description)
+      def indicators(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.indicators)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
@@ -113,14 +113,32 @@ module Decidim
         text
       end
 
-      # Render the solution indicators
+      # Render the solution financing_type
       #
       # links - should render hashtags as links?
       # extras - should include extra hashtags?
       #
       # Returns a String.
-      def indicators(links: false, extras: true, strip_tags: false)
-        text = translated_attribute(solution.indicators)
+      def financing_type(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.financing_type)
+
+        text = strip_tags(sanitize_text(text)) if strip_tags
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
+        text
+      end
+
+      # Render the solution objectives
+      #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
+      # Returns a String.
+      def objectives(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.objectives)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 

@@ -3,7 +3,7 @@
 module Decidim
   module Challenges
     # The data store for a Challenge in the Decidim::Challenges component.
-    class Challenge < Challenges::ApplicationRecord
+    class Challenge < Decidim::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Loggable
       include Decidim::Publicable
@@ -12,8 +12,6 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
-
-      # translatable_fields :title, :local_description, :global_description
 
       VALID_STATES = [:proposal, :execution, :finished].freeze
       enum state: VALID_STATES
@@ -36,11 +34,6 @@ module Decidim
                         },
                         index_on_create: ->(challenge) { challenge.published? },
                         index_on_update: ->(challenge) { challenge.published? })
-
-      # # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-      # ransacker :title do |parent|
-      #  Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-      # end
 
       def published?
         published_at.present?

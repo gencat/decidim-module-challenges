@@ -3,7 +3,7 @@
 module Decidim
   module Problems
     # The data store for a Problem in the Decidim::Problems component.
-    class Problem < Problems::ApplicationRecord
+    class Problem < Decidim::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Loggable
       include Decidim::Publicable
@@ -13,7 +13,6 @@ module Decidim
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
 
-      # FIX define possible states !
       VALID_STATES = [:proposal, :execution, :finished].freeze
       enum state: VALID_STATES
 
