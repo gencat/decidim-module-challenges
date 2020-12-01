@@ -167,7 +167,7 @@ module Decidim
             }
           end
 
-          it "deletes a challenge" do
+          it "deletes a problem" do
             delete :destroy, params: params
 
             expect(flash[:notice]).not_to be_empty
