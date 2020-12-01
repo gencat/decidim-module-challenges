@@ -131,24 +131,6 @@ module Decidim
         text
       end
 
-      # Render the solution financing_type
-      #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
-      #
-      # Returns a String.
-      def financing_type(links: false, extras: true, strip_tags: false)
-        text = translated_attribute(solution.financing_type)
-
-        text = strip_tags(sanitize_text(text)) if strip_tags
-
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
-
-        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
-        text
-      end
-
       delegate :count, to: :versions, prefix: true
 
       def resource_manifest

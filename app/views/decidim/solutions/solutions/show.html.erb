@@ -33,12 +33,10 @@
                     <%= present(@solution.problem).causes %>
                 </div>
 
-                <!--
-                <div class="definition-data__item causes">
+                <div class="definition-data__item groups_affected">
                     <span class="definition-data__title">Col·lectius Afectats</span>
-                    <%# TODO: when problems get the missing attribute %>
+                    <%= present(@solution.problem).groups_affected %>
                 </div>
-                -->
 
                 <div class="definition-data__item financing_type">
                     <span class="definition-data__title"><%= t("financing_type", scope: "activemodel.attributes.solution") %></span>
@@ -93,21 +91,21 @@
                 </h3>
 
                 <h3><strong><%= t("description", scope: "activemodel.attributes.solution") %></strong></h3>
-                <p><%= present(@solution).description %></p>
+                <%= present(@solution).description %>
 
                 <!--
                 <h3><strong>Objectius</strong></h3>
-                <p><%# TODO: when solucions get the missing attribute %></p>
+                <%# TODO: when solucions get the missing attribute %>
                 -->
 
                 <h3><strong><%= t("beneficiaries", scope: "activemodel.attributes.solution") %></strong></h3>
-                <p><%= present(@solution).beneficiaries %></p>
+                <%= present(@solution).beneficiaries %>
 
                 <h3><strong><%= t("requirements", scope: "activemodel.attributes.solution") %></strong></h3>
-                <p><%= present(@solution).requirements %></p>
+                <%= present(@solution).requirements %>
 
                 <h3><strong><%= t("indicators", scope: "activemodel.attributes.solution") %></strong></h3>
-                <p class="indicators"><%= present(@solution).indicators %></p>
+                <%= present(@solution).indicators %>
 
                 <h3><strong><%= t("tags", scope: "activemodel.attributes.solution") %></strong></h3>
                 <p class="tags"><%= present(@solution).tags %></p>

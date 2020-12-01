@@ -2,6 +2,7 @@
 
 h3.parents{
   line-height: 1;
+  margin: 0.8em 0;
 }
 
 h3.parents span.title{
@@ -18,11 +19,19 @@ h3.parents span.title{
 }
 
 .ods {
+  &:hover {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    transition: all 0.0s ease;
+  }
+
   .text-container {
-      top: 2px;
+      top: 4px;
       left: 12px;
       width: 60px;
   }
+
   .text-container.show {
       top: 2px;
       left: 37%;
