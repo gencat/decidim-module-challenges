@@ -13,14 +13,14 @@ module Decidim
           {
             en: "Solution title",
             es: "Título solución",
-            ca: "Títol solució"
+            ca: "Títol solució",
           }
         end
         let(:description) do
           {
             en: "Solution description",
             es: "Descripción solución",
-            ca: "Descripció solució"
+            ca: "Descripció solució",
           }
         end
         let(:challenge) { create :challenge }
@@ -36,7 +36,7 @@ module Decidim
           { en: "financing_type" }
         end
         let(:requirements) do
-           { en: "requirements" }
+          { en: "requirements" }
         end
         let(:params) do
           {
@@ -48,11 +48,11 @@ module Decidim
               indicators: indicators,
               beneficiaries: beneficiaries,
               financing_type: financing_type,
-              requirements: requirements
+              requirements: requirements,
             },
             component_id: component,
             scope: scope,
-            participatory_process_slug: component.participatory_space.slug
+            participatory_process_slug: component.participatory_space.slug,
           }
         end
         let(:current_user) { create :user, :admin, :confirmed, organization: organization }
@@ -82,7 +82,7 @@ module Decidim
               {
                 en: nil,
                 es: nil,
-                ca: nil
+                ca: nil,
               }
             end
 
@@ -106,7 +106,7 @@ module Decidim
                   title: {
                     en: "Updated solution title",
                     es: "Título solución actualizada",
-                    ca: "Títol solució actualitzada"
+                    ca: "Títol solució actualitzada",
                   },
                   description: description,
                   decidim_problems_problem_id: problem.id,
@@ -114,11 +114,11 @@ module Decidim
                   indicators: indicators,
                   beneficiaries: beneficiaries,
                   financing_type: financing_type,
-                  requirements: requirements
+                  requirements: requirements,
                 },
                 component: component,
                 scope: scope,
-                participatory_process_slug: component.participatory_space.slug
+                participatory_process_slug: component.participatory_space.slug,
               }
             end
 
@@ -138,12 +138,12 @@ module Decidim
                   title: {
                     en: nil,
                     es: nil,
-                    ca: nil
-                  }
+                    ca: nil,
+                  },
                 },
                 component: component,
                 scope: scope,
-                participatory_process_slug: component.participatory_space.slug
+                participatory_process_slug: component.participatory_space.slug,
               }
             end
 
@@ -163,7 +163,7 @@ module Decidim
               id: solution.id,
               component: component,
               scope: scope,
-              participatory_process_slug: component.participatory_space.slug
+              participatory_process_slug: component.participatory_space.slug,
             }
           end
 

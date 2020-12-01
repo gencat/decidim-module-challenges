@@ -27,7 +27,7 @@ module Decidim
           { en: "financing_type" }
         end
         let(:requirements) do
-           { en: "requirements" }
+          { en: "requirements" }
         end
         let(:form) do
           instance_double(

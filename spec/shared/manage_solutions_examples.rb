@@ -57,8 +57,8 @@ shared_examples "manage solutions" do
       let(:problem) { create :problem, challenge: challenge }
       let!(:solution) do
         create(:solution, scope: scope, component: component, problem: problem,
-                         title: { en: "Solution title" },
-                         description: { en: "Solution description" })
+                          title: { en: "Solution title" },
+                          description: { en: "Solution description" })
       end
 
       it "shows the title correctly" do
