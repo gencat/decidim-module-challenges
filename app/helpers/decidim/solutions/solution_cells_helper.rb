@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Challenges
-    # Custom helpers, scoped to the challenges engine.
+  module Solutions
+    # Custom helpers, scoped to the solutions engine.
     #
-    module ChallengeCellsHelper
-      include Decidim::Challenges::ApplicationHelper
-      include Decidim::Challenges::Engine.routes.url_helpers
+    module SolutionCellsHelper
+      include Decidim::Solutions::ApplicationHelper
+      include Decidim::Solutions::Engine.routes.url_helpers
       include Decidim::LayoutHelper
       include Decidim::ApplicationHelper
       include Decidim::TranslationsHelper
@@ -19,17 +19,17 @@ module Decidim
       def has_actions?
         return context[:has_actions] if context[:has_actions].present?
 
-        challenges_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
+        solutions_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
       end
 
       def has_footer?
         return context[:has_footer] if context[:has_footer].present?
 
-        challenges_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
+        solutions_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
       end
 
-      def challenges_controller?
-        context[:controller].class.to_s == "Decidim::Challenges::ChallengesController"
+      def solutions_controller?
+        context[:controller].class.to_s == "Decidim::Solutions::SolutionsController"
       end
 
       def index_action?
