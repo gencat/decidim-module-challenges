@@ -13,6 +13,7 @@ module Decidim
       it { is_expected.to be_versioned }
 
       include_examples "has component"
+      include_examples "has scope"
       include_examples "publicable"
       include_examples "resourceable"
     end
