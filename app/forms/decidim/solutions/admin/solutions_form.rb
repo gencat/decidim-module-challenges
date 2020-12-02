@@ -19,6 +19,7 @@ module Decidim
         attribute :decidim_problems_problem_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :tags, String
+        translatable_attribute :objectives, String
         translatable_attribute :indicators, String
         translatable_attribute :beneficiaries, String
         translatable_attribute :requirements, String
@@ -29,13 +30,6 @@ module Decidim
         validates :decidim_problems_problem_id, presence: true
 
         alias organization current_organization
-
-        # Return a solution's valid requirements list
-        def select_requirements_collection
-          Decidim::Solutions::Solution::VALID_REQUIREMENTS.map.with_index do |requirement, idx|
-            [I18n.t(requirement, scope: "decidim.solutions.requirements"), idx]
-          end
-        end
 
         # Return a problem's list
         def select_problem_collection

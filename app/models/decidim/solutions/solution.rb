@@ -3,7 +3,7 @@
 module Decidim
   module Solutions
     # The data store for a Solution in the Decidim::Solutions component.
-    class Solution < Challenges::ApplicationRecord
+    class Solution < Decidim::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Loggable
       include Decidim::Publicable
@@ -26,7 +26,7 @@ module Decidim
                           B: :description,
                           C: "",
                           D: "",
-                          datetime: :published_at
+                          datetime: :published_at,
                         },
                         index_on_create: ->(solution) { solution.published? },
                         index_on_update: ->(solution) { solution.published? })

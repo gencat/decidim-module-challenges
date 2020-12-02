@@ -21,9 +21,8 @@ module Decidim
         :life_below_water,
         :life_on_land,
         :pjsi,
-        :partnership
+        :partnership,
       ].freeze
-
       # Parameter
       # idxs - Array of Sdgs indexes, between 1 and 17
       def self.codes_from_idxs(idxs)

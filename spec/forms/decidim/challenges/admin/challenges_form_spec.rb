@@ -14,21 +14,21 @@ module Decidim
           {
             en: "Challenge title",
             es: "Título reto",
-            ca: "Títol repte"
+            ca: "Títol repte",
           }
         end
         let(:local_description) do
           {
             en: "Local description",
             es: "Descripción local",
-            ca: "Descripció local"
+            ca: "Descripció local",
           }
         end
         let(:global_description) do
           {
             en: "Global description",
             es: "Descripción global",
-            ca: "Descripció global"
+            ca: "Descripció global",
           }
         end
         let(:sdg_code) { Sdgs::Sdg::SDGS.last }
@@ -50,7 +50,7 @@ module Decidim
             "end_date" => end_date,
             "collaborating_entities" => collaborating_entities,
             "coordinating_entities" => coordinating_entities,
-            "scope" => scope
+            "scope" => scope,
           }
         end
 
@@ -61,7 +61,7 @@ module Decidim
         context "when default language in title is missing" do
           let(:title) do
             {
-              ca: "Títol"
+              ca: "Títol",
             }
           end
 
@@ -71,7 +71,7 @@ module Decidim
         context "when default language in local_description is missing" do
           let(:local_description) do
             {
-              ca: "Descripció"
+              ca: "Descripció",
             }
           end
 
@@ -81,7 +81,7 @@ module Decidim
         context "when default language in global_description is missing" do
           let(:global_description) do
             {
-              ca: "Descripció curta"
+              ca: "Descripció curta",
             }
           end
 

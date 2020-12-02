@@ -13,14 +13,14 @@ module Decidim
           {
             en: "Problem title",
             es: "Título problema",
-            ca: "Títol problema"
+            ca: "Títol problema",
           }
         end
         let(:description) do
           {
             en: "Problem description",
             es: "Descripción problema",
-            ca: "Descripció problema"
+            ca: "Descripció problema",
           }
         end
         let(:challenge) { create :challenge }
@@ -45,11 +45,11 @@ module Decidim
               start_date: start_date,
               end_date: end_date,
               collaborating_entities: collaborating_entities,
-              proposing_entities: proposing_entities
+              proposing_entities: proposing_entities,
             },
             component_id: component,
             scope: scope,
-            participatory_process_slug: component.participatory_space.slug
+            participatory_process_slug: component.participatory_space.slug,
           }
         end
         let(:current_user) { create :user, :admin, :confirmed, organization: organization }
@@ -79,7 +79,7 @@ module Decidim
               {
                 en: nil,
                 es: nil,
-                ca: nil
+                ca: nil,
               }
             end
 
@@ -103,7 +103,7 @@ module Decidim
                   title: {
                     en: "Updated problem title",
                     es: "Título problema actualizado",
-                    ca: "Títol problema actualitzat"
+                    ca: "Títol problema actualitzat",
                   },
                   description: description,
                   state: state,
@@ -114,11 +114,11 @@ module Decidim
                   start_date: start_date,
                   end_date: end_date,
                   collaborating_entities: collaborating_entities,
-                  proposing_entities: proposing_entities
+                  proposing_entities: proposing_entities,
                 },
                 component: component,
                 scope: scope,
-                participatory_process_slug: component.participatory_space.slug
+                participatory_process_slug: component.participatory_space.slug,
               }
             end
 
@@ -138,12 +138,12 @@ module Decidim
                   title: {
                     en: nil,
                     es: nil,
-                    ca: nil
-                  }
+                    ca: nil,
+                  },
                 },
                 component: component,
                 scope: scope,
-                participatory_process_slug: component.participatory_space.slug
+                participatory_process_slug: component.participatory_space.slug,
               }
             end
 
@@ -163,11 +163,11 @@ module Decidim
               id: problem.id,
               component: component,
               scope: scope,
-              participatory_process_slug: component.participatory_space.slug
+              participatory_process_slug: component.participatory_space.slug,
             }
           end
 
-          it "deletes a challenge" do
+          it "deletes a problem" do
             delete :destroy, params: params
 
             expect(flash[:notice]).not_to be_empty

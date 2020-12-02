@@ -48,7 +48,7 @@ module Decidim
             start_date: form.start_date,
             end_date: form.end_date,
             proposing_entities: form.proposing_entities,
-            collaborating_entities: form.collaborating_entities
+            collaborating_entities: form.collaborating_entities,
           }
 
           @problem = Decidim.traceability.create!(

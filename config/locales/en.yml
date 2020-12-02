@@ -31,6 +31,7 @@ en:
         description: Description
         financing_type: Financing Type
         indicators: Indicators
+        objectives: Objectives
         problem: Problem
         published: Published
         requirements: Requeriments
@@ -94,6 +95,10 @@ en:
               title: Title
         titles:
           challenges_list: Challenges list
+      show:
+        associated_problems: Associated problems
+        proposed_solutions: Proposed solutions
+        return_to_list: Return to list
       challenges:
         challenges:
           empty: No challenges could be found

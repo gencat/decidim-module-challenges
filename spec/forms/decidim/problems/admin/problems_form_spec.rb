@@ -14,14 +14,14 @@ module Decidim
           {
             en: "Problem title",
             es: "Título problema",
-            ca: "Títol problema"
+            ca: "Títol problema",
           }
         end
         let(:description) do
           {
             en: "Problem description",
             es: "Descripción problema",
-            ca: "Descripció problema"
+            ca: "Descripció problema",
           }
         end
         let(:challenge) { create :challenge }
@@ -46,7 +46,7 @@ module Decidim
             "end_date" => end_date,
             "collaborating_entities" => collaborating_entities,
             "proposing_entities" => proposing_entities,
-            "scope" => scope
+            "scope" => scope,
           }
         end
 
@@ -57,7 +57,7 @@ module Decidim
         context "when default language in title is missing" do
           let(:title) do
             {
-              ca: "Títol"
+              ca: "Títol",
             }
           end
 
@@ -67,7 +67,7 @@ module Decidim
         context "when default language in description is missing" do
           let(:description) do
             {
-              ca: "Descripció"
+              ca: "Descripció",
             }
           end
 

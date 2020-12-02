@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Challenges
     describe ChallengeSearch do
-      let(:component) { create(:component, manifest_name: "challenges") }
+      let(:component) { create(:challenges_component) }
       let(:participatory_process) { component.participatory_space }
       let!(:challenges_list) { create_list(:challenge, 3, component: component) }
 
@@ -17,7 +17,8 @@ module Decidim
             state: states,
             related_to: related_to,
             scope_id: scope_ids,
-            category_id: category_ids
+            category_id: category_ids,
+            sdgs_codes: sdgs_codes
           ).results
         end
 
@@ -26,6 +27,7 @@ module Decidim
         let(:states) { nil }
         let(:scope_ids) { nil }
         let(:category_ids) { nil }
+        let(:sdgs_codes) { nil }
 
         it "only includes challenges from the given component" do
           other_challenge = create(:challenge)
@@ -142,7 +144,21 @@ module Decidim
         end
 
         describe "ods filter" do
-          it "is pending"
+          context "when none is selected" do
+            it "does not apply the filter" do
+              expect(subject).to match_array(challenges_list)
+            end
+          end
+
+          context "when one SDG is selected" do
+            let(:sdg_code) { Decidim::Sdgs::Sdg::SDGS.index(:responsible_consumption) }
+            let!(:challenge_w_sdg) { create(:challenge, component: component, sdg_code: sdg_code) }
+            let(:sdgs_codes) { [sdg_code] }
+
+            it "returns the problems associated to the given SDG" do
+              expect(subject.pluck(:id)).to contain_exactly(challenge_w_sdg.id)
+            end
+          end
         end
 
         describe "related_to filter" do
