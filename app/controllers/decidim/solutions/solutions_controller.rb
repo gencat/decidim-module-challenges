@@ -19,7 +19,7 @@ module Decidim
       def index; end
 
       def show
-        @solution = Solution.find(params[:id]);
+        @solution = Solution.find(params[:id])
         @sdg = @solution.problem.challenge.sdg_code
         @sdg_index = (1 + Decidim::Sdgs::Sdg.index_from_code(@solution.problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0")
       end
