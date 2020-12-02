@@ -8,7 +8,6 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
-      include Decidim::ScopableComponent
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
@@ -19,8 +18,6 @@ module Decidim
       component_manifest_name "problems"
 
       belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge"
-      belongs_to :decicim_scope, foreign_key: "decidim_sectorial_scope_id", class_name: 'Decidim::Scope'
-      belongs_to :decicim_scope, foreign_key: "decidim_technological_scope_id", class_name: 'Decidim::Scope'
 
       scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
@@ -28,7 +25,7 @@ module Decidim
       scope :in_finished, -> { where(state: VALID_STATES.index(:finished)) }
 
       searchable_fields({
-                          scope_id: :decidim_scope_id,
+                          scope_id: "",
                           participatory_space: :itself,
                           A: :title,
                           B: :description,
