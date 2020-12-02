@@ -20,6 +20,7 @@ en:
         col_entity: Collaborating entity
         description: Description
         end_date: End date
+        groups_affected: Communities affected
         prop_entity: Proposing entity
         published: Published
         scope: Territory
@@ -1149,4 +1150,4 @@ en:
         economic: Economics
         financial: Financial
       show:
-        return_to_list: Volver al listado
+        return_to_list: Return to list

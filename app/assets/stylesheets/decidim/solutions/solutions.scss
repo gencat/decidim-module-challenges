@@ -19,6 +19,9 @@ h3.parents span.title{
 }
 
 .ods {
+  margin-bottom: 0;
+  cursor: inherit;
+
   &:hover {
     -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
     -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
@@ -27,14 +30,14 @@ h3.parents span.title{
   }
 
   .text-container {
-      top: 4px;
+      top: 2px;
       left: 12px;
       width: 60px;
   }
 
   .text-container.show {
-      top: 2px;
-      left: 37%;
+      top: 10px;
+      left: 38%;
       width: 60px;
       text-align: start;
   }
@@ -44,6 +47,7 @@ h3.parents span.title{
   }
 
   img.challenge--view {
+      margin-top: 4px;
       width: 100%;
       max-width: 100px;
   }

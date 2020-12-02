@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="definition-data__item groups_affected">
-                    <span class="definition-data__title">Col·lectius Afectats</span>
+                    <span class="definition-data__title"><%= t("groups_affected", scope: "activemodel.attributes.problem") %></span>
                     <%= present(@solution.problem).groups_affected %>
                 </div>
 
@@ -93,10 +93,8 @@
                 <h3><strong><%= t("description", scope: "activemodel.attributes.solution") %></strong></h3>
                 <%= present(@solution).description %>
 
-                <!--
-                <h3><strong>Objectius</strong></h3>
-                <%# TODO: when solucions get the missing attribute %>
-                -->
+                <h3><strong><%= t("objectives", scope: "activemodel.attributes.solution") %></strong></h3>
+                <%= present(@solution).objectives %>
 
                 <h3><strong><%= t("beneficiaries", scope: "activemodel.attributes.solution") %></strong></h3>
                 <%= present(@solution).beneficiaries %>

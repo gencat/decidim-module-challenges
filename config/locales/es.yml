@@ -20,6 +20,7 @@ es:
         col_entity: Entidad colaboradora
         description: Descripción
         end_date: Fecha finalización
+        groups_affected: Colectivos afectados
         prop_entity: Entidad proponente
         published: Publicado
         scope: Territorio
@@ -1152,4 +1153,4 @@ es:
         economic: Económicos
         financial: Financieros
       show:
-        return_to_list: Return to list
+        return_to_list: Volver al listado
