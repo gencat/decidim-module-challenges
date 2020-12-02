@@ -19,6 +19,8 @@ module Decidim
       component_manifest_name "problems"
 
       belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge"
+      belongs_to :decicim_scope, foreign_key: "decidim_sectorial_scope_id", class_name: 'Decidim::Scope'
+      belongs_to :decicim_scope, foreign_key: "decidim_technological_scope_id", class_name: 'Decidim::Scope'
 
       scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }

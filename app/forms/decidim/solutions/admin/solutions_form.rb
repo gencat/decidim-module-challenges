@@ -17,7 +17,6 @@ module Decidim
 
         attribute :decidim_component_id, Integer
         attribute :decidim_problems_problem_id, Integer
-        attribute :decidim_scope_id, Integer
         attribute :tags, String
         translatable_attribute :objectives, String
         translatable_attribute :indicators, String
@@ -26,7 +25,6 @@ module Decidim
         translatable_attribute :financing_type, String
 
         validates :title, :description, translatable_presence: true
-        validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_problems_problem_id, presence: true
 
         alias organization current_organization
@@ -36,13 +34,6 @@ module Decidim
           Decidim::Problems::Problem.all.map do |p|
             [translated_attribute(p.title), p.id]
           end
-        end
-
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= current_organization.scopes.find_by(id: decidim_scope_id)
         end
 
         # Finds the Problem from the given decidim_problems_problem_id
