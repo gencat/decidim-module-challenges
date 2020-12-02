@@ -13,6 +13,7 @@ class CreateDecidimSolutionsSolutions < ActiveRecord::Migration[5.2]
       t.jsonb :beneficiaries
       t.jsonb :requirements
       t.jsonb :financing_type
+      t.jsonb :objectives
       t.timestamp :published_at
 
       t.timestamps

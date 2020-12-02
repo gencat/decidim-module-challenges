@@ -59,6 +59,96 @@ module Decidim
         text
       end
 
+      # Render the solution indicators
+      #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
+      # Returns a String.
+      def indicators(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.indicators)
+
+        text = strip_tags(sanitize_text(text)) if strip_tags
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
+        text
+      end
+
+      # Render the solution beneficiaries
+      #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
+      # Returns a String.
+      def beneficiaries(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.beneficiaries)
+
+        text = strip_tags(sanitize_text(text)) if strip_tags
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
+        text
+      end
+
+      # Render the solution requirements
+      #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
+      # Returns a String.
+      def requirements(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.requirements)
+
+        text = strip_tags(sanitize_text(text)) if strip_tags
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
+        text
+      end
+
+      # Render the solution financing_type
+      #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
+      # Returns a String.
+      def financing_type(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.financing_type)
+
+        text = strip_tags(sanitize_text(text)) if strip_tags
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
+        text
+      end
+
+      # Render the solution objectives
+      #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
+      # Returns a String.
+      def objectives(links: false, extras: true, strip_tags: false)
+        text = translated_attribute(solution.objectives)
+
+        text = strip_tags(sanitize_text(text)) if strip_tags
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
+        text
+      end
+
       delegate :count, to: :versions, prefix: true
 
       def resource_manifest

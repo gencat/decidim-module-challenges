@@ -13,7 +13,6 @@ module Decidim
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
 
-      # FIX define possible states !
       VALID_STATES = [:proposal, :execution, :finished].freeze
       enum state: VALID_STATES
 

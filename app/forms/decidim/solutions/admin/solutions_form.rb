@@ -19,6 +19,7 @@ module Decidim
         attribute :decidim_problems_problem_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :tags, String
+        translatable_attribute :objectives, String
         translatable_attribute :indicators, String
         translatable_attribute :beneficiaries, String
         translatable_attribute :requirements, String

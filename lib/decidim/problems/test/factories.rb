@@ -9,9 +9,10 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, :with_steps) }
   end
 
-  factory :problem, traits: [:execution, :finished, :proposal], class: "Decidim::Problems::Problem" do
+  factory :problem, traits: [:proposal, :execution, :finished], class: "Decidim::Problems::Problem" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    tags { [1..5].collect { generate(:name) }.join(", ") }
     state { "execution" }
     causes { "causes" }
     groups_affected { "groups affected" }
@@ -24,15 +25,15 @@ FactoryBot.define do
     published_at { Time.current }
 
     trait :proposal do
-      state { "proposal" }
+      state { 0 }
     end
 
     trait :execution do
-      state { "execution" }
+      state { 1 }
     end
 
     trait :finished do
-      state { "finished" }
+      state { 2 }
     end
   end
 end
