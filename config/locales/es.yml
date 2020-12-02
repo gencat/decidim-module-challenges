@@ -26,6 +26,18 @@ es:
         status: Estado
         tags: Palabras clave
         title: Título
+      solution:
+        beneficiaries: Beneficiarios
+        description: Descripción
+        financing_type: Tipo financiación
+        indicators: Indicadores
+        objectives: Objectivos
+        problem: Problema
+        published: Publicado
+        requirements: Requerimientos
+        scope: Territorio
+        tags: Palabras clave
+        title: Titulo
   decidim:
     challenges:
       admin:
@@ -125,6 +137,8 @@ es:
         name: Retos
       problems:
         name: Problemas
+      solutions:
+        name: Soluciones
       sdgs:
         clean_energy:
           logo:
@@ -1049,3 +1063,90 @@ es:
         modal:
           close: Selecciona
           title: Objetivos de Desarrollo Sostenible
+    solutions:
+      admin:
+        actions:
+          configure: Configura
+          confirm_destroy: Estás seguro que quieres eliminar este %{name}?
+          destroy: Borra
+          new_solution: Nueva solución
+          publish: Publicar
+          unpublish: Despublicar
+          view: Ver solución
+        solution_publications:
+          create:
+            error: Ha habido un problema publicando esta solución
+            success: Solución publicada correctamente
+          destroy:
+            error: Ha habido un problema despublicando esta solución
+            success: Solución despublicada correctamente
+        solutions:
+          create:
+            error: Ha habido un problema creando esta solución
+            success: Solución creada correctamente
+          destroy:
+            error: Ha habido un problema borrando esta solución
+            success: Solución borrada correctamente
+          edit:
+            update: Actualiza
+          form:
+            problem: Problema asociado
+            select_requirements: Selecciona los requisitos
+          new:
+            create: Crea
+            title: Nueva solución
+          update:
+            error: Ha habido un problema actualizando esta solución
+            success: Solución actualizada correctamente
+        models:
+          solution:
+            fields:
+              created_at: Creada
+              problem: Problema
+              published: Publicada
+              requirements: Requisitos
+              tags: Palabras clave
+              title: Titulo
+        titles:
+          solutions_list: Listado de soluciones
+      solutions:
+        solutions:
+          empty: No se han podido encontrar soluciones
+          empty_filters: No se han podido encontrar soluciones
+        count:
+          solutions_count:
+            one: "%{count} solución"
+            other: "%{count} soluciones"
+        filters:
+          all: Todas
+          category: Categoria
+          technical: Técnicos
+          economic: Económicos
+          financial: Financieros
+          related_to: Relacionada con
+          scope: Ámbito
+          search: Búsqueda
+          requirement: Requisito
+        filters_small_view:
+          close_modal: Cerrar ventana
+          filter: Filtra
+          filter_by: Filtra por
+          unfold: Despliega
+        orders:
+          label: Ordenaciones
+          random: Aleatorio
+          recent: Más recientes
+      solutions_helper:
+        filter_requirements_values:
+          all: Todos
+          technical: Técnicos
+          economic: Económicos
+          financial: Financieros
+      index:
+        title: Soluciones
+        published: Publicada
+        not_published: No Publicada
+      requirements:
+        technical: Técnicos
+        economic: Económicos
+        financial: Financieros

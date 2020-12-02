@@ -11,7 +11,9 @@ module Decidim
 
         mimic :challenge
 
-        translatable_attribute :title, String
+        translatable_attribute :title, String do |field, _locale|
+          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
+        end
         translatable_attribute :local_description, String
         translatable_attribute :global_description, String
 
@@ -24,12 +26,6 @@ module Decidim
         attribute :start_date, Decidim::Attributes::LocalizedDate
         attribute :coordinating_entities, String
         attribute :collaborating_entities, String
-
-        translatable_attribute :title, String do |field, _locale|
-          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
-        end
-        translatable_attribute :local_description, String
-        translatable_attribute :global_description, String
 
         validates :title, :local_description, :global_description, translatable_presence: true
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
