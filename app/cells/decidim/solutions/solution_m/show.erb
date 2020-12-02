@@ -31,10 +31,12 @@
         <div class="card__sdg">
             <div class="card_text--sdg--image">
                 <div class="ods">
-                    <div class="text-container">
-                        <p><%= t(resource_sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
-                        <p><%= t(resource_sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
+                    <% if resource_sdg %>
+                        <div class="text-container">
+                            <p><%= t(resource_sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
+                            <p><%= t(resource_sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
                         </div>
+                    <% end %>
                     <% if resource_sdg_index %>
                         <img alt="Logo SDG <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg" class="solution--view">
                     <% end %>
