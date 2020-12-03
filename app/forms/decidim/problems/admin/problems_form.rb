@@ -10,7 +10,9 @@ module Decidim
 
         mimic :problem
 
-        translatable_attribute :title, String
+        translatable_attribute :title, String do |field, _locale|
+          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
+        end
         translatable_attribute :description, String
 
         attribute :decidim_component_id, Integer
@@ -24,11 +26,6 @@ module Decidim
         attribute :start_date, Decidim::Attributes::LocalizedDate
         attribute :proposing_entities, String
         attribute :collaborating_entities, String
-
-        translatable_attribute :title, String do |field, _locale|
-          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
-        end
-        translatable_attribute :description, String
 
         validates :title, :description, translatable_presence: true
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }

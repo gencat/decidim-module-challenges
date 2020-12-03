@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column hashtags__container">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :description %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.text_field :tags %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :indicators %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :objectives %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :beneficiaries %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :requirements %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :financing_type %>
+    </div>
+
+    <div class="row column">
+      <%= scopes_picker_field form, :decidim_scope_id, root: nil %>
+    </div>
+  </div>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".problem") %></h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="row column">
+      <%= form.select :decidim_problems_problem_id,
+                      @form.select_problem_collection,
+                      selected: @form.try(:problem) ? [translated_attribute(@form.try(:problem).title), @form.try(:problem).id] : '',
+                      label: t("models.solution.fields.problem", scope: "decidim.solutions.admin"),
+                      include_blank: "" %>
+    </div>
+
+  </div>
+</div>

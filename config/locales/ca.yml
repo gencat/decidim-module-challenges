@@ -28,6 +28,18 @@ ca:
         status: Estat
         tags: Paraules clau
         title: Títol
+      solution:
+        beneficiaries: Beneficiaris
+        description: Descripció
+        financing_type: Tipus finançament
+        indicators: Indicadors
+        objectives: Objectius
+        problem: Problema
+        published: Publicat
+        requirements: Requeriments
+        scope: Territori
+        tags: Paraules clau
+        title: Títol
   decidim:
     challenges:
       admin:
@@ -129,6 +141,8 @@ ca:
         name: Reptes
       problems:
         name: Problemes
+      solutions:
+        name: Solucions
       sdgs:
         clean_energy:
           logo:
@@ -1051,3 +1065,90 @@ ca:
         modal:
           close: Selecciona
           title: Objectius de Desenvolupament Sostenible
+    solutions:
+      admin:
+        actions:
+          configure: Configura
+          confirm_destroy: Estàs segur que vols destruir aquest %{name}?
+          destroy: Esborra
+          new_solution: Nova solució
+          publish: Publicar
+          unpublish: Despublicar
+          view: Veure solució
+        solution_publications:
+          create:
+            error: Hi ha hagut un problema publicant aquesta solució
+            success: Solució publicada correctament
+          destroy:
+            error: Hi ha hagut un problema despublicant aquesta solució
+            success: Solució despublicada correctament
+        solutions:
+          create:
+            error: Hi ha hagut un problema creant aquesta solució
+            success: Solució creada correctament
+          destroy:
+            error: Hi ha hagut un problema esborrant aquesta solució
+            success: Solució esborrada correctament
+          edit:
+            update: Actualitza
+          form:
+            problem: Problema associat
+            select_requirements: Selecciona els requeriments
+          new:
+            create: Crea
+            title: Nova solució
+          update:
+            error: Hi ha hagut un problema actualitzant aquesta solució
+            success: Solució actualitzada correctament
+        models:
+          solution:
+            fields:
+              created_at: Creada
+              problem: Problema
+              published: Publicada
+              requirements: Requeriments
+              tags: Paraules clau
+              title: Títol
+        titles:
+          solutions_list: Llistat de solucions
+      solutions:
+        solutions:
+          empty: No s'han pogut trobar solucions
+          empty_filters: No s'han pogut trobar solucions
+        count:
+          solutions_count:
+            one: "%{count} solució"
+            other: "%{count} solucions"
+        filters:
+          all: Totes
+          category: Categoria
+          technical: Tècnics
+          economic: Econòmics
+          financial: Finançers
+          related_to: Relacionada amb
+          scope: Àmbit
+          search: Cerca
+          requirement: Requeriment
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplega
+        orders:
+          label: Ordenacions
+          random: Aleatori
+          recent: Més recents
+      solutions_helper:
+        filter_requirements_values:
+          all: Tots
+          technical: Tècnics
+          economic: Econòmics
+          financial: Finançers
+      index:
+        title: Solucions
+        published: Publicada
+        not_published: No Publicada
+      requirements:
+        technical: Tècnics
+        economic: Econòmics
+        financial: Finançers
