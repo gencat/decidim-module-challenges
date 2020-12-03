@@ -20,6 +20,7 @@ module Decidim
             related_to: related_to,
             sectorial_scope_id: sectorial_scope_ids,
             technological_scope_id: technological_scope_ids,
+            territorial_scope_id: territorial_scope_ids,
             category_id: category_ids,
             sdgs_codes: sdgs_codes
           ).results
@@ -30,6 +31,7 @@ module Decidim
         let(:states) { nil }
         let(:sectorial_scope_ids) { nil }
         let(:technological_scope_ids) { nil }
+        let(:territorial_scope_ids) { nil }
         let(:category_ids) { nil }
         let(:sdgs_codes) { nil }
 
@@ -66,6 +68,26 @@ module Decidim
 
           context "with technological_scope_ids" do
             include_examples "search scope filter", "technological_scope_ids"
+          end
+        end
+
+        describe "challenge territorial scopes" do
+          include_context "with example scopes"
+
+          let(:challenges_component) { create(:challenges_component, participatory_space: component.participatory_space) }
+          let!(:challenge_without_scope) { create(:challenge, component: challenges_component, scope: nil) }
+          let!(:challenge_1) { create(:challenge, component: challenges_component, scope: scope_1) }
+          let!(:challenge_2) { create(:challenge, component: challenges_component, scope: scope_2) }
+          let!(:challenge_3) { create(:challenge, component: challenges_component, scope: subscope_1) }
+
+          let(:resources_list) { problems_list }
+          let!(:resource_without_scope) { create(:problem, component: component, challenge: challenge_without_scope) }
+          let!(:resource_1) { create(:problem, component: component, challenge: challenge_1) }
+          let!(:resource_2) { create(:problem, component: component, challenge: challenge_2) }
+          let!(:resource_3) { create(:problem, component: component, challenge: challenge_3) }
+
+          context "with sectorial_scope_ids" do
+            include_examples "search scope filter", "territorial_scope_ids"
           end
         end
 
