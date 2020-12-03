@@ -46,7 +46,7 @@ module Decidim
       end
 
       def resource_sdg
-        model.challenge.sdg_code ? t_sdg(model.challenge.sdg_code) : nil
+        model.challenge.sdg_code
       end
 
       def resource_sdg_index
