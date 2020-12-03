@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require_relative "../search_scopes_examples"
 
 module Decidim
   module Challenges
@@ -92,54 +93,17 @@ module Decidim
           end
         end
 
-        describe "scope_id filter" do
-          let(:scope_1) { create :scope, organization: component.organization }
-          let(:scope_2) { create :scope, organization: component.organization }
-          let(:subscope_1) { create :scope, organization: component.organization, parent: scope_1 }
-          let!(:challenge_1) { create(:challenge, component: component, scope: scope_1) }
-          let!(:challenge_2) { create(:challenge, component: component, scope: scope_2) }
-          let!(:challenge_3) { create(:challenge, component: component, scope: subscope_1) }
+        describe "challenge territorial scopes" do
+          include_context "with example scopes"
 
-          context "when a parent scope id is being sent" do
-            let(:scope_ids) { [scope_1.id] }
+          let(:resources_list) { challenges_list }
+          let!(:resource_without_scope) { create(:challenge, component: component, scope: nil) }
+          let!(:resource_1) { create(:challenge, component: component, scope: scope_1) }
+          let!(:resource_2) { create(:challenge, component: component, scope: scope_2) }
+          let!(:resource_3) { create(:challenge, component: component, scope: subscope_1) }
 
-            it "filters challenges by scope" do
-              expect(subject).to match_array [challenge_1, challenge_3]
-            end
-          end
-
-          context "when a subscope id is being sent" do
-            let(:scope_ids) { [subscope_1.id] }
-
-            it "filters challenges by scope" do
-              expect(subject).to eq [challenge_3]
-            end
-          end
-
-          context "when multiple ids are sent" do
-            let(:scope_ids) { [scope_2.id, scope_1.id] }
-
-            it "filters challenges by scope" do
-              expect(subject).to match_array [challenge_1, challenge_2, challenge_3]
-            end
-          end
-
-          context "when `global` is being sent" do
-            let!(:resource_without_scope) { create(:challenge, component: component, scope: nil) }
-            let(:scope_ids) { ["global"] }
-
-            it "returns challenges without a scope" do
-              expect(subject).to match_array([resource_without_scope] + challenges_list)
-            end
-          end
-
-          context "when `global` and some ids is being sent" do
-            let!(:resource_without_scope) { create(:challenge, component: component, scope: nil) }
-            let(:scope_ids) { ["global", scope_2.id, scope_1.id] }
-
-            it "returns challenges without a scope and with selected scopes" do
-              expect(subject).to match_array [resource_without_scope, challenge_1, challenge_2, challenge_3] + challenges_list
-            end
+          context "with sectorial_scope_ids" do
+            include_examples "search scope filter", "scope_ids"
           end
         end
 
