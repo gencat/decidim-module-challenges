@@ -22,6 +22,9 @@ module Decidim
         @solution = Solution.find(params[:id])
         @sdg = @solution.problem.challenge.sdg_code
         @sdg_index = (1 + Decidim::Sdgs::Sdg.index_from_code(@solution.problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0")
+        @territory_scope ||= current_organization.scopes.find_by(id: @solution.problem.challenge.decidim_scope_id)
+        @sectorial_scope ||= current_organization.scopes.find_by(id: @solution.problem.decidim_sectorial_scope_id)
+        @technological_scope ||= current_organization.scopes.find_by(id: @solution.problem.decidim_technological_scope_id)
       end
 
       private

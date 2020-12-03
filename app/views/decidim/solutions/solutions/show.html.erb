@@ -13,10 +13,12 @@
                     <%= t(@solution.problem.state, scope: "decidim.problems.states") %>
                 </div>
 
+                <% if @territory_scope != nil %>
                 <div class="definition-data__item scope">
                     <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.solution") %></span>
-                    <%= present(@solution.problem.challenge).scope %>
+                    <%= translated_attribute(@territory_scope.name) %>
                 </div>
+                <% end %>
 
                 <div class="definition-data__item prop_entity">
                     <span class="definition-data__title"><%= t("prop_entity", scope: "activemodel.attributes.problem") %></span>
@@ -43,15 +45,19 @@
                     <%= present(@solution).financing_type %>
                 </div>
 
+                <% if @sectorial_scope != nil %>
                 <div class="definition-data__item decidim_sectorial_scope_id">
                     <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
-                    <%= present(@solution.problem).decidim_sectorial_scope_id %>
+                    <%= translated_attribute(@sectorial_scope.name) %>
                 </div>
+                <% end %>
 
+                <% if @technological_scope != nil %>
                 <div class="definition-data__item decidim_technological_scope_id">
                     <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
-                    <%= present(@solution.problem).decidim_technological_scope_id %>
+                    <%= translated_attribute(@technological_scope.name) %>
                 </div>
+                <% end %>
 
                 <div class="definition-data__item sdg">
                     <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
