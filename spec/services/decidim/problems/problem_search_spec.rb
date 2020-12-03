@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "problem_search_scopes_examples"
+require_relative "../search_scopes_examples"
 
 module Decidim
   module Problems
