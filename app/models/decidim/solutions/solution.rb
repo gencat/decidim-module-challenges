@@ -19,7 +19,6 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
 
       searchable_fields({
-                          scope_id: "",
                           participatory_space: :itself,
                           A: :title,
                           B: :description,

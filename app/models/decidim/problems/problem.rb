@@ -25,7 +25,7 @@ module Decidim
       scope :in_finished, -> { where(state: VALID_STATES.index(:finished)) }
 
       searchable_fields({
-                          scope_id: "",
+                          scope_id: "decidim_sectorial_scope_id",
                           participatory_space: :itself,
                           A: :title,
                           B: :description,
