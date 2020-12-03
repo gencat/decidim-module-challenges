@@ -15,7 +15,7 @@
 
                 <div class="definition-data__item scope">
                     <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.solution") %></span>
-                    <%= present(@solution).scope %>
+                    <%= present(@solution.problem.challenge).scope %>
                 </div>
 
                 <div class="definition-data__item prop_entity">
@@ -43,21 +43,18 @@
                     <%= present(@solution).financing_type %>
                 </div>
 
-                <!--
-                <div class="definition-data__item causes">
-                    <span class="definition-data__title">ambit sectorial</span>
-                    <%# TODO: when problems get the missing attribute %>
+                <div class="definition-data__item decidim_sectorial_scope_id">
+                    <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
+                    <%= present(@solution.problem).decidim_sectorial_scope_id %>
                 </div>
 
-                <div class="definition-data__item causes">
-                    <span class="definition-data__title">ambit tecnologic</span>
-                    <%# TODO: when problems get the missing attribute %>
+                <div class="definition-data__item decidim_technological_scope_id">
+                    <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
+                    <%= present(@solution.problem).decidim_technological_scope_id %>
                 </div>
-                -->
 
                 <div class="definition-data__item sdg">
                     <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
-                    <%= t_sdg(@sdg) %><br />
                     <div class="ods">
                         <div class="text-container show">
                             <p><%= t(@sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
