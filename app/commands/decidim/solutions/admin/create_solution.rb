@@ -45,7 +45,6 @@ module Decidim
             description: parsed_description,
             component: form.current_component,
             decidim_problems_problem_id: form.decidim_problems_problem_id,
-            scope: form.scope,
             tags: form.tags,
             objectives: parsed_objectives,
             indicators: parsed_indicators,
