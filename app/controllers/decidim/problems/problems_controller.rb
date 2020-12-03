@@ -25,7 +25,8 @@ module Decidim
           search_text: "",
           category_id: default_filter_category_params,
           state: %w(proposal execution finished),
-          scope_id: default_filter_scope_params,
+          sectorial_scope_id: default_filter_scope_params,
+          technological_scope_id: default_filter_scope_params,
           related_to: "",
           sdgs_codes: [],
         }

@@ -60,11 +60,11 @@ module Decidim
           let!(:resource_2) { create(:problem, component: component, sectorial_scope: scope_2, technological_scope: scope_2) }
           let!(:resource_3) { create(:problem, component: component, sectorial_scope: subscope_1, technological_scope: subscope_1) }
 
-          context "sectorial_scope_ids" do
+          context "with sectorial_scope_ids" do
             include_examples "search scope filter", "sectorial_scope_ids"
           end
 
-          context "technological_scope_ids" do
+          context "with technological_scope_ids" do
             include_examples "search scope filter", "technological_scope_ids"
           end
         end
