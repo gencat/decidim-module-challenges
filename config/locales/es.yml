@@ -18,12 +18,13 @@ es:
         causes: Causas
         challenge: Reto
         col_entity: Entidad colaboradora
+        decidim_sectorial_scope_id: Ámbito sectorial
+        decidim_technological_scope_id: Ámbito tecnológico
         description: Descripción
         end_date: Fecha finalización
         groups_affected: Colectivos afectados
         prop_entity: Entidad proponente
         published: Publicado
-        scope: Territorio
         start_date: Fecha inicio
         status: Estado
         tags: Palabras clave

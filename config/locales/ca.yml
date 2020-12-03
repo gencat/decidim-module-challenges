@@ -18,12 +18,13 @@ ca:
         causes: Causes
         challenge: Repte
         col_entity: Entitat colaboradora
+        decidim_sectorial_scope_id: Àmbit sectorial
+        decidim_technological_scope_id: Àmbit tecnològic
         description: Descripció
         end_date: Data finalització
         groups_affected: Col·lectius afectats
         prop_entity: Entitat proposant
         published: Publicat
-        scope: Territori
         start_date: Data d'inici
         status: Estat
         tags: Paraules clau

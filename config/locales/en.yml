@@ -18,12 +18,13 @@ en:
         causes: Causes
         challenge: Challenge
         col_entity: Collaborating entity
+        decidim_sectorial_scope_id: Sectorial scope
+        decidim_technological_scope_id: Technological scope
         description: Description
         end_date: End date
         groups_affected: Communities affected
         prop_entity: Proposing entity
         published: Published
-        scope: Territory
         start_date: Start date
         status: State
         tags: Keywords

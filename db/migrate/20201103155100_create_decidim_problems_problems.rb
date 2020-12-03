@@ -7,7 +7,8 @@ class CreateDecidimProblemsProblems < ActiveRecord::Migration[5.2]
       t.jsonb :description
       t.references :decidim_component, index: true, null: false
       t.references :decidim_challenges_challenge, index: { name: "decidim_challenges_challenges_problems" }, null: false
-      t.references :decidim_scope, index: true
+      t.bigint "decidim_sectorial_scope_id"
+      t.bigint "decidim_technological_scope_id"
       t.jsonb :tags
       t.string :causes
       t.string :groups_affected
