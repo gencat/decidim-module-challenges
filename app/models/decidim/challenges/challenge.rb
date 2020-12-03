@@ -17,7 +17,7 @@ module Decidim
       enum state: VALID_STATES
 
       has_many :problems,
-               class_name: Decidim::Problems::Problem.name,
+               class_name: "Decidim::Problems::Problem",
                foreign_key: "decidim_challenges_challenge_id", dependent: :restrict_with_exception
 
       component_manifest_name "challenges"
