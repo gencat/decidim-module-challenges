@@ -11,17 +11,6 @@ describe "Filter Solutions", :slow, type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  describe "when filtering solutions by SCOPE" do
-    let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-    let!(:scope_2) { create :scope, organization: participatory_process.organization }
-
-    before do
-      create_list(:solution, 2, component: component, scope: scope)
-      create(:solution, component: component, scope: scope_2)
-      create(:solution, component: component, scope: nil)
-      visit_component
-    end
-
   describe "when filtering solutions by SDG" do
     context "when the participatory_space does NOT contain an SDGs component" do
       before do
