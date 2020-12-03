@@ -53,6 +53,10 @@ module Decidim
           end
         end
 
+        describe "when filtering problems by challenge" do
+          it "finds the problems associated with the given challenge"
+        end
+
         describe "problem scopes" do
           include_context "with example scopes"
 

@@ -1008,7 +1008,10 @@ ca:
           related_to: Relacionat amb
           scope: Àmbit
           search: Cerca
+          sectorial_scope: Àmbit sectorial
           state: Estat
+          technological_scope: Àmbit tecnològic
+          territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra

@@ -1016,7 +1016,10 @@ es:
           related_to: Relacionado con
           scope: Ambito
           search: Búsqueda
+          sectorial_scope: Ámbito sectorial
           state: Estado
+          technological_scope: Ámbito tecnológico
+          territorial_scope: Ámbito territorial
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar

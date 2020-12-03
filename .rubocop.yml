@@ -1054,7 +1054,7 @@ Naming/VariableName:
     - camelCase
 
 Naming/VariableNumber:
-  EnforcedStyle: normalcase
+  EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
     - normalcase

@@ -12,6 +12,10 @@ describe "Filter Problems", :slow, type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
+  describe "when filtering problems by challenge" do
+    it "finds the problems associated with the given challenge"
+  end
+
   describe "when filtering problems by sectorial and technological scopes" do
     before do
       create_list(:problem, 2, component: component, sectorial_scope: scope, technological_scope: scope)
@@ -21,6 +25,20 @@ describe "Filter Problems", :slow, type: :system do
 
     include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".sectorial_scope_id_check_boxes_tree_filter"
     include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".technological_scope_id_check_boxes_tree_filter"
+  end
+
+  describe "when filtering problems by challenge's territorial scopes" do
+    before do
+      challenges_component = create(:challenges_component, participatory_space: participatory_process)
+      challenge = create(:challenge, component: challenges_component, scope: scope)
+      create_list(:problem, 2, component: component, challenge: challenge)
+      challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
+      create(:problem, component: component, challenge: challenge_2)
+      challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
+      create(:problem, component: component, challenge: challenge_no_scope)
+    end
+
+    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".territorial_scope_id_check_boxes_tree_filter"
   end
 
   describe "when filtering problems by STATE" do

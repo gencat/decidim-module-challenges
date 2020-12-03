@@ -1013,7 +1013,10 @@ en:
           related_to: Related to
           scope: Scope
           search: Search
+          sectorial_scope: Sectorial scope
           state: State
+          technological_scope: Technological scope
+          territorial_scope: Territorial scope
         filters_small_view:
           close_modal: Close modal
           filter: Filter

@@ -27,6 +27,7 @@ module Decidim
           state: %w(proposal execution finished),
           sectorial_scope_id: default_filter_scope_params,
           technological_scope_id: default_filter_scope_params,
+          territorial_scope_id: default_filter_scope_params,
           related_to: "",
           sdgs_codes: [],
         }
