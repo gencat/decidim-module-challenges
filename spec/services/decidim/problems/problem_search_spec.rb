@@ -51,16 +51,22 @@ module Decidim
           end
         end
 
-        describe "sectorial_scope_ids" do
+        describe "problem scopes" do
           include_context "with example scopes"
 
           let(:resources_list) { problems_list }
-          let!(:resource_without_scope) { create(:problem, component: component, sectorial_scope: nil) }
-          let!(:resource_1) { create(:problem, component: component, sectorial_scope: scope_1) }
-          let!(:resource_2) { create(:problem, component: component, sectorial_scope: scope_2) }
-          let!(:resource_3) { create(:problem, component: component, sectorial_scope: subscope_1) }
+          let!(:resource_without_scope) { create(:problem, component: component, sectorial_scope: nil, technological_scope: nil) }
+          let!(:resource_1) { create(:problem, component: component, sectorial_scope: scope_1, technological_scope: scope_1) }
+          let!(:resource_2) { create(:problem, component: component, sectorial_scope: scope_2, technological_scope: scope_2) }
+          let!(:resource_3) { create(:problem, component: component, sectorial_scope: subscope_1, technological_scope: subscope_1) }
 
-          include_examples "search scope filter", "sectorial_scope_ids"
+          context "sectorial_scope_ids" do
+            include_examples "search scope filter", "sectorial_scope_ids"
+          end
+
+          context "technological_scope_ids" do
+            include_examples "search scope filter", "technological_scope_ids"
+          end
         end
 
         describe "state filter" do
