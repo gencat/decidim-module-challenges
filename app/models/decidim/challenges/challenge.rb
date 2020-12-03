@@ -16,6 +16,10 @@ module Decidim
       VALID_STATES = [:proposal, :execution, :finished].freeze
       enum state: VALID_STATES
 
+      has_many :problems,
+               class_name: Decidim::Problems::Problem.name,
+               foreign_key: "decidim_challenges_challenge_id", dependent: :restrict_with_exception
+
       component_manifest_name "challenges"
 
       scope :published, -> { where.not(published_at: nil) }
@@ -38,10 +42,6 @@ module Decidim
       def published?
         published_at.present?
       end
-
-      has_many :problems,
-               class_name: "Problems",
-               foreign_key: "decidim_challenges_challenge_id"
     end
   end
 end

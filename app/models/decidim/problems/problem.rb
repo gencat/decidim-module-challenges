@@ -17,7 +17,10 @@ module Decidim
 
       component_manifest_name "problems"
 
-      belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge"
+      belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: Decidim::Challenges::Challenge.name
+      has_many :solutions,
+               class_name: Decidim::Solutions::Solution.name,
+               foreign_key: "decidim_problems_problem_id", dependent: :restrict_with_exception
 
       scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }

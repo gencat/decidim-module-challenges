@@ -14,7 +14,7 @@ module Decidim
 
       component_manifest_name "solutions"
 
-      belongs_to :problem, foreign_key: "decidim_problems_problem_id", class_name: "Decidim::Problems::Problem"
+      belongs_to :problem, foreign_key: "decidim_problems_problem_id", class_name: Decidim::Problems::Problem.name
 
       scope :published, -> { where.not(published_at: nil) }
 
