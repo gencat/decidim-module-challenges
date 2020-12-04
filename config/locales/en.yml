@@ -1124,9 +1124,10 @@ en:
           economic: Economic
           financial: Financial
           related_to: Related to
+          requirement: Requirement
           scope: Scope
           search: Search
-          requirement: Requirement
+          territorial_scope: Territorial scope
         filters_small_view:
           close_modal: Close window
           filter: Filter

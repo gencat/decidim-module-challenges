@@ -1123,9 +1123,10 @@ ca:
           economic: Econòmics
           financial: Finançers
           related_to: Relacionada amb
+          requirement: Requeriment
           scope: Àmbit
           search: Cerca
-          requirement: Requeriment
+          territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra

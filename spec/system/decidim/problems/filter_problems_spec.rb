@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "filter_problemes_by_scope_examples"
+require_relative "../filter_resources_by_scope_examples"
 
 describe "Filter Problems", :slow, type: :system do
   include_context "with a component"

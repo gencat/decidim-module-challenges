@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require_relative "../filter_resources_by_scope_examples"
 
 describe "Filter Solutions", :slow, type: :system do
   include_context "with a component"
@@ -10,6 +11,27 @@ describe "Filter Solutions", :slow, type: :system do
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+
+  describe "when filtering solutions by challenge's territorial scopes" do
+    before do
+      challenges_component = create(:challenges_component, participatory_space: participatory_process)
+      problems_component = create(:problems_component, participatory_space: participatory_process)
+
+      challenge = create(:challenge, component: challenges_component, scope: scope)
+      problem = create(:problem, component: problems_component, challenge: challenge)
+      create_list(:solution, 2, component: component, problem: problem)
+
+      challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
+      problem_2 = create(:problem, component: problems_component, challenge: challenge_2)
+      create(:solution, component: component, problem: problem_2)
+
+      challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
+      problem_no_scope = create(:problem, component: problems_component, challenge: challenge_no_scope)
+      create(:solution, component: component, problem: problem_no_scope)
+    end
+
+    include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".territorial_scope_id_check_boxes_tree_filter"
+  end
 
   describe "when filtering solutions by SDG" do
     context "when the participatory_space does NOT contain an SDGs component" do

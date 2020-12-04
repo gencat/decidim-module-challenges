@@ -27,7 +27,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
   end
 
   context "when selecting one scope" do
-    it "lists the filtered problems", :slow do
+    it "lists the filtered resources", :slow do
       within ".filters #{checkboxes_tree_filter_css_class}" do
         uncheck "All"
         check scope.name[I18n.locale.to_s]
@@ -39,7 +39,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
   end
 
   context "when selecting the global scope and another scope" do
-    it "lists the filtered problems", :slow do
+    it "lists the filtered resources", :slow do
       within ".filters #{checkboxes_tree_filter_css_class}" do
         uncheck "All"
         check "Global"
@@ -52,7 +52,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
   end
 
   context "when unselecting the selected scope" do
-    it "lists the filtered problems" do
+    it "lists the filtered resources" do
       within ".filters #{checkboxes_tree_filter_css_class}" do
         uncheck "All"
         check scope.name[I18n.locale.to_s]

@@ -1127,9 +1127,10 @@ es:
           economic: Económicos
           financial: Financieros
           related_to: Relacionada con
+          requirement: Requisito
           scope: Ámbito
           search: Búsqueda
-          requirement: Requisito
+          territorial_scope: Ámbito territorial
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtra
