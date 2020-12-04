@@ -63,6 +63,7 @@ ca:
             success: Repte creat correctament
           destroy:
             error: Hi ha hagut un problema esborrant aquest repte
+            has_problems: No es pot esborrar aquest repte perquè té problemes associats
             success: Repte esborrat correctament
           edit:
             update: Actualitza
@@ -975,6 +976,7 @@ ca:
             success: Problema creat correctament
           destroy:
             error: Hi ha hagut un error esborrant aquest problema
+            has_solutions: No es pot esborrar aquest problema perquè té solucions associades
             success: Problema esborrat correctament
           edit:
             update: Actualitza
