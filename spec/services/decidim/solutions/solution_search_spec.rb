@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require_relative "../search_scopes_examples"
 
 module Decidim
   module Solutions
@@ -18,7 +19,7 @@ module Decidim
             search_text: search_text,
             state: states,
             related_to: related_to,
-            scope_id: scope_ids,
+            territorial_scope_id: territorial_scope_ids,
             category_id: category_ids,
             sdgs_codes: sdgs_codes
           ).results
@@ -27,7 +28,7 @@ module Decidim
         let(:search_text) { nil }
         let(:related_to) { nil }
         let(:states) { nil }
-        let(:scope_ids) { nil }
+        let(:territorial_scope_ids) { nil }
         let(:category_ids) { nil }
         let(:sdgs_codes) { nil }
 
@@ -49,54 +50,29 @@ module Decidim
           end
         end
 
-        describe "scope_id filter" do
-          let(:scope_1) { create :scope, organization: component.organization }
-          let(:scope_2) { create :scope, organization: component.organization }
-          let(:subscope_1) { create :scope, organization: component.organization, parent: scope_1 }
-          let!(:solution_1) { create(:solution, component: component, scope: scope_1) }
-          let!(:solution_2) { create(:solution, component: component, scope: scope_2) }
-          let!(:solution_3) { create(:solution, component: component, scope: subscope_1) }
+        describe "challenge territorial scopes" do
+          include_context "with example scopes"
 
-          context "when a parent scope id is being sent" do
-            let(:scope_ids) { [scope_1.id] }
+          let(:challenges_component) { create(:challenges_component, participatory_space: component.participatory_space) }
+          let!(:challenge_without_scope) { create(:challenge, component: challenges_component, scope: nil) }
+          let!(:challenge_1) { create(:challenge, component: challenges_component, scope: scope_1) }
+          let!(:challenge_2) { create(:challenge, component: challenges_component, scope: scope_2) }
+          let!(:challenge_3) { create(:challenge, component: challenges_component, scope: subscope_1) }
 
-            it "filters solutions by scope" do
-              expect(subject).to match_array [solution_1, solution_3]
-            end
-          end
+          let(:problems_component) { create(:problems_component, participatory_space: component.participatory_space) }
+          let!(:problem_without_scope) { create(:problem, component: problems_component, challenge: challenge_without_scope) }
+          let!(:problem_1) { create(:problem, component: problems_component, challenge: challenge_1) }
+          let!(:problem_2) { create(:problem, component: problems_component, challenge: challenge_2) }
+          let!(:problem_3) { create(:problem, component: problems_component, challenge: challenge_3) }
 
-          context "when a subscope id is being sent" do
-            let(:scope_ids) { [subscope_1.id] }
+          let(:resources_list) { solutions_list }
+          let!(:resource_without_scope) { create(:solution, component: component, problem: problem_without_scope) }
+          let!(:resource_1) { create(:solution, component: component, problem: problem_1) }
+          let!(:resource_2) { create(:solution, component: component, problem: problem_2) }
+          let!(:resource_3) { create(:solution, component: component, problem: problem_3) }
 
-            it "filters solutions by scope" do
-              expect(subject).to eq [solution_3]
-            end
-          end
-
-          context "when multiple ids are sent" do
-            let(:scope_ids) { [scope_2.id, scope_1.id] }
-
-            it "filters solutions by scope" do
-              expect(subject).to match_array [solution_1, solution_2, solution_3]
-            end
-          end
-
-          context "when `global` is being sent" do
-            let!(:resource_without_scope) { create(:solution, component: component, scope: nil) }
-            let(:scope_ids) { ["global"] }
-
-            it "returns solutions without a scope" do
-              expect(subject.pluck(:id).sort).to eq(solutions_list.pluck(:id) + [resource_without_scope.id])
-            end
-          end
-
-          context "when `global` and some ids is being sent" do
-            let!(:resource_without_scope) { create(:solution, component: component, scope: nil) }
-            let(:scope_ids) { ["global", scope_2.id, scope_1.id] }
-
-            it "returns solutions without a scope and with selected scopes" do
-              expect(subject.pluck(:id)).to match_array(solutions_list.pluck(:id) + [resource_without_scope.id, solution_1.id, solution_2.id, solution_3.id])
-            end
+          context "with sectorial_scope_ids" do
+            include_examples "search scope filter", "territorial_scope_ids"
           end
         end
 
