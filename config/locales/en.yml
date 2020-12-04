@@ -65,6 +65,7 @@ en:
             success: Challenge successfully created
           destroy:
             error: There's been a problem deleting this challenge
+            has_problems: This challenge couldn't be deleted due to related problems
             success: Challenge successfully deleted
           edit:
             update: Update
@@ -982,6 +983,7 @@ en:
             success: Problem successfully created
           destroy:
             error: There's been an error deleting this problem
+            has_solutions: This problem couldn't be deleted due to related solutions
             success: Problem successfully deleted
           edit:
             update: Update

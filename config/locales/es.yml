@@ -65,6 +65,7 @@ es:
             success: Reto creado correctamente
           destroy:
             error: Ha habido un problema borrando este reto
+            has_problems: Este reto no se ha podido borrar porqué tiene problemas asociados
             success: Reto borrado correctamente
           edit:
             update: Actualiza
@@ -985,6 +986,7 @@ es:
             success: Problema creado correctamente
           destroy:
             error: Ha habido un problema borrando este problema
+            has_solutions: Este problema no se ha podido borrar porqué tiene soluciones asociadas
             success: Problema borrado correctamente
           edit:
             update: Actualiza
