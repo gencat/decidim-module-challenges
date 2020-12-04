@@ -11,7 +11,7 @@ module Decidim
 
           Decidim::Solutions::Admin::PublishSolution.call(solution, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("solution_publications.create.success", scope: "decidim.solution.admin")
+              flash[:notice] = I18n.t("solution_publications.create.success", scope: "decidim.solutions.admin")
             end
 
             on(:invalid) do

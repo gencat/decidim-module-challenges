@@ -14,7 +14,6 @@ module Decidim
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "solutions" }
         let(:challenge) { create :challenge }
         let(:problem) { create :problem, challenge: challenge }
-        let(:scope) { create :scope, organization: organization }
         let(:title) { "Solution title" }
         let(:tags) { "tag1, tag2, tag3" }
         let(:objectives) do
@@ -39,7 +38,6 @@ module Decidim
             title: { en: title },
             description: { en: "Solution desc" },
             decidim_problems_problem_id: problem.id,
-            scope: scope,
             tags: tags,
             objectives: objectives,
             indicators: indicators,
@@ -66,11 +64,6 @@ module Decidim
           it "updates the solution" do
             subject.call
             expect(translated(solution.title)).to eq title
-          end
-
-          it "sets the scope" do
-            subject.call
-            expect(solution.scope).to eq scope
           end
 
           it "sets problem" do
