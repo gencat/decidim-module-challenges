@@ -21,9 +21,9 @@ module Decidim
         def call
           destroy_challenge
           broadcast(:ok)
-        rescue ActiveRecord::DeleteRestrictionError => e
+        rescue ActiveRecord::DeleteRestrictionError
           broadcast(:has_problems)
-        rescue ActiveRecord::RecordNotDestroyed => e
+        rescue ActiveRecord::RecordNotDestroyed
           broadcast(:invalid)
         end
 
