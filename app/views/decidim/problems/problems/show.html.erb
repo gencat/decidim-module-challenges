@@ -20,11 +20,6 @@
           <%= t(@problem.state, scope: "decidim.problems.states") %>
         </div>
 
-        <div class="definition-data__item area_id">
-          <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.problem") %></span>
-          <%= present(@problem).decidim_scope_id %>
-        </div>
-
         <div class="definition-data__item coord_entity">
           <span
             class="definition-data__title"><%= t("coord_entity", scope: "activemodel.attributes.challenge") %></span>
@@ -46,18 +41,33 @@
           <%= present(@problem).groups_affected %>
         </div>
 
+        <div class="definition-data__item groups_affected">
+          <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
+          <% if @sectorial_scope %>
+            <%= translated_attribute @sectorial_scope.name %>
+          <% end %>
+        </div>
+
+        <div class="definition-data__item groups_affected">
+          <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
+          <% if @technological_scope %>
+            <%= translated_attribute @technological_scope.name %>
+          <% end %>
+        </div>
+
         <div class="definition-data__item sdg">
           <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.problem") %></span>
-          <%= @sdg %><br/>
-          <div class="ods">
-              <div class="text-container show">
-                  <p><%= t("no_poverty.logo.line1", scope: "decidim.components.sdgs") %></p>
-                  <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
-              </div>
-              <img alt="Logo ODS <%= @sdg_index %>"
-                src="/assets/decidim/sdgs/ods-<%= @sdg_index %>.svg" class="problem--view">
-          </div>
-        </div>
+          <% if @sdg %>
+            <%= t_sdg(@sdg) %><br/>
+            <div class="ods">
+                <div class="text-container show">
+                    <p><%= t(@sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
+                    <p><%= t(@sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
+                </div>
+                <img alt="Logo ODS <%= @sdg_index %>"
+                  src="/assets/decidim/sdgs/ods-<%= @sdg_index %>.svg" class="problem--view">
+            </div>
+          <% end %>
         </div>
 
       <%= resource_reference(current_participatory_space) %>
