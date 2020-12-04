@@ -16,9 +16,15 @@ module Decidim
         # Public: Executes the command.
         #
         # Broadcasts :ok if it got destroyed
+        # Broadcasts :has_problems if not destroyed 'cause dependent
+        # Broadcasts :invalid if it not destroyed
         def call
           destroy_challenge
           broadcast(:ok)
+        rescue ActiveRecord::DeleteRestrictionError
+          broadcast(:has_problems)
+        rescue ActiveRecord::RecordNotDestroyed
+          broadcast(:invalid)
         end
 
         private
