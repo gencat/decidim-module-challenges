@@ -24,6 +24,7 @@ ca:
         end_date: Data finalització
         prop_entity: Entitat proposant
         published: Publicat
+        sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
         tags: Paraules clau
