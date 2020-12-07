@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require_relative "../search_scopes_examples"
 
 module Decidim
   module Problems
@@ -17,7 +18,9 @@ module Decidim
             search_text: search_text,
             state: states,
             related_to: related_to,
-            scope_id: scope_ids,
+            sectorial_scope_id: sectorial_scope_ids,
+            technological_scope_id: technological_scope_ids,
+            territorial_scope_id: territorial_scope_ids,
             category_id: category_ids,
             sdgs_codes: sdgs_codes
           ).results
@@ -26,7 +29,9 @@ module Decidim
         let(:search_text) { nil }
         let(:related_to) { nil }
         let(:states) { nil }
-        let(:scope_ids) { nil }
+        let(:sectorial_scope_ids) { nil }
+        let(:technological_scope_ids) { nil }
+        let(:territorial_scope_ids) { nil }
         let(:category_ids) { nil }
         let(:sdgs_codes) { nil }
 
@@ -45,6 +50,48 @@ module Decidim
 
             expect(subject).to include(dog_problem)
             expect(subject.size).to eq(1)
+          end
+        end
+
+        describe "when filtering problems by challenge" do
+          it "finds the problems associated with the given challenge"
+        end
+
+        describe "problem scopes" do
+          include_context "with example scopes"
+
+          let(:resources_list) { problems_list }
+          let!(:resource_without_scope) { create(:problem, component: component, sectorial_scope: nil, technological_scope: nil) }
+          let!(:resource_1) { create(:problem, component: component, sectorial_scope: scope_1, technological_scope: scope_1) }
+          let!(:resource_2) { create(:problem, component: component, sectorial_scope: scope_2, technological_scope: scope_2) }
+          let!(:resource_3) { create(:problem, component: component, sectorial_scope: subscope_1, technological_scope: subscope_1) }
+
+          context "with sectorial_scope_ids" do
+            include_examples "search scope filter", "sectorial_scope_ids"
+          end
+
+          context "with technological_scope_ids" do
+            include_examples "search scope filter", "technological_scope_ids"
+          end
+        end
+
+        describe "challenge territorial scopes" do
+          include_context "with example scopes"
+
+          let(:challenges_component) { create(:challenges_component, participatory_space: component.participatory_space) }
+          let!(:challenge_without_scope) { create(:challenge, component: challenges_component, scope: nil) }
+          let!(:challenge_1) { create(:challenge, component: challenges_component, scope: scope_1) }
+          let!(:challenge_2) { create(:challenge, component: challenges_component, scope: scope_2) }
+          let!(:challenge_3) { create(:challenge, component: challenges_component, scope: subscope_1) }
+
+          let(:resources_list) { problems_list }
+          let!(:resource_without_scope) { create(:problem, component: component, challenge: challenge_without_scope) }
+          let!(:resource_1) { create(:problem, component: component, challenge: challenge_1) }
+          let!(:resource_2) { create(:problem, component: component, challenge: challenge_2) }
+          let!(:resource_3) { create(:problem, component: component, challenge: challenge_3) }
+
+          context "with sectorial_scope_ids" do
+            include_examples "search scope filter", "territorial_scope_ids"
           end
         end
 
@@ -92,57 +139,6 @@ module Decidim
             end
           end
         end
-
-        # describe "scope_id filter" do
-        #   let(:scope_1) { create :scope, organization: component.organization }
-        #   let(:scope_2) { create :scope, organization: component.organization }
-        #   let(:subscope_1) { create :scope, organization: component.organization, parent: scope_1 }
-        #   let!(:problem_1) { create(:problem, component: component, scope: scope_1) }
-        #   let!(:problem_2) { create(:problem, component: component, scope: scope_2) }
-        #   let!(:problem_3) { create(:problem, component: component, scope: subscope_1) }
-        #
-        #   context "when a parent scope id is being sent" do
-        #     let(:scope_ids) { [scope_1.id] }
-        #
-        #     it "filters problems by scope" do
-        #       expect(subject).to match_array [problem_1, problem_3]
-        #     end
-        #   end
-        #
-        #   context "when a subscope id is being sent" do
-        #     let(:scope_ids) { [subscope_1.id] }
-        #
-        #     it "filters problems by scope" do
-        #       expect(subject).to eq [problem_3]
-        #     end
-        #   end
-        #
-        #   context "when multiple ids are sent" do
-        #     let(:scope_ids) { [scope_2.id, scope_1.id] }
-        #
-        #     it "filters problems by scope" do
-        #       expect(subject).to match_array [problem_1, problem_2, problem_3]
-        #     end
-        #   end
-        #
-        #   context "when `global` is being sent" do
-        #     let!(:resource_without_scope) { create(:problem, component: component, scope: nil) }
-        #     let(:scope_ids) { ["global"] }
-        #
-        #     it "returns problems without a scope" do
-        #       expect(subject.pluck(:id).sort).to eq(problems_list.pluck(:id) + [resource_without_scope.id])
-        #     end
-        #   end
-        #
-        #   context "when `global` and some ids is being sent" do
-        #     let!(:resource_without_scope) { create(:problem, component: component, scope: nil) }
-        #     let(:scope_ids) { ["global", scope_2.id, scope_1.id] }
-        #
-        #     it "returns problems without a scope and with selected scopes" do
-        #       expect(subject.pluck(:id)).to match_array(problems_list.pluck(:id) + [resource_without_scope.id, problem_1.id, problem_2.id, problem_3.id])
-        #     end
-        #   end
-        # end
 
         describe "SDGs filter" do
           context "when none is selected" do

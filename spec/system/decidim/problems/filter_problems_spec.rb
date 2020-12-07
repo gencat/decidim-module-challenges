@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require_relative "../filter_resources_by_scope_examples"
 
 describe "Filter Problems", :slow, type: :system do
   include_context "with a component"
@@ -11,98 +12,34 @@ describe "Filter Problems", :slow, type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  # describe "when filtering problems by SCOPE" do
-  #   let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-  #   let!(:scope_2) { create :scope, organization: participatory_process.organization }
-  #
-  #   before do
-  #     create_list(:problem, 2, component: component, scope: scope)
-  #     create(:problem, component: component, scope: scope_2)
-  #     create(:problem, component: component, scope: nil)
-  #     visit_component
-  #   end
-  #
-  #   it "can be filtered by scope" do
-  #     within "form.new_filter" do
-  #       expect(page).to have_content(/Scope/i)
-  #     end
-  #   end
-  #
-  #   context "when selecting the global scope" do
-  #     it "lists the filtered problems", :slow do
-  #       within ".filters .scope_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check "Global"
-  #       end
-  #
-  #       expect(page).to have_css(".card--problem", count: 1)
-  #       expect(page).to have_content("1 PROBLEM")
-  #     end
-  #   end
-  #
-  #   context "when selecting one scope" do
-  #     it "lists the filtered problems", :slow do
-  #       within ".filters .scope_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check scope.name[I18n.locale.to_s]
-  #       end
-  #
-  #       expect(page).to have_css(".card--problem", count: 2)
-  #       expect(page).to have_content("2 PROBLEMS")
-  #     end
-  #   end
-  #
-  #   context "when selecting the global scope and another scope" do
-  #     it "lists the filtered problems", :slow do
-  #       within ".filters .scope_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check "Global"
-  #         check scope.name[I18n.locale.to_s]
-  #       end
-  #
-  #       expect(page).to have_css(".card--problem", count: 3)
-  #       expect(page).to have_content("3 PROBLEMS")
-  #     end
-  #   end
-  #
-  #   context "when unselecting the selected scope" do
-  #     it "lists the filtered problems" do
-  #       within ".filters .scope_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check scope.name[I18n.locale.to_s]
-  #         check "Global"
-  #         uncheck scope.name[I18n.locale.to_s]
-  #       end
-  #
-  #       expect(page).to have_css(".card--problem", count: 1)
-  #       expect(page).to have_content("1 PROBLEM")
-  #     end
-  #   end
-  #
-  #   context "when process is related to a scope" do
-  #     let(:participatory_process) { scoped_participatory_process }
-  #
-  #     it "cannot be filtered by scope" do
-  #       visit_component
-  #
-  #       within "form.new_filter" do
-  #         expect(page).to have_no_content(/Scope/i)
-  #       end
-  #     end
-  #
-  #     context "with subscopes" do
-  #       let!(:subscopes) { create_list :subscope, 5, parent: scope }
-  #
-  #       it "can be filtered by scope" do
-  #         visit_component
-  #
-  #         within "form.new_filter" do
-  #           expect(page).to have_content(/Scope/i)
-  #         end
-  #       end
-  #     end
-  #   end
-  # end
+  describe "when filtering problems by challenge" do
+    it "finds the problems associated with the given challenge"
+  end
+
+  describe "when filtering problems by sectorial and technological scopes" do
+    before do
+      create_list(:problem, 2, component: component, sectorial_scope: scope, technological_scope: scope)
+      create(:problem, component: component, sectorial_scope: scope_2, technological_scope: scope_2)
+      create(:problem, component: component, sectorial_scope: nil, technological_scope: nil)
+    end
+
+    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".sectorial_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".technological_scope_id_check_boxes_tree_filter"
+  end
+
+  describe "when filtering problems by challenge's territorial scopes" do
+    before do
+      challenges_component = create(:challenges_component, participatory_space: participatory_process)
+      challenge = create(:challenge, component: challenges_component, scope: scope)
+      create_list(:problem, 2, component: component, challenge: challenge)
+      challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
+      create(:problem, component: component, challenge: challenge_2)
+      challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
+      create(:problem, component: component, challenge: challenge_no_scope)
+    end
+
+    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".territorial_scope_id_check_boxes_tree_filter"
+  end
 
   describe "when filtering problems by STATE" do
     it "can be filtered by state" do
@@ -114,7 +51,6 @@ describe "Filter Problems", :slow, type: :system do
     end
 
     it "lists proposal problems" do
-      # create(:problem, :proposal, component: component, scope: scope)
       create(:problem, :proposal, component: component)
       visit_component
 

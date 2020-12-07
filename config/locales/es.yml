@@ -65,6 +65,7 @@ es:
             success: Reto creado correctamente
           destroy:
             error: Ha habido un problema borrando este reto
+            has_problems: Este reto no se ha podido borrar porqué tiene problemas asociados
             success: Reto borrado correctamente
           edit:
             update: Actualiza
@@ -985,6 +986,7 @@ es:
             success: Problema creado correctamente
           destroy:
             error: Ha habido un problema borrando este problema
+            has_solutions: Este problema no se ha podido borrar porqué tiene soluciones asociadas
             success: Problema borrado correctamente
           edit:
             update: Actualiza
@@ -1022,7 +1024,10 @@ es:
           related_to: Relacionado con
           scope: Ambito
           search: Búsqueda
+          sectorial_scope: Ámbito sectorial
           state: Estado
+          technological_scope: Ámbito tecnológico
+          territorial_scope: Ámbito territorial
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -1099,7 +1104,6 @@ es:
             update: Actualiza
           form:
             problem: Problema asociado
-            select_requirements: Selecciona los requisitos
           new:
             create: Crea
             title: Nueva solución
@@ -1132,9 +1136,10 @@ es:
           economic: Económicos
           financial: Financieros
           related_to: Relacionada con
+          requirement: Requisito
           scope: Ámbito
           search: Búsqueda
-          requirement: Requisito
+          territorial_scope: Ámbito territorial
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtra
@@ -1144,17 +1149,7 @@ es:
           label: Ordenaciones
           random: Aleatorio
           recent: Más recientes
-      solutions_helper:
-        filter_requirements_values:
-          all: Todos
-          technical: Técnicos
-          economic: Económicos
-          financial: Financieros
       index:
         title: Soluciones
         published: Publicada
         not_published: No Publicada
-      requirements:
-        technical: Técnicos
-        economic: Económicos
-        financial: Financieros

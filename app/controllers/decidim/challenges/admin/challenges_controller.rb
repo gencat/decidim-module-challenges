@@ -73,9 +73,12 @@ module Decidim
               redirect_to challenges_path(assembly_slug: -1, component_id: -1)
             end
 
+            on(:has_problems) do
+              redirect_to challenges_path, flash: { error: t("challenges.destroy.has_problems", scope: "decidim.challenges.admin") }
+            end
+
             on(:invalid) do
-              flash.now[:alert] = t("challenges.destroy.error", scope: "decidim.challenges.admin")
-              redirect_to challenges_path(assembly_slug: -1, component_id: -1)
+              redirect_to challenges_path, flash: { error: t("challenges.destroy.error", scope: "decidim.challenges.admin") }
             end
           end
         end
