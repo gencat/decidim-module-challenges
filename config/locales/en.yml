@@ -1017,7 +1017,10 @@ en:
           related_to: Related to
           scope: Scope
           search: Search
+          sectorial_scope: Sectorial scope
           state: State
+          technological_scope: Technological scope
+          territorial_scope: Territorial scope
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -1093,7 +1096,6 @@ en:
             update: Update
           form:
             problem: Related problem
-            select_requirements: Requirements select
           new:
             create: Create
             title: New solution
@@ -1126,9 +1128,10 @@ en:
           economic: Economic
           financial: Financial
           related_to: Related to
+          requirement: Requirement
           scope: Scope
           search: Search
-          requirement: Requirement
+          territorial_scope: Territorial scope
         filters_small_view:
           close_modal: Close window
           filter: Filter
@@ -1138,12 +1141,6 @@ en:
           label: Sorts
           random: Random
           recent: Most recent
-      solutions_helper:
-        filter_requirements_values:
-          all: All
-          technical: Technical
-          economic: Economics
-          financial: Financial
       index:
         title: Solutions
         published: Published

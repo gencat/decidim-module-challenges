@@ -32,9 +32,9 @@ module Decidim
         {
           search_text: "",
           category_id: default_filter_category_params,
-          state: Decidim::Solutions::Solution::VALID_REQUIREMENTS,
-          scope_id: default_filter_scope_params,
+          territorial_scope_id: default_filter_scope_params,
           related_to: "",
+          sdgs_codes: [],
         }
       end
 

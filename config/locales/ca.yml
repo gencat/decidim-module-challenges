@@ -1012,7 +1012,10 @@ ca:
           related_to: Relacionat amb
           scope: Àmbit
           search: Cerca
+          sectorial_scope: Àmbit sectorial
           state: Estat
+          technological_scope: Àmbit tecnològic
+          territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -1092,7 +1095,6 @@ ca:
             update: Actualitza
           form:
             problem: Problema associat
-            select_requirements: Selecciona els requeriments
           new:
             create: Crea
             title: Nova solució
@@ -1125,9 +1127,10 @@ ca:
           economic: Econòmics
           financial: Finançers
           related_to: Relacionada amb
+          requirement: Requeriment
           scope: Àmbit
           search: Cerca
-          requirement: Requeriment
+          territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -1137,12 +1140,6 @@ ca:
           label: Ordenacions
           random: Aleatori
           recent: Més recents
-      solutions_helper:
-        filter_requirements_values:
-          all: Tots
-          technical: Tècnics
-          economic: Econòmics
-          financial: Finançers
       index:
         title: Solucions
         published: Publicada
