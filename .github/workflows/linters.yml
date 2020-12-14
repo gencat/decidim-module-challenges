@@ -37,10 +37,9 @@ jobs:
       - name: Install Ruby deps
         uses: nick-invision/retry@v1
         with:
-          path: ./vendor/bundle
           timeout_minutes: 10
           max_attempts: 3
-          command: bundle install --jobs 4 --retry 3
+          command: bundle config set --local path 'vendor/bundle' && bundle install --jobs 4 --retry 3
 
       - name: Rubocop
         run: bundle exec rubocop -P
