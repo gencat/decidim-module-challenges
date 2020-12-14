@@ -52,33 +52,33 @@
 }
 
 .ods {
-    cursor: default;
+    cursor: default !important;
     &:hover {
-        -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
-        -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
-        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
-        transition: all 0.0s ease;
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0) !important;
+        -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0) !important;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0) !important;
+        transition: all 0.0s ease !important;
     }
 
     .text-container {
-        top: 2px;
-        left: 14px;
-        width: 60px;
+        top: 2px !important;
+        left: 14px !important;
+        width: 60px !important;
     }
 
     .text-container.show {
-        top: 4px;
-        left: 37.5%;
-        width: 60px;
-        text-align: start;
+        top: 4px !important;
+        left: 37.5% !important;
+        width: 60px !important;
+        text-align: start !important;
     }
 
     p {
-        font-size: 6pt;
+        font-size: 6pt !important;
     }
 
     img.problem--view {
-        width: 100%;
-        max-width: 100px;
+        width: 100% !important;
+        max-width: 100px !important;
     }
 }
