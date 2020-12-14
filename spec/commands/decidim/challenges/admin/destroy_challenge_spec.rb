@@ -31,6 +31,14 @@ module Decidim
             expect(action_log.version.event).to eq "destroy"
           end
         end
+
+        context "when has dependent problems" do
+          let(:problem) { create :problem, challenge: challenge }
+
+          it "not deletes the challenge" do
+            expect { subject.call }.not_to change(Decidim::Challenges::Challenge, :count)
+          end
+        end
       end
     end
   end

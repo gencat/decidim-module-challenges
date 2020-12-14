@@ -17,11 +17,12 @@ ca:
       problem:
         causes: Causes
         col_entity: Entitat colaboradora
+        decidim_sectorial_scope_id: Àmbit sectorial
+        decidim_technological_scope_id: Àmbit tecnològic
         description: Descripció
         end_date: Data finalització
         prop_entity: Entitat proposant
         published: Publicat
-        scope: Territori
         start_date: Data d'inici
         status: Estat
         tags: Paraules clau
@@ -63,6 +64,7 @@ ca:
             success: Repte creat correctament
           destroy:
             error: Hi ha hagut un problema esborrant aquest repte
+            has_problems: No es pot esborrar aquest repte perquè té problemes associats
             success: Repte esborrat correctament
           edit:
             update: Actualitza
@@ -975,6 +977,7 @@ ca:
             success: Problema creat correctament
           destroy:
             error: Hi ha hagut un error esborrant aquest problema
+            has_solutions: No es pot esborrar aquest problema perquè té solucions associades
             success: Problema esborrat correctament
           edit:
             update: Actualitza
@@ -1008,7 +1011,10 @@ ca:
           related_to: Relacionat amb
           scope: Àmbit
           search: Cerca
+          sectorial_scope: Àmbit sectorial
           state: Estat
+          technological_scope: Àmbit tecnològic
+          territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -1090,7 +1096,6 @@ ca:
             update: Actualitza
           form:
             problem: Problema associat
-            select_requirements: Selecciona els requeriments
           new:
             create: Crea
             title: Nova solució
@@ -1123,9 +1128,10 @@ ca:
           economic: Econòmics
           financial: Finançers
           related_to: Relacionada amb
+          requirement: Requeriment
           scope: Àmbit
           search: Cerca
-          requirement: Requeriment
+          territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -1135,17 +1141,7 @@ ca:
           label: Ordenacions
           random: Aleatori
           recent: Més recents
-      solutions_helper:
-        filter_requirements_values:
-          all: Tots
-          technical: Tècnics
-          economic: Econòmics
-          financial: Finançers
       index:
         title: Solucions
         published: Publicada
         not_published: No Publicada
-      requirements:
-        technical: Tècnics
-        economic: Econòmics
-        financial: Finançers

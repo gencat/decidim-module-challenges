@@ -12,14 +12,15 @@ FactoryBot.define do
   factory :solution, class: "Decidim::Solutions::Solution" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    component { build(:solutions_component) }
+    problem { build(:problem) }
+
     tags { [1..5].collect { generate(:name) }.join(", ") }
     indicators { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     objectives { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     beneficiaries { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     financing_type { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     requirements { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    component { build(:component, manifest_name: "solutions") }
-    problem { build(:problem) }
     published_at { Time.current }
   end
 end

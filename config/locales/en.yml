@@ -17,11 +17,12 @@ en:
       problem:
         causes: Causes
         col_entity: Collaborating entity
+        decidim_sectorial_scope_id: Sectorial scope
+        decidim_technological_scope_id: Technological scope
         description: Description
         end_date: End date
         prop_entity: Proposing entity
         published: Published
-        scope: Territory
         start_date: Start date
         status: State
         tags: Keywords
@@ -63,6 +64,7 @@ en:
             success: Challenge successfully created
           destroy:
             error: There's been a problem deleting this challenge
+            has_problems: This challenge couldn't be deleted due to related problems
             success: Challenge successfully deleted
           edit:
             update: Update
@@ -980,6 +982,7 @@ en:
             success: Problem successfully created
           destroy:
             error: There's been an error deleting this problem
+            has_solutions: This problem couldn't be deleted due to related solutions
             success: Problem successfully deleted
           edit:
             update: Update
@@ -1013,7 +1016,10 @@ en:
           related_to: Related to
           scope: Scope
           search: Search
+          sectorial_scope: Sectorial scope
           state: State
+          technological_scope: Technological scope
+          territorial_scope: Territorial scope
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -1091,7 +1097,6 @@ en:
             update: Update
           form:
             problem: Related problem
-            select_requirements: Requirements select
           new:
             create: Create
             title: New solution
@@ -1124,9 +1129,10 @@ en:
           economic: Economic
           financial: Financial
           related_to: Related to
+          requirement: Requirement
           scope: Scope
           search: Search
-          requirement: Requirement
+          territorial_scope: Territorial scope
         filters_small_view:
           close_modal: Close window
           filter: Filter
@@ -1136,17 +1142,7 @@ en:
           label: Sorts
           random: Random
           recent: Most recent
-      solutions_helper:
-        filter_requirements_values:
-          all: All
-          technical: Technical
-          economic: Economics
-          financial: Financial
       index:
         title: Solutions
         published: Published
         not_published: Unpublished
-      requirements:
-        technical: Technical
-        economic: Economics
-        financial: Financial

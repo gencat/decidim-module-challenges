@@ -8,7 +8,6 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
-      include Decidim::ScopableComponent
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
@@ -20,7 +19,6 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
 
       searchable_fields({
-                          scope_id: :decidim_scope_id,
                           participatory_space: :itself,
                           A: :title,
                           B: :description,
