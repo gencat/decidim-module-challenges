@@ -5,11 +5,10 @@ es:
       challenge:
         col_entity: Entidad colaboradora
         coord_entity: Entidad coordinadora
-        decidim_sectorial_scope_id: Ámbito sectorial
-        decidim_technological_scope_id: Ámbito tecnológico
         end_date: Fecha finalización
         global_description: Descripción del reto a escala global
         local_description: Descripción del reto en el territorio
+        scope: Territorio
         sdg: Objectivos de Desarrollo Sostenible
         start_date: Fecha inicio
         status: Estado
@@ -25,7 +24,6 @@ es:
         end_date: Fecha finalización
         prop_entity: Entidad proponente
         published: Publicado
-        scope: Territorio
         sdg: Objectivos de Desarrollo Sostenible
         start_date: Fecha inicio
         status: Estado
