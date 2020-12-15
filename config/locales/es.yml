@@ -16,6 +16,7 @@ es:
         title: Título
       problem:
         causes: Causas
+        groups_affected: Colectivos afectados
         col_entity: Entidad colaboradora
         decidim_sectorial_scope_id: Ámbito sectorial
         decidim_technological_scope_id: Ámbito tecnológico
@@ -23,6 +24,7 @@ es:
         end_date: Fecha finalización
         prop_entity: Entidad proponente
         published: Publicado
+        sdg: Objectivos de Desarrollo Sostenible
         start_date: Fecha inicio
         status: Estado
         tags: Palabras clave
@@ -1000,6 +1002,10 @@ es:
             success: Problema actualizado correctamente
         titles:
           problems_list: Listado de problemas
+      show:
+        associated_problems: Problemas associados
+        proposed_solutions: Soluciones propuestas
+        return_to_list: Volver al listado
       index:
         not_published: No Publicado
         published: Publicado
@@ -1044,6 +1050,7 @@ es:
         execution: En ejecución
         finished: Acabada
         proposal: Propuesta
+      challenge: Reto
     sdgs:
       names:
         clean_energy: Energia limpia y asequible
