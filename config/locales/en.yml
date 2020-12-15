@@ -38,6 +38,7 @@ en:
         problem: Problem
         published: Published
         requirements: Requeriments
+        sdg: Sustainable Development Goals
         scope: Territory
         tags: Tags
         title: Title
@@ -1073,6 +1074,8 @@ en:
           close: Select
           title: Sustainable development objectives
     solutions:
+      problem: Problem
+      challenge: Challenge
       admin:
         actions:
           configure: Configure

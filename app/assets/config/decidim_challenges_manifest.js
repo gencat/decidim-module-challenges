@@ -2,3 +2,4 @@
 //= link decidim/challenges/admin/challenges_form.js
 //= link_directory ../stylesheets/decidim/challenges .css
 //= link_directory ../stylesheets/decidim/problems .css
+//= link_directory ../stylesheets/decidim/solutions .css 

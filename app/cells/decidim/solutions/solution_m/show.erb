@@ -1,0 +1,61 @@
+<div class="card card--solution muted">
+    <div class="card__content">
+        <div class="card__header">
+            <%= link_to solution_path, class: "card__link" do %>
+                <div class="card__title">
+                    <%= resource_title %>
+                </div>
+            <% end %>
+        </div>
+        <div class="card__text--solution">
+            <div class="card__text--paragraph">
+                <span class="card__text--paragraph--challenge"><%= t("challenge", scope: 'decidim.solutions') %>: </span>
+                <%= link_to challenge_path, class: "card__link card__text--paragraph--challenge--title" do %>
+                    <div><%= resource_challenge_title %></div>
+                <% end %>
+            </div>
+        </div>
+        <div class="card__text--solution">
+            <div class="card__text--paragraph">
+                <span class="card__text--paragraph--problem"><%= t("problem", scope: 'decidim.solutions') %>: </span>
+                <%= link_to problem_path, class: "card__link card__text--paragraph--problem--title" do %>
+                    <div><%= resource_problem_title %></div>
+                <% end %>
+            </div>
+        </div>
+        <div class="card__text">
+            <div class="card__text--paragraph">
+                <div class="card__text--paragraph--description"><%= description%></div>
+            </div>
+        </div>
+        <div class="card__sdg">
+            <div class="card_text--sdg--image">
+                <div class="ods">
+                    <% if resource_sdg %>
+                        <div class="text-container">
+                            <p><%= t(resource_sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
+                            <p><%= t(resource_sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
+                        </div>
+                    <% end %>
+                    <% if resource_sdg_index %>
+                        <img alt="Logo SDG <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg" class="solution--view">
+                    <% end %>
+                </div>
+            </div>
+            <div class="card_text--sdg--text">
+                <% if resource_sdg ? t_sdg(resource_sdg) : "" %>
+                    <div>
+                        <%= t('sdg', scope: "activemodel.attributes.solution") %>
+                    </div>
+                    <div>
+                        <strong><%= resource_sdg ? t_sdg(resource_sdg) : "" %></strong>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="card__status">
+    </div>
+    <div class="card__footer">
+    </div>
+</div> 

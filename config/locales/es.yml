@@ -38,6 +38,7 @@ es:
         problem: Problema
         published: Publicado
         requirements: Requerimientos
+        sdg: Objectivos de Desarrollo Sostenible
         scope: Territorio
         tags: Palabras clave
         title: Titulo
@@ -1077,6 +1078,8 @@ es:
           close: Selecciona
           title: Objetivos de Desarrollo Sostenible
     solutions:
+      problem: Problema
+      challenge: Reto
       admin:
         actions:
           configure: Configura

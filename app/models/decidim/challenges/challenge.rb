@@ -3,7 +3,7 @@
 module Decidim
   module Challenges
     # The data store for a Challenge in the Decidim::Challenges component.
-    class Challenge < Challenges::ApplicationRecord
+    class Challenge < Decidim::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Loggable
       include Decidim::Publicable
