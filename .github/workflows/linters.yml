@@ -25,10 +25,10 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
 
       - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ./vendor/bundle
-          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('decidim-challenges.gemspec') }}-${{ hashFiles('Gemfile') }}
           restore-keys: |
             ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
             ${{ runner.OS }}-rubydeps-
