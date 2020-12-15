@@ -16,12 +16,14 @@ en:
         title: Title
       problem:
         causes: Causes
+        challenge: Challenge
         groups_affected: Groups affected
         col_entity: Collaborating entity
         decidim_sectorial_scope_id: Sectorial scope
         decidim_technological_scope_id: Technological scope
         description: Description
         end_date: End date
+        groups_affected: Communities affected
         prop_entity: Proposing entity
         published: Published
         sdg: Sustainable Development Goals
@@ -1152,3 +1154,10 @@ en:
         title: Solutions
         published: Published
         not_published: Unpublished
+      requirements:
+        technical: Technical
+        economic: Economics
+        financial: Financial
+      show:
+        return_to_list: Return to list
+        sdg_logo: SDG logo

@@ -16,12 +16,14 @@ ca:
         title: Títol
       problem:
         causes: Causes
+        challenge: Repte
         groups_affected: Col·lectius afectats
         col_entity: Entitat colaboradora
         decidim_sectorial_scope_id: Àmbit sectorial
         decidim_technological_scope_id: Àmbit tecnològic
         description: Descripció
         end_date: Data finalització
+        groups_affected: Col·lectius afectats
         prop_entity: Entitat proposant
         published: Publicat
         sdg: Objectius de Desenvolupament Sostenible
@@ -1151,3 +1153,10 @@ ca:
         title: Solucions
         published: Publicada
         not_published: No Publicada
+      requirements:
+        technical: Tècnics
+        economic: Econòmics
+        financial: Finançers
+      show:
+        return_to_list: Tornar al llistat
+        sdg_logo: Logo ODS

@@ -16,12 +16,14 @@ es:
         title: Título
       problem:
         causes: Causas
+        challenge: Reto
         groups_affected: Colectivos afectados
         col_entity: Entidad colaboradora
         decidim_sectorial_scope_id: Ámbito sectorial
         decidim_technological_scope_id: Ámbito tecnológico
         description: Descripción
         end_date: Fecha finalización
+        groups_affected: Colectivos afectados
         prop_entity: Entidad proponente
         published: Publicado
         sdg: Objectivos de Desarrollo Sostenible
@@ -1156,3 +1158,10 @@ es:
         title: Soluciones
         published: Publicada
         not_published: No Publicada
+      requirements:
+        technical: Técnicos
+        economic: Económicos
+        financial: Financieros
+      show:
+        return_to_list: Volver al listado
+        sdg_logo: Logo ODS
