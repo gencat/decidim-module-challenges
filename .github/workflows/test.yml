@@ -53,9 +53,6 @@ jobs:
       - name: Set bundle local config configvendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
 
-      - name: Simply bundle install
-        run: bundle install --jobs 4 --retry 3 
-
       - name: Install Ruby deps
         uses: nick-invision/retry@v2
         with:
