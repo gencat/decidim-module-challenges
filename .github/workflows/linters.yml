@@ -34,12 +34,15 @@ jobs:
             ${{ runner.OS }}-rubydeps-
             ${{ runner.OS }}-
 
+      - name: Set bundle local config configvendor/bundle path
+        run: bundle config set --local path 'vendor/bundle'
+
       - name: Install Ruby deps
         uses: nick-invision/retry@v1
         with:
-          timeout_seconds: 10
+          timeout_minutes: 10
           max_attempts: 3
-          command: bundle install --path vendor/bundle --jobs 4 --retry 3
+          command: bundle install --jobs 4 --retry 3
 
       - name: Rubocop
         run: bundle exec rubocop -P
