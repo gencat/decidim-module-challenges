@@ -40,15 +40,15 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
 
-      # - name: Recover Ruby dependency cache
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: ./vendor/bundle
-      #     key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile') }}
-      #     restore-keys: |
-      #       ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
-      #       ${{ runner.OS }}-rubydeps-
-      #       ${{ runner.OS }}-
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
 
       - name: Set bundle local config configvendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
