@@ -10,6 +10,7 @@ module Decidim
       include Paginable
       include OrderableProblems
       include ProblemsHelper
+      include Decidim::Sdgs::SdgsHelper
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
@@ -17,6 +18,10 @@ module Decidim
       helper_method :problems
 
       def index; end
+
+      def show
+        @problem = Decidim::Problems::Problem.find(params[:id])
+      end
 
       private
 

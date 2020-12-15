@@ -16,6 +16,7 @@ ca:
         title: Títol
       problem:
         causes: Causes
+        groups_affected: Col·lectius afectats
         col_entity: Entitat colaboradora
         decidim_sectorial_scope_id: Àmbit sectorial
         decidim_technological_scope_id: Àmbit tecnològic
@@ -23,6 +24,7 @@ ca:
         end_date: Data finalització
         prop_entity: Entitat proposant
         published: Publicat
+        sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
         tags: Paraules clau
@@ -93,7 +95,7 @@ ca:
       show:
         associated_problems: Problemes associats
         proposed_solutions: Solucions proposades
-        return_to_list: Tornar al llistat
+        return_to_list: Torna al llistat
       challenges:
         challenges:
           empty: No s'han pogut trobar reptes
@@ -993,6 +995,9 @@ ca:
             success: Problema actualitzat correctament
         titles:
           problems_list: Llistat de problemes
+      show:
+        proposed_solutions: Solucions proposades
+        return_to_list: Torna al llistat
       index:
         not_published: No Publicat
         published: Publicat
@@ -1037,6 +1042,7 @@ ca:
         execution: En execució
         finished: Acabada
         proposal: Proposada
+      challenge: Repte
     sdgs:
       names:
         clean_energy: Energia neta i assequible
