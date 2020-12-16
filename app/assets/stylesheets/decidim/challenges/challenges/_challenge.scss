@@ -44,12 +44,13 @@
 
     .card__text--paragraph--status {
         font-weight: bold;
-        display: inline-block;
+        display: inline;
         text-transform: uppercase;
+        padding-right: 5px;
     }
 
-    .card__text--paragraph--description {
-        display: inline-block;
+    .card__text--paragraph p:first-of-type {
+        display: inline;
     }
 }
 
