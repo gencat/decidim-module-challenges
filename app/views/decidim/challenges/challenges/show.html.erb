@@ -36,8 +36,8 @@
           <%= present(@challenge).collaborating_entities %>
         </div>
 
-        <div class="definition-data__item sdg">
-          <% if @challenge.sdg_code %>
+        <% if @challenge.sdg_code %>
+          <div class="definition-data__item sdg">
             <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
             <%= t_sdg(@challenge.sdg_code) %><br/>
             <div class="ods">
@@ -48,8 +48,8 @@
                 <img alt="Logo ODS <%= (1 + Decidim::Sdgs::Sdg.index_from_code(@challenge.sdg_code.to_sym)).to_s.rjust(2, "0") %>"
                   src="/assets/decidim/sdgs/ods-<%= (1 + Decidim::Sdgs::Sdg.index_from_code(@challenge.sdg_code.to_sym)).to_s.rjust(2, "0") %>.svg" class="challenge--view">
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
       <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>
