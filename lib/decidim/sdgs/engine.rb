@@ -16,7 +16,7 @@ module Decidim
       end
 
       initializer "decidim_challenges.assets" do |app|
-        app.config.assets.precompile += %w(decidim_challenges_manifest.js decidim_challenges_manifest.css)
+        app.config.assets.precompile += %w(decidim_sdgs_manifest.js decidim_sdgs_manifest.css)
         (1..17).each do |idx|
           app.config.assets.precompile += ["decidim/sdgs/ods-#{idx.to_s.rjust(2, "0")}.svg"]
         end
