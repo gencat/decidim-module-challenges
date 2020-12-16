@@ -1,4 +1,4 @@
-.card--challenge {
+.card--problem {
 
     border-color: rgb(254, 174, 2);
     border-top-color: rgb(254, 174, 2);
@@ -8,7 +8,7 @@
     }
 }
 
-.card--challenge.proposal {
+.card--problem.proposal {
 
     border-color: rgb(254, 174, 2);
     border-top-color: rgb(254, 174, 2);
@@ -18,7 +18,7 @@
     }
 }
 
-.card--challenge {    
+.card--problem {    
     .card__title {
         margin-bottom: 5px;
     }
@@ -30,10 +30,6 @@
         img {
             vertical-align: bottom;
         }
-    }
-
-    .card__sdg {
-        display: inline-flex;
     }
 
     .card_text--sdg--text {
@@ -51,9 +47,18 @@
     .card__text--paragraph--description {
         display: inline-block;
     }
+
+    .card__text--paragraph--challenge {
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .card__text--paragraph--challenge--title {
+        display: inline-block;
+    }
 }
 
-.card--challenge.executing {
+.card--problem.executing {
     border-color: rgb(0, 163, 144);
     border-top-color: rgb(0, 163, 144);
 
@@ -62,7 +67,7 @@
     }
 }
 
-.card--challenge.finished {
+.card--problem.finished {
     border-color: rgb(0, 188, 255);
     border-top-color: rgb(0, 188, 255);
 
@@ -73,6 +78,10 @@
 
 .definition-data__image {
     padding-top: 0.1em;
+}
+
+.definition-data__title {
+    font-weight: bold;
 }
 
 .status{
@@ -109,8 +118,8 @@
         font-size: 6pt;
     }
 
-    img.challenge--view {
+    img.problem--view {
         width: 100%;
         max-width: 100px;
     }
-}
+} 

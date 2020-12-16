@@ -16,13 +16,17 @@ en:
         title: Title
       problem:
         causes: Causes
+        challenge: Challenge
+        groups_affected: Groups affected
         col_entity: Collaborating entity
         decidim_sectorial_scope_id: Sectorial scope
         decidim_technological_scope_id: Technological scope
         description: Description
         end_date: End date
+        groups_affected: Communities affected
         prop_entity: Proposing entity
         published: Published
+        sdg: Sustainable Development Goals
         start_date: Start date
         status: State
         tags: Keywords
@@ -36,6 +40,7 @@ en:
         problem: Problem
         published: Published
         requirements: Requeriments
+        sdg: Sustainable Development Goals
         scope: Territory
         tags: Tags
         title: Title
@@ -997,6 +1002,9 @@ en:
             success: Problem updated successfully
         titles:
           problems_list: Problems list
+      show:
+        proposed_solutions: Proposed solutions
+        return_to_list: Return to list
       index:
         not_published: Not published
         published: Published
@@ -1041,6 +1049,7 @@ en:
         execution: Execution
         finished: Finished
         proposal: Proposal
+      challenge: Challenge
     sdgs:
       names:
         clean_energy: Clean energy
@@ -1067,6 +1076,8 @@ en:
           close: Select
           title: Sustainable development objectives
     solutions:
+      problem: Problem
+      challenge: Challenge
       admin:
         actions:
           configure: Configure
@@ -1143,3 +1154,10 @@ en:
         title: Solutions
         published: Published
         not_published: Unpublished
+      requirements:
+        technical: Technical
+        economic: Economics
+        financial: Financial
+      show:
+        return_to_list: Return to list
+        sdg_logo: SDG logo

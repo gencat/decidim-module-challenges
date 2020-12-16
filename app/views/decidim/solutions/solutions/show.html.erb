@@ -1,0 +1,117 @@
+<%= stylesheet_link_tag "decidim/sdgs/ods" %>
+<%= stylesheet_link_tag "decidim/solutions/solutions" %>
+
+<div class="row column">
+    <div class="row">
+
+        <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+
+            <div class="card extra definition-data">
+
+                <div class="definition-data__item status">
+                    <span class="definition-data__title"><%= t("status", scope: "activemodel.attributes.problem") %></span>
+                    <%= t(@solution.problem.state, scope: "decidim.problems.states") %>
+                </div>
+
+                <% if @territory_scope != nil %>
+                <div class="definition-data__item scope">
+                    <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.solution") %></span>
+                    <%= translated_attribute(@territory_scope.name) %>
+                </div>
+                <% end %>
+
+                <div class="definition-data__item prop_entity">
+                    <span class="definition-data__title"><%= t("prop_entity", scope: "activemodel.attributes.problem") %></span>
+                    <%= present(@solution.problem).proposing_entities %>
+                </div>
+
+                <div class="definition-data__item col_entity">
+                    <span class="definition-data__title"><%= t("col_entity", scope: "activemodel.attributes.problem") %></span>
+                    <%= present(@solution.problem).collaborating_entities %>
+                </div>
+
+                <div class="definition-data__item causes">
+                    <span class="definition-data__title"><%= t("causes", scope: "activemodel.attributes.problem") %></span>
+                    <%= present(@solution.problem).causes %>
+                </div>
+
+                <div class="definition-data__item groups_affected">
+                    <span class="definition-data__title"><%= t("groups_affected", scope: "activemodel.attributes.problem") %></span>
+                    <%= present(@solution.problem).groups_affected %>
+                </div>
+
+                <div class="definition-data__item financing_type">
+                    <span class="definition-data__title"><%= t("financing_type", scope: "activemodel.attributes.solution") %></span>
+                    <%= present(@solution).financing_type %>
+                </div>
+
+                <% if @sectorial_scope != nil %>
+                <div class="definition-data__item decidim_sectorial_scope_id">
+                    <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
+                    <%= translated_attribute(@sectorial_scope.name) %>
+                </div>
+                <% end %>
+
+                <% if @technological_scope != nil %>
+                <div class="definition-data__item decidim_technological_scope_id">
+                    <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
+                    <%= translated_attribute(@technological_scope.name) %>
+                </div>
+                <% end %>
+
+                <div class="definition-data__item sdg">
+                    <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
+                    <div class="ods">
+                        <div class="text-container show">
+                            <p><%= t(@solution.problem.challenge.sdg_code + ".logo.line1", scope: "decidim.components.sdgs") %></p>
+                            <p><%= t(@solution.problem.challenge.sdg_code + ".logo.line2", scope: "decidim.components.sdgs") %></p>
+                        </div>
+                        <img alt="t("sdg_logo", scope: "decidim.solutions.show") <%= @sdg_index %>" src="/assets/decidim/sdgs/ods-<%= @sdg_index %>.svg" class="challenge--view">
+                    </div>
+                </div>
+
+            </div>
+
+            <%= resource_reference(current_participatory_space) %>
+            <%= render partial: "decidim/shared/share_modal" %>
+
+        </div>
+
+        <div class="columns mediumlarge-8 mediumlarge-pull-4">
+
+            <%= link_to :solutions, class: "small hollow" do %>
+            <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+            <%= t("return_to_list", scope: "decidim.solutions.show") %>
+            <% end %>
+            <div class="section">
+
+                <h2 class="heading2"><strong><%= present(@solution).title %></strong></h2>
+
+                <h3 class="parents"><strong><span class="title"><%= t("problem", scope: "activemodel.attributes.solution") %></span>:
+                        <%= link_to translated_attribute(@solution.problem.title), Decidim::ResourceLocatorPresenter.new(@solution.problem).path %><br />
+                        <span class="title"><%= t("challenge", scope: "activemodel.attributes.problem") %></span>:
+                        <%= link_to translated_attribute(@solution.problem.challenge.title), Decidim::ResourceLocatorPresenter.new(@solution.problem.challenge).path %></strong>
+                </h3>
+
+                <h3><strong><%= t("description", scope: "activemodel.attributes.solution") %></strong></h3>
+                <%= present(@solution).description %>
+
+                <h3><strong><%= t("objectives", scope: "activemodel.attributes.solution") %></strong></h3>
+                <%= present(@solution).objectives %>
+
+                <h3><strong><%= t("beneficiaries", scope: "activemodel.attributes.solution") %></strong></h3>
+                <%= present(@solution).beneficiaries %>
+
+                <h3><strong><%= t("requirements", scope: "activemodel.attributes.solution") %></strong></h3>
+                <%= present(@solution).requirements %>
+
+                <h3><strong><%= t("indicators", scope: "activemodel.attributes.solution") %></strong></h3>
+                <%= present(@solution).indicators %>
+
+                <h3><strong><%= t("tags", scope: "activemodel.attributes.solution") %></strong></h3>
+                <p class="tags"><%= present(@solution).tags %></p>
+
+            </div>
+        </div>
+    </div>
+</div>
