@@ -14,7 +14,7 @@ gem "puma", ">= 4.3"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do
-  gem "byebug"
+  gem "byebug", ">= 11.1.3"
   gem "decidim-dev", DECIDIM_VERSION
   gem "rubocop", "~> 0.71.0"
   gem "rubocop-rails", "~> 2.0"
