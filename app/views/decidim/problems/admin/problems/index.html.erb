@@ -24,6 +24,9 @@
               <%= t("models.problem.fields.created_at", scope: "decidim.problems.admin") %>
             </th>
             <th>
+              <%= t("models.problem.fields.challenge", scope: "decidim.problems.admin") %>
+            </th>
+            <th>
               <%= t("models.problem.fields.state", scope: "decidim.problems.admin") %>
             </th>
             <th>
@@ -46,6 +49,9 @@
               </td>
               <td class="table-list__state">
                 <%= l(problem.created_at, format: :decidim_short) if problem.created_at %>
+              </td>
+              <td class="table-list__state">
+                <%= translated_attribute(problem.challenge.title) %>
               </td>
               <td class="table-list__state">
                 <%= I18n.t(problem.state, scope: "decidim.problems.states") %>
