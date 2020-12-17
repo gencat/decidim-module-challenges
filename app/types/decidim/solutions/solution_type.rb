@@ -7,33 +7,30 @@ module Decidim
       description "A solution"
 
       interfaces [
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Core::TraceableInterface },
         -> { Decidim::Core::TimestampsInterface },
       ]
 
       field :id, !types.ID
       field :title, !Decidim::Core::TranslatedFieldType, "The title of this solution (same as the component name)."
-      # field :local_description, Decidim::Core::TranslatedFieldType, "The local description of this solution."
-      # field :global_description, Decidim::Core::TranslatedFieldType, "The global description of this solution."
-      # field :tags, Decidim::Core::TranslatedFieldType, "The tags of this solution."
-      # field :sdg_code, types.String, "The Sustainable Development Goal this solution is associated with."
-      # field :state, types.String, "The state for this solution."
-      # field :start_date, Decidim::Core::DateType do
-      #   description "The start date"
-      #   property :start_date
-      # end
-      # field :end_date, Decidim::Core::DateType do
-      #   description "The end date"
-      #   property :end_date
-      # end
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this solution."
+      field :problem, Decidim::Problems::ProblemType do
+        description "The related Problem"
+        resolve ->(solution, _, _) {
+          solution.problem
+        }
+      end
+
+      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this solution."
+      field :indicators, Decidim::Core::TranslatedFieldType, "The indicators of this solution."
+      field :beneficiaries, Decidim::Core::TranslatedFieldType, "The beneficiaries of this solution."
+      field :requirements, Decidim::Core::TranslatedFieldType, "The requirements of this solution."
+      field :financing_type, Decidim::Core::TranslatedFieldType, "The financing_type of this solution."
+      field :objectives, Decidim::Core::TranslatedFieldType, "The objectives of this solution."
       field :published_at, Decidim::Core::DateTimeType do
         description "The moment at which it was published"
         property :published_at
       end
-      # field :coordinating_entities, types.String, "The entities coordinating this solution."
-      # field :collaborating_entities, types.String, "The entities collaborating with this solution."
     end
   end
 end
