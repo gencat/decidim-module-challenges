@@ -962,6 +962,7 @@ ca:
             fields:
               challenge: Repte
               created_at: Creat
+              challenge: Repte
               end_date: Data fi
               published: Publicat
               start_date: Data inici

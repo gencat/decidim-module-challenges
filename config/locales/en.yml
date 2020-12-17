@@ -967,6 +967,7 @@ en:
             fields:
               challenge: Challenge
               created_at: Created at
+              challenge: Challenge
               end_date: End date
               published: Published
               start_date: Start date

@@ -970,6 +970,7 @@ es:
             fields:
               challenge: Reto
               created_at: Creado
+              challenge: Reto
               end_date: Fecha fin
               published: Publicado
               start_date: Fecha inicio
