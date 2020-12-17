@@ -7,7 +7,6 @@ module Decidim
       description "A challenge"
 
       interfaces [
-        -> { Decidim::Core::CoauthorableInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Core::TraceableInterface },
