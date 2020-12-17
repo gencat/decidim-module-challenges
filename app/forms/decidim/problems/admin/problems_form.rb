@@ -49,7 +49,7 @@ module Decidim
         # Return a challenge's list filtered by participatory's space component
         def select_challenge_collection
           participatory_space = Decidim::Component.find(decidim_component_id).participatory_space
-          challenge_component = Decidim::Component.where(participatory_space: participatory_space).where(manifest_name: "challenges").first
+          challenge_component = Decidim::Component.where(participatory_space: participatory_space).where(manifest_name: "challenges")
           Decidim::Challenges::Challenge.where(component: challenge_component).map do |ch|
             [translated_attribute(ch.title), ch.id]
           end
