@@ -80,25 +80,31 @@
         <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
         <%= t("return_to_list", scope: "decidim.problems.show") %>
       <% end %>
-        <div class="section">
-          <h2 class="heading2"><strong><%= present(@problem).title %></strong></h2><br />
+      <div class="section">
+        <h2 class="heading2"><strong><%= present(@problem).title %></strong></h2><br />
 
-          <h3><strong><%= t("description", scope: "activemodel.attributes.problem") %></strong></h3>
-          <p><%= present(@problem).description %></p>
+        <h3><strong><%= t("description", scope: "activemodel.attributes.problem") %></strong></h3>
+        <p><%= present(@problem).description %></p>
 
-          <h3><strong><%= t("tags", scope: "activemodel.attributes.problem") %></strong></h3>
-          <p class="tags"><%= present(@problem).tags %></p>
+        <h3><strong><%= t("tags", scope: "activemodel.attributes.problem") %></strong></h3>
+        <p class="tags"><%= present(@problem).tags %></p>
 
-          <h3><strong><% t("proposed_solutions", scope: "decidim.problems.show") %></strong></h3>
-          <%# TODO: when solutions cards are realased %>
-          <div class="row small-up-1 medium-up-2 card-grid">
-
+        <h3><strong><%= t("proposed_solutions", scope: "decidim.problems.show") %></strong></h3>
+        <div class="row small-up-1 medium-up-2 card-grid">
+          <% @problem.solutions.each do |solution| %>
             <div class="column">
+              <div class="card">
+                <%= link_to resource_locator(solution).path, class: "card__link" do %>
+                  <div class="card__title">
+                    <%= translated_attribute solution.title %>
+                  </div>
+                <% end %>
+                <%= raw translated_attribute solution.description %>
+              </div>
             </div>
-
-          </div>
-
+          <% end %>
         </div>
+      </div>
     </div>
   </div>
 </div>
