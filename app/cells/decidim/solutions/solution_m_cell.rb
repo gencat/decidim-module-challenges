@@ -11,11 +11,11 @@ module Decidim
       private
 
       def resource_problem_title
-          translated_attribute model.problem.title
+        translated_attribute model.problem.title
       end
 
       def resource_challenge_title
-          translated_attribute model.problem.challenge.title
+        translated_attribute model.problem.challenge.title
       end
 
       def resource_icon
@@ -43,11 +43,11 @@ module Decidim
       end
 
       def problem_path
-          resource_locator(model.problem).path
+        resource_locator(model.problem).path
       end
 
       def challenge_path
-          resource_locator(model.problem.challenge).path
+        resource_locator(model.problem.challenge).path
       end
 
       def resource_sdg
