@@ -18,12 +18,12 @@
         <div class="card__text">
             <div class="card__text--paragraph">
                 <span class="card__text--paragraph--status"><%= t(resource_state, scope: 'decidim.problems.states') %></span>
-                <div class="card__text--paragraph--description"><%= resource_description%></div>
+                <%= resource_description%>
             </div>
         </div>
         <div class="card__sdg">
             <div class="card_text--sdg--image">
-                <div class="ods">
+                <div class="ods problems">
                     <% if resource_sdg %>
                         <div class="text-container">
                             <p><%= t(resource_sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
