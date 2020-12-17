@@ -11,7 +11,7 @@ module Decidim
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Core::TraceableInterface },
-        -> { Decidim::Core::TimestampsInterface }
+        -> { Decidim::Core::TimestampsInterface },
       ]
 
       field :id, !types.ID
@@ -20,17 +20,17 @@ module Decidim
       field :global_description, Decidim::Core::TranslatedFieldType, "The global description of this challenge."
       field :tags, Decidim::Core::TranslatedFieldType, "The tags of this challenge."
       field :sdg_code, types.String, "The Sustainable Development Goal this challenge is associated with."
-      field :state, types.Int, "The state for this challenge, where the returned values is the index for #{Decidim::Challenges::Challenge::VALID_STATES}."
+      field :state, types.String, "The state for this challenge."
       field :start_date, Decidim::Core::DateType do
         description "The start date"
         property :start_date
       end
       field :end_date, Decidim::Core::DateType do
-        description "The start date"
+        description "The end date"
         property :end_date
       end
       field :published_at, Decidim::Core::DateTimeType do
-        description "The start date"
+        description "The moment at which it was published"
         property :published_at
       end
       field :coordinating_entities, types.String, "The entities coordinating this challenge."
