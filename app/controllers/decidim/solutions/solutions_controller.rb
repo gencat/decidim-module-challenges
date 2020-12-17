@@ -20,7 +20,7 @@ module Decidim
 
       def show
         @solution = solution
-        @sdg_index = sdg_index
+        @sdg_index = sdg_index if @solution.problem.challenge.sdg_code.present?
         @territory_scope = territory_scope
         @sectorial_scope = sectorial_scope
         @technological_scope = technological_scope
