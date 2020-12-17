@@ -46,7 +46,7 @@ module Decidim
       end
 
       describe "tags" do
-        let(:query) { '{ tags { translation(locale: "en")}}' }
+        let(:query) { '{ tags { translation(locale: "en")} }' }
 
         it "returns the required value" do
           expect(response["tags"]["translation"]).to eq(model.tags["en"])
