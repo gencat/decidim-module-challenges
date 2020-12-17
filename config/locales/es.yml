@@ -16,13 +16,17 @@ es:
         title: Título
       problem:
         causes: Causas
+        challenge: Reto
+        groups_affected: Colectivos afectados
         col_entity: Entidad colaboradora
         decidim_sectorial_scope_id: Ámbito sectorial
         decidim_technological_scope_id: Ámbito tecnológico
         description: Descripción
         end_date: Fecha finalización
+        groups_affected: Colectivos afectados
         prop_entity: Entidad proponente
         published: Publicado
+        sdg: Objectivos de Desarrollo Sostenible
         start_date: Fecha inicio
         status: Estado
         tags: Palabras clave
@@ -36,6 +40,7 @@ es:
         problem: Problema
         published: Publicado
         requirements: Requerimientos
+        sdg: Objectivos de Desarrollo Sostenible
         scope: Territorio
         tags: Palabras clave
         title: Titulo
@@ -1000,6 +1005,10 @@ es:
             success: Problema actualizado correctamente
         titles:
           problems_list: Listado de problemas
+      show:
+        associated_problems: Problemas associados
+        proposed_solutions: Soluciones propuestas
+        return_to_list: Volver al listado
       index:
         not_published: No Publicado
         published: Publicado
@@ -1044,6 +1053,7 @@ es:
         execution: En ejecución
         finished: Acabada
         proposal: Propuesta
+      challenge: Reto
     sdgs:
       names:
         clean_energy: Energia limpia y asequible
@@ -1070,6 +1080,8 @@ es:
           close: Selecciona
           title: Objetivos de Desarrollo Sostenible
     solutions:
+      problem: Problema
+      challenge: Reto
       admin:
         actions:
           configure: Configura
@@ -1146,3 +1158,10 @@ es:
         title: Soluciones
         published: Publicada
         not_published: No Publicada
+      requirements:
+        technical: Técnicos
+        economic: Económicos
+        financial: Financieros
+      show:
+        return_to_list: Volver al listado
+        sdg_logo: Logo ODS

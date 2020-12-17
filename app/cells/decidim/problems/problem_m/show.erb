@@ -1,15 +1,24 @@
-<div class="card card--challenge <%= resource_state %> muted">
+<div class="card card--problem <%= resource_state %> muted">
     <div class="card__content">
         <div class="card__header">
-            <%= link_to challenge_path, class: "card__link" do %>
+            <%= link_to problem_path, class: "card__link" do %>
                 <div class="card__title">
                     <%= resource_title %>
                 </div>
             <% end %>
         </div>
+        <div class="card__text--problem">
+            <div class="card__text--paragraph">
+                <span class="card__text--paragraph--challenge"><%= t("challenge", scope: 'decidim.problems') %>: </span>
+                <%= link_to challenge_path, class: "card__link card__text--paragraph--challenge--title" do %>
+                    <div><%= resource_challenge_title%></div>
+                <% end %>
+            </div>
+        </div>
         <div class="card__text">
             <div class="card__text--paragraph">
-                <span class="card__text--paragraph--status"><%= t(resource_state, scope: 'decidim.challenges.states') %></span><div class="card__text--paragraph--description"><%= description%></div>
+                <span class="card__text--paragraph--status"><%= t(resource_state, scope: 'decidim.problems.states') %></span>
+                <div class="card__text--paragraph--description"><%= resource_description%></div>
             </div>
         </div>
         <div class="card__sdg">
@@ -22,14 +31,14 @@
                         </div>
                     <% end %>
                     <% if resource_sdg_index %>
-                        <img alt="Logo SDG <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg" class="challenge--view">
+                        <img alt="Logo SDG <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg" class="problem--view">
                     <% end %>
                 </div>
             </div>
             <div class="card_text--sdg--text">
                 <% if resource_sdg %>
                     <div>
-                        <%= t('sdg', scope: "activemodel.attributes.challenge") %>
+                        <%= t('sdg', scope: "activemodel.attributes.problem") %>
                     </div>
                     <div>
                         <strong><%= t_sdg(resource_sdg) %></strong>
@@ -42,4 +51,4 @@
     </div>
     <div class="card__footer">
     </div>
-</div>
+</div> 

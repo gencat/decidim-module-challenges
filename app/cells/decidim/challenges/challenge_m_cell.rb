@@ -36,7 +36,7 @@ module Decidim
       end
 
       def resource_sdg
-        model.sdg_code ? t_sdg(model.sdg_code) : nil
+        model.sdg_code
       end
 
       def resource_sdg_index
