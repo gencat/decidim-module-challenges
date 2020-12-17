@@ -59,7 +59,7 @@
           <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.problem") %></span>
           <% if @problem.challenge.sdg_code %>
             <%= t_sdg(@problem.challenge.sdg_code) %><br/>
-            <div class="ods">
+            <div class="ods problems">
                 <div class="text-container show">
                     <p><%= t(@problem.challenge.sdg_code + ".logo.line1", scope: "decidim.components.sdgs") %></p>
                     <p><%= t(@problem.challenge.sdg_code + ".logo.line2", scope: "decidim.components.sdgs") %></p>
