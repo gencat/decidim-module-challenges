@@ -21,6 +21,8 @@ Decidim.register_component(:solutions) do |component|
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()
 
+  component.query_type = "Decidim::Solutions::SolutionsType"
+
   # component.settings(:global) do |settings|
   #   # Add your global settings
   #   # Available types: :integer, :boolean

@@ -13,7 +13,7 @@ FactoryBot.define do
     title { generate_localized_title }
     local_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     global_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    tags { [1..5].collect { generate(:name) }.join(", ") }
+    tags { Decidim::Faker::Localized.localized { [1..5].collect { generate(:name) }.join(", ") } }
     state { "execution" }
     start_date { 1.day.from_now }
     end_date { start_date + 2.months }
