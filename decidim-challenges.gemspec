@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary = "A decidim challenges module"
   s.description = "Articulates the collective action of diverse actors in order to address shared challenges and the problems that derive from them across the territory."
 
-  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
   CHALLENGES_DECIDIM_VER = "~> 0.22.0"

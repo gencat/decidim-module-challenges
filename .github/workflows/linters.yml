@@ -25,7 +25,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
 
       - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
@@ -34,12 +34,15 @@ jobs:
             ${{ runner.OS }}-rubydeps-
             ${{ runner.OS }}-
 
+      - name: Set bundle local config configvendor/bundle path
+        run: bundle config set --local path 'vendor/bundle'
+
       - name: Install Ruby deps
-        uses: nick-invision/retry@v1
+        uses: nick-invision/retry@v2
         with:
           timeout_minutes: 10
           max_attempts: 3
-          command: bundle install --path vendor/bundle --jobs 4 --retry 3
+          command: bundle install --jobs 4 --retry 3
 
       - name: Rubocop
         run: bundle exec rubocop -P
