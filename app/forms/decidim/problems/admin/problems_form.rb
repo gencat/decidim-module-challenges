@@ -15,7 +15,6 @@ module Decidim
         end
         translatable_attribute :description, String
 
-        attribute :decidim_component_id, Integer
         attribute :decidim_challenges_challenge_id, Integer
         attribute :decidim_sectorial_scope_id, Integer
         attribute :decidim_technological_scope_id, Integer
@@ -48,7 +47,7 @@ module Decidim
 
         # Return a challenge's list filtered by participatory's space component
         def select_challenge_collection
-          participatory_space = Decidim::Component.find(decidim_component_id).participatory_space
+          participatory_space = Decidim::Component.find(current_component.id).participatory_space
           challenge_component = Decidim::Component.where(participatory_space: participatory_space).where(manifest_name: "challenges")
           Decidim::Challenges::Challenge.where(component: challenge_component).map do |ch|
             [translated_attribute(ch.title), ch.id]

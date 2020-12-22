@@ -15,7 +15,6 @@ module Decidim
         end
         translatable_attribute :description, String
 
-        attribute :decidim_component_id, Integer
         attribute :decidim_problems_problem_id, Integer
         attribute :tags, String
         translatable_attribute :objectives, String
@@ -31,7 +30,7 @@ module Decidim
 
         # Return a problem's list filtered by participatory's space component
         def select_problem_collection
-          participatory_space = Decidim::Component.find(decidim_component_id).participatory_space
+          participatory_space = Decidim::Component.find(current_component.id).participatory_space
           problem_component = Decidim::Component.where(participatory_space: participatory_space).where(manifest_name: "problems")
           Decidim::Problems::Problem.where(component: problem_component).map do |p|
             [translated_attribute(p.title), p.id]
