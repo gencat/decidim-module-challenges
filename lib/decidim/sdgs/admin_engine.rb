@@ -11,7 +11,8 @@ module Decidim
 
       routes do
         # Add admin engine routes here
-        # resources :challenges do
+        resources :sdgs, only: :index
+        # resources :sdgs do
         #   collection do
         #     resources :exports, only: [:create]
         #   end

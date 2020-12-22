@@ -1047,6 +1047,10 @@ ca:
         proposal: Proposada
       challenge: Repte
     sdgs:
+      admin:
+        sdgs:
+          index:
+            cant_manage: Els ODSs no es poden gestionar. No hi ha res per configurar.
       names:
         clean_energy: Energia neta i assequible
         clean_water: Aigua neta i sanejament
