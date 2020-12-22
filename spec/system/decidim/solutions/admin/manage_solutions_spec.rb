@@ -7,7 +7,6 @@ describe "Admin creates solutions", type: :system do
   let(:organization) { participatory_process.organization }
   let!(:user) { create :user, :admin, :confirmed, organization: organization }
   let!(:solution) { create :solution, component: component }
-  let(:creation_enabled?) { true }
 
   include_context "when managing a component as an admin"
 
