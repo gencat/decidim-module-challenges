@@ -1,10 +1,9 @@
 <%= stylesheet_link_tag "decidim/sdgs/ods" %>
 <%= stylesheet_link_tag "decidim/challenges/challenges" %>
 
-<% associated_problems_list = @challenge.problems %>
-<% proposed_solutions_list = [] %>
-<% associated_problems_list.each do |problem| %>
-  <% proposed_solutions_list.concat problem.solutions %>
+<% associated_solutions_list = [] %>
+<% @challenge.problems.each do |problem| %>
+  <% associated_solutions_list.concat problem.solutions %>
 <% end %>
 <div class="row column">
   <div class="row">
@@ -79,7 +78,7 @@
 
         <h3><strong><%= t("associated_problems", scope: "decidim.challenges.show") %></strong></h3>
         <div class="row small-up-1 medium-up-2 card-grid">
-          <% associated_problems_list.each do |problem| %>
+          <% @challenge.problems.each do |problem| %>
             <div class="column">
               <div class="card">
                 <%= link_to resource_locator(problem).path, class: "card__link" do %>
@@ -95,7 +94,7 @@
 
         <h3><strong><%= t("proposed_solutions", scope: "decidim.challenges.show") %></strong></h3>
         <div class="row small-up-1 medium-up-2 card-grid">
-          <% proposed_solutions_list.each do |solution| %>
+          <% associated_solutions_list.each do |solution| %>
             <div class="column">
               <div class="card">
                 <%= link_to resource_locator(solution).path, class: "card__link" do %>
