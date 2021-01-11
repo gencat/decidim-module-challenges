@@ -1052,6 +1052,10 @@ en:
         proposal: Proposal
       challenge: Challenge
     sdgs:
+      admin:
+        sdgs:
+          index:
+            cant_manage: SDGs can't be managed. Nothing to configure.
       names:
         clean_energy: Clean energy
         clean_water: Clean water

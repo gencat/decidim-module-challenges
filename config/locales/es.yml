@@ -1056,6 +1056,10 @@ es:
         proposal: Propuesta
       challenge: Reto
     sdgs:
+      admin:
+        sdgs:
+          index:
+            cant_manage: Los ODSs no se pueden gestionar. Nada por configurar.
       names:
         clean_energy: Energia limpia y asequible
         clean_water: Agua limpia y saneada
