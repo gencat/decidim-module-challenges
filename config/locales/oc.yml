@@ -5,43 +5,43 @@ ca:
       challenge:
         col_entity: Entitat colaboradora
         coord_entity: Entitat coordinadora
-        end_date: Data finalització
-        global_description: Descripció del repte a escala global
-        local_description: Descripció del repte al territori
-        scope: Territori
-        sdg: Objectius de Desenvolupament Sostenible
+        end_date: Data de finalizacion
+        global_description: Descripcion del rèpte a escala global
+        local_description: Descripcion del rèpte al territori
+        scope: Territòri
+        sdg: Objectius de Desvolopament Sostenible
         start_date: Data d'inici
         status: Estat
         tags: Paraules clau
         title: Títol
       problem:
         causes: Causes
-        challenge: Repte
-        groups_affected: Col·lectius afectats
+        challenge: Rèpte
+        groups_affected: Collectius afectadi
         col_entity: Entitat colaboradora
-        decidim_sectorial_scope_id: Àmbit sectorial
-        decidim_technological_scope_id: Àmbit tecnològic
-        description: Descripció
-        end_date: Data finalització
-        groups_affected: Col·lectius afectats
+        decidim_sectorial_scope_id: Ambit sectoriau
+        decidim_technological_scope_id: Ambit tecnologic
+        description: Descripcion
+        end_date: Data de finalizacion
+        groups_affected: Collectius afectadi
         prop_entity: Entitat proposant
         published: Publicat
-        sdg: Objectius de Desenvolupament Sostenible
+        sdg: Objectius de Desvolopament Sostenible
         start_date: Data d'inici
         status: Estat
         tags: Paraules clau
         title: Títol
       solution:
         beneficiaries: Beneficiaris
-        description: Descripció
-        financing_type: Tipus finançament
+        description: Descripcion
+        financing_type: Tipes de finançament
         indicators: Indicadors
         objectives: Objectius
         problem: Problema
         published: Publicat
         requirements: Requeriments
-        sdg: Objectius de Desenvolupament Sostenible
-        scope: Territori
+        sdg: Objectius de Desvolopament Sostenible
+        scope: Territòri
         tags: Paraules clau
         title: Títol
   decidim:
@@ -51,25 +51,25 @@ ca:
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
-          new_challenge: Nou Repte
+          new_challenge: Nou Rèpte
           publish: Publicar
           unpublish: Despublicar
-          view: Veure repte
+          view: Veure rèpte
         challenge_publications:
           create:
-            error: Hi ha hagut un problema publicant aquest repte
-            success: Repte publicat correctament
+            error: Hi ha hagut un problema publicant aquest rèpte
+            success: Rèpte publicat correctament
           destroy:
-            error: Hi ha hagut un problema despublicant aquest repte
-            success: Repte despublicat correctament
+            error: Hi ha hagut un problema despublicant aquest rèpte
+            success: Rèpte despublicat correctament
         challenges:
           create:
-            error: Hi ha hagut un problema creant aquest repte
-            success: Repte creat correctament
+            error: Hi ha hagut un problema creant aquest rèpte
+            success: Rèpte creat correctament
           destroy:
-            error: Hi ha hagut un problema esborrant aquest repte
-            has_problems: No es pot esborrar aquest repte perquè té problemes associats
-            success: Repte esborrat correctament
+            error: Hi ha hagut un problema esborrant aquest rèpte
+            has_problems: No es pot esborrar aquest rèpte perquè té problemes associadi
+            success: Rèpte esborrat correctament
           edit:
             update: Actualitza
           form:
@@ -77,15 +77,15 @@ ca:
             select_states: Selecciona l'estat
           new:
             create: Crea
-            title: Nou repte
+            title: Nou rèpte
           update:
-            error: Hi ha hagut un problema actualitzant aquest repte
-            success: Repte actualitzat correctament
+            error: Hi ha hagut un problema actualitzant aquest rèpte
+            success: Rèpte actualitzat correctament
         models:
           challenge:
             fields:
               created_at: Creat
-              end_date: Data fi
+              end_date: Data de finalizacion
               published: Publicat
               sdg: ODS
               start_date: Data inici
@@ -93,24 +93,24 @@ ca:
               tags: Paraules clau
               title: Títol
         titles:
-          challenges_list: Llistat de reptes
+          challenges_list: Llistat de rèptes
       show:
-        associated_problems: Problemes associats
+        associated_problems: Problèmes associadi
         proposed_solutions: Solucions proposades
-        return_to_list: Torna al llistat
+        return_to_list: Torna ath listat
       challenges:
         challenges:
-          empty: No s'han pogut trobar reptes
-          empty_filters: No s'han pogut trobar reptes
+          empty: No s'han pogut trobar rèptes
+          empty_filters: No s'han pogut trobar rèptes
         count:
           challenges_count:
-            one: "%{count} repte"
-            other: "%{count} reptes"
+            one: "%{count} rèpte"
+            other: "%{count} rèptes"
         filters:
           all: Totes
           category: Categoria
-          execution: En execució
-          finished: Acabada
+          execution: En execucion
+          finished: Finalizat
           proposal: Proposta
           related_to: Relacionat amb
           scope: Àmbit
@@ -127,25 +127,25 @@ ca:
           recent: Més recents
       challenges_helper:
         filter_state_values:
-          all: Tots
-          execution: En execució
-          finished: Acabat
+          all: Toti
+          execution: En execucion
+          finished: Finalizat
           proposal: Proposta
       index:
-        title: Reptes
+        title: Rèptes
         published: Publicat
         not_published: No Publicat
         published: Publicat
         title: test
       states:
-        execution: En execució
-        finished: Acabada
+        execution: En execucion
+        finished: Finalizat
         proposal: Proposada
     components:
       challenges:
-        name: Reptes
+        name: Rèptes
       problems:
-        name: Problemes
+        name: Problèmes
       solutions:
         name: Solucions
       sdgs:
@@ -200,7 +200,7 @@ ca:
               de reciclatge e reutilizacion.
             objective8: Balhar supòrt e enfortir era participacion des comunitats locaus ena milhora dera 
               gestion dera aigua e eth sanejament.
-            subtitle: Aigua neta i sanejament
+            subtitle: Aigua neta e sanejament
             title: Objectiu 6
         climate_action:
           logo:
@@ -226,7 +226,7 @@ ca:
               gestion eficaces en relacion damb eth cambi climatic enes païsi mens auançadi 
               e enes petiti estats insulars en desvolopament, centradi concretament enes 
               hemnes, persones joenes e comunitats locaus e marginades. 
-            subtitle: Acció climàtica
+            subtitle: Accion climatica
             title: Objectiu 13
         decent_work:
           logo:
@@ -274,7 +274,7 @@ ca:
               e es persones damb ocupacions precàries. 
             objective9: Entath 2030, elaborar e méter en practica politiques de promocion d’un torisme 
               sostenible que cree ocupacion e promòigue era cultura e es productes locaus. 
-            subtitle: Treball digne i creixement econòmic
+            subtitle: Trabalh digne e creishement economic
             title: Objectiu 8
         description: Eth 25 de seteme deth 2015 siguec aprovada pera Assemblea Generau 
                      des Nacions Unides era Agenda 2030 de Desvolopament Sostenible,
@@ -319,7 +319,7 @@ ca:
               dera informacion e era comunicacion, pr’amor de promòir er apoderament des hemnes. 
             objective9: Adoptar e enfortir politiques encertades e leis apliclables entà promòir 
               era egalitat entre es genres e er apoderament de hemnes e mainades a toti es nivèus. 
-            subtitle: Igualtat de gènere
+            subtitle: Egaletat de genre
             title: Objectiu 5
         good_health:
           logo:
@@ -369,7 +369,7 @@ ca:
               totes es persones. 
             objective9: Entath 2030, redusir substanciaument eth nombre de mòrts e malauties 
               causadi per productes quimics dangerosi e era pollucion der aire, aigua e solèr.
-            subtitle: Salut i benestar
+            subtitle: Salut e benèster
             title: Objectiu 3
         iiai:
           logo:
@@ -407,7 +407,7 @@ ca:
             objective8: Aumentar de forma significativa er accès as tecnologies dera informacion e era 
               comunicacion e esforçar-se en balhar accès universau e assequible a Internet enes païsi mens 
               auançadi a tot darrèr eth 2020.
-            subtitle: Indústria, innovació, infraestructures
+            subtitle: Indústria, innovacion e infraestructures
             title: Objectiu 9
         life_below_water:
           logo:
@@ -464,7 +464,7 @@ ca:
               mens auançadi. 
             objective9: Facilitar er accès des pescaires artesanaus en petita escala as 
             recorsi marins e as mercats.
-            subtitle: Vida submarina
+            subtitle: Vida sosmarina
             title: Objectiu 14
         life_on_land:
           logo:
@@ -516,9 +516,9 @@ ca:
               biodiversitat ara planificacion nacionau e locau e as procèssi de 
               desvolopament, atau com as estratègies e as informes de reduccion dera 
               praubesa.
-            subtitle: Vida d'ecosistemes terrestres
+            subtitle: Vida d'ecosistèmes terrèstres
             title: Objectiu 15
-        name: Objectius de Desenvolupament Sostenible
+        name: Objectius de Desvolopament Sostenible
         no_poverty:
           logo:
             line1: FI
@@ -546,7 +546,7 @@ ca:
             objective7: Crear marcs normatius solids enes plans nacionau, regionau e internacionau, sus era basa 
               d’estratègies de desvolopament que tenguen en compde es qüestions de genre e s’orienten en favor des 
               persones praubes, pr’amor d’impulsar era inversion accelerada en mesures d’erradicacion dera praubesa.
-            subtitle: Fi de la pobresa
+            subtitle: Fin dera praubesa
             title: Objectiu 1
         ods_logo:
           subtitle: de Desenvolupament Sostenible
@@ -632,7 +632,7 @@ ca:
               concrèts de programes de formacion enes païsi en desvolopament pr’amor de balhar supòrt as 
               plans nacionaus orientadi a aplicar toti es Objectius de Desvolopament Sostenible, mejançant, 
               entre d’autes, era cooperacion nòrd-sud, sud-sud e triangulara. 
-            subtitle: Aliança per a assolir els objectius
+            subtitle: Aliança entà arténher es objectius
             title: Objectiu 17
         pjsi:
           logo:
@@ -670,7 +670,7 @@ ca:
               enes institucions de governança mondiau. 
             objective9: Entath 2030, balhar er accès a ua identitat juridica entà 
               totes es persones, en particular mejançant eth registre de neishements. 
-            subtitle: Pau, justícia i institucions sòlides
+            subtitle: Patz, justícia e institucions solides
             title: Objectiu 16
         quality_education:
           logo:
@@ -717,7 +717,7 @@ ca:
               matricular-se en programes d’estudis superiors, includits programes de formacion  professionau 
               e programes tecnics, scientifics, d’engenheria e de tecnologies dera informacion e era comunicacion, 
               en païsi desvolopadi e païsi en desvolopament.  
-            subtitle: Educació de qualitat
+            subtitle: Educacion de qualitat
             title: Objectiu 4
         reduced_inequalities:
           logo:
@@ -755,7 +755,7 @@ ca:
               particular es  païsi mens auançadi, païsi africans, petiti estats insulars en 
               desvolopament e païsi en desvolopament sense litorau, d’acòrd damb es plans e 
               programes nacionaus respectius. 
-            subtitle: Reduir la desigualtat en i entre els països
+            subtitle: Reduccion des desegaletats
             title: Objectiu 10
         responsible_consumption:
           logo:
@@ -801,9 +801,9 @@ ca:
               en armonia damb era natura.
             objective9: Ajudar es païsi en desvolopament a enfortir era sua capacitat scientifica 
               e tecnologica a fin d’auançar  cap a modalitats de consum e produccion mès sostenibles. 
-            subtitle: Consum i producció responsables
+            subtitle: Consum e produccion responsables
             title: Objectiu 12
-        subtitle: Coneix els 17 Objectius de Desenvolupament Sostenible
+        subtitle: Coneishetz es 17 Objectius de Desvolopament Sostenible
         sustainable_cities:
           logo:
             line1: CIUTATS I
@@ -891,7 +891,7 @@ ca:
               alimentaris e derivats d’aguesti, e facilitar er accès adequat ara informacion sus es mercats, 
               en particular sus es resèrves d’aliments, a fin d’ajudar a limitar era extrema volatilitat 
               des prètzi des aliments. 
-            subtitle: Fam zero
+            subtitle: Hame zèro
             title: Objectiu 2
     problems:
       admin:
@@ -906,10 +906,10 @@ ca:
         models:
           problem:
             fields:
-              challenge: Repte
+              challenge: Rèpte
               created_at: Creat
-              challenge: Repte
-              end_date: Data fi
+              challenge: Rèpte
+              end_date: Data de finalizacion
               published: Publicat
               start_date: Data inici
               state: Estat
@@ -933,7 +933,7 @@ ca:
           edit:
             update: Actualitza
           form:
-            challenge: Repte associat
+            challenge: Rèpte associat
             duration: Durada
             select_states: Selecciona l'estat
           new:
@@ -946,7 +946,7 @@ ca:
           problems_list: Llistat de problemes
       show:
         proposed_solutions: Solucions proposades
-        return_to_list: Torna al llistat
+        return_to_list: Torna ath listat
       index:
         not_published: No Publicat
         published: Publicat
@@ -959,15 +959,15 @@ ca:
         filters:
           all: Totes
           category: Categoria
-          execution: En execució
-          finished: Acabada
+          execution: En execucion
+          finished: Finalizat
           proposal: Proposta
           related_to: Relacionat amb
           scope: Àmbit
           search: Cerca
-          sectorial_scope: Àmbit sectorial
+          sectorial_scope: Ambit sectoriau
           state: Estat
-          technological_scope: Àmbit tecnològic
+          technological_scope: Ambit tecnologic
           territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
@@ -983,47 +983,44 @@ ca:
           empty_filters: No s'han pogut trobar problems
       problems_helper:
         filter_state_values:
-          all: Tots
-          execution: En execució
-          finished: Acabat
+          all: Toti
+          execution: En execucion
+          finished: Finalizat
           proposal: Proposta
       states:
-        execution: En execució
-        finished: Acabada
+        execution: En execucion
+        finished: Finalizat
         proposal: Proposada
-      challenge: Repte
+      challenge: Rèpte
     sdgs:
       names:
-        clean_energy: Energia neta i assequible
-        clean_water: Aigua neta i sanejament
-        climate_action: Acció climàtica
-        decent_work: Treball digne i creixement econòmic
-        gender_equality: Igualtat de gènere
-        good_health: Salut i benestar
-        iiai: Indústria, innovació, infraestructures
-        reduced_inequalities: Reduir la desigualtat en i entre els països
-        sustainable_cities: Ciutats i comunitats sostenibles
-        responsible_consumption: Consum i producció responsables
-        climate_action: Acció climàtica
-        life_below_water: Vida submarina
-        life_on_land: Vida d'ecosistemes terrestres
-        no_poverty: Fi de la pobresa
-        partnership: Aliança per a assolir els objectius
-        pjsi: Pau, justícia i institucions sòlides
-        quality_education: Educació de qualitat
-        reduced_inequalities: Reduir la desigualtat en i entre els països
-        responsible_consumption: Consum i producció responsables
-        sustainable_cities: Ciutats i comunitats sostenibles
-        zero_hunger: Fam zero
+        clean_energy: Energia neta e assequibla
+        clean_water: Aigua neta e sanejament
+        climate_action: Accion climatica
+        decent_work: Trabalh digne e creishement economic
+        gender_equality: Egaletat de genre
+        good_health: Salut e benèster
+        iiai: Indústria, innovacion e infraestructures
+        reduced_inequalities: Reduccion des desegaletats
+        responsible_consumption: Consum e produccion responsables
+        life_below_water: Vida sosmarina
+        life_on_land: Vida d'ecosistèmes terrèstres
+        no_poverty: Fin dera praubesa
+        partnership: Aliança entà arténher es objectius
+        pjsi: Patz, justícia e institucions solides
+        quality_education: Educacion de qualitat
+        reduced_inequalities: Reduccion des desegaletats
+        sustainable_cities: Ciutats e comunitats sostenibles
+        zero_hunger: Hame zèro
       sdgs_filter:
         filter_selector:
           select: Selecciona
         modal:
           close: Selecciona
-          title: Objectius de Desenvolupament Sostenible
+          title: Objectius de Desvolopament Sostenible
     solutions:
       problem: Problema
-      challenge: Repte
+      challenge: Rèpte
       admin:
         actions:
           configure: Configura
