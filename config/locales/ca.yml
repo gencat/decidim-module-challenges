@@ -1033,8 +1033,8 @@ ca:
           random: Aleatori
           recent: Més recents
         problems:
-          empty: No s'han pogut trobar problems
-          empty_filters: No s'han pogut trobar problems
+          empty: No s'han pogut trobar problemes
+          empty_filters: No s'han pogut trobar problemes
       problems_helper:
         filter_state_values:
           all: Tots
