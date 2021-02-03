@@ -14,10 +14,10 @@
                 </div>
 
                 <% if @territory_scope != nil %>
-                <div class="definition-data__item scope">
-                    <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.solution") %></span>
-                    <%= translated_attribute(@territory_scope.name) %>
-                </div>
+                    <div class="definition-data__item scope">
+                        <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.solution") %></span>
+                        <%= translated_attribute(@territory_scope.name) %>
+                    </div>
                 <% end %>
 
                 <div class="definition-data__item prop_entity">
@@ -25,8 +25,8 @@
                     <%= present(@solution.problem).proposing_entities %>
                 </div>
 
-                <div class="definition-data__item col_entity">
-                    <span class="definition-data__title"><%= t("col_entity", scope: "activemodel.attributes.problem") %></span>
+                <div class="definition-data__item collaborating_entities">
+                    <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.problem") %></span>
                     <%= present(@solution.problem).collaborating_entities %>
                 </div>
 

@@ -21,9 +21,14 @@ module Decidim
 
       def show
         @problem = Decidim::Problems::Problem.find(params[:id])
+        @territory_scope = territory_scope
       end
 
       private
+
+      def territory_scope
+        @territory_scope ||= current_organization.scopes.find_by(id: @problem.challenge.decidim_scope_id)
+      end
 
       def default_filter_params
         {

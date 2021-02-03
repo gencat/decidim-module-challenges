@@ -1,10 +1,10 @@
 ---
-ca:
+oc:
   activemodel:
     attributes:
       challenge:
-        col_entity: Entitat colaboradora
-        coord_entity: Entitat coordinadora
+        collaborating_entities: Entitat colaboradora
+        coordinating_entities: Entitat coordinadora
         end_date: Data de finalizacion
         global_description: Descripcion del rèpte a escala global
         local_description: Descripcion del rèpte al territori
@@ -18,7 +18,7 @@ ca:
         causes: Causes
         challenge: Rèpte
         groups_affected: Collectius afectadi
-        col_entity: Entitat colaboradora
+        collaborating_entities: Entitat colaboradora
         decidim_sectorial_scope_id: Ambit sectoriau
         decidim_technological_scope_id: Ambit tecnologic
         description: Descripcion
@@ -26,6 +26,7 @@ ca:
         groups_affected: Collectius afectadi
         prop_entity: Entitat proposant
         published: Publicat
+        scope: Territori
         sdg: Objectius de Desvolopament Sostenible
         start_date: Data d'inici
         status: Estat
