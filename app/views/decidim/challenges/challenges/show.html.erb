@@ -24,10 +24,10 @@
           <%= t(@challenge.state, scope: "decidim.challenges.states") %>
         </div>
 
-        <% if @territory_scope != nil %>
+        <% if @challenge_scope.present? %>
           <div class="definition-data__item area_id">
             <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.challenge") %></span>
-            <%= translated_attribute(@territory_scope.name) %>
+            <%= translated_attribute(@challenge_scope.name) %>
           </div>
         <% end %>
 
