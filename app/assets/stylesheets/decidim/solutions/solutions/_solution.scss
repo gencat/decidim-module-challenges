@@ -62,14 +62,14 @@
     }
 
     .text-container {
-        top: 2px !important;
-        left: 14px !important;
+        top: 0.3rem !important;
+        left: 1.3rem !important;
         width: 60px !important;
     }
 
     .text-container.show {
-        top: 4px !important;
-        left: 37.5% !important;
+        top: 0.6rem;
+        left: 6.5rem;
         width: 60px !important;
         text-align: start !important;
     }
