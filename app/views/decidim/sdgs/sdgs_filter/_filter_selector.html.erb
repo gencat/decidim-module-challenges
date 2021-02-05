@@ -1,4 +1,5 @@
 <div class="filters__section sdgs-filter">
+<legend class="mini-title"><%= t("activemodel.attributes.challenge.sdg") %></legend>
   <button class="" data-open="sdgs-modal"><%= t(".select") %></button>
   <% Decidim::Sdgs::Sdg::SDGS.each do |sdg_code| %>
     <input type="hidden" name="filter[sdgs_codes][]" value="<%= form.object.sdgs_codes.include?(sdg_code.to_s) ? sdg_code : '' %>" data-value="<%= sdg_code %>">
