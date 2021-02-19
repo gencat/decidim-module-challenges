@@ -3,11 +3,11 @@ oc:
   activemodel:
     attributes:
       challenge:
-        collaborating_entities: Entitat colaboradora
+        collaborating_entities: Entitat collaboradora
         coordinating_entities: Entitat coordinadora
         end_date: Data de finalizacion
         global_description: Descripcion del rèpte a escala global
-        local_description: Descripcion del rèpte al territori
+        local_description: Descripcion del rèpte al territòri
         scope: Territòri
         sdg: Objectius de Desvolopament Sostenible
         start_date: Data d'inici
@@ -18,7 +18,7 @@ oc:
         causes: Causes
         challenge: Rèpte
         groups_affected: Collectius afectadi
-        collaborating_entities: Entitat colaboradora
+        collaborating_entities: Entitat collaboradora
         decidim_sectorial_scope_id: Ambit sectoriau
         decidim_technological_scope_id: Ambit tecnologic
         description: Descripcion
@@ -26,7 +26,7 @@ oc:
         groups_affected: Collectius afectadi
         prop_entity: Entitat proposant
         published: Publicat
-        scope: Territori
+        scope: Territòri
         sdg: Objectius de Desvolopament Sostenible
         start_date: Data d'inici
         status: Estat
@@ -69,7 +69,7 @@ oc:
             success: Rèpte creat correctament
           destroy:
             error: Hi ha hagut un problema esborrant aquest rèpte
-            has_problems: No es pot esborrar aquest rèpte perquè té problemes associadi
+            has_problems: No es pot esborrar aquest rèpte perquè té problèmes associadi
             success: Rèpte esborrat correctament
           edit:
             update: Actualitza
@@ -153,7 +153,7 @@ oc:
         clean_energy:
           logo:
             line1: ENERGIA NETA
-            line2: I ASSEQUIBLE
+            line2: E ASSEQUIBLA
           objectives:
             objective1: Entath 2030, garantir er accès universau a servicis d’energia assequibles, 
               confiables e modèrns.
@@ -173,7 +173,7 @@ oc:
         clean_water:
           logo:
             line1: AIGUA NETA
-            line2: I SANEJAMENT
+            line2: E SANEJAMENT
           objectives:
             objective1: Entath 2030, arténher er accès universau e equitatiu ara aigua potabla, 
               a un prètz assequible entà totes es persones. 
@@ -205,7 +205,7 @@ oc:
             title: Objectiu 6
         climate_action:
           logo:
-            line1: ACCIÓ
+            line1: ACCION
             line2: CLIMÀTICA
           objectives:
             objective1: Enfortir era resiliéncia e era capacitat d’adaptacion as 
@@ -231,9 +231,9 @@ oc:
             title: Objectiu 13
         decent_work:
           logo:
-            line1: TREBALL DECENT
-            line2: I CREIXEMENT
-            line3: ECONÒMIC
+            line1: TREBALH DIGNE
+            line2: E CREISHEMENT
+            line3: ECONOMIC
           objectives:
             objective1: Mantier eth creishement economic per capita de conformitat damb es 
               circonstàncies nacionaus e, en particular, un creishement deth producte 
@@ -288,8 +288,8 @@ oc:
                      mondiau sostenible.
         gender_equality:
           logo:
-            line1: IGUALTAT
-            line2: DE GÈNERE
+            line1: EGALETAT
+            line2: DE GENRE
           objectives:
             objective1: Méter fin a totes es formes de discriminacion contra 
               totes es hemnes e mainades en tot eth mon. 
@@ -325,7 +325,7 @@ oc:
         good_health:
           logo:
             line1: SALUT
-            line2: I BENESTAR
+            line2: E BENÈSTAR
           objectives:
             objective1: Entath 2030, redusir era taxa mondiau de mortalitat matèrna 
               a mens de 70 per cada 100.000 neishudi vius. 
@@ -375,7 +375,7 @@ oc:
         iiai:
           logo:
             line1: INDÚSTRIA
-            line2: INOVACIÓ I
+            line2: INNOVACION E
             line3: INFRAESTRUCTURES
           objectives:
             objective1: Desvolopar infraestructures fiables, sostenibles, resilientes 
@@ -413,7 +413,7 @@ oc:
         life_below_water:
           logo:
             line1: VIDA
-            line2: SUBMARINA
+            line2: SOSMARINA
           objectives:
             objective1: Entath 2025, previer e redusir de manèra significativa era 
               contaminacion marina de tota sòrta, en particular era contaminacion 
@@ -470,8 +470,8 @@ oc:
         life_on_land:
           logo:
             line1: VIDA
-            line2: D'ECOSISTEMES
-            line3: TERRESTRES
+            line2: D'ECOSISTÈMES
+            line3: TERRÈSTRES
           objectives:
             objective1: Entath 2020, velhar pera conservacion, eth restabliment  
               e er us sostenible des ecosistèmes terrèstres e es ecosistèmes 
@@ -522,8 +522,8 @@ oc:
         name: Objectius de Desvolopament Sostenible
         no_poverty:
           logo:
-            line1: FI
-            line2: DE LA POBRESA
+            line1: FIN
+            line2: DERA PRAUBESA
           objectives:
             objective1: Entath 2030, erradicar entà totes es persones deth mon era praubesa extrema, 
               actuaument mesurada per un ingrès per persona inferior a 1,25 dolars EUA ath dia.
@@ -554,8 +554,8 @@ oc:
           title: OBJECTIUS GLOBALS
         partnership:
           logo:
-            line1: ALIANÇA PER A
-            line2: ASSOLIR ELS
+            line1: ALIANÇA ENTA A
+            line2: ARTÉNHER ES
             line3: OBJECTIUS
           objectives:
             objective1: Enfortir era mobilizacion de recorsi intèrns, tanben 
@@ -637,9 +637,9 @@ oc:
             title: Objectiu 17
         pjsi:
           logo:
-            line1: PAU, JUSTÍCIA
-            line2: I INSTITUCIONS
-            line3: SÒLIDES
+            line1: PATZ, JUSTÍCIA
+            line2: E INSTITUCIONS
+            line3: SOLIDES
           objectives:
             objective1: Redusir considerablament totes es formes de violéncia e es 
               taxes de mortalitat connèxes en tot eth mon.
@@ -675,7 +675,7 @@ oc:
             title: Objectiu 16
         quality_education:
           logo:
-            line1: EDUCACIÓ
+            line1: EDUCACION
             line2: DE QUALITAT
           objectives:
             objective1: Entath 2030, velhar perque totes es mainades e mainatges acaben es 
@@ -722,8 +722,8 @@ oc:
             title: Objectiu 4
         reduced_inequalities:
           logo:
-            line1: REDUCCIÓ DE LES
-            line2: DESIGUALTATS
+            line1: REDUCCION DES
+            line2: DESEGALETATS
           objectives:
             objective1: Entath 2030, arténher prograssivament e mantier eth creishement des 
               ingrèssi deth 40% mès praube dera poblacion a ua taxa superiora ara mejana 
@@ -760,8 +760,8 @@ oc:
             title: Objectiu 10
         responsible_consumption:
           logo:
-            line1: CONSUM I
-            line2: PRODUCCIÓ
+            line1: CONSUM E
+            line2: PRODUCCION
             line3: RESPONSABLES
           objectives:
             objective1: Aplicar eth Marc decennau de programes sus modalitats de consum e produccion 
@@ -807,7 +807,7 @@ oc:
         subtitle: Coneishetz es 17 Objectius de Desvolopament Sostenible
         sustainable_cities:
           logo:
-            line1: CIUTATS I
+            line1: CIUTATS E
             line2: COMUNITATS
             line3: SOSTENIBLES
           objectives:
@@ -853,8 +853,8 @@ oc:
             title: Objectiu 11
         zero_hunger:
           logo:
-            line1: FAM
-            line2: ZERO
+            line1: HAME
+            line2: ZÈRO
           objectives:
             objective1: Entath 2030, méter fin ara hame e assegurar er accès de totes es persones, 
               en particular des persones praubes e en situacions vulnerables, includits es lactants, 
@@ -944,7 +944,7 @@ oc:
             error: Hi ha hagut un error actualitzant aquest problema
             success: Problema actualitzat correctament
         titles:
-          problems_list: Llistat de problemes
+          problems_list: Llistat de problèmes
       show:
         proposed_solutions: Solucions proposades
         return_to_list: Torna ath listat
@@ -956,7 +956,7 @@ oc:
         count:
           problems_count:
             one: "%{count} problema"
-            other: "%{count} problemes"
+            other: "%{count} problèmes"
         filters:
           all: Totes
           category: Categoria
@@ -980,8 +980,8 @@ oc:
           random: Aleatori
           recent: Més recents
         problems:
-          empty: No s'han pogut trobar problems
-          empty_filters: No s'han pogut trobar problems
+          empty: No s'han pogut trobar problèmes
+          empty_filters: No s'han pogut trobar problèmes
       problems_helper:
         filter_state_values:
           all: Toti
@@ -1103,5 +1103,5 @@ oc:
         economic: Econòmics
         financial: Finançers
       show:
-        return_to_list: Tornar al llistat
+        return_to_list: Torna ath listat
         sdg_logo: Logo ODS
