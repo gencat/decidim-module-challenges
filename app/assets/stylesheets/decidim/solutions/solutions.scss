@@ -30,26 +30,26 @@ h3.parents span.title{
   }
 
   .text-container {
-      top: 2px;
-      left: 12px;
-      width: 60px;
+    top: 0.3rem;
+    left: 1.3rem;
+    width: 60px;
   }
 
   .text-container.show {
-      top: 10px;
-      left: 42%;
-      width: 60px;
-      text-align: start;
+    top: 0.6rem;
+    left: 6.5rem;
+    width: 60px;
+    text-align: start;
   }
 
   p {
-      font-size: 6pt;
+    font-size: 6pt;
   }
 
   img.challenge--view {
-      margin-top: 4px;
-      width: 100%;
-      max-width: 100px;
+    margin-top: 4px;
+    width: 100%;
+    max-width: 100px;
   }
 }
   
