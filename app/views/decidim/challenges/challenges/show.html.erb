@@ -24,19 +24,21 @@
           <%= t(@challenge.state, scope: "decidim.challenges.states") %>
         </div>
 
-        <div class="definition-data__item area_id">
-          <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.challenge") %></span>
-          <%= present(@challenge).decidim_scope_id %>
-        </div>
+        <% if @challenge_scope.present? %>
+          <div class="definition-data__item area_id">
+            <span class="definition-data__title"><%= t("scope", scope: "activemodel.attributes.challenge") %></span>
+            <%= translated_attribute(@challenge_scope.name) %>
+          </div>
+        <% end %>
 
-        <div class="definition-data__item coord_entity">
+        <div class="definition-data__item coordinating_entities">
           <span
-            class="definition-data__title"><%= t("coord_entity", scope: "activemodel.attributes.challenge") %></span>
+            class="definition-data__title"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></span>
           <%= present(@challenge).coordinating_entities %>
         </div>
 
-        <div class="definition-data__item col_entity">
-          <span class="definition-data__title"><%= t("col_entity", scope: "activemodel.attributes.challenge") %></span>
+        <div class="definition-data__item collaborating_entities">
+          <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.challenge") %></span>
           <%= present(@challenge).collaborating_entities %>
         </div>
 
@@ -80,7 +82,7 @@
         <div class="row small-up-1 medium-up-2 card-grid">
           <% @challenge.problems.each do |problem| %>
             <div class="column">
-              <div class="card">
+              <div class="card card-associated-problem">
                 <%= link_to resource_locator(problem).path, class: "card__link" do %>
                   <div class="card__title">
                     <%= translated_attribute problem.title %>
@@ -96,7 +98,7 @@
         <div class="row small-up-1 medium-up-2 card-grid">
           <% associated_solutions_list.each do |solution| %>
             <div class="column">
-              <div class="card">
+              <div class="card card-proposed-solution">
                 <%= link_to resource_locator(solution).path, class: "card__link" do %>
                   <div class="card__title">
                     <%= translated_attribute solution.title %>
