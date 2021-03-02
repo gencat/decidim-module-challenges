@@ -27,40 +27,48 @@
           </div>
         <% end %>
 
-        <div class="definition-data__item coordinating_entities">
-          <span
-            class="definition-data__title"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></span>
-          <%= present(@problem).challenge.coordinating_entities %>
-        </div>
+        <% if @problem.challenge.coordinating_entities.present? %>
+          <div class="definition-data__item coordinating_entities">
+            <span
+              class="definition-data__title"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></span>
+            <%= present(@problem).challenge.coordinating_entities %>
+          </div>
+        <% end %>
 
-        <div class="definition-data__item collaborating_entities">
-          <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.problem") %></span>
-          <%= present(@problem).collaborating_entities %>
-        </div>
+        <% if @problem.challenge.collaborating_entities.present? %>
+          <div class="definition-data__item collaborating_entities">
+            <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.problem") %></span>
+            <%= present(@problem).collaborating_entities %>
+          </div>
+        <% end %>
 
-        <div class="definition-data__item causes">
-          <span class="definition-data__title"><%= t("causes", scope: "activemodel.attributes.problem") %></span>
-          <%= present(@problem).causes %>
-        </div>
+        <% if @problem.causes.present? %>
+          <div class="definition-data__item causes">
+            <span class="definition-data__title"><%= t("causes", scope: "activemodel.attributes.problem") %></span>
+            <%= present(@problem).causes %>
+          </div>
+        <% end %>
 
-        <div class="definition-data__item groups_affected">
-          <span class="definition-data__title"><%= t("groups_affected", scope: "activemodel.attributes.problem") %></span>
-          <%= present(@problem).groups_affected %>
-        </div>
+        <% if @problem.groups_affected.present? %>
+          <div class="definition-data__item groups_affected">
+            <span class="definition-data__title"><%= t("groups_affected", scope: "activemodel.attributes.problem") %></span>
+            <%= present(@problem).groups_affected %>
+          </div>
+        <% end %>
 
-        <div class="definition-data__item groups_affected">
-          <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
-          <% if @problem.decidim_sectorial_scope_id %>
+        <% if @problem.decidim_sectorial_scope_id.present? %>
+          <div class="definition-data__item groups_affected">
+            <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
             <%= translated_attribute current_organization.scopes.find_by(id: @problem.decidim_sectorial_scope_id).name %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
 
-        <div class="definition-data__item groups_affected">
-          <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
-          <% if @problem.decidim_technological_scope_id %>
+        <% if @problem.decidim_technological_scope_id.present? %>
+          <div class="definition-data__item groups_affected">
+            <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
             <%= translated_attribute current_organization.scopes.find_by(id: @problem.decidim_technological_scope_id).name %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
 
         <div class="definition-data__item sdg">
           <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.problem") %></span>

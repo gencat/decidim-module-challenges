@@ -20,43 +20,53 @@
                     </div>
                 <% end %>
 
-                <div class="definition-data__item prop_entity">
-                    <span class="definition-data__title"><%= t("prop_entity", scope: "activemodel.attributes.problem") %></span>
-                    <%= present(@solution.problem).proposing_entities %>
-                </div>
-
-                <div class="definition-data__item collaborating_entities">
-                    <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.problem") %></span>
-                    <%= present(@solution.problem).collaborating_entities %>
-                </div>
-
-                <div class="definition-data__item causes">
-                    <span class="definition-data__title"><%= t("causes", scope: "activemodel.attributes.problem") %></span>
-                    <%= present(@solution.problem).causes %>
-                </div>
-
-                <div class="definition-data__item groups_affected">
-                    <span class="definition-data__title"><%= t("groups_affected", scope: "activemodel.attributes.problem") %></span>
-                    <%= present(@solution.problem).groups_affected %>
-                </div>
-
-                <div class="definition-data__item financing_type">
-                    <span class="definition-data__title"><%= t("financing_type", scope: "activemodel.attributes.solution") %></span>
-                    <%= present(@solution).financing_type %>
-                </div>
-
-                <% if @sectorial_scope != nil %>
-                <div class="definition-data__item decidim_sectorial_scope_id">
-                    <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
-                    <%= translated_attribute(@sectorial_scope.name) %>
-                </div>
+                <% if @solution.problem.proposing_entities.present? %>
+                    <div class="definition-data__item prop_entity">
+                        <span class="definition-data__title"><%= t("prop_entity", scope: "activemodel.attributes.problem") %></span>
+                        <%= present(@solution.problem).proposing_entities %>
+                    </div>
                 <% end %>
 
-                <% if @technological_scope != nil %>
-                <div class="definition-data__item decidim_technological_scope_id">
-                    <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
-                    <%= translated_attribute(@technological_scope.name) %>
-                </div>
+                <% if @solution.problem.collaborating_entities.present? %>
+                    <div class="definition-data__item collaborating_entities">
+                        <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.problem") %></span>
+                        <%= present(@solution.problem).collaborating_entities %>
+                    </div>
+                <% end %>
+
+                <% if @solution.problem.causes.present? %>
+                    <div class="definition-data__item causes">
+                        <span class="definition-data__title"><%= t("causes", scope: "activemodel.attributes.problem") %></span>
+                        <%= present(@solution.problem).causes %>
+                    </div>
+                <% end %>
+
+                <% if @solution.problem.groups_affected.present? %>
+                    <div class="definition-data__item groups_affected">
+                        <span class="definition-data__title"><%= t("groups_affected", scope: "activemodel.attributes.problem") %></span>
+                        <%= present(@solution.problem).groups_affected %>
+                    </div>
+                <% end %>
+
+                <% if present(@solution).financing_type.present? %>
+                    <div class="definition-data__item financing_type">
+                        <span class="definition-data__title"><%= t("financing_type", scope: "activemodel.attributes.solution") %></span>
+                        <%= present(@solution).financing_type %>
+                    </div>
+                <% end %>
+
+                <% if @sectorial_scope.present? %>
+                    <div class="definition-data__item decidim_sectorial_scope_id">
+                        <span class="definition-data__title"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></span>
+                        <%= translated_attribute(@sectorial_scope.name) %>
+                    </div>
+                <% end %>
+
+                <% if @technological_scope.present? %>
+                    <div class="definition-data__item decidim_technological_scope_id">
+                        <span class="definition-data__title"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></span>
+                        <%= translated_attribute(@technological_scope.name) %>
+                    </div>
                 <% end %>
 
                 <% if @solution.problem.challenge.sdg_code %>

@@ -31,16 +31,20 @@
           </div>
         <% end %>
 
-        <div class="definition-data__item coordinating_entities">
-          <span
-            class="definition-data__title"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></span>
-          <%= present(@challenge).coordinating_entities %>
-        </div>
+        <% if @challenge.coordinating_entities.present? %>
+          <div class="definition-data__item coordinating_entities">
+            <span
+              class="definition-data__title"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></span>
+            <%= present(@challenge).coordinating_entities %>
+          </div>
+        <% end %>
 
-        <div class="definition-data__item collaborating_entities">
-          <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.challenge") %></span>
-          <%= present(@challenge).collaborating_entities %>
-        </div>
+        <% if @challenge.collaborating_entities.present? %>
+          <div class="definition-data__item collaborating_entities">
+            <span class="definition-data__title"><%= t("collaborating_entities", scope: "activemodel.attributes.challenge") %></span>
+            <%= present(@challenge).collaborating_entities %>
+          </div>
+        <% end %>
 
         <% if @sdg %>
           <div class="definition-data__item sdg">
