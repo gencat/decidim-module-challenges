@@ -23,11 +23,11 @@ Decidim.register_component(:problems) do |component|
 
   component.query_type = "Decidim::Problems::ProblemsType"
 
-  # component.settings(:global) do |settings|
-  #   # Add your global settings
-  #   # Available types: :integer, :boolean
-  #   # settings.attribute :vote_limit, type: :integer, default: 0
-  # end
+  component.settings(:global) do |settings|
+    # Add your global settings
+    # Available types: :integer, :boolean
+    settings.attribute :hide_filters, type: :boolean, default: false
+  end
 
   # component.settings(:step) do |settings|
   #   # Add your settings per step
