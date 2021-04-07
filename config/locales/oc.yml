@@ -167,10 +167,17 @@ oc:
             hide_filters: Amagar filtres
           step:
             announcement: Anunci
+            hide_filters: Amagar filtres
       problems:
         name: Problèmes
+        settings:
+          global:
+            hide_filters: Amagar filtres
       solutions:
         name: Solucions
+        settings:
+          global:
+            hide_filters: Amagar filtres
       sdgs:
         clean_energy:
           logo:

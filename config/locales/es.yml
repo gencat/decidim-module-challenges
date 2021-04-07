@@ -167,8 +167,14 @@ es:
             hide_filters: Ocultar filtros
       problems:
         name: Problemas
+        settings:
+          global:
+            hide_filters: Ocultar filtros
       solutions:
         name: Soluciones
+        settings:
+          global:
+            hide_filters: Ocultar filtros
       sdgs:
         clean_energy:
           logo:
