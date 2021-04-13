@@ -12,6 +12,7 @@ ca:
         sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
+        survey_enabled: Habilitar enquesta
         tags: Paraules clau
         title: Títol
       problem:
@@ -54,6 +55,7 @@ ca:
           destroy: Esborra
           new_challenge: Nou Repte
           publish: Publicar
+          survey: Enquesta
           unpublish: Despublicar
           view: Veure repte
         challenge_publications:
@@ -82,6 +84,9 @@ ca:
           update:
             error: Hi ha hagut un problema actualitzant aquest repte
             success: Repte actualitzat correctament
+        exports:
+          answers: Respostes
+          export_as: "%{name} com a %{export_format}"
         models:
           challenge:
             fields:
@@ -95,10 +100,24 @@ ca:
               title: Títol
         titles:
           challenges_list: Llistat de reptes
+        surveys:
+          edit:
+            save: Desa
+          form:
+            edit: Editar encuesta
+            title: Encuesta
+          update:
+            invalid: S'ha produït un error a l'desar la configuració de l'enquesta.
+            success: La configuració de l'enquesta de l'repte s'ha guardat correctament.
       show:
         associated_problems: Problemes associats
         proposed_solutions: Solucions proposades
         return_to_list: Torna al llistat
+      surveys:
+        answer: Realitzar l'enquesta
+        create:
+          invalid: S'ha produït un error en l'enquesta en aquest repte.
+          success: Has realitzat l'enquesta amb èxit.
       challenges:
         challenges:
           empty: No s'han pogut trobar reptes
@@ -145,6 +164,12 @@ ca:
     components:
       challenges:
         name: Reptes
+        settings:
+          global:
+            announcement: Anunci
+            hide_filters: Amagar filtres
+          step:
+            announcement: Anunci
       problems:
         name: Problemes
       solutions:

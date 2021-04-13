@@ -3,8 +3,8 @@ en:
   activemodel:
     attributes:
       challenge:
-        col_entity: Collaborating entity
-        coord_entity: Coordinating entity
+        collaborating_entities: Collaborating entity
+        coordinating_entities: Coordinating entity
         end_date: End date
         global_description: Global challenge's description
         local_description: Local challenge's description
@@ -12,6 +12,7 @@ en:
         sdg: Sustainable Development Goals
         start_date: Start date
         status: State
+        survey_enabled: Enabled survey
         tags: Tags
         title: Title
       problem:
@@ -53,6 +54,7 @@ en:
           destroy: Delete
           new_challenge: New challenge
           publish: Publish
+          survey: Survey
           unpublish: Unpublish
           view: View challenge
         challenge_publications:
@@ -88,6 +90,9 @@ en:
           destroy:
             error: There's been a problem unpublishing this challenge
             success: The challenge has been correctly unpublished
+        exports:
+          answers: Answers
+          export_as: "%{name} in %{export_format}"
         models:
           challenge:
             fields:
@@ -101,10 +106,24 @@ en:
               title: Title
         titles:
           challenges_list: Challenges list
+        surveys:
+          edit:
+            save: Save
+          form:
+            edit: Edit survey
+            title: Survey
+          update:
+            invalid: An error occurred while saving survey.
+            success: The challenge survey have been successfully saved.
       show:
         associated_problems: Associated problems
         proposed_solutions: Proposed solutions
         return_to_list: Return to list
+      surveys:
+        answer: Answer survey
+        create:
+          invalid: An error occurred in the survey.
+          success: You have completed the survey successfully.
       challenges:
         challenges:
           empty: No challenges could be found
@@ -149,6 +168,10 @@ en:
     components:
       challenges:
         name: Challenges
+        settings:
+          global:
+            announcement: Announcement
+            hide_filters: Hide filters
       problems:
         name: Problems
       solutions:
