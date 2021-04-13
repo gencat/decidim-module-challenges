@@ -12,6 +12,8 @@ Decidim.register_component(:challenges) do |component|
   component.admin_engine = Decidim::Challenges::AdminEngine
   component.icon = "decidim/challenges/icon.svg"
 
+  component.data_portable_entities = ["Decidim::Challenge::Survey"]
+
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component
   # end
@@ -23,15 +25,15 @@ Decidim.register_component(:challenges) do |component|
 
   component.query_type = "Decidim::Challenges::ChallengesType"
 
-  # component.settings(:global) do |settings|
-  #   # Add your global settings
-  #   # Available types: :integer, :boolean
-  #   # settings.attribute :vote_limit, type: :integer, default: 0
-  # end
+  component.settings(:global) do |settings|
+    # Available types: :integer, :boolean
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :hide_filters, type: :boolean, default: false
+  end
 
-  # component.settings(:step) do |settings|
-  #   # Add your settings per step
-  # end
+  component.settings(:step) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
 
   component.register_resource(:challenge) do |resource|
     # Register a optional resource that can be references from other resources.

@@ -13,6 +13,13 @@ module Decidim
       routes do
         resources :challenges do
           resource :publish, controller: "challenge_publications", only: [:create, :destroy]
+
+          resource :surveys, only: [:edit, :update] do
+            resource :form, only: [:edit, :update], controller: "survey_form"
+            collection do
+              get :export
+            end
+          end
         end
         root to: "challenges#index"
       end
