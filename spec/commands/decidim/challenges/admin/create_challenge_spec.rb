@@ -88,6 +88,11 @@ module Decidim
             expect(challenge.component).to eq current_component
           end
 
+          it "sets the questionnaire for survey" do
+            subject.call
+            expect(challenge.questionnaire).to be_a(Decidim::Forms::Questionnaire)
+          end
+
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:create!)

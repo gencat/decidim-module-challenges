@@ -21,6 +21,7 @@ FactoryBot.define do
     coordinating_entities { [1..5].collect { generate(:name) }.join(", ") }
     collaborating_entities { [1..5].collect { generate(:name) }.join(", ") }
     published_at { Time.current }
+    questionnaire { build(:questionnaire) }
 
     trait :proposal do
       state { 0 }
@@ -33,5 +34,14 @@ FactoryBot.define do
     trait :finished do
       state { 2 }
     end
+
+    trait :with_survey_enabled do
+      survey_enabled { true }
+    end
+  end
+
+  factory :survey, class: "Decidim::Challenges::Survey" do
+    challenge
+    user
   end
 end
