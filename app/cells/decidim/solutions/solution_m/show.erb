@@ -15,14 +15,16 @@
                 <% end %>
             </div>
         </div>
-        <div class="card__text--solution">
-            <div class="card__text--paragraph">
-                <span class="card__text--paragraph--problem"><%= t("problem", scope: 'decidim.solutions') %>: </span>
-                <%= link_to problem_path, class: "card__link card__text--paragraph--problem--title" do %>
-                    <div><%= resource_problem_title %></div>
-                <% end %>
-            </div>
-        </div>
+        <% if problem_path.present? %>
+          <div class="card__text--solution">
+              <div class="card__text--paragraph">
+                  <span class="card__text--paragraph--problem"><%= t("problem", scope: 'decidim.solutions') %>: </span>
+                  <%= link_to problem_path, class: "card__link card__text--paragraph--problem--title" do %>
+                      <div><%= resource_problem_title %></div>
+                  <% end %>
+              </div>
+          </div>
+        <% end %>
         <div class="card__text">
             <div class="card__text--paragraph">
                 <%= description%>

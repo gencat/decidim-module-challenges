@@ -37,19 +37,59 @@
     </div>
   </div>
 
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".problem") %></h2>
-  </div>
-
-  <div class="card-section">
-
-    <div class="row column">
-      <%= form.select :decidim_problems_problem_id,
-                      @form.select_problem_collection,
-                      selected: @form.try(:problem) ? [translated_attribute(@form.try(:problem).title), @form.try(:problem).id] : '',
-                      label: t("models.solution.fields.problem", scope: "decidim.solutions.admin"),
-                      include_blank: "" %>
+  <% if current_participatory_space.components.where(manifest_name: "problems").present? %>
+    <div class="card-divider">
+      <h2 class="card-title"><%= t(".problem") %></h2>
     </div>
+    <div class="card-divider" style="display:none;">
+      <h2 class="card-title"><%= t(".challenge") %></h2>
+    </div>
+  <% else %>
+    <div class="card-divider" style="display:none;">
+      <h2 class="card-title"><%= t(".problem") %></h2>
+    </div>
+    <div class="card-divider">
+      <h2 class="card-title"><%= t(".challenge") %></h2>
+    </div>
+  <% end %>
 
-  </div>
+  <% if current_participatory_space.components.where(manifest_name: "problems").present? %>
+    <div class="card-section">
+      <div class="row column">
+        <%= form.select :decidim_problems_problem_id,
+                          @form.select_problem_collection,
+                          selected: @form.try(:problem) ? [translated_attribute(@form.try(:problem).title), @form.try(:problem).id] : '',
+                          label: t("models.solution.fields.problem", scope: "decidim.solutions.admin"),
+                          include_blank: "" %>
+      </div>
+    </div>
+    <div class="card-section" style="display:none;">
+      <div class="row column">
+        <%= form.select :decidim_challenges_challenge_id,
+                          @form.select_challenge_collection,
+                          selected: @form.try(:challenge) ? [translated_attribute(@form.try(:challenge).title), @form.try(:challenge).id] : '',
+                          label: t("models.solution.fields.challenge", scope: "decidim.solutions.admin"),
+                          include_blank: "" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="card-section" style="display:none;">
+        <div class="row column">
+          <%= form.select :decidim_problems_problem_id,
+                            @form.select_problem_collection,
+                            selected: @form.try(:problem) ? [translated_attribute(@form.try(:problem).title), @form.try(:problem).id] : '',
+                            label: t("models.solution.fields.problem", scope: "decidim.solutions.admin"),
+                            include_blank: "" %>
+        </div>
+      </div>
+      <div class="card-section"">
+        <div class="row column">
+          <%= form.select :decidim_challenges_challenge_id,
+                            @form.select_challenge_collection,
+                            selected: @form.try(:challenge) ? [translated_attribute(@form.try(:challenge).title), @form.try(:challenge).id] : '',
+                            label: t("models.solution.fields.challenge", scope: "decidim.solutions.admin"),
+                            include_blank: "" %>
+        </div>
+      </div>
+  <% end %>
 </div>

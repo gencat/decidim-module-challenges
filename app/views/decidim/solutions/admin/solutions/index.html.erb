@@ -27,6 +27,9 @@
               <%= t("models.solution.fields.problem", scope: "decidim.solutions.admin") %>
             </th>
             <th>
+              <%= t("models.solution.fields.challenge", scope: "decidim.solutions.admin") %>
+            </th>
+            <th>
               <%= t("models.solution.fields.published", scope: "decidim.solutions.admin") %>
             </th>
             <th class="table-list__actions"></th>
@@ -42,7 +45,10 @@
                 <%= l(solution.created_at, format: :decidim_short) if solution.created_at %>
               </td>
               <td class="table-list__state">
-                <%= translated_attribute(solution.problem.title) %>
+                <%= translated_attribute(solution.problem&.title) %>
+              </td>
+              <td class="table-list__state">
+                <%= translated_attribute(solution.challenge&.title) %>
               </td>
               <td class="table-list__state">
               <% if solution.published? %>
