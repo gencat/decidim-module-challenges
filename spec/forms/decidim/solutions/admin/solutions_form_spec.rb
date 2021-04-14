@@ -67,6 +67,7 @@ module Decidim
             "title" => title,
             "description" => description,
             "decidim_problems_problem_id" => problem&.id,
+            "decidim_challenges_challenge_id" => challenge&.id,
             "tags" => tags,
             "objectives" => objectives,
             "indicators" => indicators,
@@ -101,10 +102,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when problem is missing" do
+        context "when problem is missing but there is a challenge" do
           let(:problem) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
       end
     end

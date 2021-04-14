@@ -6,7 +6,7 @@ module Decidim
   module Solutions
     module Admin
       describe CreateSolution do
-        subject { described_class.new(form) }
+        subject { described_class.new(form_with_problem) }
 
         let(:organization) { create :organization, available_locales: [:en] }
         let(:current_user) { create :user, :admin, :confirmed, organization: organization }
@@ -30,13 +30,33 @@ module Decidim
         let(:requirements) do
           { en: "requirements" }
         end
-        let(:form) do
+        let(:form_with_problem) do
           instance_double(
             Decidim::Solutions::Admin::SolutionsForm,
             invalid?: invalid,
             title: { en: "Solution title" },
             description: { en: "Solution desc" },
             decidim_problems_problem_id: problem.id,
+            decidim_challenges_challenge_id: nil,
+            tags: tags,
+            objectives: objectives,
+            indicators: indicators,
+            beneficiaries: beneficiaries,
+            financing_type: financing_type,
+            requirements: requirements,
+            current_user: current_user,
+            current_organization: organization,
+            current_component: current_component
+          )
+        end
+        let(:form_without_problem) do
+          instance_double(
+            Decidim::Solutions::Admin::SolutionsForm,
+            invalid?: invalid,
+            title: { en: "Solution title" },
+            description: { en: "Solution desc" },
+            decidim_problems_problem_id: nil,
+            decidim_challenges_challenge_id: challenge.id,
             tags: tags,
             objectives: objectives,
             indicators: indicators,
@@ -50,40 +70,83 @@ module Decidim
         end
         let(:invalid) { false }
 
-        context "when the form is not valid" do
-          let(:invalid) { true }
+        describe "when module problems is active" do
+          context "when the form is not valid" do
+            let(:invalid) { true }
 
-          it "is not valid" do
-            expect { subject.call }.to broadcast(:invalid)
+            it "is not valid" do
+              expect { subject.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "when everything is ok" do
+            let(:solution) { Solution.last }
+
+            it "creates the solution" do
+              expect { subject.call }.to change(Solution, :count).by(1)
+            end
+
+            it "sets the problem" do
+              subject.call
+              expect(solution.problem).to eq problem
+            end
+
+            it "sets the component" do
+              subject.call
+              expect(solution.component).to eq current_component
+            end
+
+            it "traces the action", versioning: true do
+              expect(Decidim.traceability)
+                .to receive(:create!)
+                .with(Solution, current_user, kind_of(Hash), visibility: "all")
+                .and_call_original
+
+              expect { subject.call }.to change(Decidim::ActionLog, :count)
+              action_log = Decidim::ActionLog.last
+              expect(action_log.version).to be_present
+            end
           end
         end
 
-        context "when everything is ok" do
-          let(:solution) { Solution.last }
+        describe "when module problems is not active" do
+          subject { described_class.new(form_without_problem) }
 
-          it "creates the solution" do
-            expect { subject.call }.to change(Solution, :count).by(1)
+          context "when the form is not valid" do
+            let(:invalid) { true }
+
+            it "is not valid" do
+              expect { subject.call }.to broadcast(:invalid)
+            end
           end
 
-          it "sets the problem" do
-            subject.call
-            expect(solution.problem).to eq problem
-          end
+          context "when everything is ok" do
+            let(:solution) { Solution.last }
 
-          it "sets the component" do
-            subject.call
-            expect(solution.component).to eq current_component
-          end
+            it "creates the solution" do
+              expect { subject.call }.to change(Solution, :count).by(1)
+            end
 
-          it "traces the action", versioning: true do
-            expect(Decidim.traceability)
-              .to receive(:create!)
-              .with(Solution, current_user, kind_of(Hash), visibility: "all")
-              .and_call_original
+            it "sets the challenge" do
+              subject.call
+              expect(solution.challenge).to eq challenge
+            end
 
-            expect { subject.call }.to change(Decidim::ActionLog, :count)
-            action_log = Decidim::ActionLog.last
-            expect(action_log.version).to be_present
+            it "sets the component" do
+              subject.call
+              expect(solution.component).to eq current_component
+            end
+
+            it "traces the action", versioning: true do
+              expect(Decidim.traceability)
+                .to receive(:create!)
+                .with(Solution, current_user, kind_of(Hash), visibility: "all")
+                .and_call_original
+
+              expect { subject.call }.to change(Decidim::ActionLog, :count)
+              action_log = Decidim::ActionLog.last
+              expect(action_log.version).to be_present
+            end
           end
         end
       end

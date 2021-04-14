@@ -94,12 +94,49 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
         expect(response).to have_http_status(:ok)
       end
     end
+
+    context "when module problem is active" do
+      it "with problem" do
+        post :create, params: params
+
+        expect(flash[:notice]).not_to be_empty
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "when module problem is not active" do
+      let(:params) do
+        {
+          solution: {
+            title: title,
+            description: description,
+            decidim_challenges_challenge_id: challenge.id,
+            tags: tags,
+            objectives: objectives,
+            indicators: indicators,
+            beneficiaries: beneficiaries,
+            financing_type: financing_type,
+            requirements: requirements,
+          },
+          component_id: component,
+          scope: scope,
+          participatory_process_slug: component.participatory_space.slug,
+        }
+      end
+
+      it "has a challenge" do
+        post :create, params: params
+
+        expect(flash[:notice]).not_to be_empty
+        expect(response).to have_http_status(:found)
+      end
+    end
   end
 
   describe "PUT #update" do
     let(:solution) { create :solution, component: component }
 
-    context "with all mandatory fields" do
+    context "with all mandatory fields with module problems" do
       let(:params) do
         {
           id: solution.id,
@@ -111,6 +148,41 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
             },
             description: description,
             decidim_problems_problem_id: problem.id,
+            decidim_challenges_challenge_id: nil,
+            tags: tags,
+            objectives: objectives,
+            indicators: indicators,
+            beneficiaries: beneficiaries,
+            financing_type: financing_type,
+            requirements: requirements,
+          },
+          component: component,
+          scope: scope,
+          participatory_process_slug: component.participatory_space.slug,
+        }
+      end
+
+      it "updates a solution" do
+        put :update, params: params
+
+        expect(flash[:notice]).not_to be_empty
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "with all mandatory fields without module problems" do
+      let(:params) do
+        {
+          id: solution.id,
+          solution: {
+            title: {
+              en: "Updated solution title",
+              es: "Título solución actualizada",
+              ca: "Títol solució actualitzada",
+            },
+            description: description,
+            decidim_problems_problem_id: nil,
+            decidim_challenges_challenge_id: challenge.id,
             tags: tags,
             objectives: objectives,
             indicators: indicators,
