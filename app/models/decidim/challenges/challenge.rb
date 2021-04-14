@@ -19,6 +19,9 @@ module Decidim
       has_many :problems,
                class_name: "Decidim::Problems::Problem",
                foreign_key: "decidim_challenges_challenge_id", dependent: :restrict_with_exception
+      has_many :solutions,
+               class_name: "Decidim::Solutions::Solution",
+               foreign_key: "decidim_challenges_challenge_id", dependent: :restrict_with_exception
 
       component_manifest_name "challenges"
 

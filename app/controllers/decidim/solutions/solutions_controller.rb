@@ -20,10 +20,12 @@ module Decidim
 
       def show
         @solution = solution
-        @sdg_index = sdg_index if @solution.problem.challenge.sdg_code.present?
+        if @solution.problem.present?
+          @sdg_index = sdg_index if @solution.problem.challenge.sdg_code.present?
+          @sectorial_scope = sectorial_scope
+          @technological_scope = technological_scope
+        end
         @challenge_scope = challenge_scope
-        @sectorial_scope = sectorial_scope
-        @technological_scope = technological_scope
       end
 
       private
@@ -67,7 +69,11 @@ module Decidim
       end
 
       def challenge_scope
-        @challenge_scope ||= current_organization.scopes.find_by(id: @solution.problem.challenge.decidim_scope_id)
+        @challenge_scope |= if @solution.problem.present?
+                              current_organization.scopes.find_by(id: @solution.problem.challenge.decidim_scope_id)
+                            else
+                              current_organization.scopes.find_by(id: @solution.challenge.decidim_scope_id)
+                            end
       end
 
       def sectorial_scope
