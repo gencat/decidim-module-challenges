@@ -33,6 +33,7 @@ oc:
         tags: Paraules clau
         title: Títol
       solution:
+        challenge: Repte
         beneficiaries: Beneficiaris
         description: Descripcion
         financing_type: Tipes de finançament
@@ -1048,6 +1049,7 @@ oc:
           edit:
             update: Actualitza
           form:
+            challenge: Repte associat
             problem: Problema associat
           new:
             create: Crea
@@ -1058,6 +1060,7 @@ oc:
         models:
           solution:
             fields:
+              challenge: Repte
               created_at: Creada
               problem: Problema
               published: Publicada

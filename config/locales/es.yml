@@ -32,6 +32,7 @@ es:
         tags: Palabras clave
         title: Título
       solution:
+        challenge: Reto
         beneficiaries: Beneficiarios
         description: Descripción
         financing_type: Tipo financiación
@@ -1113,6 +1114,7 @@ es:
           edit:
             update: Actualiza
           form:
+            challenge: Reto asociado
             problem: Problema asociado
           new:
             create: Crea
@@ -1123,6 +1125,7 @@ es:
         models:
           solution:
             fields:
+              challenge: Reto
               created_at: Creada
               problem: Problema
               published: Publicada

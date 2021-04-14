@@ -34,6 +34,7 @@ ca:
         title: Títol
       solution:
         beneficiaries: Beneficiaris
+        challenge: Repte
         description: Descripció
         financing_type: Tipus finançament
         indicators: Indicadors
@@ -1109,6 +1110,7 @@ ca:
           edit:
             update: Actualitza
           form:
+            challenge: Repte associat
             problem: Problema associat
           new:
             create: Crea
@@ -1119,6 +1121,7 @@ ca:
         models:
           solution:
             fields:
+              challenge: Repte
               created_at: Creada
               problem: Problema
               published: Publicada

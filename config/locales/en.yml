@@ -33,6 +33,7 @@ en:
         title: Title
       solution:
         beneficiaries: Beneficiaries
+        challenge: Challenge
         description: Description
         financing_type: Financing Type
         indicators: Indicators
@@ -1109,6 +1110,7 @@ en:
           edit:
             update: Update
           form:
+            challenge: Related challenge
             problem: Related problem
           new:
             create: Create
@@ -1119,6 +1121,7 @@ en:
         models:
           solution:
             fields:
+              challenge: Challenge
               created_at: Created at
               problem: Problem
               published: Published
