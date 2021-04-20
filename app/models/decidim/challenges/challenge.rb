@@ -12,6 +12,9 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
+      include Decidim::Forms::HasQuestionnaire
+
+      has_many :surveys, class_name: "Decidim::Challenges::Survey", foreign_key: "decidim_challenge_id", dependent: :destroy
 
       VALID_STATES = [:proposal, :execution, :finished].freeze
       enum state: VALID_STATES

@@ -16,6 +16,11 @@ module Decidim
       include_examples "has scope"
       include_examples "publicable"
       include_examples "resourceable"
+
+      it "has an association with one questionnaire" do
+        subject.questionnaire = build_stubbed(:questionnaire)
+        expect(subject.questionnaire).to be_present
+      end
     end
   end
 end

@@ -15,7 +15,14 @@ module Decidim
           get :data_picker_modal_content, on: :collection
         end
         root to: "challenges#index"
-        resources :challenges, only: [:index, :show]
+        resources :challenges, only: [:index, :show] do
+          resource :survey, only: [:create, :destroy] do
+            collection do
+              get :answer, action: :show
+              post :answer
+            end
+          end
+        end
       end
 
       initializer "decidim_challenges.assets" do |app|

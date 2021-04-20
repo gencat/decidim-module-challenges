@@ -9,4 +9,5 @@ describe "Admin manages challenges", type: :system, serves_map: true, serves_geo
   include_context "when managing a component as an admin"
 
   it_behaves_like "manage challenges"
+  it_behaves_like "manage surveys"
 end

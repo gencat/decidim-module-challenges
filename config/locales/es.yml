@@ -3,8 +3,8 @@ es:
   activemodel:
     attributes:
       challenge:
-        col_entity: Entidad colaboradora
-        coord_entity: Entidad coordinadora
+        collaborating_entities: Entidad colaboradora
+        coordinating_entities: Entidad coordinadora
         end_date: Fecha finalización
         global_description: Descripción del reto a escala global
         local_description: Descripción del reto en el territorio
@@ -12,6 +12,7 @@ es:
         sdg: Objectivos de Desarrollo Sostenible
         start_date: Fecha inicio
         status: Estado
+        survey_enabled: Habilitar encuesta
         tags: Palabras clave
         title: Título
       problem:
@@ -53,6 +54,7 @@ es:
           destroy: Borra
           new_challenge: Nuevo reto
           publish: Publicar
+          survey: Encuesta
           unpublish: Despublicar
           view: Ver reto
         challenge_publications:
@@ -81,6 +83,9 @@ es:
           update:
             error: Ha habido un problema actualizando este reto
             success: Reto actualizado correctamente
+        exports:
+          answers: Respuestas
+          export_as: "%{name} en %{export_format}"
         models:
           challenge:
             fields:
@@ -94,10 +99,24 @@ es:
               title: Titulo
         titles:
           challenges_list: Listado de retos
+        surveys:
+          edit:
+            save: Guarda
+          form:
+            edit: Editar encuesta
+            title: Encuesta
+          update:
+            invalid: Se ha producido un error al guardar la configuración de la encuesta.
+            success: La configuración de la encuesta del reto se ha guardado correctamente.
       show:
         associated_problems: Problemas asociados
         proposed_solutions: Soluciones propuestas
         return_to_list: Volver al listado
+      surveys:
+        answer: Realizar la encuesta
+        create:
+          invalid: Se ha producido un error en la encuesta en este reto.
+          success: Has realizado la encuesta con éxito.
       challenges:
         challenges:
           empty: No se han encontrado retos
@@ -142,6 +161,10 @@ es:
     components:
       challenges:
         name: Retos
+        settings:
+          global:
+            announcement: Anuncio
+            hide_filters: Ocultar filtros
       problems:
         name: Problemas
       solutions:

@@ -49,6 +49,7 @@ module Decidim
             end_date: form.end_date,
             coordinating_entities: form.coordinating_entities,
             collaborating_entities: form.collaborating_entities,
+            questionnaire: Decidim::Forms::Questionnaire.new,
           }
 
           @challenge = Decidim.traceability.create!(

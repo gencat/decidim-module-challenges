@@ -12,6 +12,7 @@ oc:
         sdg: Objectius de Desvolopament Sostenible
         start_date: Data d'inici
         status: Estat
+        survey_enabled: Habilitar enquesta
         tags: Paraules clau
         title: Títol
       problem:
@@ -54,6 +55,7 @@ oc:
           destroy: Esborra
           new_challenge: Nou Rèpte
           publish: Publicar
+          survey: Enquesta
           unpublish: Despublicar
           view: Veure rèpte
         challenge_publications:
@@ -95,10 +97,24 @@ oc:
               title: Títol
         titles:
           challenges_list: Llistat de rèptes
+        surveys:
+          edit:
+            save: Desa
+          form:
+            edit: Editar encuesta
+            title: Encuesta
+          update:
+            invalid: S'ha produït un error a l'desar la configuració de l'enquesta.
+            success: La configuració de l'enquesta de l'repte s'ha guardat correctament.
       show:
         associated_problems: Problèmes associadi
         proposed_solutions: Solucions proposades
         return_to_list: Torna ath listat
+      surveys:
+        answer: Realitzar l'enquesta
+        create:
+          invalid: S'ha produït un error en l'enquesta en aquest repte.
+          success: Has realitzat l'enquesta amb èxit.
       challenges:
         challenges:
           empty: No s'han pogut trobar rèptes
@@ -145,6 +161,12 @@ oc:
     components:
       challenges:
         name: Rèptes
+        settings:
+          global:
+            announcement: Anunci
+            hide_filters: Amagar filtres
+          step:
+            announcement: Anunci
       problems:
         name: Problèmes
       solutions:
