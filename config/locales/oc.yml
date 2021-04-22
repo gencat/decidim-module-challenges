@@ -101,8 +101,8 @@ oc:
           edit:
             save: Desa
           form:
-            edit: Editar encuesta
-            title: Encuesta
+            edit: Edita enquesta
+            title: Enquesta
           update:
             invalid: S'ha produït un error a l'desar la configuració de l'enquesta.
             success: La configuració de l'enquesta de l'repte s'ha guardat correctament.
