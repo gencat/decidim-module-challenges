@@ -107,6 +107,13 @@ module Decidim
 
           it { is_expected.to be_valid }
         end
+
+        context "when problem and challenge is missing" do
+          let(:problem) { nil }
+          let(:challenge) { nil }
+
+          it { is_expected.to be_valid }
+        end
       end
     end
   end

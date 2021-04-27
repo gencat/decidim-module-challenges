@@ -15,7 +15,7 @@
                 <% end %>
             </div>
         </div>
-        <% if problem_path.present? %>
+        <% if model.problem %>
           <div class="card__text--solution">
               <div class="card__text--paragraph">
                   <span class="card__text--paragraph--problem"><%= t("problem", scope: 'decidim.solutions') %>: </span>
