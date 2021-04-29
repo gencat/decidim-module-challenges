@@ -10,9 +10,11 @@ module Decidim
       include Paginable
       include OrderableSolutions
       include Decidim::Sdgs::SdgsHelper
+      include Decidim::ShowFiltersHelper
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
+      helper Decidim::ShowFiltersHelper
 
       helper_method :solutions
 
