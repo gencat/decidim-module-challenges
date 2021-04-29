@@ -16,6 +16,7 @@ module Decidim
         translatable_attribute :description, String
 
         attribute :decidim_problems_problem_id, Integer
+        attribute :decidim_challenges_challenge_id, Integer
         attribute :tags, String
         translatable_attribute :objectives, String
         translatable_attribute :indicators, String
@@ -24,7 +25,8 @@ module Decidim
         translatable_attribute :financing_type, String
 
         validates :title, :description, translatable_presence: true
-        validates :decidim_problems_problem_id, presence: true
+        validates :decidim_challenges_challenge_id, presence: false
+        validates :decidim_problems_problem_id, presence: false
 
         alias organization current_organization
 
@@ -37,11 +39,27 @@ module Decidim
           end
         end
 
+        # Return a challenges's list filtered by participatory's space component
+        def select_challenge_collection
+          participatory_space = Decidim::Component.find(current_component.id).participatory_space
+          challenge_component = Decidim::Component.where(participatory_space: participatory_space).where(manifest_name: "challenges")
+          Decidim::Challenges::Challenge.where(component: challenge_component).map do |p|
+            [translated_attribute(p.title), p.id]
+          end
+        end
+
         # Finds the Problem from the given decidim_problems_problem_id
         #
         # Returns a Decidim::Problems::Problem
         def problem
-          @problem ||= @decidim_problems_problem_id ? Decidim::Problems::Problem.find(@decidim_problems_problem_id) : false
+          @problem ||= @decidim_problems_problem_id.present? ? Decidim::Problems::Problem.find(@decidim_problems_problem_id) : false
+        end
+
+        # Finds the Challenge from the given decidim_challenges_challenge_id
+        #
+        # Returns a Decidim::Challenges::Challenge
+        def challenge
+          @challenge ||= @decidim_challenges_challenge_id.present? ? Decidim::Challenges::Challenge.find(@decidim_challenges_challenge_id) : false
         end
 
         def map_model(model); end

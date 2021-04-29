@@ -15,7 +15,11 @@ module Decidim
       end
 
       def resource_challenge_title
-        translated_attribute model.problem.challenge.title
+        if model.problem.present?
+          translated_attribute model.problem.challenge.title
+        else
+          translated_attribute model.challenge.title
+        end
       end
 
       def resource_icon
@@ -43,15 +47,23 @@ module Decidim
       end
 
       def problem_path
-        resource_locator(model.problem).path
+        resource_locator(model.problem).path if model.problem.present?
       end
 
       def challenge_path
-        resource_locator(model.problem.challenge).path
+        if model.problem.present?
+          resource_locator(model.problem.challenge).path
+        else
+          resource_locator(model.challenge).path
+        end
       end
 
       def resource_sdg
-        model.problem.challenge.sdg_code
+        if model.problem.present?
+          model.problem.challenge.sdg_code
+        else
+          model.challenge.sdg_code
+        end
       end
 
       def resource_sdg_index

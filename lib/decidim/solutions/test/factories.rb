@@ -14,6 +14,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:solutions_component) }
     problem { build(:problem) }
+    challenge { build(:challenge) }
 
     tags { Decidim::Faker::Localized.localized { [1..5].collect { generate(:name) }.join(", ") } }
     indicators { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
