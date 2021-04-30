@@ -11,9 +11,11 @@ module Decidim
       include OrderableProblems
       include ProblemsHelper
       include Decidim::Sdgs::SdgsHelper
+      include Decidim::ShowFiltersHelper
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
+      helper Decidim::ShowFiltersHelper
 
       helper_method :problems
 
