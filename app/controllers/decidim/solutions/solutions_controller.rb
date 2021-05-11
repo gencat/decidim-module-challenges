@@ -72,10 +72,10 @@ module Decidim
 
       def challenge_scope
         @challenge_scope ||= if @solution.problem.present?
-                              current_organization.scopes.find_by(id: @solution.problem.challenge.decidim_scope_id)
-                            else
-                              current_organization.scopes.find_by(id: @solution.challenge.decidim_scope_id)
-                            end
+                               current_organization.scopes.find_by(id: @solution.problem.challenge.decidim_scope_id)
+                             else
+                               current_organization.scopes.find_by(id: @solution.challenge.decidim_scope_id)
+                             end
       end
 
       def sectorial_scope
