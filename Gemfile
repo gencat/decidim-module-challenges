@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.22-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.24-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-challenges", path: "."
@@ -16,9 +16,9 @@ gem "uglifier", "~> 4.1"
 group :development, :test do
   gem "byebug", ">= 11.1.3"
   gem "decidim-dev", DECIDIM_VERSION
-  gem "rubocop", "~> 0.71.0"
-  gem "rubocop-rails", "~> 2.0"
-  gem "rubocop-rspec", "~> 1.21"
+  gem "rubocop"
+  gem "rubocop-rails"
+  gem "rubocop-rspec"
 end
 
 group :development do
