@@ -7,7 +7,7 @@ require "decidim/core/test"
 module Decidim
   module Challenges
     describe ChallengesType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:challenges_component) }
 
       it_behaves_like "a component query type"

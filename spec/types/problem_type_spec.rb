@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Problems
     describe ProblemType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:problem) }
       let(:sectorial_scope) { create(:scope, organization: model.participatory_space.organization) }

@@ -6,8 +6,8 @@ describe "Public Sustainable Development Goals", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "sdgs" }
-  let(:ods_ids) { [*1..17].map! { |n| "#ods-#{format "%02d", n}" } }
-  let(:objective_ids) { [*1..17].map! { |n| "#objective_#{format "%02d", n}" } }
+  let(:ods_ids) { [*1..17].map! { |n| "#ods-#{format "%{02d}", n}" } }
+  let(:objective_ids) { [*1..17].map! { |n| "#objective_#{format "%{02d}", n}" } }
 
   before do
     switch_to_host(organization.host)

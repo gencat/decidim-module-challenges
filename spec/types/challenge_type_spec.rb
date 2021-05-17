@@ -7,7 +7,7 @@ require "decidim/core/test/shared_examples/scopable_interface_examples"
 module Decidim
   module Challenges
     describe ChallengeType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:challenge) }
 
