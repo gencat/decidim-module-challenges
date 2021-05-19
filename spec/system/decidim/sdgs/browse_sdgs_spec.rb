@@ -6,8 +6,11 @@ describe "Public Sustainable Development Goals", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "sdgs" }
-  let(:ods_ids) { [*1..17].map! { |n| "#ods-#{format "%{02d}", n}" } }
-  let(:objective_ids) { [*1..17].map! { |n| "#objective_#{format "%{02d}", n}" } }
+
+  # rubocop:disable Style/FormatStringToken
+  let(:ods_ids) { [*1..17].map! { |n| "#ods-#{format "%<n>02d", n: n}" } }
+  let(:objective_ids) { [*1..17].map! { |n| "#objective_#{format "%<n>02d", n: n}" } }
+  # rubocop:enable Style/FormatStringToken
 
   before do
     switch_to_host(organization.host)

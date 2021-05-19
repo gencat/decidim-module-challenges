@@ -8,11 +8,15 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
-      include Decidim::ScopableComponent
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
       include Decidim::Forms::HasQuestionnaire
+
+      belongs_to :scope,
+                 foreign_key: "decidim_scope_id",
+                 class_name: "Decidim::Scope",
+                 optional: true
 
       has_many :surveys, class_name: "Decidim::Challenges::Survey", foreign_key: "decidim_challenge_id", dependent: :destroy
 
