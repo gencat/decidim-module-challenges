@@ -16,7 +16,7 @@ describe "Admin creates solutions", type: :system do
 
       find("a.button", text: "New solution").click
       within(".card-title", match: :first) do
-        expect(page).to have_content "New solution"
+        expect(page).to have_content organization.name
       end
       expect(page).to have_css "input#solution_title_en"
     end
