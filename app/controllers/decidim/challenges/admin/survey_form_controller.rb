@@ -11,6 +11,14 @@ module Decidim
           challenge
         end
 
+        def public_url
+          Decidim::EngineRouter.main_proxy(current_component).answer_challenge_survey_path(challenge)
+        end
+
+        def answer_options_url(params)
+          answer_options_challenge_survey_path(**params)
+        end
+
         def update_url
           challenge_surveys_form_path(challenge_id: challenge.id)
         end

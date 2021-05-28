@@ -11,6 +11,8 @@ module Decidim
 
       # Add admin engine routes here
       routes do
+        get "/answer_options", to: "challenge_survey#answer_options", as: :answer_options_challenge_survey, defaults: { format: "json" }
+
         resources :challenges do
           resource :publish, controller: "challenge_publications", only: [:create, :destroy]
 
