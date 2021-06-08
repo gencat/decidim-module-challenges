@@ -2,44 +2,28 @@
 
 module Decidim
   module Problems
-    ProblemType = GraphQL::ObjectType.define do
-      name "Problem"
+    class ProblemType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::TimestampsInterface
+
+      graphql_name "Problem"
       description "A problem"
 
-      interfaces [
-        -> { Decidim::Core::TraceableInterface },
-        -> { Decidim::Core::TimestampsInterface },
-      ]
-
-      field :id, !types.ID
-      field :title, !Decidim::Core::TranslatedFieldType, "The title of this problem (same as the component name)."
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this problem."
-      field :challenge, Decidim::Challenges::ChallengeType do
-        description "The related Challenge"
-        resolve ->(problem, _, _) {
-          problem.challenge
-        }
-      end
-      field :sectorial_scope, Decidim::Core::ScopeApiType, "The object's sectorial scope"
-      field :technological_scope, Decidim::Core::ScopeApiType, "The object's technological scope"
-      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this problem."
-      field :state, types.String, "The state for this problem."
-      field :start_date, Decidim::Core::DateType do
-        description "The start date"
-        property :start_date
-      end
-      field :end_date, Decidim::Core::DateType do
-        description "The end date"
-        property :end_date
-      end
-      field :published_at, Decidim::Core::DateTimeType do
-        description "The moment at which it was published"
-        property :published_at
-      end
-      field :causes, types.String, "The entities proposing this problem."
-      field :groups_affected, types.String, "The entities proposing this problem."
-      field :proposing_entities, types.String, "The entities proposing this problem."
-      field :collaborating_entities, types.String, "The entities collaborating with this problem."
+      field :id, GraphQL::Types::ID, null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title of this problem (same as the component name).", null: false
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this problem.", null: true
+      field :challenge, Decidim::Challenges::ChallengeType, "The related Challenge", null: true
+      field :sectorial_scope, Decidim::Core::ScopeApiType, "The object's sectorial scope", null: true
+      field :technological_scope, Decidim::Core::ScopeApiType, "The object's technological scope", null: true
+      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this problem.", null: true
+      field :state, GraphQL::Types::String, "The state for this problem.", null: true
+      field :start_date, Decidim::Core::DateType, "The start date", null: true
+      field :end_date, Decidim::Core::DateType, "The end date", null: true
+      field :published_at, Decidim::Core::DateTimeType, "The moment at which it was published", null: true
+      field :causes, GraphQL::Types::String, "The entities proposing this problem.", null: true
+      field :groups_affected, GraphQL::Types::String, "The entities proposing this problem.", null: true
+      field :proposing_entities, GraphQL::Types::String, "The entities proposing this problem.", null: true
+      field :collaborating_entities, GraphQL::Types::String, "The entities collaborating with this problem.", null: true
     end
   end
 end
