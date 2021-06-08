@@ -20,7 +20,9 @@ module Decidim::Solutions
 
     shared_examples "rendering the cell" do
       before do
+        # rubocop: disable Rails/SkipsModelValidations
         challenge.update_columns(sdg_code: sdg_code)
+        # rubocop: enable Rails/SkipsModelValidations
       end
 
       it "renders the card" do
