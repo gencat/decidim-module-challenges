@@ -10,6 +10,7 @@ module Decidim
         # form         - A form object with the params.
         # challenge - the challenge to update.
         def initialize(form, challenge)
+          super()
           @form = form
           @challenge = challenge
         end

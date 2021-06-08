@@ -5,6 +5,7 @@ Following Semantic Versioning 2.
 
 ## Version 0.0.4 (PATCH)
 - Fix solution_m_cell when the parent is a Challenge.
+- Enable all new Rubocop cops by default.
 
 ## Version 0.0.3 (MINOR)
 - Increase minimum Decidim version to 0.24.2

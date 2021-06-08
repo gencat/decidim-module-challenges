@@ -9,6 +9,7 @@ module Decidim
         #
         # page - The Problem to be destroyed.
         def initialize(problem, current_user)
+          super()
           @problem = problem
           @current_user = current_user
         end

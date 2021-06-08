@@ -9,6 +9,7 @@ module Decidim
         #
         # form - A form object with the params.
         def initialize(form)
+          super()
           @form = form
         end
 

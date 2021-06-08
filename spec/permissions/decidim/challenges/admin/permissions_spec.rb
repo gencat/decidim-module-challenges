@@ -12,9 +12,10 @@ describe Decidim::Challenges::Admin::Permissions do
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   shared_examples "access for role" do |access|
-    if access == true
+    case access
+    when true
       it { is_expected.to eq true }
-    elsif access == :not_set
+    when :not_set
       it_behaves_like "permission is not set"
     else
       it { is_expected.to eq false }

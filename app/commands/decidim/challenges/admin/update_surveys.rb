@@ -10,6 +10,7 @@ module Decidim
         # form - The form from which to get the data.
         # challenge - The current instance of the challenge to be updated.
         def initialize(form, challenge)
+          super()
           @form = form
           @challenge = challenge
         end
