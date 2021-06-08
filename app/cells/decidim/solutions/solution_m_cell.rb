@@ -67,7 +67,8 @@ module Decidim
       end
 
       def resource_sdg_index
-        model.problem.challenge.sdg_code ? (1 + Decidim::Sdgs::Sdg.index_from_code(model.problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0") : nil
+        challenge = model.problem ? model.problem.challenge : model.challenge
+        challenge.sdg_code ? (1 + Decidim::Sdgs::Sdg.index_from_code(challenge.sdg_code.to_sym)).to_s.rjust(2, "0") : nil
       end
 
       def current_organization
