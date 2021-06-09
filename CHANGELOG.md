@@ -11,6 +11,7 @@ Following Semantic Versioning 2.
 ## Version 0.0.3 (MINOR)
 - Increase minimum Decidim version to 0.24.2
 - Update Ruby to 2.7.2
+- Override public_url and answer_options_url methods in survey_form_controller for Decidim v0.24 
 
 ## Version 0.0.2 (MINOR)
 - Settings to hide filters in challenges, problems and solutions (#35)
