@@ -10,6 +10,7 @@ module Decidim
         # format - a string representing the export format
         # current_user - the user performing the action
         def initialize(challenge, format, current_user)
+          super()
           @challenge = challenge
           @format = format
           @current_user = current_user

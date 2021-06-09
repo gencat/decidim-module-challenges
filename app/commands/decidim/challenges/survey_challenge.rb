@@ -10,6 +10,7 @@ module Decidim
       # user - The user answering the survey.
       # survey_form - A form object with params; can be a questionnaire.
       def initialize(challenge, user, survey_form)
+        super()
         @challenge = challenge
         @user = user
         @survey_form = survey_form

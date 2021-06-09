@@ -10,6 +10,7 @@ module Decidim
         # challenge - A Challenge that will be published
         # current_user - the user performing the action
         def initialize(challenge, current_user)
+          super()
           @challenge = challenge
           @current_user = current_user
         end

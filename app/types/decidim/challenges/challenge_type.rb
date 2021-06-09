@@ -2,38 +2,27 @@
 
 module Decidim
   module Challenges
-    ChallengeType = GraphQL::ObjectType.define do
-      name "Challenge"
+    class ChallengeType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::TimestampsInterface
+
+      graphql_name "Challenge"
       description "A challenge"
 
-      interfaces [
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::TraceableInterface },
-        -> { Decidim::Core::TimestampsInterface },
-      ]
-
-      field :id, !types.ID
-      field :title, !Decidim::Core::TranslatedFieldType, "The title of this challenge (same as the component name)."
-      field :local_description, Decidim::Core::TranslatedFieldType, "The local description of this challenge."
-      field :global_description, Decidim::Core::TranslatedFieldType, "The global description of this challenge."
-      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this challenge."
-      field :sdg_code, types.String, "The Sustainable Development Goal this challenge is associated with."
-      field :state, types.String, "The state for this challenge."
-      field :start_date, Decidim::Core::DateType do
-        description "The start date"
-        property :start_date
-      end
-      field :end_date, Decidim::Core::DateType do
-        description "The end date"
-        property :end_date
-      end
-      field :published_at, Decidim::Core::DateTimeType do
-        description "The moment at which it was published"
-        property :published_at
-      end
-      field :coordinating_entities, types.String, "The entities coordinating this challenge."
-      field :collaborating_entities, types.String, "The entities collaborating with this challenge."
+      field :id, GraphQL::Types::ID, null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title of this challenge (same as the component name).", null: false
+      field :local_description, Decidim::Core::TranslatedFieldType, "The local description of this challenge.", null: true
+      field :global_description, Decidim::Core::TranslatedFieldType, "The global description of this challenge.", null: true
+      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this challenge.", null: true
+      field :sdg_code, GraphQL::Types::String, "The Sustainable Development Goal this challenge is associated with.", null: true
+      field :state, GraphQL::Types::String, "The state for this challenge.", null: true
+      field :start_date, Decidim::Core::DateType, "The start date", null: true
+      field :end_date, Decidim::Core::DateType, "The end date", null: true
+      field :published_at, Decidim::Core::DateTimeType, "The moment at which it was published", null: true
+      field :coordinating_entities, GraphQL::Types::String, "The entities coordinating this challenge.", null: true
+      field :collaborating_entities, GraphQL::Types::String, "The entities collaborating with this challenge.", null: true
     end
   end
 end

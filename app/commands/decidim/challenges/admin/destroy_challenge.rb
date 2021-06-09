@@ -9,6 +9,7 @@ module Decidim
         #
         # page - The Challenge to be destroyed.
         def initialize(challenge, current_user)
+          super()
           @challenge = challenge
           @current_user = current_user
         end

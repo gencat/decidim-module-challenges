@@ -10,6 +10,7 @@ module Decidim
         # form         - A form object with the params.
         # solution - the solution to update.
         def initialize(form, solution)
+          super()
           @form = form
           @solution = solution
         end

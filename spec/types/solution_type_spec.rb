@@ -21,9 +21,9 @@ module Decidim
             indicators { translation(locale: "en")}
             beneficiaries { translation(locale: "en")}
             requirements { translation(locale: "en")}
-            financing_type { translation(locale: "en")}
+            financingType { translation(locale: "en")}
             objectives { translation(locale: "en")}
-            published_at
+            publishedAt
             createdAt
             updatedAt
           }
@@ -38,9 +38,9 @@ module Decidim
           expect(response["indicators"]["translation"]).to eq(model.indicators["en"])
           expect(response["beneficiaries"]["translation"]).to eq(model.beneficiaries["en"])
           expect(response["requirements"]["translation"]).to eq(model.requirements["en"])
-          expect(response["financing_type"]["translation"]).to eq(model.financing_type["en"])
+          expect(response["financingType"]["translation"]).to eq(model.financing_type["en"])
           expect(response["objectives"]["translation"]).to eq(model.objectives["en"])
-          expect(response["published_at"]).to eq(model.published_at.to_time.iso8601)
+          expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
           expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
           expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end

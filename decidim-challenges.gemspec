@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["199462+tramuntanal@users.noreply.github.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim-module-challenges"
-  s.required_ruby_version = ">= 2.6"
+  s.required_ruby_version = "~> 2.7.2"
 
   s.name = "decidim-challenges"
   s.summary = "A decidim challenges module"
@@ -19,9 +19,8 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  CHALLENGES_DECIDIM_VER = "~> 0.24.2"
-  s.add_dependency "decidim-core", CHALLENGES_DECIDIM_VER
+  s.add_dependency "decidim-core", Decidim::Challenges.decidim_version
 
-  s.add_development_dependency "decidim", CHALLENGES_DECIDIM_VER
-  s.add_development_dependency "decidim-dev", CHALLENGES_DECIDIM_VER
+  s.add_development_dependency "decidim", Decidim::Challenges.decidim_version
+  s.add_development_dependency "decidim-dev", Decidim::Challenges.decidim_version
 end

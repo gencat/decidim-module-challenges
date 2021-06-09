@@ -2,35 +2,24 @@
 
 module Decidim
   module Solutions
-    SolutionType = GraphQL::ObjectType.define do
-      name "Solution"
+    class SolutionType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::TimestampsInterface
+
+      graphql_name "Solution"
       description "A solution"
 
-      interfaces [
-        -> { Decidim::Core::TraceableInterface },
-        -> { Decidim::Core::TimestampsInterface },
-      ]
-
-      field :id, !types.ID
-      field :title, !Decidim::Core::TranslatedFieldType, "The title of this solution (same as the component name)."
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this solution."
-      field :problem, Decidim::Problems::ProblemType do
-        description "The related Problem"
-        resolve ->(solution, _, _) {
-          solution.problem
-        }
-      end
-
-      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this solution."
-      field :indicators, Decidim::Core::TranslatedFieldType, "The indicators of this solution."
-      field :beneficiaries, Decidim::Core::TranslatedFieldType, "The beneficiaries of this solution."
-      field :requirements, Decidim::Core::TranslatedFieldType, "The requirements of this solution."
-      field :financing_type, Decidim::Core::TranslatedFieldType, "The financing_type of this solution."
-      field :objectives, Decidim::Core::TranslatedFieldType, "The objectives of this solution."
-      field :published_at, Decidim::Core::DateTimeType do
-        description "The moment at which it was published"
-        property :published_at
-      end
+      field :id, GraphQL::Types::ID, null: false
+      field :title, !Decidim::Core::TranslatedFieldType, "The title of this solution (same as the component name).", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this solution.", null: true
+      field :problem, Decidim::Problems::ProblemType, "The related Problem", null: true
+      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this solution.", null: true
+      field :indicators, Decidim::Core::TranslatedFieldType, "The indicators of this solution.", null: true
+      field :beneficiaries, Decidim::Core::TranslatedFieldType, "The beneficiaries of this solution.", null: true
+      field :requirements, Decidim::Core::TranslatedFieldType, "The requirements of this solution.", null: true
+      field :financing_type, Decidim::Core::TranslatedFieldType, "The financing_type of this solution.", null: true
+      field :objectives, Decidim::Core::TranslatedFieldType, "The objectives of this solution.", null: true
+      field :published_at, Decidim::Core::DateTimeType, "The moment at which it was published", null: true
     end
   end
 end

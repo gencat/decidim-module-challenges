@@ -29,19 +29,19 @@ module Decidim
         end
       end
 
-      describe "local_description" do
-        let(:query) { '{ local_description { translation(locale: "en")}}' }
+      describe "local description" do
+        let(:query) { '{ localDescription { translation(locale: "en")}}' }
 
         it "returns the required value" do
-          expect(response["local_description"]["translation"]).to eq(model.local_description["en"])
+          expect(response["localDescription"]["translation"]).to eq(model.local_description["en"])
         end
       end
 
-      describe "global_description" do
-        let(:query) { '{ global_description { translation(locale: "en")}}' }
+      describe "global description" do
+        let(:query) { '{ globalDescription { translation(locale: "en")}}' }
 
         it "returns the required value" do
-          expect(response["global_description"]["translation"]).to eq(model.global_description["en"])
+          expect(response["globalDescription"]["translation"]).to eq(model.global_description["en"])
         end
       end
 
@@ -53,11 +53,11 @@ module Decidim
         end
       end
 
-      describe "sdg_code" do
-        let(:query) { "{ sdg_code }" }
+      describe "sdgcode" do
+        let(:query) { "{ sdgCode }" }
 
         it "returns the required value" do
-          expect(response["sdg_code"]).to eq(model.sdg_code)
+          expect(response["sdgCode"]).to eq(model.sdg_code)
         end
       end
 
@@ -72,30 +72,30 @@ module Decidim
       describe "dates and times" do
         let(:query) { <<~EOQUERY }
           {
-            start_date
-            end_date
-            published_at
+            startDate
+            endDate
+            publishedAt
           }
         EOQUERY
 
         it "returns the required values" do
-          expect(response["start_date"]).to eq(model.start_date.to_date.iso8601)
-          expect(response["end_date"]).to eq(model.end_date.to_date.iso8601)
-          expect(response["published_at"]).to eq(model.published_at.to_time.iso8601)
+          expect(response["startDate"]).to eq(model.start_date.to_date.iso8601)
+          expect(response["endDate"]).to eq(model.end_date.to_date.iso8601)
+          expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
         end
       end
 
       describe "entities" do
         let(:query) { <<~EOQUERY }
           {
-            coordinating_entities
-            collaborating_entities
+            coordinatingEntities
+            collaboratingEntities
           }
         EOQUERY
 
         it "returns the required values" do
-          expect(response["coordinating_entities"]).to eq(model.coordinating_entities)
-          expect(response["collaborating_entities"]).to eq(model.collaborating_entities)
+          expect(response["coordinatingEntities"]).to eq(model.coordinating_entities)
+          expect(response["collaboratingEntities"]).to eq(model.collaborating_entities)
         end
       end
 

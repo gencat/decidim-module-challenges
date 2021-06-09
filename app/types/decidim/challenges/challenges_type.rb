@@ -2,24 +2,24 @@
 
 module Decidim
   module Challenges
-    ChallengesType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class ChallengesType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Challenges"
+      graphql_name "Challenges"
       description "A challenges component of a participatory space."
 
-      connection :challenges, ChallengeType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  ChallengesTypeHelper.base_scope(component).includes(:component)
-                }
+      field :challenges, ChallengeType.connection_type, null: true, connection: true
+
+      def challenges
+        ChallengesTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:challenge, ChallengeType) do
-        argument :id, !types.ID
+      field(:challenge, ChallengeType, null: true) do
+        argument :id, GraphQL::Types::ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          ChallengesTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def challenge(**args)
+        ChallengesTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 

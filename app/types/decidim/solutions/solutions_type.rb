@@ -2,24 +2,24 @@
 
 module Decidim
   module Solutions
-    SolutionsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class SolutionsType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Solutions"
+      graphql_name "Solutions"
       description "A solutions component of a participatory space."
 
-      connection :solutions, SolutionType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  SolutionsTypeHelper.base_scope(component).includes(:component)
-                }
+      field :solutions, SolutionType.connection_type, null: true, connection: true
+
+      def solutions
+        SolutionsTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:solution, SolutionType) do
-        argument :id, !types.ID
+      field(:solution, SolutionType, null: true) do
+        argument :id, GraphQL::Types::ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          SolutionsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def solution(**args)
+        SolutionsTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 
