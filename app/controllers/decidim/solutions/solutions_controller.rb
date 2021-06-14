@@ -23,10 +23,10 @@ module Decidim
       def show
         @solution = solution
         if @solution.problem.present?
-          @sdg_index = sdg_index if @solution.problem.challenge.sdg_code.present?
           @sectorial_scope = sectorial_scope
           @technological_scope = technological_scope
         end
+        @sdg_index = sdg_index if @solution.problem.present? || @solution.challenge.present?
         @challenge_scope = challenge_scope
       end
 
@@ -67,7 +67,8 @@ module Decidim
       end
 
       def sdg_index
-        @sdg_index ||= (1 + Decidim::Sdgs::Sdg.index_from_code(@solution.problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0")
+        challenge = @solution.problem ? @solution.problem.challenge : @solution.challenge
+        @sdg_index ||= challenge.sdg_code ? (1 + Decidim::Sdgs::Sdg.index_from_code(challenge.sdg_code.to_sym)).to_s.rjust(2, "0") : nil
       end
 
       def challenge_scope
