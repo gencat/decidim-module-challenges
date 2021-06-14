@@ -5,6 +5,7 @@ Following Semantic Versioning 2.
 
 ## Version 0.0.5 (PATCH)
 - Fix solution detail don't render SDG when the parent is a Challenge.
+- Increase Rspec suite timeout to 15 minutes.
 
 ## Version 0.0.4 (PATCH)
 - Fix solution_m_cell when the parent is a Challenge.

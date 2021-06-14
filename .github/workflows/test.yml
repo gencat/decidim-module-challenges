@@ -77,7 +77,7 @@ jobs:
       - name: Run RSpec
         uses: nick-invision/retry@v2
         with:
-          timeout_minutes: 10
+          timeout_minutes: 15
           max_attempts: 3
           retry_on: error
           command: CI=1 CHALLENGES_SIMPLECOV=1 bundle exec rake --backtrace -t
