@@ -26,9 +26,7 @@ module Decidim
           @sectorial_scope = sectorial_scope
           @technological_scope = technological_scope
         end
-        if @solution.problem.present? || @solution.challenge.present?
-          @sdg_index = sdg_index
-        end
+        @sdg_index = sdg_index if @solution.problem.present? || @solution.challenge.present?
         @challenge_scope = challenge_scope
       end
 
