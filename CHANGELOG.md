@@ -4,7 +4,7 @@ Following Semantic Versioning 2.
 ## next version:
 
 ## Version 0.0.5 (PATCH)
-- Fix solution detail when the parent is a Challenge.
+- Fix solution detail don't render SDG when the parent is a Challenge.
 
 ## Version 0.0.4 (PATCH)
 - Fix solution_m_cell when the parent is a Challenge.
