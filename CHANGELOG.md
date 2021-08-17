@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.6 (MINOR)
+- Make titles longer
+
 ## Version 0.0.5 (PATCH)
 - Fix solution detail don't render SDG when the parent is a Challenge.
 - Increase Rspec suite timeout to 15 minutes.
