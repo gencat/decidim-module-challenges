@@ -12,7 +12,7 @@ module Decidim
         mimic :challenge
 
         translatable_attribute :title, String do |field, _locale|
-          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
+          validates field, length: { in: 5..150 }, if: proc { |resource| resource.send(field).present? }
         end
         translatable_attribute :local_description, String
         translatable_attribute :global_description, String

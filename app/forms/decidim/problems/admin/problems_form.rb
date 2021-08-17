@@ -11,7 +11,7 @@ module Decidim
         mimic :problem
 
         translatable_attribute :title, String do |field, _locale|
-          validates field, length: { in: 5..50 }, if: proc { |resource| resource.send(field).present? }
+          validates field, length: { in: 5..150 }, if: proc { |resource| resource.send(field).present? }
         end
         translatable_attribute :description, String
 
