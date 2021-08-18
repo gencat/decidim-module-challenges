@@ -30,7 +30,8 @@ module Decidim
       end
 
       def resource_description
-        translated_attribute model.description
+        text= translated_attribute(model.description)
+        decidim_sanitize(html_truncate(text, length: 100))
       end
 
       def resource_state
