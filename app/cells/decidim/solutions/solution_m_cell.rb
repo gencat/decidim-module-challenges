@@ -27,7 +27,8 @@ module Decidim
       end
 
       def description
-        translated_attribute model.description
+        text = translated_attribute(model.description)
+        decidim_sanitize(html_truncate(text, length: 100))
       end
 
       def solution_path
