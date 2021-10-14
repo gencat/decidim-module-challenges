@@ -104,6 +104,10 @@ oc:
           form:
             edit: Edita enquesta
             title: Enquesta
+          index:
+            title: "%{total} respostes totals"
+          show:
+            title: 'Resposta #%{number}'
           update:
             invalid: S'ha produït un error a l'desar la configuració de l'enquesta.
             success: La configuració de l'enquesta de l'repte s'ha guardat correctament.

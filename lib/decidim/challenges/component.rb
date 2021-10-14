@@ -50,4 +50,15 @@ Decidim.register_component(:challenges) do |component|
   component.seeds do |participatory_space|
     # Add some seeds for this component
   end
+
+  component.exports :answers do |exports|
+    exports.collection do |f|
+      survey = Decidim::Challenges::Challenge.find_by(component: f)
+      Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
+    end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.serializer Decidim::Forms::UserAnswersSerializer
+  end
 end

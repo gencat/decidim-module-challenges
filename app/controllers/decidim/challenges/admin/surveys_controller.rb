@@ -5,6 +5,17 @@ module Decidim
     module Admin
       # This controller allows an admin to manage surveys from a challenge
       class SurveysController < Admin::ApplicationController
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaire
+
+        def index
+          enforce_permission_to :index, :questionnaire_answers
+
+          @query = paginate(collection)
+          @participants = participants(@query)
+          @total = participants_query.count_participants
+        end
+
         def edit
           enforce_permission_to :edit, :challenge, challenge: challenge
 
@@ -39,10 +50,49 @@ module Decidim
           end
         end
 
+        def export_response
+          enforce_permission_to :export_answers, :questionnaire
+
+          session_token = params[:session_token]
+          answers = Decidim::Forms::QuestionnaireUserAnswers.for(questionnaire)
+          title = t("export_response.title", scope: i18n_scope, token: session_token)
+          Decidim::Forms::ExportQuestionnaireAnswersJob.perform_later(current_user, title, answers.select { |a| a.first.session_token == session_token })
+
+          flash[:notice] = t("decidim.admin.exports.notice")
+
+          redirect_back(fallback_location: questionnaire_participant_answers_url(session_token))
+        end
+
+        def show
+          enforce_permission_to :show, :questionnaire_answers
+
+          @participant = participant(participants_query.participant(params[:session_token]))
+        end
+
+        def questionnaire_participants_url
+          index_answers_challenge_surveys_path
+        end
+
+        def questionnaire_participant_answers_url(session_token)
+          show_answers_challenge_surveys_url(session_token: session_token)
+        end
+
+        def questionnaire_export_response_url(session_token)
+          export_response_challenge_surveys_url(session_token: session_token, format: "pdf")
+        end
+
+        def questionnaire_for
+          challenge
+        end
+
         private
 
         def challenge
           @challenge ||= Challenge.where(component: current_component).find(params[:challenge_id])
+        end
+        
+        def participants_query
+          Decidim::Forms::QuestionnaireParticipants.new(questionnaire)
         end
       end
     end

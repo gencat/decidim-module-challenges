@@ -106,6 +106,10 @@ es:
           form:
             edit: Editar encuesta
             title: Encuesta
+          index:
+            title: "%{total} respuestas totales"
+          show:
+            title: 'Respuesta #%{number}'
           update:
             invalid: Se ha producido un error al guardar la configuración de la encuesta.
             success: La configuración de la encuesta del reto se ha guardado correctamente.
