@@ -5,6 +5,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage the form to be filled when an user answer a survey
       class SurveyFormController < Admin::ApplicationController
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
 
         def questionnaire_for
@@ -13,6 +14,10 @@ module Decidim
 
         def public_url
           Decidim::EngineRouter.main_proxy(current_component).answer_challenge_survey_path(challenge)
+        end
+
+        def questionnaire_participants_url
+          index_answers_challenge_surveys_path(challenge_id: challenge.id)
         end
 
         def answer_options_url(params)

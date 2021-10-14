@@ -19,6 +19,9 @@ module Decidim
           resource :surveys, only: [:edit, :update] do
             resource :form, only: [:edit, :update], controller: "survey_form"
             collection do
+              get :index_answers, action: :index
+              get :show_answers, action: :show
+              get :export_response, action: :export_response
               get :export
             end
           end

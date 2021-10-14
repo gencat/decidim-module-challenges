@@ -16,6 +16,10 @@ describe "Admin manages challenge survey", type: :system do
 
   include_context "when managing a component as an admin"
 
+  it_behaves_like "manage questionnaires"
+  it_behaves_like "manage questionnaire answers"
+  it_behaves_like "export survey user answers"
+
   context "when survey is not published" do
     before do
       component.unpublish!

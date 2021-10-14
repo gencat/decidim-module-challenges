@@ -2,6 +2,7 @@
 
 require "rails"
 require "decidim/core"
+require "wicked_pdf"
 
 module Decidim
   module Challenges

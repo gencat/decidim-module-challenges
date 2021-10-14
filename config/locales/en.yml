@@ -113,6 +113,10 @@ en:
           form:
             edit: Edit survey
             title: Survey
+          index:
+            title: "%{total} total answers"
+          show:
+            title: 'Answer #%{number}'
           update:
             invalid: An error occurred while saving survey.
             success: The challenge survey have been successfully saved.
