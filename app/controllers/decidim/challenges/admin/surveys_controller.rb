@@ -90,7 +90,7 @@ module Decidim
         def challenge
           @challenge ||= Challenge.where(component: current_component).find(params[:challenge_id])
         end
-        
+
         def participants_query
           Decidim::Forms::QuestionnaireParticipants.new(questionnaire)
         end

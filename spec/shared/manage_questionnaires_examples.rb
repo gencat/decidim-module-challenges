@@ -12,7 +12,7 @@ shared_examples_for "manage questionnaires" do
     {
       en: "This is the first question",
       ca: "Aquesta es la primera pregunta",
-      es: "Esta es la primera pregunta"
+      es: "Esta es la primera pregunta",
     }
   end
 
@@ -24,7 +24,7 @@ shared_examples_for "manage questionnaires" do
     new_description = {
       en: "<p>New description</p>",
       ca: "<p>Nova descripció</p>",
-      es: "<p>Nueva descripción</p>"
+      es: "<p>Nueva descripción</p>",
     }
 
     within "form.edit_questionnaire" do
@@ -98,13 +98,11 @@ shared_examples_for "manage questionnaires" do
     "[id$=#{attribute}]"
   end
 
-  def within_add_display_condition
+  def within_add_display_condition(&block)
     within ".questionnaire-question:last-of-type" do
       click_button "Add display condition"
 
-      within ".questionnaire-question-display-condition:last-of-type" do
-        yield
-      end
+      within ".questionnaire-question-display-condition:last-of-type", &block
     end
   end
 
