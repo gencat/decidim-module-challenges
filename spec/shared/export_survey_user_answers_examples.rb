@@ -55,8 +55,8 @@ shared_examples "export survey user answers" do
       expect(page).to have_content("in progress")
     end
 
-    expect(last_email.subject).to include("survey_user_answers", "pdf")
+    expect(last_email.subject).to include("answers", "pdf")
     expect(last_email.attachments.length).to be_positive
-    expect(last_email.attachments.first.filename).to match(/^survey_user_answers.*\.zip$/)
+    expect(last_email.attachments.first.filename).to match(/^answers.*\.zip$/)
   end
 end
