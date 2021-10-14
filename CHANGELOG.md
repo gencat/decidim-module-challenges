@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.8 (MINOR)
+- Surveys in Challenges: show survey's answers and exportation.
+
 ## Version 0.0.7 (MINOR)
 - Truncate description in cards to 100 chars max
 
