@@ -15,6 +15,18 @@ module Decidim
           ]
         )
       end
+
+      def challenge_associated_solutions(challenge)
+        solutions_component = Decidim::Component.find_by(participatory_space: challenge.participatory_space, manifest_name: "solutions")
+        return [] unless solutions_component&.published?
+
+        problems_component = Decidim::Component.find_by(participatory_space: challenge.participatory_space, manifest_name: "problems")
+        if problems_component&.published?
+          challenge.problems.published.map { |problem| problem.solutions.published }.flatten
+        else
+          challenge.solutions.published
+        end
+      end
     end
   end
 end

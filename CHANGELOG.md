@@ -4,6 +4,7 @@ Following Semantic Versioning 2.
 ## next version:
 
 ## Version 0.0.7 (MINOR)
+- Fix: show solutions only when everything is published
 - Truncate description in cards to 100 chars max
 
 ## Version 0.0.6 (MINOR)
