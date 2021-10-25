@@ -1,0 +1,671 @@
+---
+cs:
+  activemodel:
+    attributes:
+      challenge:
+        col_entity: Spolupracující subjekt
+        coord_entity: Koordinační subjekt
+        end_date: Datum ukončení
+        global_description: Popis globálních výzev
+        local_description: Popis místních výzev
+        scope: Území
+        sdg: Cíle udržitelného rozvoje
+        start_date: Datum zahájení
+        status: Stav
+        tags: Značky
+        title: Nadpis
+      problem:
+        causes: Důvody
+        challenge: Výzva
+        groups_affected: Dotčené skupiny
+        col_entity: Spolupracující subjekt
+        decidim_sectorial_scope_id: Působnost v odvětví
+        decidim_technological_scope_id: Technologická působnost
+        description: Popis
+        end_date: datum ukončení
+        groups_affected: Dotčené komunity
+        prop_entity: Navrhující subjekt
+        published: Publikováno
+        sdg: Cíle udržitelného rozvoje
+        start_date: Datum zahájení
+        status: Stav
+        tags: Klíčová slova
+        title: Nadpis
+      solution:
+        beneficiaries: Příjemci
+        description: Popis
+        financing_type: Typ financování
+        indicators: Indikátory
+        objectives: Cíle
+        problem: Problém
+        published: Publikováno
+        requirements: Požadavky
+        sdg: Cíle udržitelného rozvoje
+        scope: Území
+        tags: Značky
+        title: Nadpis
+  decidim:
+    challenges:
+      admin:
+        actions:
+          configure: Konfigurace
+          confirm_destroy: Opravdu chcete smazat %{name}?
+          destroy: Smazat
+          new_challenge: Nová výzva
+          publish: Zveřejnit
+          unpublish: Zneveřejnit
+          view: Zobrazit výzvu
+        challenge_publications:
+          create:
+            error: Při zveřejňování této výzvy došlo k problému
+            success: Výzva byla úspěšně publikována
+          destroy:
+            error: Při zrušení této výzvy došlo k problému
+            success: Úspěšně zrušeno zveřejnění výzvy
+        challenges:
+          create:
+            error: Při vytváření této výzvy došlo k problému
+            success: Výzva úspěšně vytvořena
+          destroy:
+            error: Při mazání této výzvy došlo k problému
+            has_problems: Tuto výzvu nebylo možné smazat kvůli souvisejícím problémům
+            success: Výzva byla úspěšně smazána
+          edit:
+            update: Aktualizovat
+          form:
+            duration: Trvání
+            select_states: Vybrat stav
+          new:
+            create: Nová
+            title: Nová výzva
+          update:
+            error: Při aktualizaci této výzvy došlo k problému
+            success: Výzva byla úspěšně aktualizována
+        challenge_publications:
+          create:
+            error: Při zveřejňování této výzvy došlo k problému
+            success: Výzva byla správně publikována
+          destroy:
+            error: Při zrušení této výzvy došlo k problému
+            success: Úspěšně zrušeno zveřejnění výzvy
+        models:
+          challenge:
+            fields:
+              created_at: Vytvořeno
+              end_date: Datum ukončení
+              published: Zveřejněno
+              sdg: SDG
+              start_date: Datum zahájení
+              state: Stav
+              tags: Značky
+              title: Nadpis
+        titles:
+          challenges_list: Seznam výzev
+      show:
+        associated_problems: Související problémy
+        proposed_solutions: Navrhovaná řešení
+        return_to_list: Zpět k seznamu
+      challenges:
+        challenges:
+          empty: Nenalezeny žádné výzvy
+          empty_filters: Nebyly nalezeny žádné výzvy
+        count:
+          challenges_count:
+            one: "%{count} výzva"
+            other: "%{count} výzvy"
+        filters:
+          all: Vše
+          category: Kategorie
+          execution: Provedení
+          finished: Dokončeno
+          proposal: Návrh
+          related_to: Souvisí s
+          scope: Rozsah působnosti
+          search: Hledat
+          state: Stav
+        filters_small_view:
+          close_modal: Zavřít okno
+          filter: Filtrovat
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
+        orders:
+          label: test
+          random: Náhodně
+          recent: Nejnovější
+      challenges_helper:
+        filter_state_values:
+          all: Vše
+          execution: Provedení
+          finished: Dokončeno
+          proposal: Návrh
+      index:
+        not_published: Nezveřejněno
+        published: Zveřejněno
+        title: test
+      states:
+        execution: Provedení
+        finished: Dokončeno
+        proposal: Návrh
+    components:
+      challenges:
+        name: Výzvy
+      problems:
+        name: Problémy
+      solutions:
+        name: Řešení
+      sdgs:
+        clean_energy:
+          logo:
+            line1: DOSTUPNÁ A
+            line2: ČISTÁ ENERGIE
+          objectives:
+            objective1: Do roku 2030 zajistit všem přístup k cenově dostupným, spolehlivým a moderním energetickým službám
+            objective2: Do roku 2030 podstatně zvýšit podíl energie z obnovitelných zdrojů na celosvětovém energetickém mixu
+            objective3: Do roku 2030 celosvětově zdvojnásobit energetickou účinnost
+            objective4: Do roku 2030 zlepšit mezinárodní spolupráci ve zpřístupňování výzkumu a technologií čisté energie, včetně energie z obnovitelných zdrojů, energetické účinnosti a pokročilých a čistších technologií fosilních paliv; podporovat investice do energetické infrastruktury a technologií čisté energie
+            objective5: Do roku 2030 rozšířit infrastrukturu a vylepšit technologie pro dodávky moderních a udržitelných energetických služeb pro všechny v rozvojových zemích, zejména v nejméně rozvinutých a malých ostrovních rozvojových státech
+            subtitle: Zajistit přístup k cenově dostupným, spolehlivým, udržitelným a moderním zdrojům energie pro všechny
+            title: Cíl 7
+        clean_water:
+          logo:
+            line1: PITNÁ VODA,
+            line2: KANALIZACE
+          objectives:
+            objective1: Do roku 2030 zajistit univerzální a rovný přístup k bezpečné a cenově dostupné pitné vodě pro všechny
+            objective2: Do roku 2030 zajistit spravedlivě všem odpovídající sanitační a hygienická zařízení a skoncovat s vylučováním na volných prostranstvích, se zvláštním ohledem na potřeby žen, dívek a lidí v těžké situaci
+            objective3: Do roku 2030 zlepšit kvalitu vody snížením jejího znečišťování, zamezením vyhazování odpadů do vody a minimalizací vypouštění nebezpečných chemických látek do vody, snížit na polovinu podíl znečistěných odpadních vod a podstatně zvýšit recyklaci a bezpečné opětovné využívání vody v celosvětovém měřítku
+            objective4: Do roku 2030 podstatně zvýšit efektivitu využívání vody ve všech sektorech a zajistit udržitelný odběr a dodávky pitné vody tak, aby byl vyřešen nedostatek vody a podstatně se snížil počet lidí trpících jejím nedostatkem
+            objective5: Do roku 2030 zavést integrovanou správu vodních zdrojů na všech úrovních, a to i pomocí přeshraniční spolupráce tam, kde je to vhodné
+            objective6: Do roku 2020 zajistit ochranu a obnovu ekosystémů související s vodou, včetně hor, lesů, mokřad, řek, zvodní (aquifers) a jezer
+            objective7: Do roku 2030 rozšířit mezinárodní spolupráci a podporu budování kapacit v rozvojových zemích v rámci programů a činností souvisejících s vodou a sanitačními zařízeními zahrnující zadržování, odsolování a efektivní využívání vody, čištění odpadních vod a využívání technologií pro recyklaci a opětovné využívání vody
+            objective8: Podporovat a posilovat zapojení místních komunit do zlepšování správy vodních zdrojů a sanitačních zařízení
+            subtitle: Zajistit všem dostupnost vody a sanitačních zařízení a udržitelné hospodaření s nimi
+            title: Cíl 6
+        climate_action:
+          logo:
+            line1: KLIMATICKÁ
+            line2: OPATŘENÍ
+          objectives:
+            objective1: Ve všech zemích zvýšit odolnost a schopnost adaptace na nebezpečí související s klimatem a přírodními pohromami
+            objective2: Začlenit opatření v oblasti změny klimatu do národních politik, strategií a plánování
+            objective3: Zlepšit vzdělávání a zvyšování povědomí o klimatické změně, rozšířit lidské i institucionální kapacity pro zmírňování změny klimatu, adaptaci na ni, snižování jejích dopadů a včasné varování
+            objective4: Uvést do praxe závazek přijatý vyspělými zeměmi v Rámcové úmluvě OSN o změně klimatu a do roku 2020 společně dát k dispozici ze všech zdrojů 100 miliard ročně na řešení potřeb rozvojových zemí v souvislosti se smysluplnými opatřeními na zmírňování a transparentností při jejich zavádění a plně zprovoznit Zelený klimatický fond v co nejkratší době
+            objective5: Podporovat mechanismy pro zvyšování kapacit pro efektivní plánování a řízení v oblasti změny klimatu v nejméně rozvinutých zemích, se zaměřením na ženy, mládež, místní a přehlížené komunity
+            subtitle: Přijmout bezodkladná opatření na boj se změnou klimatu a zvládání jejích dopadů
+            title: Cíl 13
+        decent_work:
+          logo: 
+            line1: DŮSTOJNÁ PRÁCE A
+            line2: EKONOMICKÝ RŮST
+            line3: ''
+          objectives:
+            objective1: Udržovat ekonomický růst na hlavu v závislosti na podmínkách jednotlivých zemí, zejména minimálně 7procentní růst HDP ročně v nejméně rozvinutých zemích
+            objective2: Dosáhnout vyšší úrovně ekonomické produktivity pomocí diverzifikace, technologického rozvoje a inovací, mimo jiné také zaměřením se na odvětví s vysokou přidanou hodnotou a s vysokým podílem lidské práce
+            objective3: Podporovat politiky orientované na rozvoj, které podporují produktivní činnosti, vytváření důstojných pracovních míst, podnikání, kreativitu a inovace, a podporují vznik a růst mikropodniků, malých a středních podniků, mimo jiné prostřednictvím zpřístupňování finančních služeb
+            objective4: Postupně až do roku 2030 zlepšovat efektivní využívání globálních zdrojů ve spotřebě i výrobě a učinit vše potřebné pro to, aby ekonomický růst nebyl spojen s poškozováním životního prostředí, v souladu s desetiletým rámcovým programem trvale udržitelné spotřeby a výroby, v jehož čele stojí rozvinuté země
+            objective5: Do roku 2030 dosáhnout plné a produktivní zaměstnanosti a zajistit důstojnou práci pro všechny ženy a muže, včetně mladých lidí a osob se zdravotním postižením, a zajistit stejnou odměnu za rovnocennou práci
+            objective6: Do roku 2020 podstatně snížit podíl mladých lidí, kteří nepracují ani nestudují
+            objective7: Přijmout okamžitá a účinná opatření k vymýcení nucené práce, skoncovat s moderními formami otroctví a s obchodováním s lidmi a dosáhnout zákazu a odstranění nejhorších forem dětské práce, včetně náboru a využívání dětských vojáků, a do roku 2025 odstranit dětskou práci ve všech jejích formách
+            objective8: Chránit práva a podporovat bezpečné a stabilní pracovní podmínky pro všechny pracující, včetně pracujících migrantů – zejména žen, a lidí s nebezpečným povoláním
+            objective9: Do roku 2030 navrhnout a realizovat politiky podpory udržitelného cestovního ruchu, který vytváří pracovní místa a podporuje místní kulturu a produkty
+            objective10: Posílit kapacitu domácích finančních institucí na podporu a rozšíření přístupu k bankovnictví, pojišťovnictví a finančním službám pro všechny
+            objective11: Zvýšit podporu konceptu „Pomoc na podporu obchodu“ (Aid for Trade) pro rozvojové země, zejména těch nejméně rozvinutých, mimo jiné prostřednictvím programu „Prohloubený integrovaný rámec obchodní technické asistsence pro nejméně rozvinuté státy (Enhanced Integrated Framework for Trade-Related Technical Assistance to Least Developed Countries, EIF)
+            objective12: Do roku 2020 rozvinout a uvést v život globální strategii pro zaměstnávání mladých a realizovat Globální pakt pro pracovní místa Mezinárodní organizace práce
+            subtitle: Podporovat trvalý, inkluzivní a udržitelný hospodářský růst, plnou a produktivní zaměstnanost a důstojnou práci pro všechny
+            title: Cíl 8
+        description: Provádění Agendy OSN pro udržitelný rozvoj 2030, přijaté 25. září 2015, se řídí 17 cíli udržitelného rozvoje (SDG) - univerzálními, inkluzivními a ambiciózními cíli. , zdraví, vzdělávání, nerovnost, začlenění, ekonomická prosperita, ochrana planety, boj proti změně klimatu, města a území, energie, udržitelná spotřeba a výroba a správa.
+        gender_equality:
+          logo:
+            line1: ROVNOST
+            line2: MUŽŮ A ŽEN
+          objectives:
+            objective1: Celosvětově skoncovat se všemi formami diskriminace žen a dívek
+            objective2: Eliminovat všechny formy násilí vůči ženám a dívkám ve veřejné i soukromé sféře, včetně obchodu s lidmi a sexuálního či jiného vykořisťování
+            objective3: Odstranit všechny škodlivé praktiky jako jsou dětské, předčasné a nucené sňatky či ženská obřízka
+            objective4: Uznávat a oceňovat neplacenou péči a domácí práce pomocí zajištění veřejných služeb, infrastruktury a politik sociální ochrany a prosazování sdílené odpovědnosti v rámci domácnosti a rodiny podle zvyklostí dané země
+            objective5: Zajistit ženám rovné příležitosti a plnou a efektivní účast na rozhodování na všech úrovních v politickém, ekonomickém i veřejném životě
+            objective6: Zajistit všeobecnou dostupnost služeb sexuálního a reprodukčního zdraví a reprodukčního práva, jak bylo dohodnuto v souladu s Akčním programem Mezinárodní konference o populaci a rozvoji a Pekingskou akční platformou a závěrečnými dokumenty návazných konferencí
+            objective7: Provést reformy, které ženám zajistí rovná práva k ekonomickým zdrojům, možnost vlastnictví a hospodaření s pozemky i dalších forem vlastnictví, přístup k finančním službám, dědictví a přírodním zdrojům v souladu s národní legislativou
+            objective8: Rozšířit možnosti využívání moderních technologií, zejména informačních a komunikačních, pro posilování postavení žen
+            objective9: Přijmout a posílit vhodné politiky a vymahatelné právní předpisy pro prosazování rovnosti žen a mužů a posilování postavení žen a dívek ve všech sférách
+            subtitle: Dosáhnout genderové rovnosti a posílit postavení všech žen a dívek
+            title: Cíl 5
+        good_health:
+          logo:
+            line1: ZDRAVÍ
+            line2: A KVALITNÍ ŽIVOT
+          objectives:
+            objective1: Do roku 2030 celosvětově snížit míru mateřské úmrtnosti na méně než 70 na 100 tisíc porodů
+            objective2: Do roku 2030 zabránit úmrtím novorozenců a dětí mladších pěti let, jimž je možné předejít. Všechny země budou usilovat o snížení novorozenecké úmrtnosti na úroveň maximálně 12 úmrtí na 1000 živě narozených dětí a snížení úmrtnosti dětí mladších pěti let na úroveň 25 a méně na 1000 živě narozených dětí
+            objective3: Do roku 2030 ukončit epidemii AIDS, tuberkulózy, malárie a zanedbávaných tropických nemocí a bojovat proti hepatitidě, vodou přenášeným nemocem a ostatním přenosným nemocem
+            objective4: Do roku 2030 snížit pomocí prevence a léčby o třetinu předčasnou úmrtnost na nepřenosné choroby; podporovat duševní zdraví a duševní pohodu
+            objective5: Posílit prevenci a léčbu užívání návykových látek, včetně užívání narkotik a škodlivého užívání alkoholu
+            objective6: Do roku 2020 celosvětově snížit na polovinu počet úmrtí a zranění při dopravních nehodách
+            objective7: Do roku 2030 zajistit všeobecný přístup ke službám pro sexuální a reprodukční zdraví, jako jsou programy plánovaného rodičovství, informace a vzdělávání nebo zahrnutí problematiky reprodukčního zdraví do národních strategií a programů
+            objective8: Docílit všeobecného zabezpečení zdraví, včetně ochrany finančních rizik, přístupu ke kvalitní základní zdravotní péči a přístupu k bezpečným, účinným, kvalitním a cenově dostupným základním léčivům a očkovacím látkám pro všechny
+            objective9: Do roku 2030 podstatně snížit počet úmrtí a onemocnění vlivem nebezpečných chemických látek a znečištěného vzduchu, vody a půdy
+            objective10: Posílit uplatňování rámcové úmluvy Světové zdravotnické organizace (WHO) o kontrole tabáku ve všech zemích dle potřeby
+            objective11: Podporovat výzkum a vývoj vakcín a léků na přenosné i nepřesné choroby, které primárně postihují především rozvojové země, poskytnout přístup k cenově dostupným základním lékům a vakcínám v souladu s Deklarací z Dohá o Dohodě TRIPS a veřejném zdraví, která potvrzuje právo rozvojových zemí plně využít ujednání v Dohodě o obchodních aspektech práv k duševnímu vlastnictví, pokud jde o flexibilitu v ochraně veřejného zdraví a zejména v přístupu k lékům pro všechny
+            objective12: Podstatně zvýšit financování zdravotnictví a nábor, rozvoj, školení a retence pracovníků ve zdravotnictví v rozvojových zemích, zejména v těch nejméně rozvinutých a v malých ostrovních rozvojových státech
+            objective13: Zvýšit kapacitu všech zemí, zejména rozvojových, pro včasné varování, snižování rizik a řízení národních a globálních zdravotních rizik
+            subtitle: Zajistit zdravý život a zvyšovat jeho kvalitu pro všechny v jakémkoli věku
+            title: Cíl 3
+        iiai:
+          logo:
+            line1: PRŮMYSL, INOVACE
+            line2: A INFRASTRUKTURA
+            line3: ''
+          objectives:
+            objective1: Rozvinout kvalitní, spolehlivou, udržitelnou a odolnou infrastrukturu, zahrnující i regionální a přeshraniční infrastrukturu, na podporu ekonomického rozvoje a zvýšené kvality života, se zaměřením na ekonomicky dostupný a rovný přístup pro všechny
+            objective2: Podporovat inkluzivní a udržitelnou industrializaci a do roku 2030 významně zvýšit podíl průmyslu na zaměstnanosti a HDP, a to s ohledem na podmínky v jednotlivých zemích, a zdvojnásobit jeho podíl v nejméně rozvinutých státech
+            objective3: Zlepšit přístup malých průmyslových a jiných podniků – zejména v rozvojových zemích – k finančním službám, včetně dostupných úvěrů, a jejich začleňování do hodnotových řetězců a trhů
+            objective4: Do roku 2030 zmodernizovat infrastrukturu a zdokonalit vybavení průmyslových podniků tak, aby byly udržitelné, účinněji využívaly zdroje; dále využívat více čistých a k životnímu prostředí šetrných technologií a výrobních procesů; zapojí se všechny státy s ohledem na své možnosti
+            objective5: Posílit vědecký výzkum, zlepšit technologickou vybavenost průmyslových odvětví ve všech zemích, zejména rozvojových, a do roku 2030 podporovat inovace a významně zvýšit počet výzkumných a vývojových pracovníků na jeden milion obyvatel a výdaje na soukromý i veřejný výzkum a vývoj
+            objective6: Napomáhat rozvoji udržitelné a odolné infrastruktury v rozvojových zemích prostřednictvím lepší finanční, technologické a technické podpory africkým, nejméně rozvinutým, vnitrozemským rozvojovým a malým ostrovním rozvojovým státům
+            objective7: Podporovat rozvoj technologií, výzkumu a inovací v rozvojových zemích, včetně zajišťování příznivého politického prostředí mimo jiné pro průmyslovou diverzifikaci a výrobu zboží s přidanou hodnotou
+            objective8: Výrazně zvýšit přístup k informačním a komunikačním technologiím a usilovat o poskytování všeobecného a cenově dostupného přístupu k internetu v nejméně rozvinutých státech do roku 2020
+            subtitle: Vybudovat odolnou infrastrukturu, podporovat inkluzivní a udržitelnou industrializaci a inovace
+            title: Cíl 9
+        life_below_water:
+          logo:
+            line1: ŽIVOT
+            line2: VE VODÉ
+          objectives:
+            objective1: Do roku 2025 předcházet a výrazně snižovat znečištění moří, zejména znečištění, které je způsobováno činností na pevnině, včetně odpadků a znečištění z živin
+            objective2: Do roku 2020 udržitelně spravovat a chránit mořské a pobřežní ekosystémy, aby se zabránilo výrazným negativním dopadům, mimo jiné posilováním jejich odolnosti a opatřeními na jejich obnovu s cílem zajistit zdravé a produktivní oceány
+            objective3: Minimalizovat a řešit dopady okyselování oceánů, mimo jiné prohlubováním vědecké spolupráce na všech úrovních
+            objective4: Do roku 2020 dosáhnout účinné regulace rybolovu a skoncovat s nadměrným rybolovem, nezákonným, nehlášeným a neregulovaným rybolovem a nešetrnými metodami rybolovu, zavést vědecky podložené plány hospodaření s cílem obnovit populace ryb v co nejkratším možném čase přinejmenším na úroveň, která dokáže produkovat maximální udržitelný výnos podle biologických vlastností jednotlivých druhů
+            objective5: Do roku 2020 zakonzervovat alespoň 10 procent pobřežních a mořských oblastí v souladu s vnitrostátním i mezinárodním právem a na základě nejlepších dostupných vědeckých informací
+            objective6: Do roku 2020 zakázat některé formy dotací na rybolov, které přispívají k nadměrnému rybolovu, odstranit dotace, které přispívají k nezákonnému, nehlášenému a neregulovanému rybolovu a upustit od zavádění obdobných nových dotací s vědomím , že odpovídající a efektivní zvláštní a diferencovaný přístup k rozvojovým a nejméně rozvinutým zemím by se měl stát nedílnou součástí vyjednávání Světové obchodní organizace o dotacích na rybolov* * S ohledem na probíhající vyjednávání Světové obchodní organizace, Rozvojovou agendu a Dauhá a Hongkongským ministerským mandátem.
+            objective7: Do roku 2030 zvýšit ekonomický přínos z udržitelného využívání mořských zdrojů, mimo jiné prostřednictvím řízeného rybolovu, akvakultury a cestovního ruchu pro malé ostrovní rozvojové a nejméně rozvinuté státy
+            objective8: Rozšířit vědecké poznání, rozvíjet výzkumné kapacity a transfer námořních technologií s ohledem na kritéria a pokyny Mezivládní oceánografické komise o transferu námořních technologií a s cílem zlepšit zdraví oceánů a zvýšit přínos biologické rozmanitosti moří na rozvoj rozvojových zemí, zejména malých ostrovních rozvojových a nejméně rozvinutých států
+            objective9: Zajistit malým rybářům přístup k mořským zdrojům a trhům
+            objective10: Posílit ochranu a udržitelné využívání oceánů a jejich zdrojů prostřednictvím mezinárodního práva, jak je zapsáno v Úmluvě o mořském právu, která stanovuje právní rámec pro zachování a udržitelné využívání oceánů a jejich zdrojů, s odvoláním na článek 158 dokumentu Budoucnost, jakou chceme (The Future We Want)
+            subtitle: Chránit a udržitelně využívat oceány, moře a mořské zdroje pro zajištění udržitelného rozvoje
+            title: Cíl 14
+        life_on_land:
+          logo:
+            line1: ŽIVOT
+            line2: NA SOUŠI
+            line3: ''
+          objectives:
+            objective1: Do roku 2020 zajistit ochranu, obnovu a udržitelné využívání suchozemských a vnitrozemských sladkovodních ekosystémů a jejich služeb, zejména lesů, mokřadů, hor a suchých oblastí, v souladu se závazky z mezinárodních dohod
+            objective2: Do roku 2020 podpořit zavádění udržitelného hospodaření se všemi typy lesů, zastavit odlesňování, obnovit zničené lesy a podstatně zvýšit zalesňování a obnovu lesů na celém světě
+            objective3: Do roku 2030 bojovat proti rozšiřování pouští, obnovovat znehodnocenou půdu, včetně pozemků postižených rozšiřováním pouští, suchem či záplavami, usilovat o dosažení světa, ve kterém již nedochází k degradaci půdy
+            objective4: Do roku 2030 zajistit zachování horských ekosystémů, včetně jejich biodiverzity, aby se zvýšila jejich schopnost poskytovat výhody, které jsou nezbytné pro udržitelný rozvoj
+            objective5: Přijmout neodkladná a výrazná opatření na snižování degradace přirozeného prostředí, zastavit ztrátu biodiverzity a do roku 2020 chránit a zabraňovat vyhynutí ohrožených druhů
+            objective6: Zajistit spravedlivé rozdělování přínosů plynoucích z využívání genetických zdrojů a podporovat odpovídající přístup k těmto zdrojům
+            objective7: Přijmout neodkladná opatření ke skoncování s pytlačením a pašováním chráněných druhů rostlin a živočichů a řešit nabídku i poptávku po nelegálních přírodních produktech
+            objective8: Do roku 2020 zavést opatření proti zavlečení invazivních druhů do suchozemských a vodních ekosystémů a výrazně snížit jejich dopad na tyto ekosystémy, kontrolovat nebo vymýtit prioritní invazivní druhy
+            objective9: Do roku 2020 začlenit hodnoty ekosystému a biodiverzity do národního i regionálního plánování, rozvojových procesů a strategií na snižování chudoby
+            objective10: Mobilizovat a významně zvýšit finanční prostředky ze všech zdrojů na zachování a udržitelné využívání biodiverzity a ekosystémů
+            objective11: Mobilizovat značné prostředky ze všech zdrojů na všech úrovních na financování udržitelného hospodaření s lesy a poskytnout odpovídající pobídky rozvojovým zemím na zlepšení tohoto hospodaření, včetně ochrany a obnovy lesů
+            objective12: Zvýšit mezinárodní podporu boji proti pytlačení a pašování chráněných druhů, mimo jiné zvyšováním schopností místních komunit věnovat se udržitelným příležitostem k obživě
+            subtitle: Chránit, obnovovat a podporovat udržitelné využívání suchozemských ekosystémů, udržitelně hospodařit s lesy, potírat rozšiřování pouští, zastavit a následně zvrátit degradaci půdy a zastavit úbytek biodiverzity
+            title: Cíl 15
+        name: Cíle udržitelného rozvoje
+        no_poverty:
+          logo:
+            line1: KONEC
+            line2: CHUDOBY
+          objectives:
+            objective1: Do roku 2030 odstranit extrémní chudobu všude na světě; extrémní chudoba je v současnosti definována jako život za méně než 1,25 dolaru na den
+            objective2: Do roku 2030 snížit alespoň o polovinu podíl můžu, žen a dětí všech věkových kategorií, kteří žijí v chudobě tak jak je definována v národní legislativě
+            objective3: Zavést na úrovni států vhodné systémy sociální ochrany pro všechny včetně nejpotřebnějších, a do roku 2030 rozšířit jejich dosah na většinu chudých a ohrožených
+            objective4: Do roku 2030 zajistit, aby všichni muži a ženy, zejména chudí a zranitelní, měli stejná práva v přístupu k ekonomickým zdrojům i základním službám, na vlastnictví a možnost nakládat s půdou a stejná práva na další formy vlastnictví, dědictví, přírodní zdroje, příslušné nové technologie a finanční služby, jako například mikrofinancování
+            objective5: Do roku 2030 posílit odolnost chudých a zranitelných a zmírnit jejich zranitelnost před extrémními klimatickými jevy a jinými ekonomickými, sociálními a environmentálními otřesy a pohromami
+            objective6: Zajistit výraznou mobilizaci prostředků z různých zdrojů, mimo jiné i dokonalejší rozvojovou spoluprací, a zajistit tak přiměřené a předvídatelné prostředky pro rozvojové země – zejména nejméně rozvinuté – na zavádění programů a politik na odstranění chudoby ve všech jejích formách
+            objective7: Vytvořit výrazné politické strategie na národní, regionální i mezinárodní úrovni, založené na genderově citlivých rozvojových strategiích na podporu chudých, které povedou ke zrychlení investic do opatření na odstranění chudoby
+            subtitle: Vymýtit chudobu ve všech jejích formách všude na světě
+            title: Cíl 1
+        ods_logo:
+          subtitle: udržitelného rozvoje
+          title: GLOBÁLNÍ CÍLE
+        partnership:
+          logo:
+            line1: PARTNERSTVÍ
+            line2: KE SPLNĚNÍ CÍLŮ
+            line3: ''
+          objectives:
+            objective1: FINANCE Posílit mobilizaci domácích zdrojů, mimo jiné prostřednictvím mezinárodní podpory rozvojovým zemím, ke zlepšení domácích kapacit pro výběr daní a dalších příjmů
+            objective2: FINANCE Plně realizovat závazky rozvinutých zemí v rámci Oficiální rozvojové pomoci (ODA), včetně závazku mnoha vyspělých zemích poskytnout 0,7 procenta ODA/HND rozvojovým zemím a 0,15 až 0,20 procenta ODA/HND nejméně rozvinutým zemím; poskytovatelé ODA by měli zvážit stanovení cíle poskytnout alespoň 0,20 procenta ODA/HND nejméně rozvinutým zemím
+            objective3: FINANCE Mobilizovat dodatečné finanční prostředky z různých zdrojů pro rozvojové státy
+            objective4: FINANCE Pomoci rozvojovým zemím při dosahování dlouhodobé dluhové udržitelnosti prostřednictvím koordinovaných politik zaměřených na podporu financování dluhu, oddlužení a restrukturalizaci dluhu dle potřeby, a zabývat se vnějším zadlužením silně zadlužených chudých zemí, aby se snížila jejich míra zadluženosti
+            objective5: FINANCE Přijmout a realizovat režimy na podporu investic pro nejméně rozvinuté státy
+            objective6: TECHNOLOGIE Posílit spolupráci sever-jih, jih-jih, trojstrannou regionální a mezinárodní spolupráci v přístupu k vědě, technologiím a inovacím, a posílit sdílení znalostí za vzájemně dohodnutých podmínek, mimo jiné prostřednictvím lepší koordinace stávajících mechanismů, zejména na úrovni OSN, a prostřednictvím mechanismu mezinárodního zpřístupňování technologií
+            objective7: TECHNOLOGIE Podporovat rozvoj, transfer a rozšiřování technologií šetrných k životnímu prostředí do rozvojových zemí za výhodných podmínek, včetně koncesí a preferenčních podmínek na základě vzájemných dohod
+            objective8: TECHNOLOGIE Plně zprovoznit technologickou banku a mechanismy budování vědeckých, technologických a inovačních kapacit pro nejméně rozvinuté státy do roku 2017 rozšířit používání technologií, zejména informačních a komunikačních
+            objective9: BUDOVÁNÍ KAPACIT Posílit mezinárodní podporu pro realizaci efektivního a cíleného budování kapacit v rozvojových zemích na podporu národních plánů naplňování všech cílů udržitelného rozvoje, a to i prostřednictvím spolupráce sever-jih, jih-jih a trojstranné spolupráce
+            objective10: OBCHOD Podporovat univerzální, standardizovaný, otevřený, nediskriminační a spravedlivý multilaterální obchodní systém pod dohledem Světové obchodní organizace (WTO), a to i prostřednictvím závěrů vyjednávání v Rozvojové agendě WTO z Dauhá
+            objective11: OBCHOD Výrazně zvýšit vývoz rozvojových zemí, zejména s cílem zdvojnásobit podíl nejméně rozvinutých států na světovém vývozu do roku 2020
+            objective12: OBCHOD Umožnit nejméně rozvinutým státům bezcelní a bezkvótový přístup na trhy v dlouhodobém měřítku, v souladu s rozhodnutími Světové obchodní organizace, mimo jiné zajištěním toho, že preferenčních pravidla původu vztahující se na dovoz z nejméně rozvinutých států jsou transparentní a jednoduchá a přispívají k usnadnění přístupu na trhy
+            objective13: SYSTÉMOVÉ OTÁZKY Politika a institucionální soudržnost - Posílit globální makroekonomickou stabilitu, mimo jiné prostřednictvím koordinace politik a jejich koherence
+            objective14: SYSTÉMOVÉ OTÁZKY Politika a institucionální soudržnost - Podporovat politickou soudržnost pro udržitelný rozvoj
+            objective15: SYSTÉMOVÉ OTÁZKY Politika a institucionální soudržnost - Respektovat politiku jednotlivých států při zavádění a provádění politik pro vymýcení chudoby a udržitelný rozvoj
+            objective16: SYSTÉMOVÉ OTÁZKY Mnohostranná partnerství - Posílit globální partnerství pro udržitelný rozvoj podporované mnohostranným partnerstvím ve prospěch mobilizace a sdílení znalostí, expertízy, technologií a finančních zdrojů na podporu dosažení cílů udržitelného rozvoje ve všech zemích, zejména rozvojových
+            objective17: SYSTÉMOVÉ OTÁZKY Mnohostranná partnerství - Podněcovat a podporovat efektivní partnerství veřejných institucí, partnerství veřejného a soukromého sektoru a partnerství v rámci občanské společnosti, a to na základě zkušeností a využívání zdrojových strategií partnerství
+            objective18:  SYSTÉMOVÉ OTÁZKY Data, monitorování a odpovědnost - Do roku 2020 zvýšit podporu budování kapacit rozvojových zemí, včetně nejméně rozvinutých a malých ostrovních rozvojových států, k výraznému zvýšení dostupnosti vysoce kvalitních, aktuálních a spolehlivých údajů členěných podle příjmů, pohlaví, věku, rasy, etnického původu, migračního statutu, zdravotního postižení, geografické polohy a dalších relevantních charakteristik v národním kontextu
+            objective19: SYSTÉMOVÉ OTÁZKY Data, monitorování a odpovědnost - Do roku 2030 stavět na stávajících iniciativách s cílem rozvinout prostředky pro měření pokroku v oblasti trvale udržitelného rozvoje, které doplní hrubý domácí produkt a podporou budování statistických kapacit rozvojových států
+            subtitle: Oživit globální partnerství pro udržitelný rozvoj a posílit prostředky pro jeho uplatňování
+            title: Cíl 17
+        pjsi:
+          logo:
+            line1: MÍR, SPRAVEDLNOST
+            line2: A SILNÉ
+            line3: INSTITUCE
+          objectives:
+            objective1: Výrazně snížit všechny formy násilí a související míru úmrtnosti všude na světě
+            objective2: Skoncovat se zneužíváním, vykořisťováním a obchodem s lidmi a všemi formami násilí na dětech a jejich mučení
+            objective3: Podporovat svrchovanost práva na národní i mezinárodní úrovni a zajistit rovný přístup ke spravedlnosti pro všechny
+            objective4: Do roku 2030 výrazně snížit pohyb nezákonných finančních prostředků a zbraní, usilovat o navrácení odcizeného majetku a bojovat proti všem formám organizovaného zločinu
+            objective5: Podstatně omezit korupci a úplatkářství ve všech formách
+            objective6: Vytvořit účinné, odpovědné a transparentní instituce na všech úrovních
+            objective7: Zajistit odpovědné, inkluzivní, participační a zastupitelské rozhodování na všech úrovních
+            objective8: Rozšířit a posílit zapojení rozvojových zemí do rozhodování v mezinárodních institucích
+            objective9: Do roku 2030 poskytnout všem právní subjektivitu, včetně registrace při narození
+            objective10: Zajistit veřejnosti přístup k informacím a ochranu základních svobod, v souladu s vnitrostátními právními předpisy a mezinárodními dohodami
+            objective11: Posílit příslušné instituce státu, mimo jiné prostřednictvím mezinárodní spolupráce, pro budování kapacit na všech úrovních pro boj proti násilí, terorismu a trestné činnosti, zejména v rozvojových státech
+            objective12: Podporovat a prosazovat nediskriminační zákony a politiku udržitelného rozvoje
+            subtitle: Podporovat mírové a inkluzivní společnosti pro udržitelný rozvoj, zajistit všem přístup ke spravedlnosti a vytvořit efektivní, odpovědné a inkluzivní instituce na všech úrovních
+            title: Cíl 16
+        quality_education:
+          logo:
+            line1: KVALITNÍ
+            line2: VZDĚLÁNÍ
+          objectives:
+            objective1: Do roku 2030 zajistit, aby všechny dívky a chlapci ukončili bezplatné, rovnoprávné a kvalitní primární a sekundární základní vzdělání, které bude mít odpovídající a efektivní studijní výsledky
+            objective2: Do roku 2030 zajistit, aby všechny dívky a chlapci měli možnost kvalitního rozvoje v raném dětství, aby měli přístup k předškolní péči a vzdělání tak, že budou připraveni pro základní vzdělávání
+            objective3: Do roku 2030 zajistit rovný přístup všech žen a mužů k cenově dostupnému a kvalitnímu odbornému, učňovskému a vyššímu vzdělání, včetně univerzitního
+            objective4: Do roku 2030 výrazně zvýšit počet mladých a dospělých, kteří mají příslušné dovednosti včetně technických a odborných, které budou předpokladem pro zaměstnání, důstojné pracovní zařazení a pro podnikání
+            objective5: Do roku 2030 eliminovat genderové nerovnosti ve vzdělávání a zajistit rovný přístup ke všem úrovním vzdělání a odborné přípravy pro znevýhodněné – osoby se zdravotním postižením, původní obyvatelstvo či ohrožené děti
+            objective6: Do roku 2030 zajistit, aby všichni mladí a značná část dospělých mužů i žen dosáhli čtenářské a matematické gramotnosti
+            objective7: Do roku 2030 zajistit, aby všichni studenti získali znalosti a dovednosti potřebné k podpoře udržitelného rozvoje, mimo jiné prostřednictvím vzdělávání o udržitelném rozvoji a trvale udržitelném způsobu života, o lidských právech, genderové rovnosti, dále pomocí podpory kultury míru a nenásilí, globálního občanství i docenění kulturní rozmanitosti a příspěvku kultury k udržitelnému rozvoji
+            objective8: a Vybudovat a vylepšit genderově citlivá vzdělávací zařízení, která budou vhodná pro děti i lidi se zdravotním postižením, a poskytnout bezpečné, nenásilné, inkluzivní a efektivní vzdělávací prostředí pro všechny
+            objective9: b Do roku 2020 výrazně na celém světě rozšířit počet stipendií pro studenty z rozvojových zemí – zejména těch nejméně rozvinutých, malých ostrovních rozvojových a afrických států – pro zápis do vysokoškolského vzdělávání, učňovské přípravy a vzdělávacích programů v informačních a komunikačních technologiích, technologických, stavebních a vědeckých oborech v rozvinutých i rozvojových státech
+            objective10: c Do roku 2030 výrazně zvýšit počty kvalifikovaných učitelů, a to i prostřednictvím mezinárodní spolupráce pro vzdělávání učitelů v rozvojových zemích, zejména těch nejméně rozvinutých, a malých ostrovních rozvojových státech
+            subtitle: Zajistit rovný přístup k inkluzivnímu a kvalitnímu vzdělání a podporovat celoživotní vzdělávání pro všechny
+            title: Cíl 4
+        reduced_inequalities:
+          logo:
+            line1: MÉNĚ
+            line2: NEROVNOSTI
+          objectives:
+            objective1: Do roku 2030 postupně dosáhnout a udržet růst příjmů spodních 40 procent populace na úrovni vyšší než je celostátní průměr
+            objective2: Do roku 2030 posilovat a podporovat sociální, ekonomické a politické začleňování všech, bez ohledu na věk, pohlaví, zdravotní postižení, rasu, etnický původ, náboženské vyznání a ekonomické či jiné postavení
+            objective3: Zajistit rovné příležitosti a snížit nerovnosti, zejména odstraňováním diskriminačních zákonů, politik a postupů, a podporou vhodných právních předpisů, politik a postupů
+            objective4: Přijmout politická opatření, zejména v oblasti fiskální, mzdové a v oblasti sociální ochrany a postupně dosáhnout větší rovnosti
+            objective5: Zlepšit regulaci a monitoring globálních finančních trhů a institucí a posílit uplatňování těchto regulací
+            objective6: Zajistit větší zastoupení a silnější hlas pro rozvojové státy v rozhodování v mezinárodních ekonomických a finančních institucí s cílem vytvořit efektivnější, věrohodnější, spolehlivější a legitimnější instituce
+            objective7: Usnadňovat řízenou, bezpečnou a zodpovědnou migraci a mobilitu lidí, zahrnující uplatňování plánovaných a dobře řízených migračních politik
+            objective8: a Uplatňovat zásadu zvláštního a diferencovaného přístupu k rozvojovým zemím, zejména k těm nejméně rozvinutým, v souladu s dohodami Světové obchodní organizace
+            objective9: b Podporovat oficiální rozvojovou pomoc (ODA) a finanční toky zahrnující přímé zahraniční investice do států, které to potřebují nejvíce, zejména nejméně rozvinuté, africké země, malé ostrovní a vnitrozemské rozvojové státy, v souladu s jejich národními plány a programy
+            objective10: c Do roku 2030 snížit náklady na převody remitencí migrantů na méně než 3 procenta a eliminovat transakční kanály s náklady vyššími než 5 procent
+            subtitle: Snížit nerovnost uvnitř zemí i mezi nimi
+            title: Cíl 10
+        responsible_consumption:
+          logo:
+            line1: ODPOVĚDNÁ
+            line2: VÝROBA
+            line3: A SPOTŘEBA
+          objectives:
+            objective1: Uplatňovat desetiletý rámec programů pro udržitelnou spotřebu a výrobu se zapojením všech států v čele s rozvinutými a s přihlédnutím k rozvoji a schopnostem států rozvojových
+            objective2: Do roku 2030 dosáhnout udržitelného hospodaření s přírodními zdroji a jejich efektivního využívání
+            objective3: Do roku 2030 snížit v přepočtu na hlavu na polovinu globální plýtvání potravinami na maloobchodní a spotřebitelské úrovni a snížit ztráty potravin v celém výrobním a zásobovacím procesu, včetně posklizňových ztrát
+            objective4: Do roku 2020 dosáhnout k životnímu prostředí šetrného nakládání s chemickými látkami a odpady během celého jejich životního cyklu, v souladu s dohodnutými mezinárodními rámci, a výrazně snížit jejich uvolňování do ovzduší, vody a půdy tak, aby se minimalizovaly nepříznivé dopady na lidské zdraví a životní prostředí
+            objective5: Do roku 2030 výrazně snížit produkci odpadů s pomocí prevence, redukce, recyklace a opětovného používání
+            objective6: Podporovat podniky, zejména velké a nadnárodní společnosti, aby přijaly udržitelné postupy a začlenily informace o udržitelnosti do svých pravidelných zpráv
+            objective7: Prosazovat udržitelné postupy v zadávání veřejných zakázek v souladu s národními politikami a prioritami
+            objective8: Do roku 2030 zajistit, aby lidé v celém světě měli relevantní informace a povědomí o udržitelném rozvoji a životním stylu v souladu s přírodou
+            objective9: a Podporovat rozvojové země, aby posílily své vědecké a technologické kapacity, a přešly tak k udržitelnějšímu způsobu výroby a spotřeby
+            objective10: b Vytvořit a zavést nástroje pro sledování dopadů udržitelného rozvoje na cestovní ruch, který vytváří pracovní místa a podporuje místní kulturu a produkty
+            objective11: c Usměrnit neefektivní dotace na fosilní paliva podporující nadbytečnou spotřebu odstraňováním pokřivení trhu v souladu s podmínkami v jednotlivých státech, mimo jiné prostřednictvím daňové restrukturalizace a rušením těchto škodlivých dotací tam, kde existují, aby byl zřejmý jejich dopad na životní prostředí. Je potřeba přitom brát plně v úvahu specifické potřeby a podmínky rozvojových zemí a minimalizovat možné negativní dopady na jejich rozvoj způsobem, který bude chránit chudé a dotčené komunity
+            subtitle: Zajistit udržitelnou spotřebu a výrobu
+            title: Cíl 12
+        subtitle: Poznejte 17 cílů udržitelného rozvoje
+        sustainable_cities:
+          logo:
+            line1: UDRŽITELNÁ MÉSTA
+            line2: A OBCE
+            line3: ''
+          objectives:
+            objective1: Do roku 2030 zajistit všem přístup k odpovídajícímu, bezpečnému a cenově dostupnému bydlení a základním službám, zlepšit podmínky bydlení ve slumech
+            objective2: Do roku 2030 poskytnout všem přístup k bezpečným, finančně dostupným, snadno přístupným a udržitelným dopravním systémům zlepšit bezpečnost silničního provozu zejména rozšířením veřejné dopravy se zvláštním důrazem na potřeby lidí v těžké situaci jako ženy, děti, osoby se zdravotním postižením a starší osoby
+            objective3: Do roku 2030 posílit inkluzivní a udržitelnou urbanizaci a kapacity pro participativní, integrované a udržitelné plánování a správu měst a obcí ve všech zemích
+            objective4: Zlepšit úsilí na ochranu a záchranu světového kulturního a přírodního dědictví
+            objective5: Do roku 2030 výrazně snížit počet úmrtí a dalších negativních dopadů přírodních katastrof zahrnujících pohromy spojené s vodou. Týká se to také přímých ekonomických ztrát ve vztahu ke globálnímu HDP. Zvláštní pozornost je nutné věnovat ochraně chudých a zranitelných lidí
+            objective6: Do roku 2030 snížit nepříznivý dopad životního prostředí měst na jejich obyvatele, zejména zaměřením pozornosti na kvalitu ovzduší a nakládání s komunálním i jiným odpadem
+            objective7: Do roku 2030 zajistit všeobecný přístup k bezpečné, inkluzivní a přístupné městské zeleni a veřejnému prostoru , zejména pro ženy a děti, starší osoby a osoby se zdravotním postižením
+            objective8: a Podporovat pozitivní ekonomické, sociální a environmentální vazby mezi městskými, příměstskými a venkovskými oblastmi zlepšením národního a regionálního rozvojového plánování
+            objective9: b Do roku 2020 výrazně zvýšit počet měst a obcí, které přijímají a realizují integrované politiky a plány na podporu inkluze, účinného využívání zdrojů, zmírňování a adaptace na změnu klimatu, odolnost vůči katastrofám, a vypracovat a realizovat komplexní řízení rizik katastrof na všech úrovních v souladu se Sendaiským rámcem pro DRR 2015 – 2030
+            objective10: c Podporovat nejméně rozvinuté země, mimo jiné prostřednictvím finanční a technické pomoci, při stavbě udržitelných a odolných budov s využitím místních materiálů
+            subtitle: Vytvořit inkluzivní, bezpečná, odolná a udržitelná města a obce
+            title: Cíl 11
+        zero_hunger:
+          logo:
+            line1: KONEC
+            line2: HLADU
+          objectives:
+            objective1: Do roku 2030 vymýtit hlad a zajistit přístup všem lidem, zejména chudým a ohroženým, včetně malých dětí, k bezpečné, výživné a dostačující stravě po celý rok
+            objective2: Do roku 2030 odstranit všechny formy podvýživy a do roku 2025 dosáhnout mezinárodně dohodnutých cílů ohledně zakrnění a hubnutí dětí mladších pěti let a vyřešit výživové potřeby dospívajících dívek, těhotných a kojících žen a starších osob
+            objective3: Do roku 2030 zdvojnásobit zemědělskou produktivitu a příjmy malých zemědělců – zejména žen, původních obyvatel, rodinných farmářů, pastevců a rybářů – pomocí zajištění bezpečného a rovného přístupu k půdě, dalším výrobním zdrojům (a vstupům), znalostem, finančním službám, trhům a vytvářením příležitostí k vytváření přidané hodnoty a přístupu k zaměstnání v nezemědělském sektoru
+            objective4: Do roku 2030 zajistit/zavést systémy udržitelné výroby potravin a (zavést) odolné zemědělské postupy, které zvýší produktivitu a výrobu a pomohou zachovat ekosystémy posilující schopnosti půdy přizpůsobit se klimatické změně, extrémnímu počasí, suchu, záplavám a dalším pohromám, a které postupně zlepší kvalitu půdy
+            objective5: Do roku 2020 zajistit zachování genetické rozmanitosti osiv, pěstovaných plodin, hospodářských a domácích zvířat a jejich divoce žijících příbuzných druhů, mimo jiné pomocí správně spravovaných a diverzifikovaných semenných a rostlinných bank na národní, regionální i mezinárodní úrovni a zajistit přístup ke spravedlivému sdílení přínosů z využívání genetických zdrojů a tradičních poznatků, v souladu s mezinárodními dohodami
+            objective6: a Zvýšit investice, mimo jiné i prostřednictvím posílené mezinárodní spolupráce, do venkovské infrastruktury, zemědělského výzkumu a nadstavbových služeb, vývoje technologií a genových bank zvířat a rostlin za účelem zlepšení zemědělských výrobních kapacit v rozvojových zemích, zejména v těch nejméně rozvinutých
+            objective7: b Napravit a předcházet obchodním omezením a pokřivením na světových zemědělských trzích, mimo jiné prostřednictvím souběžného odstranění všech forem dotací na vývoz a dalších opatření s obdobným účinkem, v souladu s mandátem rozvojového kola v Dauhá
+            objective8: c Přijmout opatření k zajištění řádného fungování trhu potravinářských komodit a jejich derivátů a usnadnit včasný přístup k informacím o trhu, včetně informací o potravinových rezervách, s cílem přispět k omezení extrémní volatility cen potravin
+            subtitle: Vymýtit hlad, dosáhnout potravinové bezpečnosti a zlepšení výživy, prosazovat udržitelné zemědělství
+            title: Cíl 2
+    problems:
+      admin:
+        actions:
+          configure: Konfigurace
+          confirm_destroy: Opravdu chcete smazat %{name}?
+          destroy: Smazat
+          new_problem: Nový problém
+          publish: Zveřejnit
+          unpublish: Zneveřejnit
+          view: Viz problém
+        models:
+          problem:
+            fields:
+              challenge: Výzva
+              created_at: Vytvořena v
+              challenge: Výzva
+              end_date: Datum ukončení
+              published: Publikována
+              start_date: Datum zahájení
+              state: Stav
+              tags: Značky
+              title: Název
+        problem_publications:
+          create:
+            error: Při zveřejňování této výzvy došlo k chybě
+            success: Problém byl úspěšně publikován
+          destroy:
+            error: Při rušení publikování tohoto problému došlo k chybě
+            success: Zveřejnění problému bylo úspěšně zrušeno
+        problems:
+          create:
+            error: Při vytváření této výzvy došlo k chybě
+            success: Problém byl úspěšně vytvořen
+          destroy:
+            error: Při mazání tohoto problému došlo k chybě
+            has_solutions: Tento problém nelze odstranit kvůli souvisejícím řešením
+            success: Problém byl úspěšně smazán
+          edit:
+            update: Aktualizace
+          form:
+            challenge: Související výzva
+            duration: Doba trvání
+            select_states: Vybrat stav
+          new:
+            create: Vytvořit
+            title: Nový problém
+          update:
+            error: Při vytváření tohoto problému došlo k chybě
+            success: Problém byl úspěšně aktualizován
+        titles:
+          problems_list: Seznam problémů
+      show:
+        proposed_solutions: Navrhovaná řešení
+        return_to_list: Zpět na seznam
+      index:
+        not_published: Nezveřejněno
+        published: Publikováno
+        title: test
+      problems:
+        count:
+          problems_count:
+            one: "%{count} problém"
+            other: "%{count} problémů"
+        filters:
+          all: Vše
+          category: Kategorie
+          execution: Provedení
+          finished: Dokončeno
+          proposal: Návrh
+          related_to: Souvisí s
+          scope: Rozsah působnosti
+          search: Hledat
+          sectorial_scope: Rozsah působnosti v odvětví
+          state: State
+          technological_scope: Technologický rozsah
+          territorial_scope: Územní rozsah
+        filters_small_view:
+          close_modal: Zavřít modální okno
+          filter: Filtrovat
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
+        orders:
+          label: test
+          random: Náhodně
+          recent: Nejnovější
+        problems:
+          empty: Nebyly nalezeny žádné problémy
+          empty_filters: Nebyly nalezeny žádné problémy
+      problems_helper:
+        filter_state_values:
+          all: Vše
+          execution: Provedení
+          finished: Dokončeno
+          proposal: Návrh
+      states:
+        execution: Provedení
+        finished: Dokončeno
+        proposal: Návrh
+      challenge: Výzva
+    sdgs:
+      admin:
+        sdgs:
+          index:
+            cant_manage: SDG nelze spravovat. Není třeba nic konfigurovat.
+      names:
+        clean_energy: Dostupné a čisté energie
+        clean_water: Pitná voda, kanalizace
+        climate_action: Klimatická opatření
+        decent_work: Důstojná práce a ekonomický růst
+        gender_equality: Rovnost mužů a žen
+        good_health: Zdraví a kvalitní život
+        iiai: Průmysl, inovace a infrastruktura
+        life_below_water: Život ve vodě
+        life_on_land: Život na souši
+        no_poverty: Konec chudoby
+        partnership: Partnerství ke splnění cílů
+        pjsi: Mír, spravedlnost a silné instituce
+        quality_education: Kvalitní vzdělání
+        reduced_inequalities: Méně nerovností
+        responsible_consumption: Odpovědná výroba a spotřeba
+        sustainable_cities: Udržitelná města a obce
+        zero_hunger: Konec hladu
+      sdgs_filter:
+        filter_selector:
+          select: Vybrat
+        modal:
+          close: Vybrat
+          title: Cíle udržitelného rozvoje
+    solutions:
+      problem: Problém
+      challenge: Výzva
+      admin:
+        actions:
+          configure: Konfigurace
+          confirm_destroy: Opravdu chcete smazat %{name}?
+          destroy: Smazat
+          new_solution: Nové řešení
+          publish: Publikovat
+          unpublish: Nepublikovat
+          view: Zobrazit řešení
+        solution_publications:
+          create:
+            error: Při publikování tohoto řešení došlo k problému
+            success: Řešení bylo správně publikováno
+          destroy:
+            error: Při zrušení publikování tohoto řešení došlo k problému
+            success: Řešení bylo správně odebráno publikování
+        solutions:
+          create:
+            error: Při vytváření tohoto řešení došlo k problému
+            success: Řešení bylo správně vytvořeno
+          destroy:
+            error: Při mazání tohoto řešení došlo k problému
+            success: Řešení bylo úspěšně odstraněno
+          edit:
+            update: Aktualizace
+          form:
+            problem: související problém
+          new:
+            create: Vytvořit
+            title: Nové řešení
+          update:
+            error: Při aktualizaci tohoto řešení došlo k problému
+            success: Řešení bylo úspěšně aktualizováno
+        models:
+          solution:
+            fields:
+              created_at: Vytvořeno v
+              problem: Problém
+              published: Publikováno
+              requirements: Požadavky
+              tags: Značky
+              title: Nadpis
+        titles:
+          solutions_list: Seznam řešení
+      solutions:
+        solutions:
+          empty: Nebyla nalezena žádná řešení
+          empty_filters: Nebyla nalezena žádná řešení
+        count:
+          solutions_count:
+            one: "%{count} řešení"
+            other: "%{count} řešení"
+        filters:
+          all: Vše
+          category: Kategorie
+          technical: Technické
+          economic: Ekonomické
+          financial: Finanční
+          related_to: Související s
+          requirement: Požadavek
+          scope: Rozsah působnosti
+          search: Hledat
+          territorial_scope: Územní rozsah působnosti
+        filters_small_view:
+          close_modal: Zavřít modální okno
+          filter: Filtrovat
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
+        orders:
+          label: Seřadit
+          random: Náhodně
+          recent: Nejnovější
+      index:
+        title: Řešení
+        published: Publikováno
+        not_published: Nepublikováno
+      requirements:
+        technical: Technické
+        economic: Ekonomické
+        financial: Finanční
+      show:
+        return_to_list: Zpět na seznam
+        sdg_logo: SDG logo
