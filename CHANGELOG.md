@@ -3,11 +3,13 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.9 (PATCH)
+- Fix: show solutions only when everything is published
+
 ## Version 0.0.8 (MINOR)
 - Surveys in Challenges: show survey's answers and exportation.
 
 ## Version 0.0.7 (MINOR)
-- Fix: show solutions only when everything is published
 - Truncate description in cards to 100 chars max
 
 ## Version 0.0.6 (MINOR)
