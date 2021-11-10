@@ -10,7 +10,6 @@ module Decidim
       # user - The user answering the survey.
       # survey_form - A form object with params; can be a questionnaire.
       def initialize(challenge, user, survey_form)
-        super()
         @challenge = challenge
         @user = user
         @survey_form = survey_form
@@ -21,6 +20,7 @@ module Decidim
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         challenge.with_lock do
+          return broadcast(:invalid) unless can_answer_survey?
           return broadcast(:invalid_form) unless survey_form.valid?
 
           answer_questionnaire
@@ -48,6 +48,10 @@ module Decidim
 
       def questionnaire?
         survey_form.model_name == "Questionnaire"
+      end
+
+      def can_answer_survey?
+        !Decidim::Challenges::Survey.where(decidim_user_id: user, decidim_challenge_id: challenge).any?
       end
     end
   end

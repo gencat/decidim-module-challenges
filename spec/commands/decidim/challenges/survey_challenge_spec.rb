@@ -58,5 +58,15 @@ module Decidim::Challenges
         end
       end
     end
+
+    context "when the user has already answered survey" do
+      before do
+        create(:survey, challenge: challenge, user: user)
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
   end
 end
