@@ -10,6 +10,7 @@ module Decidim
       # user - The user answering the survey.
       # survey_form - A form object with params; can be a questionnaire.
       def initialize(challenge, user, survey_form)
+        super()
         @challenge = challenge
         @user = user
         @survey_form = survey_form
@@ -51,7 +52,7 @@ module Decidim
       end
 
       def can_answer_survey?
-        !Decidim::Challenges::Survey.where(decidim_user_id: user, decidim_challenge_id: challenge).any?
+        Decidim::Challenges::Survey.where(decidim_user_id: user, decidim_challenge_id: challenge).none?
       end
     end
   end
