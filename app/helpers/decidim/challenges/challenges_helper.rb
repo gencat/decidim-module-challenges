@@ -27,6 +27,11 @@ module Decidim
           challenge.solutions.published
         end
       end
+
+      def truncate_description(description)
+        translated_description = raw translated_attribute description
+        decidim_sanitize(html_truncate(translated_description, length: 200))
+      end
     end
   end
 end

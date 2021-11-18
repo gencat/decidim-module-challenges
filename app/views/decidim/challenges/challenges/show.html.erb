@@ -92,7 +92,7 @@
                       <%= translated_attribute problem.title %>
                     </div>
                   <% end %>
-                  <%= raw translated_attribute problem.description %>
+                  <%= truncate_description(problem.description) %>
                 </div>
               </div>
             <% end %>
@@ -109,7 +109,7 @@
                     <%= translated_attribute solution.title %>
                   </div>
                 <% end %>
-                <%= raw translated_attribute solution.description %>
+                <%= truncate_description(solution.description) %>
               </div>
             </div>
           <% end %>
