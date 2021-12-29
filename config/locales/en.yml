@@ -13,7 +13,7 @@ en:
         start_date: Start date
         status: State
         survey_enabled: Enabled survey
-        tags: Tags
+        tags: Keywords
         title: Title
       problem:
         causes: Causes
@@ -44,7 +44,7 @@ en:
         requirements: Requeriments
         sdg: Sustainable Development Goals
         scope: Territory
-        tags: Tags
+        tags: Keywords
         title: Title
   decidim:
     challenges:

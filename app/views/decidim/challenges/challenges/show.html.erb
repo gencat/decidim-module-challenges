@@ -78,8 +78,10 @@
         <h3><strong><%= t("global_description", scope: "activemodel.attributes.challenge") %></strong></h3>
         <p><%= present(@challenge).global_description %></p>
 
+        <% if present(@challenge).tags.present? %>
         <h3><strong><%= t("tags", scope: "activemodel.attributes.challenge") %></strong></h3>
         <p class="tags"><%= present(@challenge).tags %></p>
+        <% end %>
 
         <% if @challenge.problems.present? %>
           <h3><strong><%= t("associated_problems", scope: "decidim.challenges.show") %></strong></h3>
@@ -99,6 +101,7 @@
           </div>
         <% end %>
 
+        <% if challenge_associated_solutions(@challenge).present? %>
         <h3><strong><%= t("proposed_solutions", scope: "decidim.challenges.show") %></strong></h3>
         <div class="row small-up-1 medium-up-2 card-grid">
           <% challenge_associated_solutions(@challenge).each do |solution| %>
@@ -114,6 +117,7 @@
             </div>
           <% end %>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
