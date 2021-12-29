@@ -46,8 +46,8 @@ module Decidim
                           D: "",
                           datetime: :published_at,
                         },
-                        index_on_create: ->(challenge) { challenge.published? },
-                        index_on_update: ->(challenge) { challenge.published? })
+                        index_on_create: ->(challenge) { challenge.published? && challenge.visible? },
+                        index_on_update: ->(challenge) { challenge.published? && challenge.visible? })
 
       def published?
         published_at.present?

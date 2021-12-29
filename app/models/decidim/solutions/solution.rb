@@ -27,8 +27,8 @@ module Decidim
                           D: "",
                           datetime: :published_at,
                         },
-                        index_on_create: ->(solution) { solution.published? },
-                        index_on_update: ->(solution) { solution.published? })
+                        index_on_create: ->(solution) { solution.published? && solution.visible? },
+                        index_on_update: ->(solution) { solution.published? && solution.visible? })
 
       def published?
         published_at.present?
