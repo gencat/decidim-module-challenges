@@ -4,7 +4,8 @@ Following Semantic Versioning 2.
 ## next version:
 
 ## Version 0.0.10 (MINOR)
-- Hide "Keywords" and "Proposed solutions" when they are empty.
+- In show Challenge, hide "Keywords" and "Proposed solutions" when they are empty.
+- In show Solution, hide "Keywords", "Beneficiaries", "Requeriments" and "Indicators" when they are empty.
 - Upgrade module's Ruby to 2.7.5
 - Fix: hide Challenges, Problems and Solutions from global search when its Participatory space is not visible
 
