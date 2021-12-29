@@ -18,8 +18,8 @@ en:
       problem:
         causes: Causes
         challenge: Challenge
+        collaborating_entities: Collaborating entity
         groups_affected: Groups affected
-        col_entity: Collaborating entity
         decidim_sectorial_scope_id: Sectorial scope
         decidim_technological_scope_id: Technological scope
         description: Description
