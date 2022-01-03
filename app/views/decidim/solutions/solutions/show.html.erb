@@ -139,20 +139,30 @@
                 <h3><strong><%= t("description", scope: "activemodel.attributes.solution") %></strong></h3>
                 <%= present(@solution).description %>
 
+                <% if present(@solution).objectives.present? %>
                 <h3><strong><%= t("objectives", scope: "activemodel.attributes.solution") %></strong></h3>
                 <%= present(@solution).objectives %>
+                <% end %>
 
+                <% if present(@solution).beneficiaries.present? %>
                 <h3><strong><%= t("beneficiaries", scope: "activemodel.attributes.solution") %></strong></h3>
                 <%= present(@solution).beneficiaries %>
+                <% end %>
 
+                <% if present(@solution).requirements.present? %>
                 <h3><strong><%= t("requirements", scope: "activemodel.attributes.solution") %></strong></h3>
                 <%= present(@solution).requirements %>
+                <% end %>
 
+                <% if present(@solution).indicators.present? %>
                 <h3><strong><%= t("indicators", scope: "activemodel.attributes.solution") %></strong></h3>
                 <%= present(@solution).indicators %>
+                <% end %>
 
+                <% if present(@solution).tags.present? %>
                 <h3><strong><%= t("tags", scope: "activemodel.attributes.solution") %></strong></h3>
                 <p class="tags"><%= present(@solution).tags %></p>
+                <% end %>
 
             </div>
         </div>

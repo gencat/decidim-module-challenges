@@ -106,9 +106,12 @@
         <h3><strong><%= t("description", scope: "activemodel.attributes.problem") %></strong></h3>
         <p><%= present(@problem).description %></p>
 
+        <% if present(@problem).tags.present? %>
         <h3><strong><%= t("tags", scope: "activemodel.attributes.problem") %></strong></h3>
         <p class="tags"><%= present(@problem).tags %></p>
+        <% end %>
 
+        <% if @problem.solutions.any? %>
         <h3><strong><%= t("proposed_solutions", scope: "decidim.problems.show") %></strong></h3>
         <div class="row small-up-1 medium-up-2 card-grid">
           <% @problem.solutions.each do |solution| %>
@@ -124,6 +127,7 @@
             </div>
           <% end %>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
