@@ -51,4 +51,37 @@ describe "Solutions", type: :system do
       end
     end
   end
+
+  describe("#index") do
+    context "when list all solutions" do
+      let!(:older_solution) { create(:solution, component: component, created_at: 1.month.ago) }
+      let!(:recent_solution) { create(:solution, component: component, created_at: Time.now.utc) }
+      let!(:solutions) { create_list(:solution, 2, component: component) }
+
+      before do
+        visit_component
+      end
+
+      it "ordered randomly" do
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+        end
+
+        expect(page).to have_selector(".card--solution", count: 4)
+        expect(page).to have_content(translated(solutions.first.title))
+        expect(page).to have_content(translated(solutions.last.title))
+      end
+
+      it "ordered by created at" do
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most recent"
+        end
+
+        expect(page).to have_selector("#solutions .card-grid .column:first-child", text: recent_solution.title[:en])
+        expect(page).to have_selector("#solutions .card-grid .column:last-child", text: older_solution.title[:en])
+      end
+    end
+  end
 end

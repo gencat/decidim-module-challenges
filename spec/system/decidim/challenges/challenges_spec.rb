@@ -45,4 +45,37 @@ describe "Challenges", type: :system do
       end
     end
   end
+
+  describe("#index") do
+    context "when list all challenges" do
+      let!(:older_challenge) { create(:challenge, component: component, created_at: 1.month.ago) }
+      let!(:recent_challenge) { create(:challenge, component: component, created_at: Time.now.utc) }
+      let!(:challenges) { create_list(:challenge, 2, component: component) }
+
+      before do
+        visit_component
+      end
+
+      it "ordered randomly" do
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+        end
+
+        expect(page).to have_selector(".card--challenge", count: 4)
+        expect(page).to have_content(translated(challenges.first.title))
+        expect(page).to have_content(translated(challenges.last.title))
+      end
+
+      it "ordered by created at" do
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most recent"
+        end
+
+        expect(page).to have_selector("#challenges .card-grid .column:first-child", text: recent_challenge.title[:en])
+        expect(page).to have_selector("#challenges .card-grid .column:last-child", text: older_challenge.title[:en])
+      end
+    end
+  end
 end
