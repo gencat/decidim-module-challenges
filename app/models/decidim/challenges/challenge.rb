@@ -12,6 +12,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
       include Decidim::Forms::HasQuestionnaire
+      include Decidim::Randomable
 
       belongs_to :scope,
                  foreign_key: "decidim_scope_id",

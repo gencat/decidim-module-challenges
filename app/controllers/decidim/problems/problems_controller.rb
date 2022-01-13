@@ -19,7 +19,9 @@ module Decidim
 
       helper_method :problems
 
-      def index; end
+      def index
+        @problems = reorder(problems)
+      end
 
       def show
         @problem = Decidim::Problems::Problem.find(params[:id])

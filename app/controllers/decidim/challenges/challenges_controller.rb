@@ -19,7 +19,9 @@ module Decidim
 
       helper_method :challenges
 
-      def index; end
+      def index
+        @challenges = reorder(challenges)
+      end
 
       def show
         @challenge = Challenge.find(params[:id])
