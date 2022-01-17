@@ -18,7 +18,9 @@ module Decidim
 
       helper_method :solutions
 
-      def index; end
+      def index
+        @solutions = reorder(solutions)
+      end
 
       def show
         @solution = solution

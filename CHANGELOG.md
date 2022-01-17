@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.11 (MINOR)
+- Fix order filter in Challenges, Solutions and Problems.
+
 ## Version 0.0.10 (MINOR)
 - In show Challenge, hide "Keywords" and "Proposed solutions" when they are empty.
 - In show Problem, hide "Keywords" and "Proposed solutions" when they are empty.

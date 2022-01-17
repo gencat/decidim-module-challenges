@@ -40,4 +40,37 @@ describe "Problems", type: :system do
       end
     end
   end
+
+  describe("#index") do
+    context "when list all problems" do
+      let!(:older_problem) { create(:problem, component: component, created_at: 1.month.ago) }
+      let!(:recent_problem) { create(:problem, component: component, created_at: Time.now.utc) }
+      let!(:problems) { create_list(:problem, 2, component: component) }
+
+      before do
+        visit_component
+      end
+
+      it "ordered randomly" do
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+        end
+
+        expect(page).to have_selector(".card--problem", count: 4)
+        expect(page).to have_content(translated(problems.first.title))
+        expect(page).to have_content(translated(problems.last.title))
+      end
+
+      it "ordered by created at" do
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most recent"
+        end
+
+        expect(page).to have_selector("#problems .card-grid .column:first-child", text: recent_problem.title[:en])
+        expect(page).to have_selector("#problems .card-grid .column:last-child", text: older_problem.title[:en])
+      end
+    end
+  end
 end

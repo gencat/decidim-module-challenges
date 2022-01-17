@@ -11,6 +11,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
+      include Decidim::Randomable
 
       component_manifest_name "solutions"
 

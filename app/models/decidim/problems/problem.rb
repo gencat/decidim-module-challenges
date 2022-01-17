@@ -11,6 +11,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
+      include Decidim::Randomable
 
       VALID_STATES = [:proposal, :execution, :finished].freeze
       enum state: VALID_STATES
