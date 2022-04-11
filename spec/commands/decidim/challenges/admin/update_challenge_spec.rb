@@ -21,6 +21,7 @@ module Decidim
         let(:end_date) { 2.days.from_now + 4.hours }
         let(:collaborating_entities) { "collaborating_entities" }
         let(:coordinating_entities) { "coordinating_entities" }
+        let(:card_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
         let(:form) do
           instance_double(
             Decidim::Challenges::Admin::ChallengesForm,
@@ -38,7 +39,8 @@ module Decidim
             collaborating_entities: collaborating_entities,
             current_user: current_user,
             current_organization: organization,
-            current_component: current_component
+            current_component: current_component,
+            card_image: card_image
           )
         end
         let(:invalid) { false }
