@@ -60,6 +60,7 @@ module Decidim
             end_date: form.end_date,
             coordinating_entities: form.coordinating_entities,
             collaborating_entities: form.collaborating_entities,
+            card_image: form.card_image,
           }
         end
       end

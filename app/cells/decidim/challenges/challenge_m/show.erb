@@ -1,4 +1,9 @@
 <div class="card card--challenge <%= resource_state %> muted">
+    <% if resource_image_path.present? %>
+      <%= link_to resource_path do %>
+        <%= image_tag resource_image_path, class: "card__image", alt: title %>
+      <% end %>
+    <% end %>
     <div class="card__content">
         <div class="card__header">
             <%= link_to challenge_path, class: "card__link" do %>

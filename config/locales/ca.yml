@@ -78,6 +78,7 @@ ca:
             update: Actualitza
           form:
             duration: Durada
+            images: Imatges
             select_states: Selecciona l'estat
           new:
             create: Crea
@@ -171,6 +172,7 @@ ca:
         name: Reptes
         settings:
           global:
+            allow_card_image: Permetre targeta amb imatge
             announcement: Anunci
             hide_filters: Amagar filtres
           step:

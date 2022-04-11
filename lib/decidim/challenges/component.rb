@@ -29,6 +29,7 @@ Decidim.register_component(:challenges) do |component|
     # Available types: :integer, :boolean
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :hide_filters, type: :boolean, default: false
+    settings.attribute :allow_card_image, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
