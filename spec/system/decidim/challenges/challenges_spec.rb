@@ -60,7 +60,7 @@ describe "Challenges", type: :system do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
         end
 
-        expect(page).to have_selector(".card--challenge", count: 4)
+        expect(page).to have_selector(".card--challenge", count: 2)
         expect(page).to have_content(translated(challenges.first.title))
         expect(page).to have_content(translated(challenges.last.title))
       end
