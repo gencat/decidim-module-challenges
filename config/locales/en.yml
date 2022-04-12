@@ -176,7 +176,7 @@ en:
         name: Challenges
         settings:
           global:
-            allow_card_image: Allow card images
+            allow_card_image: Allow card image
             announcement: Announcement
             hide_filters: Hide filters
       problems:
