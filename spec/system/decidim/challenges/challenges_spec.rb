@@ -50,6 +50,7 @@ describe "Challenges", type: :system do
     context "when list all challenges" do
       let!(:older_challenge) { create(:challenge, component: component, created_at: 1.month.ago) }
       let!(:recent_challenge) { create(:challenge, component: component, created_at: Time.now.utc) }
+      let!(:challenges) { create_list(:challenge, 2, component: component) }
 
       before do
         visit_component
@@ -60,7 +61,7 @@ describe "Challenges", type: :system do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
         end
 
-        expect(page).to have_selector(".card--challenge", count: 2)
+        expect(page).to have_selector(".card--challenge", count: 4)
         expect(page).to have_content(translated(challenges.first.title))
         expect(page).to have_content(translated(challenges.last.title))
       end
