@@ -51,6 +51,7 @@ module Decidim
             coordinating_entities: form.coordinating_entities,
             collaborating_entities: form.collaborating_entities,
             questionnaire: Decidim::Forms::Questionnaire.new,
+            card_image: form.card_image,
           }
 
           @challenge = Decidim.traceability.create!(

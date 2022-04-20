@@ -7,6 +7,14 @@ FactoryBot.define do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :challenges).i18n_name }
     manifest_name { :challenges }
     participatory_space { create(:participatory_process, :with_steps) }
+
+    trait :with_card_image_allowed do
+      settings do
+        {
+          allow_card_image: true,
+        }
+      end
+    end
   end
 
   factory :challenge, traits: [:proposal, :execution, :finished], class: "Decidim::Challenges::Challenge" do
@@ -37,6 +45,10 @@ FactoryBot.define do
 
     trait :with_survey_enabled do
       survey_enabled { true }
+    end
+
+    trait :with_card_image do
+      card_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     end
   end
 

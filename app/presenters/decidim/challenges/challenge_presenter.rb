@@ -11,6 +11,8 @@ module Decidim
       include Decidim::SanitizeHelper
       include Decidim::TranslatableAttributes
 
+      delegate :url, to: :card_image, prefix: true
+
       def challenge
         __getobj__
       end
@@ -75,6 +77,12 @@ module Decidim
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
+      end
+
+      def card_image_url
+        return if challenge.card_image.blank?
+
+        URI.join(decidim.root_url(host: challenge.organization.host), challenge.card_image_url).to_s
       end
 
       delegate :count, to: :versions, prefix: true

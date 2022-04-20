@@ -34,6 +34,7 @@ describe Decidim::Challenges::Admin::ChallengesController, type: :controller do
   let(:collaborating_entities) { "collaborating_entities" }
   let(:coordinating_entities) { "coordinating_entities" }
   let(:state) { 2 }
+  let(:card_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
   let(:params) do
     {
       challenge: {
@@ -47,6 +48,7 @@ describe Decidim::Challenges::Admin::ChallengesController, type: :controller do
         end_date: end_date,
         collaborating_entities: collaborating_entities,
         coordinating_entities: coordinating_entities,
+        card_image: card_image,
       },
       component_id: component,
       scope: scope,

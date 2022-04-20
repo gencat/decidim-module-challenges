@@ -13,6 +13,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Randomable
+      include Decidim::HasUploadValidations
 
       belongs_to :scope,
                  foreign_key: "decidim_scope_id",
@@ -32,6 +33,9 @@ module Decidim
                foreign_key: "decidim_challenges_challenge_id", dependent: :restrict_with_exception
 
       component_manifest_name "challenges"
+
+      validates_upload :card_image
+      mount_uploader :card_image, Decidim::ImageUploader
 
       scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }

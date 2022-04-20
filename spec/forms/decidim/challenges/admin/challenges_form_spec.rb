@@ -38,6 +38,7 @@ module Decidim
         let(:end_date) { 2.days.from_now + 4.hours }
         let(:collaborating_entities) { "collaborating_entities" }
         let(:coordinating_entities) { "coordinating_entities" }
+        let(:card_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
         let(:attributes) do
           {
             "title" => title,
@@ -51,6 +52,7 @@ module Decidim
             "collaborating_entities" => collaborating_entities,
             "coordinating_entities" => coordinating_entities,
             "scope" => scope,
+            "card_image" => card_image,
           }
         end
 

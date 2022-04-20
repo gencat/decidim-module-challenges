@@ -10,7 +10,8 @@ module Decidim::Challenges
       Decidim::Faker::Localized.sentence(3)
     end
 
-    let!(:challenge) { create :challenge, global_description: description }
+    let(:component) { create(:challenges_component, :with_card_image_allowed) }
+    let!(:challenge) { create :challenge, :with_card_image, global_description: description, component: component }
     let(:model) { challenge }
     let(:cell_html) { cell("decidim/challenges/challenge_m", challenge, context: { show_space: show_space }).call }
     let!(:challenge_description) { translated(challenge.global_description) }
@@ -18,6 +19,7 @@ module Decidim::Challenges
 
     context "when rendering" do
       let(:show_space) { false }
+      let!(:card_image) { create(:attachment, :with_image, attached_to: challenge) }
 
       it "renders the card" do
         expect(cell_html).to have_css(".card--challenge")
@@ -29,6 +31,10 @@ module Decidim::Challenges
 
       it "renders the challenge title" do
         expect(cell_html).to have_content(challenge_title)
+      end
+
+      it "renders the challenge image card" do
+        expect(cell_html).to have_css(".card__image")
       end
     end
   end

@@ -51,6 +51,14 @@ module Decidim
       def current_organization
         current_organization
       end
+
+      def has_image?
+        @has_image ||= model.component.settings.allow_card_image && model.card_image.present?
+      end
+
+      def resource_image_path
+        @resource_image_path ||= has_image? ? model.card_image.url : nil
+      end
     end
   end
 end

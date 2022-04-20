@@ -77,5 +77,25 @@ describe "Challenges", type: :system do
         expect(page).to have_selector("#challenges .card-grid .column:last-child", text: older_challenge.title[:en])
       end
     end
+
+    context "when card images are allow" do
+      let!(:challenge_with_card_image) { create(:challenge, :with_card_image, component: component) }
+      let!(:challenge) { create(:challenge, component: component) }
+
+      context "when list all challenges" do
+        before do
+          component.update(settings: { allow_card_image: true })
+          visit_component
+        end
+
+        it "show cards with images" do
+          expect(page).to have_selector(".card--challenge", count: 2)
+          expect(page).to have_selector(".card__image", count: 1)
+
+          expect(page).to have_content(translated(challenge_with_card_image.title))
+          expect(page).to have_content(translated(challenge.title))
+        end
+      end
+    end
   end
 end
