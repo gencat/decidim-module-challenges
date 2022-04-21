@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.13 (PATCH)
+- Fix empty exportations in Challenges surveys.
+
 ## Version 0.0.12 (MINOR)
 - Add card images to Challenges.
 

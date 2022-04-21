@@ -53,9 +53,9 @@ Decidim.register_component(:challenges) do |component|
   end
 
   component.exports :answers do |exports|
-    exports.collection do |f|
-      survey = Decidim::Challenges::Challenge.find_by(component: f)
-      Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
+    exports.collection do |_f, _user, resource_id|
+      questionnaire = Decidim::Forms::Questionnaire.find(resource_id)
+      Decidim::Forms::QuestionnaireUserAnswers.for(questionnaire)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
