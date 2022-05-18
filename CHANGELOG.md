@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.14 (MINOR)
+- Increase minimum Decidim version to 0.25.2
+
 ## Version 0.0.13 (PATCH)
 - Fix empty exportations in Challenges surveys.
 
