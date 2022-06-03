@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.14 (PATCH)
+- Add missing translations in :es and :en.
+
 ## Version 0.0.13 (PATCH)
 - Fix empty exportations in Challenges surveys.
 
