@@ -172,6 +172,9 @@ es:
             allow_card_image: Habilitar imagen en tarjetas
             announcement: Anuncio
             hide_filters: Ocultar filtros
+          step:
+            announcement: Anuncio
+            hide_filters: Ocultar filtros
       problems:
         name: Problemas
         settings:

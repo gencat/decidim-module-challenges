@@ -179,6 +179,9 @@ en:
             allow_card_image: Allow card image
             announcement: Announcement
             hide_filters: Hide filters
+          step:
+            announcement: Announcement
+            hide_filters: Hide filters
       problems:
         name: Problems
         settings:
