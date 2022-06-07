@@ -24,7 +24,8 @@ module Decidim
           return broadcast(:invalid) unless can_answer_survey?
           return broadcast(:invalid_form) unless survey_form.valid?
 
-          answer_questionnaire
+          return broadcast(:invalid) if answer_questionnaire == :invalid
+
           create_survey
         end
         broadcast(:ok)
@@ -37,7 +38,15 @@ module Decidim
       def answer_questionnaire
         return unless questionnaire?
 
-        Decidim::Forms::AnswerQuestionnaire.call(survey_form, user, challenge.questionnaire)
+        Decidim::Forms::AnswerQuestionnaire.call(survey_form, user, challenge.questionnaire) do
+          on(:ok) do
+            return :valid
+          end
+
+          on(:invalid) do
+            return :invalid
+          end
+        end
       end
 
       def create_survey

@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.15 (PATCH)
+- Check if the file has any errors in format in the Challenges surveys.
+
 ## Version 0.0.14 (PATCH)
 - Add missing translations in :es and :en.
 
