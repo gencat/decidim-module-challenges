@@ -15,11 +15,8 @@ module Decidim
         root to: "sdgs#index"
       end
 
-      initializer "decidim_challenges.assets" do |app|
-        app.config.assets.precompile += %w(decidim_sdgs_manifest.js decidim_sdgs_manifest.css)
-        (1..17).each do |idx|
-          app.config.assets.precompile += ["decidim/sdgs/ods-#{idx.to_s.rjust(2, "0")}.svg"]
-        end
+      initializer "decidim_sdgs.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end
