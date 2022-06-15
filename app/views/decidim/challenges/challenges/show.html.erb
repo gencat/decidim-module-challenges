@@ -1,5 +1,5 @@
-<%= stylesheet_link_tag "decidim/sdgs/ods" %>
-<%= stylesheet_link_tag "decidim/challenges/challenges" %>
+<%= stylesheet_pack_tag "decidim_sdgs" %>
+<%= stylesheet_pack_tag "decidim_challenges" %>
 
 <div class="row column">
   <div class="row">
@@ -54,8 +54,7 @@
                     <p><%= t(@sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
                     <p><%= t(@sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
                 </div>
-                <img alt="Logo ODS <%= @sdg_index %>"
-                  src="/assets/decidim/sdgs/ods-<%= @sdg_index %>.svg" class="challenge--view">
+                <%= image_pack_tag "media/images/ods-#{@sdg_index}.svg", alt: "Logo ODS #{@sdg_index}", class: "challenge--view" %>
             </div>
           </div>
         <% end %>

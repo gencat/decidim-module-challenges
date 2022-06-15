@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "decidim/sdgs/ods" %>
+<%= stylesheet_pack_tag "decidim_sdgs" %>
 <div class="row mb-m">
   <div class="columns large-7">
     <section>
@@ -10,7 +10,7 @@
   </div>
   <div class="columns large-5">
     <div id="ods-logo-container">
-      <img src="/assets/decidim/sdgs/sdg-wheel.png">
+      <%= image_pack_tag "media/images/sdg-wheel.png" %>
       <p id="title"><%= t("ods_logo.title", scope: "decidim.components.sdgs") %></p>
       <p id="subtitle"><%= t("ods_logo.subtitle", scope: "decidim.components.sdgs") %></p>
     </div>
@@ -30,7 +30,7 @@
             <p><%= t("no_poverty.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 01" src="/assets/decidim/sdgs/ods-01.svg">
+          <%= image_pack_tag "media/images/ods-01.svg", alt: "Logo ODS 01" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -39,7 +39,7 @@
             <p><%= t("zero_hunger.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("zero_hunger.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 02" src="/assets/decidim/sdgs/ods-02.svg">
+          <%= image_pack_tag "media/images/ods-02.svg", alt: "Logo ODS 02" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -48,7 +48,7 @@
             <p><%= t("good_health.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("good_health.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 03" src="/assets/decidim/sdgs/ods-03.svg">
+          <%= image_pack_tag "media/images/ods-03.svg", alt: "Logo ODS 03" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -57,7 +57,7 @@
             <p><%= t("quality_education.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("quality_education.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 04" src="/assets/decidim/sdgs/ods-04.svg">
+          <%= image_pack_tag "media/images/ods-04.svg", alt: "Logo ODS 04" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -66,7 +66,7 @@
             <p><%= t("gender_equality.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("gender_equality.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 05" src="/assets/decidim/sdgs/ods-05.svg">
+          <%= image_pack_tag "media/images/ods-05.svg", alt: "Logo ODS 05" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -75,7 +75,7 @@
             <p><%= t("clean_water.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("clean_water.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 06" src="/assets/decidim/sdgs/ods-06.svg">
+          <%= image_pack_tag "media/images/ods-06.svg", alt: "Logo ODS 06" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -84,7 +84,7 @@
             <p><%= t("clean_energy.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("clean_energy.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 07" src="/assets/decidim/sdgs/ods-07.svg">
+          <%= image_pack_tag "media/images/ods-07.svg", alt: "Logo ODS 07" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -94,7 +94,7 @@
             <p><%= t("decent_work.logo.line2", scope: "decidim.components.sdgs") %></p>
             <p><%= t("decent_work.logo.line3", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 08" src="/assets/decidim/sdgs/ods-08.svg">
+          <%= image_pack_tag "media/images/ods-08.svg", alt: "Logo ODS 08" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -104,7 +104,7 @@
             <p><%= t("iiai.logo.line2", scope: "decidim.components.sdgs") %></p>
             <p><%= t("iiai.logo.line3", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 09" src="/assets/decidim/sdgs/ods-09.svg">
+          <%= image_pack_tag "media/images/ods-09.svg", alt: "Logo ODS 09" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -113,7 +113,7 @@
             <p><%= t("reduced_inequalities.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("reduced_inequalities.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 10" src="/assets/decidim/sdgs/ods-10.svg">
+          <%= image_pack_tag "media/images/ods-10.svg", alt: "Logo ODS 10" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -123,7 +123,7 @@
             <p><%= t("sustainable_cities.logo.line2", scope: "decidim.components.sdgs") %></p>
             <p><%= t("sustainable_cities.logo.line3", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 11" src="/assets/decidim/sdgs/ods-11.svg">
+          <%= image_pack_tag "media/images/ods-11.svg", alt: "Logo ODS 11" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -133,7 +133,7 @@
             <p><%= t("responsible_consumption.logo.line2", scope: "decidim.components.sdgs") %></p>
             <p><%= t("responsible_consumption.logo.line3", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 12" src="/assets/decidim/sdgs/ods-12.svg">
+          <%= image_pack_tag "media/images/ods-12.svg", alt: "Logo ODS 12" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -142,7 +142,7 @@
             <p><%= t("climate_action.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("climate_action.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 13" src="/assets/decidim/sdgs/ods-13.svg">
+          <%= image_pack_tag "media/images/ods-13.svg", alt: "Logo ODS 13" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -151,7 +151,7 @@
             <p><%= t("life_below_water.logo.line1", scope: "decidim.components.sdgs") %></p>
             <p><%= t("life_below_water.logo.line2", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 14" src="/assets/decidim/sdgs/ods-14.svg">
+          <%= image_pack_tag "media/images/ods-14.svg", alt: "Logo ODS 14" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -161,7 +161,7 @@
             <p><%= t("life_on_land.logo.line2", scope: "decidim.components.sdgs") %></p>
             <p><%= t("life_on_land.logo.line3", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 15" src="/assets/decidim/sdgs/ods-15.svg">
+          <%= image_pack_tag "media/images/ods-15.svg", alt: "Logo ODS 15" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -171,7 +171,7 @@
             <p><%= t("pjsi.logo.line2", scope: "decidim.components.sdgs") %></p>
             <p><%= t("pjsi.logo.line3", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 16" src="/assets/decidim/sdgs/ods-16.svg">
+          <%= image_pack_tag "media/images/ods-16.svg", alt: "Logo ODS 16" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
@@ -181,12 +181,12 @@
             <p><%= t("partnership.logo.line2", scope: "decidim.components.sdgs") %></p>
             <p><%= t("partnership.logo.line3", scope: "decidim.components.sdgs") %></p>
           </div>
-          <img alt="Logo ODS 17" src="/assets/decidim/sdgs/ods-17.svg">
+          <%= image_pack_tag "media/images/ods-17.svg", alt: "Logo ODS 17" %>
         </div>
       </div>
       <div class="columns large-2 medium-3 small-4">
         <div class="ods final">
-          <img alt="Logo United Nations" src="/assets/decidim/sdgs/un_emblem_square.png">
+          <%= image_pack_tag "media/images/un_emblem_square.png", alt: "Logo United Nations" %>
         </div>
       </div>
     </div>

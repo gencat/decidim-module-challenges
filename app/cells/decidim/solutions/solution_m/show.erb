@@ -39,7 +39,7 @@
                                 <p><%= t(resource_sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
                             </div>
                         <% if resource_sdg_index %>
-                            <img alt="Logo SDG <%= resource_sdg_index%>" src="/assets/decidim/sdgs/ods-<%= resource_sdg_index%>.svg" class="solution--view">
+                            <%= image_pack_tag "media/images/ods-#{resource_sdg_index}.svg", alt: "Logo ODS #{resource_sdg_index}", class: "solution--view" %>
                         <% end %>
                     </div>
                 </div>

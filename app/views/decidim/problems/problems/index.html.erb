@@ -1,5 +1,5 @@
-<%= stylesheet_link_tag "decidim/sdgs/ods" %>
-<%= stylesheet_link_tag "decidim/problems/problems" %>
+<%= stylesheet_pack_tag "decidim_sdgs" %>
+<%= stylesheet_pack_tag "decidim_problems" %>
 
 <div class="row columns">
   <div class="title-action">
@@ -24,7 +24,5 @@
     <%= render partial: "problems" %>
   </div>
 </div>
-<%= javascript_include_tag("decidim/filters") %>
-<%= javascript_include_tag "decidim/results_listing" %>
 
  <%= render partial: "decidim/sdgs/sdgs_filter/modal" %>
