@@ -41,8 +41,9 @@ module Decidim
         validates :card_image,
                   presence: false,
                   passthru: { to: Decidim::Challenges::Challenge,
-                              with: ->(form) { 
-                                { component: form.current_component } } }
+                              with: lambda { |form|
+                                      { component: form.current_component }
+                                    } }
 
         alias organization current_organization
 

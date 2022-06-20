@@ -58,8 +58,7 @@ module Decidim
         published_at.present?
       end
 
-      def remove_card_image
-      end
+      def remove_card_image; end
     end
   end
 end
