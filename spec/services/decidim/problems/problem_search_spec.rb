@@ -53,9 +53,9 @@ module Decidim
           end
         end
 
-        describe "when filtering problems by challenge" do
-          it "finds the problems associated with the given challenge"
-        end
+        # describe "when filtering problems by challenge" do
+        pending "finds the problems associated with the given challenge"
+        # end
 
         describe "problem scopes" do
           include_context "with example scopes"
@@ -159,39 +159,37 @@ module Decidim
           end
         end
 
-        describe "related_to filter" do
-          context "when filtering by related to problems" do
-            #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
-            #   let(:problems_component) { create(:component, manifest_name: 'problems', participatory_space: participatory_process) }
-            #   let(:problem) { create :problem, component: problems_component }
+        # describe "related_to filter" do
+        pending "when filtering by related to problems"
+        #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
+        #   let(:problems_component) { create(:component, manifest_name: 'problems', participatory_space: participatory_process) }
+        #   let(:problem) { create :problem, component: problems_component }
 
-            it "returns only problems related to problems"
-            #     related_problem = create(:problem, :accepted, component: component)
-            #     related_problem_2 = create(:problem, :accepted, component: component)
-            #     create_list(:problem, 3, component: component)
-            #     problem.link_resources([related_problem], 'problems_from_problem')
-            #     related_problem_2.link_resources([problem], 'problems_from_problem')
+        # it "returns only problems related to problems"
+        #     related_problem = create(:problem, :accepted, component: component)
+        #     related_problem_2 = create(:problem, :accepted, component: component)
+        #     create_list(:problem, 3, component: component)
+        #     problem.link_resources([related_problem], 'problems_from_problem')
+        #     related_problem_2.link_resources([problem], 'problems_from_problem')
 
-            #     expect(subject).to match_array([related_problem, related_problem_2])
-            #   end
-          end
+        #     expect(subject).to match_array([related_problem, related_problem_2])
+        #   end
 
-          context "when filtering by related to resources" do
-            #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
-            #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
-            #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+        pending "when filtering by related to resources"
+        #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
+        #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
+        #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
-            it "returns only problems related to results"
-            #     related_problem = create(:problem, :accepted, component: component)
-            #     related_problem_2 = create(:problem, :accepted, component: component)
-            #     create_list(:problem, 3, component: component)
-            #     dummy_resource.link_resources([related_problem], 'included_problems')
-            #     related_problem_2.link_resources([dummy_resource], 'included_problems')
+        # it "returns only problems related to results"
+        #     related_problem = create(:problem, :accepted, component: component)
+        #     related_problem_2 = create(:problem, :accepted, component: component)
+        #     create_list(:problem, 3, component: component)
+        #     dummy_resource.link_resources([related_problem], 'included_problems')
+        #     related_problem_2.link_resources([dummy_resource], 'included_problems')
 
-            #     expect(subject).to match_array([related_problem, related_problem_2])
-            #   end
-          end
-        end
+        #     expect(subject).to match_array([related_problem, related_problem_2])
+        #   end
+        # end
       end
     end
   end

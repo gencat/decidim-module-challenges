@@ -96,39 +96,37 @@ module Decidim
           end
         end
 
-        describe "related_to filter" do
-          context "when filtering by related to solutions" do
-            #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
-            #   let(:solutions_component) { create(:component, manifest_name: 'solutions', participatory_space: participatory_process) }
-            #   let(:solution) { create :solution, component: solutions_component }
+        # describe "related_to filter" do
+        pending "when filtering by related to solutions"
+        #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
+        #   let(:solutions_component) { create(:component, manifest_name: 'solutions', participatory_space: participatory_process) }
+        #   let(:solution) { create :solution, component: solutions_component }
 
-            it "returns only solutions related to solutions"
-            #     related_solution = create(:solution, :accepted, component: component)
-            #     related_solution_2 = create(:solution, :accepted, component: component)
-            #     create_list(:solution, 3, component: component)
-            #     solution.link_resources([related_solution], 'solutions_from_solution')
-            #     related_solution_2.link_resources([solution], 'solutions_from_solution')
+        # it "returns only solutions related to solutions"
+        #     related_solution = create(:solution, :accepted, component: component)
+        #     related_solution_2 = create(:solution, :accepted, component: component)
+        #     create_list(:solution, 3, component: component)
+        #     solution.link_resources([related_solution], 'solutions_from_solution')
+        #     related_solution_2.link_resources([solution], 'solutions_from_solution')
 
-            #     expect(subject).to match_array([related_solution, related_solution_2])
-            #   end
-          end
+        #     expect(subject).to match_array([related_solution, related_solution_2])
+        #   end
 
-          context "when filtering by related to resources" do
-            #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
-            #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
-            #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+        pending "when filtering by related to resources"
+        #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
+        #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
+        #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
-            it "returns only solutions related to results"
-            #     related_solution = create(:solution, :accepted, component: component)
-            #     related_solution_2 = create(:solution, :accepted, component: component)
-            #     create_list(:solution, 3, component: component)
-            #     dummy_resource.link_resources([related_solution], 'included_solutions')
-            #     related_solution_2.link_resources([dummy_resource], 'included_solutions')
+        # it "returns only solutions related to results"
+        #     related_solution = create(:solution, :accepted, component: component)
+        #     related_solution_2 = create(:solution, :accepted, component: component)
+        #     create_list(:solution, 3, component: component)
+        #     dummy_resource.link_resources([related_solution], 'included_solutions')
+        #     related_solution_2.link_resources([dummy_resource], 'included_solutions')
 
-            #     expect(subject).to match_array([related_solution, related_solution_2])
-            #   end
-          end
-        end
+        #     expect(subject).to match_array([related_solution, related_solution_2])
+        #   end
+        # end
       end
     end
   end

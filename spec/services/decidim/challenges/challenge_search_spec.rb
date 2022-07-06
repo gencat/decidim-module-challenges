@@ -125,39 +125,37 @@ module Decidim
           end
         end
 
-        describe "related_to filter" do
-          context "when filtering by related to problems" do
-            #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
-            #   let(:problems_component) { create(:component, manifest_name: 'problems', participatory_space: participatory_process) }
-            #   let(:problem) { create :problem, component: problems_component }
+        # describe "related_to filter" do
+        pending "when filtering by related to problems"
+        #   let(:related_to) { 'Decidim::Meetings::Meeting'.underscore }
+        #   let(:problems_component) { create(:component, manifest_name: 'problems', participatory_space: participatory_process) }
+        #   let(:problem) { create :problem, component: problems_component }
 
-            it "returns only challenges related to problems"
-            #     related_challenge = create(:challenge, :accepted, component: component)
-            #     related_challenge_2 = create(:challenge, :accepted, component: component)
-            #     create_list(:challenge, 3, component: component)
-            #     problem.link_resources([related_challenge], 'challenges_from_problem')
-            #     related_challenge_2.link_resources([problem], 'challenges_from_problem')
+        # it "returns only challenges related to problems"
+        #     related_challenge = create(:challenge, :accepted, component: component)
+        #     related_challenge_2 = create(:challenge, :accepted, component: component)
+        #     create_list(:challenge, 3, component: component)
+        #     problem.link_resources([related_challenge], 'challenges_from_problem')
+        #     related_challenge_2.link_resources([problem], 'challenges_from_problem')
 
-            #     expect(subject).to match_array([related_challenge, related_challenge_2])
-            #   end
-          end
+        #     expect(subject).to match_array([related_challenge, related_challenge_2])
+        #   end
 
-          context "when filtering by related to resources" do
-            #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
-            #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
-            #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+        pending "when filtering by related to resources"
+        #   let(:related_to) { 'Decidim::DummyResources::DummyResource'.underscore }
+        #   let(:dummy_component) { create(:component, manifest_name: 'dummy', participatory_space: participatory_process) }
+        #   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
-            it "returns only challenges related to results"
-            #     related_challenge = create(:challenge, :accepted, component: component)
-            #     related_challenge_2 = create(:challenge, :accepted, component: component)
-            #     create_list(:challenge, 3, component: component)
-            #     dummy_resource.link_resources([related_challenge], 'included_challenges')
-            #     related_challenge_2.link_resources([dummy_resource], 'included_challenges')
+        # it "returns only challenges related to results"
+        #     related_challenge = create(:challenge, :accepted, component: component)
+        #     related_challenge_2 = create(:challenge, :accepted, component: component)
+        #     create_list(:challenge, 3, component: component)
+        #     dummy_resource.link_resources([related_challenge], 'included_challenges')
+        #     related_challenge_2.link_resources([dummy_resource], 'included_challenges')
 
-            #     expect(subject).to match_array([related_challenge, related_challenge_2])
-            #   end
-          end
-        end
+        #     expect(subject).to match_array([related_challenge, related_challenge_2])
+        #   end
+        # end
       end
     end
   end
