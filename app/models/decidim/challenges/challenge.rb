@@ -34,8 +34,8 @@ module Decidim
 
       component_manifest_name "challenges"
 
-      validates_upload :card_image
-      mount_uploader :card_image, Decidim::ImageUploader
+      has_one_attached :card_image
+      validates_upload :card_image, uploader: Decidim::ImageUploader
 
       scope :published, -> { where.not(published_at: nil) }
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
@@ -57,6 +57,8 @@ module Decidim
       def published?
         published_at.present?
       end
+
+      def remove_card_image; end
     end
   end
 end

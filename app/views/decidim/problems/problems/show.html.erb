@@ -1,5 +1,5 @@
-<%= stylesheet_link_tag "decidim/sdgs/ods" %>
-<%= stylesheet_link_tag "decidim/problems/problems" %>
+<%= stylesheet_pack_tag "decidim_sdgs" %>
+<%= stylesheet_pack_tag "decidim_problems" %>
 
 <div class="row column">
   <div class="row">
@@ -79,8 +79,8 @@
                     <p><%= t(@problem.challenge.sdg_code + ".logo.line1", scope: "decidim.components.sdgs") %></p>
                     <p><%= t(@problem.challenge.sdg_code + ".logo.line2", scope: "decidim.components.sdgs") %></p>
                 </div>
-                <img alt="Logo ODS <%= (1 + Decidim::Sdgs::Sdg.index_from_code(@problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0") %>"
-                  src="/assets/decidim/sdgs/ods-<%= (1 + Decidim::Sdgs::Sdg.index_from_code(@problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0") %>.svg" class="problem--view">
+                <% sdg_code = (1 + Decidim::Sdgs::Sdg.index_from_code(@problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0") %>
+                <%= image_pack_tag "media/images/ods-#{sdg_code}.svg", alt: "Logo ODS #{sdg_code}", class: "problem--view" %>
             </div>
           <% end %>
         </div>

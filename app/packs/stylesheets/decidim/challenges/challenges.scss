@@ -1,0 +1,129 @@
+@import "stylesheets/decidim/sdgs/ods.scss";
+@import "stylesheets/decidim/sdgs/sdgs_filter/button.scss";
+@import "stylesheets/decidim/sdgs/sdgs_filter/modal.scss";
+
+.card--challenge {
+
+  border-color: rgb(254, 174, 2);
+  border-top-color: rgb(254, 174, 2);
+
+  .card__text--paragraph--status {
+      color: rgb(254, 174, 2);
+  }
+}
+
+.card--challenge.proposal {
+
+  border-color: rgb(254, 174, 2);
+  border-top-color: rgb(254, 174, 2);
+
+  .card__text--paragraph--status {
+      color: rgb(254, 174, 2);
+  }
+}
+
+.card--challenge {    
+  .card__title {
+      margin-bottom: 5px;
+  }
+
+  .card_text--sdg--image {
+      display: inline-block;
+      width: 20%;
+
+      img {
+          vertical-align: bottom;
+      }
+  }
+
+  .card__sdg {
+      display: inline-flex;
+  }
+
+  .card_text--sdg--text {
+      display: inline-block;
+      width: 75%;
+      padding-left: 5px;
+  }
+
+  .card__text--paragraph--status {
+      font-weight: bold;
+      display: inline;
+      text-transform: uppercase;
+      padding-right: 5px;
+  }
+
+  .card__text--paragraph p:first-of-type {
+      display: inline;
+  }
+}
+
+.card--challenge.executing {
+  border-color: rgb(0, 163, 144);
+  border-top-color: rgb(0, 163, 144);
+
+  .card__text--paragraph--status {
+      color: rgb(0, 163, 144);
+  }
+}
+
+.card--challenge.finished {
+  border-color: rgb(0, 188, 255);
+  border-top-color: rgb(0, 188, 255);
+
+  .card__text--paragraph--status {
+      color: rgb(0, 188, 255);
+  }
+}
+
+.definition-data__image {
+  padding-top: 0.1em;
+}
+
+.status{
+  text-transform: uppercase;
+}
+
+.section p.tags{
+  color: #D04040;
+  font-weight: 600;
+}
+
+.ods.challenges {
+  cursor: default;
+  &:hover {
+      -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+      -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+      transition: all 0.0s ease;
+  }
+
+  .text-container {
+      top: 0.3rem;
+      left: 1.3rem;
+      width: 60px;
+  }
+  .text-container.show {
+      top: 0.6rem;
+      left: 6.5rem;
+      width: 60px;
+      text-align: start;
+  }
+
+  p {
+      font-size: 6pt;
+  }
+
+  img.challenge--view {
+      width: 100%;
+      max-width: 100px;
+  }
+}
+
+.card-associated-problem {
+  padding: 5px 10px;
+}
+
+.card-proposed-solution {
+  padding: 5px 10px;
+}

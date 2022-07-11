@@ -6,9 +6,10 @@ module Decidim
   module Challenges
     module Admin
       describe ChallengesForm do
-        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
+        subject { described_class.from_params(attributes).with_context(current_organization: organization, current_component: component) }
 
-        let(:organization) { create :organization }
+        let(:component) { create :challenges_component }
+        let(:organization) { component.organization }
         let(:scope) { create :scope, organization: organization }
         let(:title) do
           {

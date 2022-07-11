@@ -53,11 +53,11 @@ module Decidim
       end
 
       def has_image?
-        @has_image ||= model.component.settings.allow_card_image && model.card_image.present?
+        @has_image ||= model.component.settings.allow_card_image && model.card_image.attached?
       end
 
       def resource_image_path
-        @resource_image_path ||= has_image? ? model.card_image.url : nil
+        @resource_image_path ||= has_image? ? model.attached_uploader(:card_image).path : nil
       end
     end
   end

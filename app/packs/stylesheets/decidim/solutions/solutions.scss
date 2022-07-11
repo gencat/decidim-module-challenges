@@ -1,4 +1,7 @@
-//= require_self
+@import "stylesheets/decidim/sdgs/ods.scss";
+@import "stylesheets/decidim/solutions/solutions/solution.scss";
+@import "stylesheets/decidim/sdgs/sdgs_filter/button.scss";
+@import "stylesheets/decidim/sdgs/sdgs_filter/modal.scss";
 
 h3.parents{
   line-height: 1;
@@ -52,5 +55,3 @@ h3.parents span.title{
     max-width: 100px;
   }
 }
-  
-@import 'solutions/*'

@@ -1,8 +1,9 @@
-//= require_self
+@import "stylesheets/decidim/sdgs/sdgs_filter/button.scss";
+@import "stylesheets/decidim/sdgs/sdgs_filter/modal.scss";
 
 @font-face {
   font-family: Oswald-Medium;
-  src: asset-url("Oswald-Medium.ttf");
+  src: url('../fonts/Oswald-Medium.ttf')
 }
 
 

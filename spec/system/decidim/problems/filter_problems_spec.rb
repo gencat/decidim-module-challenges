@@ -12,9 +12,9 @@ describe "Filter Problems", :slow, type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  describe "when filtering problems by challenge" do
-    it "finds the problems associated with the given challenge"
-  end
+  # describe "when filtering problems by challenge" do
+  pending "finds the problems associated with the given challenge"
+  # end
 
   describe "when filtering problems by sectorial and technological scopes" do
     before do

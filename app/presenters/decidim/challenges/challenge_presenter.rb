@@ -82,7 +82,7 @@ module Decidim
       def card_image_url
         return if challenge.card_image.blank?
 
-        URI.join(decidim.root_url(host: challenge.organization.host), challenge.card_image_url).to_s
+        challenge.attached_uploader(:card_image).url(host: challenge.organization.host)
       end
 
       delegate :count, to: :versions, prefix: true
