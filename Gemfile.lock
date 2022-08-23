@@ -175,7 +175,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-challenges (0.1.0)
+    decidim-challenges (0.2.0)
       decidim-core (~> 0.26.2)
 
 GEM
