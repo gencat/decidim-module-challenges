@@ -77,7 +77,7 @@ jobs:
       - name: Run RSpec
         uses: nick-invision/retry@v2
         with:
-          timeout_minutes: 15
+          timeout_minutes: 30
           max_attempts: 3
           retry_on: error
           command: CI=1 CHALLENGES_SIMPLECOV=1 bundle exec rake --backtrace -t spec[^spec/system/decidim/problems]
