@@ -9,7 +9,7 @@ require "decidim/sdgs/admin_engine"
 Decidim.register_component(:sdgs) do |component|
   component.engine = Decidim::Sdgs::Engine
   component.admin_engine = Decidim::Sdgs::AdminEngine
-  component.icon = "decidim/challenges/icon.svg"
+  component.icon = "media/images/decidim_challenges_icon.svg"
 
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component
