@@ -10,7 +10,7 @@ module Decidim
       description "A solution"
 
       field :id, GraphQL::Types::ID, null: false
-      field :title, !Decidim::Core::TranslatedFieldType, "The title of this solution (same as the component name).", null: true
+      field :title, Decidim::Core::TranslatedFieldType, "The title of this solution (same as the component name).", null: false
       field :description, Decidim::Core::TranslatedFieldType, "The description of this solution.", null: true
       field :problem, Decidim::Problems::ProblemType, "The related Problem", null: true
       field :tags, Decidim::Core::TranslatedFieldType, "The tags of this solution.", null: true

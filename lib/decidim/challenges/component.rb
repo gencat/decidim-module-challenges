@@ -10,7 +10,7 @@ Decidim.register_component(:challenges) do |component|
   component.engine = Decidim::Challenges::Engine
   component.stylesheet = "decidim/challenges/challenges"
   component.admin_engine = Decidim::Challenges::AdminEngine
-  component.icon = "decidim/challenges/icon.svg"
+  component.icon = "media/images/decidim_challenges_icon.svg"
 
   component.data_portable_entities = ["Decidim::Challenge::Survey"]
 

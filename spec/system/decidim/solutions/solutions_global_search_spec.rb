@@ -12,5 +12,5 @@ describe "Solutions global search", type: :system do
     searchables.each { |s| s.update(published_at: Time.current) }
   end
 
-  include_examples "searchable results"
+  include_examples "unreportable searchable results"
 end

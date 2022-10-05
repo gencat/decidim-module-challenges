@@ -9,7 +9,7 @@ require "decidim/solutions/admin_engine"
 Decidim.register_component(:solutions) do |component|
   component.engine = Decidim::Solutions::Engine
   component.admin_engine = Decidim::Solutions::AdminEngine
-  component.icon = "decidim/solutions/icon.svg"
+  component.icon = "media/images/decidim_challenges_icon.svg"
   component.stylesheet = "decidim/solutions/solutions"
 
   # component.on(:before_destroy) do |instance|

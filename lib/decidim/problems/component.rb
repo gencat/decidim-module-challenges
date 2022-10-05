@@ -10,7 +10,7 @@ Decidim.register_component(:problems) do |component|
   component.engine = Decidim::Problems::Engine
   component.stylesheet = "decidim/problems/problems"
   component.admin_engine = Decidim::Problems::AdminEngine
-  component.icon = "decidim/problems/icon.svg"
+  component.icon = "media/images/decidim_challenges_icon.svg"
 
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component

@@ -1,4 +1,4 @@
-name: "[CI] Unit Tests"
+name: "[CI] Challenges system Tests"
 
 on:
   push:
@@ -80,7 +80,7 @@ jobs:
           timeout_minutes: 30
           max_attempts: 3
           retry_on: error
-          command: CI=1 CHALLENGES_SIMPLECOV=1 bundle exec rake --backtrace -t spec['spec\/(?!(system))']
+          command: CI=1 CHALLENGES_SIMPLECOV=1 bundle exec rake --backtrace -t spec[^spec/system/decidim/challenges]
 
       - name: Publish code coverage
         run: |
