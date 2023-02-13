@@ -10,6 +10,7 @@ Decidim.register_component(:sdgs) do |component|
   component.engine = Decidim::Sdgs::Engine
   component.admin_engine = Decidim::Sdgs::AdminEngine
   component.icon = "media/images/decidim_challenges_icon.svg"
+  component.stylesheet = "decidim/sdgs/sdgs"
 
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component
