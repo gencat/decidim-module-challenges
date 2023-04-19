@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.2.1 (MINOR)
+- Upgrade module's Ruby to 3.0.6
+
 ## Version 0.2.0 (MINOR)
 - Increase minimum Decidim version to 0.26.2
 
