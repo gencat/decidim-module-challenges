@@ -23,8 +23,8 @@ describe "Filter Problems", :slow, type: :system do
       create(:problem, component: component, sectorial_scope: nil, technological_scope: nil)
     end
 
-    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".sectorial_scope_id_check_boxes_tree_filter"
-    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".technological_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_sectorial_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_technological_scope_id_check_boxes_tree_filter"
   end
 
   describe "when filtering problems by challenge's territorial scopes" do
@@ -38,7 +38,7 @@ describe "Filter Problems", :slow, type: :system do
       create(:problem, component: component, challenge: challenge_no_scope)
     end
 
-    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".territorial_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_territorial_scope_id_check_boxes_tree_filter"
   end
 
   describe "when filtering problems by STATE" do
@@ -54,7 +54,7 @@ describe "Filter Problems", :slow, type: :system do
       create(:problem, :proposal, component: component)
       visit_component
 
-      within ".filters .state_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "All"
         uncheck "All"
         check "Proposal"
@@ -73,7 +73,7 @@ describe "Filter Problems", :slow, type: :system do
       create(:problem, :execution, component: component)
       visit_component
 
-      within ".filters .state_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "All"
         uncheck "All"
         check "Execution"

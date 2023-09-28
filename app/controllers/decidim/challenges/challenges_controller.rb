@@ -38,12 +38,12 @@ module Decidim
 
       def default_filter_params
         {
-          search_text: "",
-          category_id: default_filter_category_params,
-          state: %w(proposal execution finished),
-          scope_id: default_filter_scope_params,
-          related_to: "",
-          sdgs_codes: [],
+          search_text_cont: "",
+          with_any_category_id: default_filter_category_params,
+          with_any_state: %w(proposal execution finished),
+          with_any_scope_id: default_filter_scope_params,
+          with_related_to: "",
+          sdgs_codes_cont: [],
         }
       end
 
@@ -64,11 +64,11 @@ module Decidim
       end
 
       def challenges
-        @challenges ||= paginate(search.results.published)
+        @challenges ||= paginate(search.result)
       end
 
-      def search_klass
-        Decidim::Challenges::ChallengeSearch
+      def search_collection
+        ::Decidim::Challenges::Challenge.published
       end
     end
   end

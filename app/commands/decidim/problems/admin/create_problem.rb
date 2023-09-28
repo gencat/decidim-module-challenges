@@ -4,7 +4,7 @@ module Decidim
   module Problems
     module Admin
       # A command with all the business logic when a user creates a new problem.
-      class CreateProblem < Rectify::Command
+      class CreateProblem < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

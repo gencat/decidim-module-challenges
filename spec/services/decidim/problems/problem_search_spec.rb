@@ -15,18 +15,18 @@ module Decidim
         subject do
           described_class.new(
             component: component,
-            search_text: search_text,
-            state: states,
-            related_to: related_to,
-            sectorial_scope_id: sectorial_scope_ids,
-            technological_scope_id: technological_scope_ids,
-            territorial_scope_id: territorial_scope_ids,
-            category_id: category_ids,
+            search_text_cont: search_text_cont,
+            with_any_state: states,
+            with_related_to: related_to,
+            with_any_sectorial_scope_id: sectorial_scope_ids,
+            with_any_technological_scope_id: technological_scope_ids,
+            with_any_territorial_scope_id: territorial_scope_ids,
+            with_any_category_id: category_ids,
             sdgs_codes: sdgs_codes
-          ).results
+          ).result
         end
 
-        let(:search_text) { nil }
+        let(:search_text_cont) { nil }
         let(:related_to) { nil }
         let(:states) { nil }
         let(:sectorial_scope_ids) { nil }
@@ -42,8 +42,8 @@ module Decidim
           expect(subject).not_to include(other_problem)
         end
 
-        describe "search_text filter" do
-          let(:search_text) { "dog" }
+        describe "search_text_cont filter" do
+          let(:search_text_cont) { "dog" }
 
           it "returns the problems containing the search in the title or the body" do
             dog_problem = create(:problem, title: { I18n.locale => "A dog" }, component: component)

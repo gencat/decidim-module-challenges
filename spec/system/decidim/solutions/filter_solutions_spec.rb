@@ -30,7 +30,7 @@ describe "Filter Solutions", :slow, type: :system do
       create(:solution, component: component, problem: problem_no_scope)
     end
 
-    include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".territorial_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".with_any_territorial_scope_id_check_boxes_tree_filter"
   end
 
   describe "when filtering solutions by SDG" do

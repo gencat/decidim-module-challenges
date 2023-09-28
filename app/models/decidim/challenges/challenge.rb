@@ -5,6 +5,7 @@ module Decidim
     # The data store for a Challenge in the Decidim::Challenges component.
     class Challenge < Decidim::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::FilterableResource
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
@@ -41,6 +42,22 @@ module Decidim
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
       scope :in_execution, -> { where(state: VALID_STATES.index(:execution)) }
       scope :in_finished, -> { where(state: VALID_STATES.index(:finished)) }
+
+      scope :with_any_state, lambda { |*values|
+        where(state: Array(values).map(&:to_sym) & VALID_STATES)
+      }
+
+      scope :search_text_cont, lambda { |search_text|
+        where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
+      }
+
+      scope :with_sdgs_codes, lambda { |sdgs_codes|
+        where(sdg_code: sdgs_codes)
+      }
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state, :search_text_cont, :with_sdgs_codes]
+      end
 
       searchable_fields({
                           scope_id: :decidim_scope_id,

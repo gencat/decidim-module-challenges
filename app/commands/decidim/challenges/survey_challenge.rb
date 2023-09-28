@@ -3,7 +3,7 @@
 module Decidim
   module Challenges
     # This command is executed when the user answer a survey.
-    class SurveyChallenge < Rectify::Command
+    class SurveyChallenge < Decidim::Command
       # Initializes a SurveyChallenge Command.
       #
       # challenge - The current instance of the challenge to be answer the survey.

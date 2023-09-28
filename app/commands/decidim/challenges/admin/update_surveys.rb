@@ -4,7 +4,7 @@ module Decidim
   module Challenges
     module Admin
       # This command is executed when the user updates the challenge survey,
-      class UpdateSurveys < Rectify::Command
+      class UpdateSurveys < Decidim::Command
         # Initializes a UpdateSurveys Command.
         #
         # form - The form from which to get the data.

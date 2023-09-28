@@ -4,7 +4,7 @@ module Decidim
   module Problems
     module Admin
       # A command that sets a problem as published.
-      class PublishProblem < Rectify::Command
+      class PublishProblem < Decidim::Command
         # Public: Initializes the command.
         #
         # problem - A Problem that will be published

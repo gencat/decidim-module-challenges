@@ -16,16 +16,16 @@ module Decidim
         subject do
           described_class.new(
             component: component,
-            search_text: search_text,
-            state: states,
-            related_to: related_to,
-            territorial_scope_id: territorial_scope_ids,
-            category_id: category_ids,
+            search_text_cont: search_text_cont,
+            with_any_state: states,
+            with_related_to: related_to,
+            with_any_territorial_scope_id: territorial_scope_ids,
+            with_any_category_id: category_ids,
             sdgs_codes: sdgs_codes
-          ).results
+          ).result
         end
 
-        let(:search_text) { nil }
+        let(:search_text_cont) { nil }
         let(:related_to) { nil }
         let(:states) { nil }
         let(:territorial_scope_ids) { nil }
@@ -39,8 +39,8 @@ module Decidim
           expect(subject).not_to include(other_solution)
         end
 
-        describe "search_text filter" do
-          let(:search_text) { "dog" }
+        describe "search_text_cont filter" do
+          let(:search_text_cont) { "dog" }
 
           it "returns the solutions containing the search in the title or the body" do
             dog_solution = create(:solution, title: { I18n.locale => "A dog" }, component: component)

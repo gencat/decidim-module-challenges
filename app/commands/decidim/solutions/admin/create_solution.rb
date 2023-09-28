@@ -4,7 +4,7 @@ module Decidim
   module Solutions
     module Admin
       # A command with all the business logic when a user creates a new solution.
-      class CreateSolution < Rectify::Command
+      class CreateSolution < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

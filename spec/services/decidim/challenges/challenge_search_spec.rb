@@ -14,16 +14,16 @@ module Decidim
         subject do
           described_class.new(
             component: component,
-            search_text: search_text,
-            state: states,
-            related_to: related_to,
-            scope_id: scope_ids,
-            category_id: category_ids,
+            search_text_cont: search_text_cont,
+            with_any_state: states,
+            with_related_to: related_to,
+            with_any_scope_id: scope_ids,
+            with_any_category_id: category_ids,
             sdgs_codes: sdgs_codes
-          ).results
+          ).result
         end
 
-        let(:search_text) { nil }
+        let(:search_text_cont) { nil }
         let(:related_to) { nil }
         let(:states) { nil }
         let(:scope_ids) { nil }
@@ -37,8 +37,8 @@ module Decidim
           expect(subject).not_to include(other_challenge)
         end
 
-        describe "search_text filter" do
-          let(:search_text) { "dog" }
+        describe "search_text_cont filter" do
+          let(:search_text_cont) { "dog" }
 
           it "returns the challenges containing the search in the title or the body" do
             dog_challenge = create(:challenge, title: { I18n.locale => "A dog" }, component: component)
@@ -61,7 +61,7 @@ module Decidim
 
             it "hides execution and finished proposals" do
               create(:challenge, :finished, component: component)
-              proposal_challenge = create(:challenge, :proposal, component: component)
+              proposal_challenge = create(:challenge, :proposal, component: component) 
 
               expect(subject.size).to eq(1)
               expect(subject).to include(proposal_challenge)

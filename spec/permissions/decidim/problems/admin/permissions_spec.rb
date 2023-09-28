@@ -9,7 +9,13 @@ describe Decidim::Problems::Admin::Permissions do
   let(:user) { create :user, :admin, organization: organization }
   let(:problem) { create :problem }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) do
+    Decidim::PermissionAction.new(
+      action: action[:action],
+      subject: action[:subject],
+      scope: action[:scope]
+    )
+  end
 
   shared_examples "access for role" do |access|
     case access

@@ -5,6 +5,7 @@ module Decidim
     # The data store for a Solution in the Decidim::Solutions component.
     class Solution < Solutions::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::FilterableResource
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
@@ -19,6 +20,32 @@ module Decidim
       belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge", optional: true
 
       scope :published, -> { where.not(published_at: nil) }
+
+      scope :search_text_cont, lambda { |search_text|
+        where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
+      }
+
+      scope :with_sdgs_codes, lambda { |sdgs_codes|
+        joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: sdgs_codes })
+      }
+
+      scope :with_any_territorial_scope_id, lambda { |*territorial_scope_id|
+        if territorial_scope_id.include?("all")
+          all
+        else
+          clean_scope_ids = territorial_scope_id
+
+          conditions = []
+          conditions << "decidim_challenges_challenges.decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
+          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+          includes(problem: { challenge: :scope }).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
+        end
+      }
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:search_text_cont, :with_sdgs_codes, :with_any_territorial_scope_id]
+      end
 
       searchable_fields({
                           participatory_space: :itself,

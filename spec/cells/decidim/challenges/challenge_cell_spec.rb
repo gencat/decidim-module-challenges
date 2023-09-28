@@ -7,7 +7,7 @@ module Decidim::Challenges
     controller Decidim::Challenges::ChallengesController
 
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence
     end
 
     let!(:challenge) { create :challenge, global_description: description }

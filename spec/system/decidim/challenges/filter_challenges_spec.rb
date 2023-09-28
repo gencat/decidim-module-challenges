@@ -7,8 +7,8 @@ describe "Filter Challenges", :slow, type: :system do
   let(:manifest_name) { "challenges" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:scope) { create :scope, organization: organization}
+  let!(:user) { create :user, :confirmed, organization: organization}
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
   describe "when filtering challenges by SCOPE" do
@@ -30,7 +30,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when selecting the global scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check "Global"
         end
@@ -42,7 +42,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when selecting one scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
         end
@@ -54,7 +54,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when selecting the global scope and another scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check "Global"
           check scope.name[I18n.locale.to_s]
@@ -67,7 +67,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when unselecting the selected scope" do
       it "lists the filtered challenges" do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_id_check_boxes_tree_filter" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
           check "Global"
@@ -117,7 +117,7 @@ describe "Filter Challenges", :slow, type: :system do
       create(:challenge, :proposal, component: component, scope: scope)
       visit_component
 
-      within ".filters .state_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "All"
         uncheck "All"
         check "Proposal"
@@ -135,7 +135,7 @@ describe "Filter Challenges", :slow, type: :system do
       create(:challenge, :execution, component: component, scope: scope)
       visit_component
 
-      within ".filters .state_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "All"
         uncheck "All"
         check "Execution"

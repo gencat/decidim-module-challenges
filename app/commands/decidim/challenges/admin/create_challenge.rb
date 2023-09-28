@@ -4,7 +4,7 @@ module Decidim
   module Challenges
     module Admin
       # A command with all the business logic when a user creates a new challenge.
-      class CreateChallenge < Rectify::Command
+      class CreateChallenge < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
