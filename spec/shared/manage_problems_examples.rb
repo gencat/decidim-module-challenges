@@ -152,21 +152,21 @@ shared_examples "manage problems" do
   end
 
   describe "deleting a problem" do
-    let!(:problem2) { create(:problem, component: current_component) }
+    let!(:problem_2) { create(:problem, component: current_component) }
 
     before do
       visit current_path
     end
 
     it "deletes a problem" do
-      within find("tr", text: Decidim::Problems::ProblemPresenter.new(problem2).title) do
+      within find("tr", text: Decidim::Problems::ProblemPresenter.new(problem_2).title) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(Decidim::Problems::ProblemPresenter.new(problem2).title)
+        expect(page).to have_no_content(Decidim::Problems::ProblemPresenter.new(problem_2).title)
       end
     end
   end

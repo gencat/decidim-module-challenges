@@ -61,7 +61,7 @@ module Decidim
 
             it "hides execution and finished proposals" do
               create(:challenge, :finished, component: component)
-              proposal_challenge = create(:challenge, :proposal, component: component) 
+              proposal_challenge = create(:challenge, :proposal, component: component)
 
               expect(subject.size).to eq(1)
               expect(subject).to include(proposal_challenge)

@@ -6,7 +6,8 @@ module Decidim::Challenges
   describe SurveySerializer do
     describe "#serialize" do
       let!(:survey) { create(:survey) }
-      let!(:subject) { described_class.new(survey) }
+
+      subject { described_class.new(survey) }
 
       context "when there are not a questionnaire" do
         it "includes the id" do
@@ -25,6 +26,7 @@ module Decidim::Challenges
 
       context "when questionnaire enabled" do
         let(:challenge) { create :challenge, :with_survey_enabled }
+        let(:serialized) { subject.serialize }
         let!(:user) { create(:user, organization: challenge.organization) }
         let!(:survey) { create(:survey, challenge: challenge, user: user) }
 
@@ -56,8 +58,7 @@ module Decidim::Challenges
           create :answer_choice, answer: singlechoice_answer, answer_option: answer_option, body: answer_option.body[I18n.locale.to_s]
         end
 
-        let!(:subject) { described_class.new(survey) }
-        let(:serialized) { subject.serialize }
+        subject { described_class.new(survey) }
 
         it "includes the answer for each question" do
           expect(serialized[:survey_form_answers]).to include(

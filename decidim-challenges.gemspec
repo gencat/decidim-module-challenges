@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "decidim", Decidim::Challenges.decidim_version
   s.add_development_dependency "decidim-dev", Decidim::Challenges.decidim_version
+  s.metadata["rubygems_mfa_required"] = "true"
 end
