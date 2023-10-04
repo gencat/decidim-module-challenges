@@ -23,12 +23,15 @@ module Decidim
         return broadcast(:invalid) unless can_answer_survey?
         return broadcast(:invalid_form) unless survey_form.valid?
 
-        return broadcast(:invalid) if answer_questionnaire == :invalid
-
         challenge.with_lock do
+          answer_questionnaire
           create_survey
         end
+
         broadcast(:ok)
+      rescue ActiveRecord::Rollback
+        form.errors.add(:base, :invalid)
+        broadcast(:invalid)
       end
 
       private
@@ -39,12 +42,8 @@ module Decidim
         return unless questionnaire?
 
         Decidim::Forms::AnswerQuestionnaire.call(survey_form, user, challenge.questionnaire) do
-          on(:ok) do
-            return :valid
-          end
-
           on(:invalid) do
-            return :invalid
+            raise ActiveRecord::Rollback
           end
         end
       end
