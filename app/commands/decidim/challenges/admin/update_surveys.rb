@@ -19,9 +19,9 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          challenge.with_lock do
-            raise InvalidError if form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
+          challenge.with_lock do
             update_challenge_surveys
           end
 
