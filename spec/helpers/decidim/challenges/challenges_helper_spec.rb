@@ -19,7 +19,6 @@ module Decidim::Challenges
         expect(subject).to include(solution)
       end
 
-      # rubocop: disable RSpec/RepeatedExample
       it "hides solutions if the problem is published but the solutions are NOT published" do
         solution.update_attribute(:published_at, nil)
         expect(subject).to be_empty
@@ -34,8 +33,6 @@ module Decidim::Challenges
         solution.update_attribute(:published_at, nil)
         expect(subject).to be_empty
       end
-      # rubocop: enable RSpec/RepeatedExample
-
       it "hides solutions if the problem is NOT published" do
         problem.update_attribute(:published_at, nil)
         expect(subject).to be_empty
