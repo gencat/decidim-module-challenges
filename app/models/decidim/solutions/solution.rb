@@ -25,8 +25,8 @@ module Decidim
         where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
       }
 
-      scope :with_sdgs_codes, lambda { |sdgs_codes|
-        joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: sdgs_codes })
+      scope :with_any_sdgs_codes, lambda { |*values|
+        joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: Array(values).map(&:to_sym) })
       }
 
       scope :with_any_territorial_scope_id, lambda { |*territorial_scope_id|
@@ -44,7 +44,7 @@ module Decidim
       }
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:search_text_cont, :with_sdgs_codes, :with_any_territorial_scope_id]
+        [:search_text_cont, :with_any_sdgs_codes, :with_any_territorial_scope_id]
       end
 
       searchable_fields({

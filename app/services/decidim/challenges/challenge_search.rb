@@ -32,8 +32,8 @@ module Decidim
           .or(query.where(id: in_finished))
       end
 
-      def search_sdgs_codes
-        query.where(sdg_code: sdgs_codes)
+      def search_with_any_sdgs_codes
+        query.where(sdg_code: with_any_sdgs_codes)
       end
     end
   end

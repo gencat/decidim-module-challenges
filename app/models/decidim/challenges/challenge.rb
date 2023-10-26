@@ -51,12 +51,12 @@ module Decidim
         where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
       }
 
-      scope :with_sdgs_codes, lambda { |sdgs_codes|
-        where(sdg_code: sdgs_codes)
+      scope :with_any_sdgs_codes, lambda { |*values|
+        where(sdg_code: Array(values).map(&:to_sym))
       }
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :search_text_cont, :with_sdgs_codes]
+        [:with_any_state, :search_text_cont, :with_any_sdgs_codes]
       end
 
       searchable_fields({

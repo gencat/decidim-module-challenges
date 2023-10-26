@@ -19,7 +19,9 @@ module Decidim
       helper_method :solutions
 
       def index
+        @solutions = search.result
         @solutions = reorder(solutions)
+        @solutions = paginate(solutions)
       end
 
       def show
@@ -40,7 +42,7 @@ module Decidim
           with_any_category_id: default_filter_category_params,
           with_any_territorial_scope_id: default_filter_scope_params,
           with_related_to: "",
-          sdgs_codes_cont: [],
+          with_any_sdgs_codes: [],
         }
       end
 

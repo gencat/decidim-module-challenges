@@ -52,14 +52,14 @@ module Decidim
         #
         # Returns a Decidim::Problems::Problem
         def problem
-          @problem ||= @decidim_problems_problem_id.present? ? Decidim::Problems::Problem.find(@decidim_problems_problem_id) : false
+          @problem ||= decidim_problems_problem_id.present? ? Decidim::Problems::Problem.find(decidim_problems_problem_id) : false
         end
 
         # Finds the Challenge from the given decidim_challenges_challenge_id
         #
         # Returns a Decidim::Challenges::Challenge
         def challenge
-          @challenge ||= @decidim_challenges_challenge_id.present? ? Decidim::Challenges::Challenge.find(@decidim_challenges_challenge_id) : false
+          @challenge ||= @problem.present? ? Decidim::Challenges::Challenge.find(@problem.challenge.id) : false
         end
 
         def map_model(model); end

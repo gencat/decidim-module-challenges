@@ -26,9 +26,5 @@
     <%= sdgs_filter_selector(form) %>
   <% end %>
 
-  <%# if linked_classes_for(Decidim::Proposals::Proposal).any? %>
-    <%#= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::Proposal), :first, :last, legend_title: t(".related_to") %>
-  <%# end %>
-
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

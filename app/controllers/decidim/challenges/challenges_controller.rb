@@ -20,7 +20,9 @@ module Decidim
       helper_method :challenges
 
       def index
+        @challenges = search.result
         @challenges = reorder(challenges)
+        @challenges = paginate(challenges)
       end
 
       def show
@@ -43,7 +45,7 @@ module Decidim
           with_any_state: %w(proposal execution finished),
           with_any_scope_id: default_filter_scope_params,
           with_related_to: "",
-          sdgs_codes_cont: [],
+          with_any_sdgs_codes: [],
         }
       end
 

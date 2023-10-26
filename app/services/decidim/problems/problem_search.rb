@@ -89,7 +89,7 @@ module Decidim
         query.includes(challenge: :scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
       end
 
-      def search_sdgs_codes
+      def search_with_any_sdgs_codes
         query.joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: sdgs_codes })
       end
     end

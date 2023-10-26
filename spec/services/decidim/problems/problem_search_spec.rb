@@ -22,7 +22,7 @@ module Decidim
             with_any_technological_scope_id: technological_scope_ids,
             with_any_territorial_scope_id: territorial_scope_ids,
             with_any_category_id: category_ids,
-            sdgs_codes: sdgs_codes
+            with_any_sdgs_codes: sdgs_codes
           ).result
         end
 
