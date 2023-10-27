@@ -56,7 +56,7 @@ module Decidim
       end
 
       def questionnaire?
-        survey_form.model_name == "Questionnaire"
+        survey_form.model_name.human == "Questionnaire"
       end
 
       def can_answer_survey?

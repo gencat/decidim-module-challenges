@@ -15,11 +15,11 @@
   <%= form.check_boxes_tree :with_any_state, filter_challenges_state_values, legend_title: t(".state") %>
 
   <% if current_participatory_space.has_subscopes? %>
-    <%= form.check_boxes_tree :with_any_scope_id, filter_scopes_values, legend_title: t(".scope") %>
+    <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.check_boxes_tree :with_any_category_id, filter_categories_values, legend_title: t(".category") %>
+    <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
   <% if current_participatory_space.components.published.where(manifest_name: "sdgs").any? %>
