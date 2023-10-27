@@ -130,9 +130,12 @@ describe "Filter Problems", :slow, type: :system do
         before do
           find(".filters__section.sdgs-filter button").click
           expect(page).to have_css("#sdgs-modal")
-          find('#sdgs-modal .sdg-cell[data-value="no_poverty"]').click
-          find('#sdgs-modal .sdg-cell[data-value="good_health"]').click
-          find("#sdgs-modal .reveal__footer a.button").click
+
+          within "#sdgs-modal" do
+            find('.sdg-cell[data-value="no_poverty"]').click
+            find('.sdg-cell[data-value="good_health"]').click
+            find(".reveal__footer a.button").click
+          end
         end
 
         it "lists the problems with the selected SDGs" do

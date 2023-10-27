@@ -187,10 +187,12 @@ describe "Filter Challenges", :slow, type: :system do
         before do
           find(".filters__section.sdgs-filter button").click
           expect(page).to have_css("#sdgs-modal")
-          # TODO: not works! any webpacker stuff
-          find('#sdgs-modal .sdg-cell[data-value="no_poverty"]').click
-          find('#sdgs-modal .sdg-cell[data-value="good_health"]').click
-          find("#sdgs-modal .reveal__footer a.button").click
+
+          within "#sdgs-modal" do
+            find('.sdg-cell[data-value="no_poverty"]').click
+            find('.sdg-cell[data-value="good_health"]').click
+            find(".reveal__footer a.button").click
+          end
         end
 
         it "lists the challenges with the selected SDGs" do
