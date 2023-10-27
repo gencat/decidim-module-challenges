@@ -6,6 +6,8 @@ module Decidim
     class Problem < Decidim::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::FilterableResource
+      include Decidim::ScopableResource
+      include Decidim::HasCategory
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
@@ -93,7 +95,8 @@ module Decidim
       }
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :search_text_cont, :with_any_sdgs_codes, :with_any_sectorial_scope_id, :with_any_technological_scope_id, :with_any_territorial_scope_id]
+        [:with_any_state, :search_text_cont, :with_any_sdgs_codes, :with_any_category,
+         :with_any_sectorial_scope_id, :with_any_technological_scope_id, :with_any_territorial_scope_id]
       end
 
       searchable_fields({
