@@ -39,17 +39,11 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_category_id: default_filter_category_params,
+          with_any_category: default_filter_category_params,
           with_any_territorial_scope_id: default_filter_scope_params,
           with_related_to: "",
           with_any_sdgs_codes: [],
         }
-      end
-
-      def default_filter_category_params
-        return "all" unless current_component.participatory_space.categories.any?
-
-        ["all"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
       end
 
       def default_filter_scope_params

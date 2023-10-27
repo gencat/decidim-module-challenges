@@ -6,6 +6,7 @@ module Decidim
     class Solution < Solutions::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::FilterableResource
+      include Decidim::HasCategory
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
@@ -44,7 +45,7 @@ module Decidim
       }
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:search_text_cont, :with_any_sdgs_codes, :with_any_territorial_scope_id]
+        [:search_text_cont, :with_any_category, :with_any_sdgs_codes, :with_any_territorial_scope_id]
       end
 
       searchable_fields({

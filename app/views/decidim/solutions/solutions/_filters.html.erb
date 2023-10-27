@@ -17,7 +17,7 @@
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.check_boxes_tree :with_any_category_id, filter_categories_values, legend_title: t(".category") %>
+    <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
   <% if current_participatory_space.components.published.where(manifest_name: "sdgs").any? %>
