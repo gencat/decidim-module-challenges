@@ -5,6 +5,8 @@ Following Semantic Versioning 2.
 
 ## Version 0.3.0 (MINOR)
 - Increase minimum Decidim version to 0.27.4
+- Refactor scope, category and SDG filters with Ransack
+- Fix when save challenge in CRUD solutions when there is a associated problem.
 
 ## Version 0.2.1 (MINOR)
 - Upgrade module's Ruby to 3.0.6
