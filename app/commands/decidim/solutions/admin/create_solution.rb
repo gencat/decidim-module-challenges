@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # A command with all the business logic when a user creates a new solution.
       class CreateSolution < Decidim::Command
+        include Decidim::Challenges
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -39,7 +41,7 @@ module Decidim
             description: parsed_attribute(:description),
             component: form.current_component,
             decidim_problems_problem_id: form.decidim_problems_problem_id,
-            decidim_challenges_challenge_id: challenge,
+            decidim_challenges_challenge_id: challenge_id,
             tags: form.tags,
             objectives: parsed_attribute(:objectives),
             indicators: parsed_attribute(:indicators),
@@ -54,16 +56,6 @@ module Decidim
             params,
             visibility: "all"
           )
-        end
-
-        def parsed_attribute(attribute)
-          Decidim::ContentProcessor.parse_with_processor(:hashtag, form.send(attribute), current_organization: form.current_organization).rewrite
-        end
-
-        def challenge
-          problem = Decidim::Problems::Problem.find_by(id: form.decidim_problems_problem_id)
-
-          problem.present? ? problem.decidim_challenges_challenge_id.presence || nil : nil
         end
       end
     end
