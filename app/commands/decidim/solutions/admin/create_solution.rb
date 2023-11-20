@@ -4,7 +4,10 @@ module Decidim
   module Solutions
     module Admin
       # A command with all the business logic when a user creates a new solution.
-      class CreateSolution < Rectify::Command
+      class CreateSolution < Decidim::Command
+        include Decidim::Challenges
+        include Decidim::CommandUtils
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -34,25 +37,18 @@ module Decidim
         attr_reader :form, :solution
 
         def create_solution!
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
-          parsed_objectives = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.objectives, current_organization: form.current_organization).rewrite
-          parsed_indicators = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.indicators, current_organization: form.current_organization).rewrite
-          parsed_beneficiaries = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.beneficiaries, current_organization: form.current_organization).rewrite
-          parsed_requirements = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.requirements, current_organization: form.current_organization).rewrite
-          parsed_financing_type = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.financing_type, current_organization: form.current_organization).rewrite
           params = {
-            title: parsed_title,
-            description: parsed_description,
+            title: parsed_attribute(:title),
+            description: parsed_attribute(:description),
             component: form.current_component,
             decidim_problems_problem_id: form.decidim_problems_problem_id,
-            decidim_challenges_challenge_id: form.decidim_challenges_challenge_id,
+            decidim_challenges_challenge_id: challenge_id,
             tags: form.tags,
-            objectives: parsed_objectives,
-            indicators: parsed_indicators,
-            beneficiaries: parsed_beneficiaries,
-            requirements: parsed_requirements,
-            financing_type: parsed_financing_type,
+            objectives: parsed_attribute(:objectives),
+            indicators: parsed_attribute(:indicators),
+            beneficiaries: parsed_attribute(:beneficiaries),
+            requirements: parsed_attribute(:requirements),
+            financing_type: parsed_attribute(:financing_type),
           }
 
           @solution = Decidim.traceability.create!(

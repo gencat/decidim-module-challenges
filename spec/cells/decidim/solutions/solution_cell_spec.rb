@@ -7,7 +7,7 @@ module Decidim::Solutions
     controller Decidim::Solutions::SolutionsController
 
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence
     end
 
     let!(:solution) { create :solution, description: description }

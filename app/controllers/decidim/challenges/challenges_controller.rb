@@ -20,7 +20,9 @@ module Decidim
       helper_method :challenges
 
       def index
-        @challenges = reorder(challenges)
+        @challenges = search.result
+        @challenges = reorder(@challenges)
+        @challenges = paginate(@challenges)
       end
 
       def show
@@ -38,37 +40,21 @@ module Decidim
 
       def default_filter_params
         {
-          search_text: "",
-          category_id: default_filter_category_params,
-          state: %w(proposal execution finished),
-          scope_id: default_filter_scope_params,
-          related_to: "",
-          sdgs_codes: [],
+          search_text_cont: "",
+          with_any_category: default_filter_category_params,
+          with_any_state: %w(proposal execution finished),
+          with_any_scope: default_filter_scope_params,
+          with_related_to: "",
+          with_any_sdgs_codes: [],
         }
       end
 
-      def default_filter_category_params
-        return "all" unless current_component.participatory_space.categories.any?
-
-        ["all"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
-      end
-
-      def default_filter_scope_params
-        return "all" unless current_component.participatory_space.scopes.any?
-
-        if current_component.participatory_space.scope
-          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
-        end
-      end
-
       def challenges
-        @challenges ||= paginate(search.results.published)
+        @challenges ||= reorder(paginate(search.result))
       end
 
-      def search_klass
-        Decidim::Challenges::ChallengeSearch
+      def search_collection
+        ::Decidim::Challenges::Challenge.published
       end
     end
   end

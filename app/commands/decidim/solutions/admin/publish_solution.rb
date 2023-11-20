@@ -4,7 +4,7 @@ module Decidim
   module Solutions
     module Admin
       # A command that sets a solution as published.
-      class PublishSolution < Rectify::Command
+      class PublishSolution < Decidim::Command
         # Public: Initializes the command.
         #
         # solution - A Solution that will be published

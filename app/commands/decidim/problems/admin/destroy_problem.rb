@@ -4,7 +4,7 @@ module Decidim
   module Problems
     module Admin
       # This command deals with destroying a Problem from the admin panel.
-      class DestroyProblem < Rectify::Command
+      class DestroyProblem < Decidim::Command
         # Public: Initializes the command.
         #
         # page - The Problem to be destroyed.

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Challenges component" do # rubocop:disable RSpec/DescribeClass
+describe "Challenges component" do
   subject { component }
 
   let(:component) { create :challenges_component }

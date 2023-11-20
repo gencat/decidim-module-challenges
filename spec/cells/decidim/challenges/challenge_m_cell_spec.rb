@@ -7,7 +7,7 @@ module Decidim::Challenges
     controller Decidim::Challenges::ChallengesController
 
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence
     end
 
     let(:component) { create(:challenges_component, :with_card_image_allowed) }

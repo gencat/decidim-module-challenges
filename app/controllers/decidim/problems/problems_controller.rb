@@ -20,7 +20,9 @@ module Decidim
       helper_method :problems
 
       def index
-        @problems = reorder(problems)
+        @problems = search.result
+        @problems = reorder(@problems)
+        @problems = paginate(@problems)
       end
 
       def show
@@ -36,21 +38,15 @@ module Decidim
 
       def default_filter_params
         {
-          search_text: "",
-          category_id: default_filter_category_params,
-          state: %w(proposal execution finished),
-          sectorial_scope_id: default_filter_scope_params,
-          technological_scope_id: default_filter_scope_params,
-          territorial_scope_id: default_filter_scope_params,
-          related_to: "",
-          sdgs_codes: [],
+          search_text_cont: "",
+          with_any_category: default_filter_category_params,
+          with_any_state: %w(proposal execution finished),
+          with_any_sectorial_scope_id: default_filter_scope_params,
+          with_any_technological_scope_id: default_filter_scope_params,
+          with_any_territorial_scope_id: default_filter_scope_params,
+          with_related_to: "",
+          with_any_sdgs_codes: [],
         }
-      end
-
-      def default_filter_category_params
-        return "all" unless current_component.participatory_space.categories.any?
-
-        ["all"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
       end
 
       def default_filter_scope_params
@@ -64,11 +60,11 @@ module Decidim
       end
 
       def problems
-        @problems ||= paginate(search.results.published)
+        @problems ||= order(paginate(search.result))
       end
 
-      def search_klass
-        Decidim::Problems::ProblemSearch
+      def search_collection
+        ::Decidim::Problems::Problem.published
       end
     end
   end

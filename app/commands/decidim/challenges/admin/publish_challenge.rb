@@ -4,7 +4,7 @@ module Decidim
   module Challenges
     module Admin
       # A command that sets a challenge as published.
-      class PublishChallenge < Rectify::Command
+      class PublishChallenge < Decidim::Command
         # Public: Initializes the command.
         #
         # challenge - A Challenge that will be published

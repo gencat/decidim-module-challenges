@@ -4,7 +4,7 @@ module Decidim
   module Challenges
     module Admin
       # This command is executed when the user updates the challenge survey,
-      class UpdateSurveys < Rectify::Command
+      class UpdateSurveys < Decidim::Command
         # Initializes a UpdateSurveys Command.
         #
         # form - The form from which to get the data.
@@ -19,9 +19,9 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          challenge.with_lock do
-            return broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
+          challenge.with_lock do
             update_challenge_surveys
           end
 

@@ -4,7 +4,7 @@ module Decidim
   module Problems
     module Admin
       # A command that sets a problem as unpublished.
-      class UnpublishProblem < Rectify::Command
+      class UnpublishProblem < Decidim::Command
         # Public: Initializes the command.
         #
         # problem - A Problem that will be published

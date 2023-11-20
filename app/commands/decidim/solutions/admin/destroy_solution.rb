@@ -4,7 +4,7 @@ module Decidim
   module Solutions
     module Admin
       # This command deals with destroying a Solution from the admin panel.
-      class DestroySolution < Rectify::Command
+      class DestroySolution < Decidim::Command
         # Public: Initializes the command.
         #
         # page - The Solution to be destroyed.

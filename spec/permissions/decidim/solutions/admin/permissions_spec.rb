@@ -9,16 +9,22 @@ describe Decidim::Solutions::Admin::Permissions do
   let(:user) { create :user, :admin, organization: organization }
   let(:solution) { create :solution }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) do
+    Decidim::PermissionAction.new(
+      action: action[:action],
+      subject: action[:subject],
+      scope: action[:scope]
+    )
+  end
 
   shared_examples "access for role" do |access|
     case access
     when true
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     when :not_set
       it_behaves_like "permission is not set"
     else
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 

@@ -30,7 +30,7 @@ describe "Filter Solutions", :slow, type: :system do
       create(:solution, component: component, problem: problem_no_scope)
     end
 
-    include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".territorial_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".with_any_territorial_scope_id_check_boxes_tree_filter"
   end
 
   describe "when filtering solutions by SDG" do
@@ -52,16 +52,16 @@ describe "Filter Solutions", :slow, type: :system do
       before do
         challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
         problem = create(:problem, component: problems_component, challenge: challenge)
-        create_list(:solution, 2, component: component, problem: problem)
+        create_list(:solution, 2, component: component, problem: problem, challenge: challenge)
         challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
         problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem)
+        create(:solution, component: component, problem: problem, challenge: challenge)
         challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
         problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem)
+        create(:solution, component: component, problem: problem, challenge: challenge)
         challenge = create(:challenge, component: challenges_component)
         problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem)
+        create(:solution, component: component, problem: problem, challenge: challenge)
         visit_component
       end
 
@@ -80,9 +80,12 @@ describe "Filter Solutions", :slow, type: :system do
         before do
           find(".filters__section.sdgs-filter button").click
           expect(page).to have_css("#sdgs-modal")
-          find('#sdgs-modal .sdg-cell[data-value="no_poverty"]').click
-          find('#sdgs-modal .sdg-cell[data-value="good_health"]').click
-          find("#sdgs-modal .reveal__footer a.button").click
+
+          within "#sdgs-modal" do
+            find('.sdg-cell[data-value="no_poverty"]').click
+            find('.sdg-cell[data-value="good_health"]').click
+            find(".reveal__footer a.button").click
+          end
         end
 
         it "lists the solutions with the selected SDGs" do

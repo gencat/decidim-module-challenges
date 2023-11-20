@@ -5,6 +5,9 @@ module Decidim
     # The data store for a Problem in the Decidim::Problems component.
     class Problem < Decidim::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::FilterableResource
+      include Decidim::ScopableResource
+      include Decidim::HasCategory
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
@@ -36,6 +39,65 @@ module Decidim
       scope :in_proposal, -> { where(state: VALID_STATES.index(:proposal)) }
       scope :in_execution, -> { where(state: VALID_STATES.index(:execution)) }
       scope :in_finished, -> { where(state: VALID_STATES.index(:finished)) }
+
+      scope :with_any_state, lambda { |*values|
+        where(state: Array(values).map(&:to_sym) & VALID_STATES)
+      }
+
+      scope :search_text_cont, lambda { |search_text|
+        where("title ->> '#{I18n.locale}' ILIKE ?", "%#{search_text}%")
+      }
+
+      scope :with_any_sdgs_codes, lambda { |*values|
+        joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: Array(values).map(&:to_sym) })
+      }
+
+      scope :with_any_sectorial_scope_id, lambda { |*sectorial_scope_id|
+        if sectorial_scope_id.include?("all")
+          all
+        else
+          clean_scope_ids = sectorial_scope_id
+
+          conditions = []
+          conditions << "#{model_name.plural}.decidim_sectorial_scope_id IS NULL" if clean_scope_ids.delete("global")
+          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+          includes(:sectorial_scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
+        end
+      }
+
+      scope :with_any_technological_scope_id, lambda { |*technological_scope_id|
+        if technological_scope_id.include?("all")
+          all
+        else
+          clean_scope_ids = technological_scope_id
+
+          conditions = []
+          conditions << "#{model_name.plural}.decidim_technological_scope_id IS NULL" if clean_scope_ids.delete("global")
+          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+          includes(:technological_scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
+        end
+      }
+
+      scope :with_any_territorial_scope_id, lambda { |*territorial_scope_id|
+        if territorial_scope_id.include?("all")
+          all
+        else
+          clean_scope_ids = territorial_scope_id
+
+          conditions = []
+          conditions << "decidim_challenges_challenges.decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
+          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+          includes(challenge: :scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
+        end
+      }
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state, :search_text_cont, :with_any_sdgs_codes, :with_any_category,
+         :with_any_sectorial_scope_id, :with_any_technological_scope_id, :with_any_territorial_scope_id]
+      end
 
       searchable_fields({
                           scope_id: "decidim_sectorial_scope_id",

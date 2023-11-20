@@ -4,7 +4,7 @@ module Decidim
   module Challenges
     module Admin
       # A command that sets a challenge as unpublished.
-      class UnpublishChallenge < Rectify::Command
+      class UnpublishChallenge < Decidim::Command
         # Public: Initializes the command.
         #
         # challenge - A Challenge that will be published

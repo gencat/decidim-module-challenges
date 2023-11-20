@@ -12,7 +12,7 @@ Decidim.register_component(:challenges) do |component|
   component.admin_engine = Decidim::Challenges::AdminEngine
   component.icon = "media/images/decidim_challenges_icon.svg"
 
-  component.data_portable_entities = ["Decidim::Challenge::Survey"]
+  component.data_portable_entities = ["Decidim::Challenges::Survey"]
 
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component

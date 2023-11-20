@@ -7,7 +7,7 @@ module Decidim::Problems
     controller Decidim::Problems::ProblemsController
 
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence
     end
     let!(:problem) { create :problem, description: description }
     let(:model) { problem }

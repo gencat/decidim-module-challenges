@@ -4,7 +4,7 @@ module Decidim
   module Challenges
     # The data store for a Survey in the Decidim::Challenges component.
     class Survey < Decidim::ApplicationRecord
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
 
       belongs_to :challenge, foreign_key: "decidim_challenge_id", class_name: "Decidim::Challenges::Challenge"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
@@ -12,7 +12,7 @@ module Decidim
       validates :user, uniqueness: { scope: :challenge }
 
       def self.export_serializer
-        Decidim::Challenges::DataPortabilitySurveySerializer
+        Decidim::Challenges::DownloadYourDataSurveySerializer
       end
     end
   end

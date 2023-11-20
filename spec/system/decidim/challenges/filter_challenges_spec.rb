@@ -30,7 +30,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when selecting the global scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
           uncheck "All"
           check "Global"
         end
@@ -42,7 +42,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when selecting one scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
         end
@@ -54,7 +54,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when selecting the global scope and another scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
           uncheck "All"
           check "Global"
           check scope.name[I18n.locale.to_s]
@@ -67,7 +67,7 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when unselecting the selected scope" do
       it "lists the filtered challenges" do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
           check "Global"
@@ -117,7 +117,7 @@ describe "Filter Challenges", :slow, type: :system do
       create(:challenge, :proposal, component: component, scope: scope)
       visit_component
 
-      within ".filters .state_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "All"
         uncheck "All"
         check "Proposal"
@@ -135,7 +135,7 @@ describe "Filter Challenges", :slow, type: :system do
       create(:challenge, :execution, component: component, scope: scope)
       visit_component
 
-      within ".filters .state_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "All"
         uncheck "All"
         check "Execution"
@@ -187,9 +187,12 @@ describe "Filter Challenges", :slow, type: :system do
         before do
           find(".filters__section.sdgs-filter button").click
           expect(page).to have_css("#sdgs-modal")
-          find('#sdgs-modal .sdg-cell[data-value="no_poverty"]').click
-          find('#sdgs-modal .sdg-cell[data-value="good_health"]').click
-          find("#sdgs-modal .reveal__footer a.button").click
+
+          within "#sdgs-modal" do
+            find('.sdg-cell[data-value="no_poverty"]').click
+            find('.sdg-cell[data-value="good_health"]').click
+            find(".reveal__footer a.button").click
+          end
         end
 
         it "lists the challenges with the selected SDGs" do
@@ -200,95 +203,36 @@ describe "Filter Challenges", :slow, type: :system do
     end
   end
 
-  # context "when filtering challenges by CATEGORY", :slow do
-  #   context "when the user is logged in" do
-  #     let!(:category2) { create :category, participatory_space: participatory_process }
-  #     let!(:category3) { create :category, participatory_space: participatory_process }
-  #     let!(:challenge1) { create(:challenge, component: component, category: category) }
-  #     let!(:challenge2) { create(:challenge, component: component, category: category2) }
-  #     let!(:challenge3) { create(:challenge, component: component, category: category3) }
+  context "when filtering challenges by CATEGORY" do
+    let!(:challenge) { create(:challenge, component: component, category: category) }
 
-  #     before do
-  #       login_as user, scope: :user
-  #     end
+    before do
+      login_as user, scope: :user
+      visit_component
+    end
 
-  #     it "can be filtered by a category" do
-  #       visit_component
+    it "can be filtered by category" do
+      within ".filters .with_any_category_check_boxes_tree_filter" do
+        uncheck "All"
+        check category.name[I18n.locale.to_s]
+      end
 
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
-  #       end
+      expect(page).to have_css(".card--challenge", count: 1)
+    end
 
-  #       expect(page).to have_css(".card--challenge", count: 1)
-  #     end
+    it "works with 'back to list' link" do
+      within ".filters .with_any_category_check_boxes_tree_filter" do
+        uncheck "All"
+        check category.name[I18n.locale.to_s]
+      end
 
-  #     it "can be filtered by two categories" do
-  #       visit_component
+      expect(page).to have_css(".card--challenge", count: 1)
 
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
-  #         check category2.name[I18n.locale.to_s]
-  #       end
+      page.find(".card--challenge .card__link").click
 
-  #       expect(page).to have_css(".card--challenge", count: 2)
-  #     end
-  #   end
-  # end
+      click_link "Return to list"
 
-  # context "when using the browser history", :slow do
-  #   before do
-  #     create_list(:challenge, 2, component: component)
-  #     create_list(:challenge, 2, :official, component: component)
-  #     create_list(:challenge, 2, :official, :accepted, component: component)
-  #     create_list(:challenge, 2, :official, :rejected, component: component)
-
-  #     visit_component
-  #   end
-
-  #   it "recover filters from initial pages" do
-  #     within ".filters .state_check_boxes_tree_filter" do
-  #       check "Rejected"
-  #     end
-
-  #     expect(page).to have_css(".card.card--challenge", count: 8)
-
-  #     page.go_back
-
-  #     expect(page).to have_css(".card.card--challenge", count: 6)
-  #   end
-
-  #   it "recover filters from previous pages" do
-  #     within ".filters .state_check_boxes_tree_filter" do
-  #       check "All"
-  #       uncheck "All"
-  #     end
-  #     within ".filters .origin_check_boxes_tree_filter" do
-  #       uncheck "All"
-  #     end
-
-  #     within ".filters .origin_check_boxes_tree_filter" do
-  #       check "Official"
-  #     end
-
-  #     within ".filters .state_check_boxes_tree_filter" do
-  #       check "Accepted"
-  #     end
-
-  #     expect(page).to have_css(".card.card--challenge", count: 2)
-
-  #     page.go_back
-
-  #     expect(page).to have_css(".card.card--challenge", count: 6)
-
-  #     page.go_back
-
-  #     expect(page).to have_css(".card.card--challenge", count: 8)
-
-  #     page.go_forward
-
-  #     expect(page).to have_css(".card.card--challenge", count: 6)
-  #   end
-  # end
+      expect(page).to have_css(".card--challenge", count: 1)
+    end
+  end
 end

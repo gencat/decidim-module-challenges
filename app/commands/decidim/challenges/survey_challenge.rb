@@ -3,7 +3,7 @@
 module Decidim
   module Challenges
     # This command is executed when the user answer a survey.
-    class SurveyChallenge < Rectify::Command
+    class SurveyChallenge < Decidim::Command
       # Initializes a SurveyChallenge Command.
       #
       # challenge - The current instance of the challenge to be answer the survey.
@@ -20,15 +20,18 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
+        return broadcast(:invalid) unless can_answer_survey?
+        return broadcast(:invalid_form) unless survey_form.valid?
+
         challenge.with_lock do
-          return broadcast(:invalid) unless can_answer_survey?
-          return broadcast(:invalid_form) unless survey_form.valid?
-
-          return broadcast(:invalid) if answer_questionnaire == :invalid
-
+          answer_questionnaire
           create_survey
         end
+
         broadcast(:ok)
+      rescue ActiveRecord::Rollback
+        form.errors.add(:base, :invalid)
+        broadcast(:invalid)
       end
 
       private
@@ -39,12 +42,8 @@ module Decidim
         return unless questionnaire?
 
         Decidim::Forms::AnswerQuestionnaire.call(survey_form, user, challenge.questionnaire) do
-          on(:ok) do
-            return :valid
-          end
-
           on(:invalid) do
-            return :invalid
+            raise ActiveRecord::Rollback
           end
         end
       end
@@ -57,7 +56,7 @@ module Decidim
       end
 
       def questionnaire?
-        survey_form.model_name == "Questionnaire"
+        survey_form.model_name.human == "Questionnaire"
       end
 
       def can_answer_survey?

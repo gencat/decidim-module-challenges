@@ -57,7 +57,7 @@
     <div class="row column">
       <%= form.select :decidim_challenges_challenge_id,
                       @form.select_challenge_collection,
-                      selected: @form.try(:challenge) ? [translated_attribute(@form.try(:challenge).title), @form.try(:challenge).id] : '',
+                      selected: @form.try(:decidim_challenges_challenge_id) ? [translated_attribute(Decidim::Challenges::Challenge.find(@form.try(:decidim_challenges_challenge_id)).title), @form.try(:decidim_challenges_challenge_id)] : '',
                       label: t("models.problem.fields.challenge", scope: "decidim.problems.admin"),
                       include_blank: "" %>
     </div>

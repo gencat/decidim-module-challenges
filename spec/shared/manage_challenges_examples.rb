@@ -177,21 +177,21 @@ shared_examples "manage challenges" do
   end
 
   describe "deleting a challenge" do
-    let!(:challenge2) { create(:challenge, component: current_component) }
+    let!(:challenge_2) { create(:challenge, component: current_component) }
 
     before do
       visit current_path
     end
 
     it "deletes a challenge" do
-      within find("tr", text: Decidim::Challenges::ChallengePresenter.new(challenge2).title) do
+      within find("tr", text: Decidim::Challenges::ChallengePresenter.new(challenge_2).title) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(Decidim::Challenges::ChallengePresenter.new(challenge2).title)
+        expect(page).to have_no_content(Decidim::Challenges::ChallengePresenter.new(challenge_2).title)
       end
     end
   end

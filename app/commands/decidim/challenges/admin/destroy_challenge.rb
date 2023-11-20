@@ -4,7 +4,7 @@ module Decidim
   module Challenges
     module Admin
       # This command deals with destroying a Challenge from the admin panel.
-      class DestroyChallenge < Rectify::Command
+      class DestroyChallenge < Decidim::Command
         # Public: Initializes the command.
         #
         # page - The Challenge to be destroyed.
