@@ -136,9 +136,9 @@ module Decidim
               expect(translated(solution.title)).to eq title
             end
 
-            it "challenge is nil" do
+            it "sets challenge" do
               subject.call
-              expect(solution.challenge).to eq nil
+              expect(solution.challenge).to eq(challenge)
             end
 
             it "sets the tags" do

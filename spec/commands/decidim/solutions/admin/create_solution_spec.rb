@@ -127,9 +127,9 @@ module Decidim
               expect { subject.call }.to change(Solution, :count).by(1)
             end
 
-            it "challenge is nil" do
+            it "sets the challenge" do
               subject.call
-              expect(solution.challenge).to eq nil
+              expect(solution.challenge).to eq challenge
             end
 
             it "sets the component" do

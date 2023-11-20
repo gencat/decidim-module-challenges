@@ -6,6 +6,7 @@ module Decidim
       # A command with all the business logic when a user updates a Solution.
       class UpdateSolution < Decidim::Command
         include Decidim::Challenges
+        include Decidim::CommandUtils
 
         # Public: Initializes the command.
         #
