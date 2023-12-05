@@ -3,7 +3,7 @@ Following Semantic Versioning 2.
 
 ## next version:
 
-## Version 0.4.0 (MINOR)
+## Version 0.3.1 (PATCH)
 - Fix search collection by current component in public controllers.
 
 ## Version 0.3.0 (MINOR)
