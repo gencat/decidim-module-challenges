@@ -86,7 +86,7 @@ module Decidim
       end
 
       def search_collection
-        ::Decidim::Solutions::Solution.published
+        ::Decidim::Solutions::Solution.where(component: current_component).published
       end
     end
   end
