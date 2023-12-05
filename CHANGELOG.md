@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.3.1 (PATCH)
+- Fix search collection by current component in public controllers.
+
 ## Version 0.3.0 (MINOR)
 - Increase minimum Decidim version to 0.27.4
 - Refactor scope, category and SDG filters with Ransack

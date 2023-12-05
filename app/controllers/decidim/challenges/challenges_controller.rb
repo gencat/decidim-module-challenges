@@ -54,7 +54,7 @@ module Decidim
       end
 
       def search_collection
-        ::Decidim::Challenges::Challenge.published
+        ::Decidim::Challenges::Challenge.where(component: current_component).published
       end
     end
   end
