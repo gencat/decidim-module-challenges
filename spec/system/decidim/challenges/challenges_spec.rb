@@ -47,13 +47,21 @@ describe "Challenges", type: :system do
   end
 
   describe("#index") do
-    context "when list all challenges" do
+    context "when list challenges" do
+      let(:other_component) { create(:challenges_component, :with_card_image_allowed) }
       let!(:older_challenge) { create(:challenge, component: component, created_at: 1.month.ago) }
       let!(:recent_challenge) { create(:challenge, component: component, created_at: Time.now.utc) }
+      let!(:other_component_challenge) { create(:challenge, component: other_component, created_at: Time.now.utc) }
       let!(:challenges) { create_list(:challenge, 2, component: component) }
 
       before do
         visit_component
+      end
+
+      it "show only challenges of current component" do
+        expect(page).to have_selector(".card--challenge", count: 4)
+        expect(page).to have_content(translated(challenges.first.title))
+        expect(page).to have_content(translated(challenges.last.title))
       end
 
       it "ordered randomly" do

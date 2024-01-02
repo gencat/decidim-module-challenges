@@ -42,13 +42,21 @@ describe "Problems", type: :system do
   end
 
   describe("#index") do
-    context "when list all problems" do
+    context "when list problems" do
+      let(:other_component) { create(:problems_component) }
       let!(:older_problem) { create(:problem, component: component, created_at: 1.month.ago) }
       let!(:recent_problem) { create(:problem, component: component, created_at: Time.now.utc) }
+      let!(:other_component_problem) { create(:problem, component: other_component, created_at: Time.now.utc) }
       let!(:problems) { create_list(:problem, 2, component: component) }
 
       before do
         visit_component
+      end
+
+      it "show only problems of current component" do
+        expect(page).to have_selector(".card--problem", count: 4)
+        expect(page).to have_content(translated(problems.first.title))
+        expect(page).to have_content(translated(problems.last.title))
       end
 
       it "ordered randomly" do
