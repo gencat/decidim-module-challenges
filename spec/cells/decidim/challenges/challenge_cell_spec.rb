@@ -12,7 +12,7 @@ module Decidim::Challenges
 
     let!(:challenge) { create :challenge, global_description: description }
     let!(:challenge_title) { translated(challenge.title) }
-    let(:html) { cell("decidim/challenges/challenge", challenge, context: { show_space: show_space }).call }
+    let(:html) { cell("decidim/challenges/challenge", challenge, context: { show_space: }).call }
     let!(:challenge_description) { translated(challenge.global_description) }
 
     context "when rendering" do

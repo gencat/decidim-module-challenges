@@ -39,7 +39,7 @@ module Decidim
           Decidim.traceability.update!(
             challenge,
             form.current_user,
-            attributes: attributes
+            attributes:
           )
         end
 

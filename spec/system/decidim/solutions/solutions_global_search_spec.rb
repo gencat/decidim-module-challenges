@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Solutions global search", type: :system do
   include_context "with a component"
   let(:manifest_name) { "solutions" }
-  let!(:searchables) { create_list(:solution, 3, component: component) }
+  let!(:searchables) { create_list(:solution, 3, component:) }
   let!(:term) { translated(searchables.first.title).split.last }
 
   before do

@@ -57,9 +57,9 @@ shared_examples "manage problems" do
 
     context "when there is only one locale" do
       let(:organization) { create :organization, available_locales: [:en] }
-      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let(:component) { create(:component, manifest_name:, organization:) }
       let!(:problem) do
-        create(:problem, scope: scope, component: component,
+        create(:problem, scope:, component:,
                          title: { en: "Problem title" },
                          description: { en: "Problem description" })
       end

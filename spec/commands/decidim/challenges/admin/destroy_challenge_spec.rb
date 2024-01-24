@@ -33,7 +33,7 @@ module Decidim
         end
 
         context "when has dependent problems" do
-          let(:problem) { create :problem, challenge: challenge }
+          let(:problem) { create :problem, challenge: }
 
           it "not deletes the challenge" do
             expect { subject.call }.not_to change(Decidim::Challenges::Challenge, :count)

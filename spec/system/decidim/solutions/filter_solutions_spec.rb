@@ -8,26 +8,26 @@ describe "Filter Solutions", :slow, type: :system do
   let(:manifest_name) { "solutions" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create :scope, organization: }
+  let!(:user) { create :user, :confirmed, organization: }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   describe "when filtering solutions by challenge's territorial scopes" do
     before do
       challenges_component = create(:challenges_component, participatory_space: participatory_process)
       problems_component = create(:problems_component, participatory_space: participatory_process)
 
-      challenge = create(:challenge, component: challenges_component, scope: scope)
-      problem = create(:problem, component: problems_component, challenge: challenge)
-      create_list(:solution, 2, component: component, problem: problem)
+      challenge = create(:challenge, component: challenges_component, scope:)
+      problem = create(:problem, component: problems_component, challenge:)
+      create_list(:solution, 2, component:, problem:)
 
       challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
       problem_2 = create(:problem, component: problems_component, challenge: challenge_2)
-      create(:solution, component: component, problem: problem_2)
+      create(:solution, component:, problem: problem_2)
 
       challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
       problem_no_scope = create(:problem, component: problems_component, challenge: challenge_no_scope)
-      create(:solution, component: component, problem: problem_no_scope)
+      create(:solution, component:, problem: problem_no_scope)
     end
 
     include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".with_any_territorial_scope_id_check_boxes_tree_filter"
@@ -51,17 +51,17 @@ describe "Filter Solutions", :slow, type: :system do
 
       before do
         challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create_list(:solution, 2, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create_list(:solution, 2, component:, problem:, challenge:)
         challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
         challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
         challenge = create(:challenge, component: challenges_component)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
         visit_component
       end
 

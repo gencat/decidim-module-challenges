@@ -52,11 +52,11 @@ shared_examples "manage solutions" do
 
     context "when there is only one locale" do
       let(:organization) { create :organization, available_locales: [:en] }
-      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let(:component) { create(:component, manifest_name:, organization:) }
       let(:challenge) { create :challenge }
-      let(:problem) { create :problem, challenge: challenge }
+      let(:problem) { create :problem, challenge: }
       let!(:solution) do
-        create(:solution, scope: scope, component: component, problem: problem,
+        create(:solution, scope:, component:, problem:,
                           title: { en: "Solution title" },
                           description: { en: "Solution description" })
       end
@@ -146,8 +146,8 @@ shared_examples "manage solutions" do
 
   describe "deleting a solution" do
     let(:challenge) { create :challenge }
-    let(:problem) { create :problem, challenge: challenge }
-    let!(:solution_2) { create(:solution, component: current_component, problem: problem) }
+    let(:problem) { create :problem, challenge: }
+    let!(:solution_2) { create(:solution, component: current_component, problem:) }
 
     before do
       visit current_path

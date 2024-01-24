@@ -11,9 +11,9 @@ module Decidim::Challenges
     end
 
     let(:component) { create(:challenges_component, :with_card_image_allowed) }
-    let!(:challenge) { create :challenge, :with_card_image, global_description: description, component: component }
+    let!(:challenge) { create :challenge, :with_card_image, global_description: description, component: }
     let(:model) { challenge }
-    let(:cell_html) { cell("decidim/challenges/challenge_m", challenge, context: { show_space: show_space }).call }
+    let(:cell_html) { cell("decidim/challenges/challenge_m", challenge, context: { show_space: }).call }
     let!(:challenge_description) { translated(challenge.global_description) }
     let!(:challenge_title) { translated(challenge.title) }
 

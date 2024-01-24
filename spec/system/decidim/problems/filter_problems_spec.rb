@@ -8,9 +8,9 @@ describe "Filter Problems", :slow, type: :system do
   let(:manifest_name) { "problems" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create :scope, organization: }
+  let!(:user) { create :user, :confirmed, organization: }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   # describe "when filtering problems by challenge" do
   pending "finds the problems associated with the given challenge"
@@ -18,9 +18,9 @@ describe "Filter Problems", :slow, type: :system do
 
   describe "when filtering problems by sectorial and technological scopes" do
     before do
-      create_list(:problem, 2, component: component, sectorial_scope: scope, technological_scope: scope)
-      create(:problem, component: component, sectorial_scope: scope_2, technological_scope: scope_2)
-      create(:problem, component: component, sectorial_scope: nil, technological_scope: nil)
+      create_list(:problem, 2, component:, sectorial_scope: scope, technological_scope: scope)
+      create(:problem, component:, sectorial_scope: scope_2, technological_scope: scope_2)
+      create(:problem, component:, sectorial_scope: nil, technological_scope: nil)
     end
 
     include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_sectorial_scope_id_check_boxes_tree_filter"
@@ -30,12 +30,12 @@ describe "Filter Problems", :slow, type: :system do
   describe "when filtering problems by challenge's territorial scopes" do
     before do
       challenges_component = create(:challenges_component, participatory_space: participatory_process)
-      challenge = create(:challenge, component: challenges_component, scope: scope)
-      create_list(:problem, 2, component: component, challenge: challenge)
+      challenge = create(:challenge, component: challenges_component, scope:)
+      create_list(:problem, 2, component:, challenge:)
       challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
-      create(:problem, component: component, challenge: challenge_2)
+      create(:problem, component:, challenge: challenge_2)
       challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
-      create(:problem, component: component, challenge: challenge_no_scope)
+      create(:problem, component:, challenge: challenge_no_scope)
     end
 
     include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_territorial_scope_id_check_boxes_tree_filter"
@@ -51,7 +51,7 @@ describe "Filter Problems", :slow, type: :system do
     end
 
     it "lists proposal problems" do
-      create(:problem, :proposal, component: component)
+      create(:problem, :proposal, component:)
       visit_component
 
       within ".filters .with_any_state_check_boxes_tree_filter" do
@@ -70,7 +70,7 @@ describe "Filter Problems", :slow, type: :system do
 
     it "lists the filtered problems" do
       # create(:problem, :execution, component: component, scope: scope)
-      create(:problem, :execution, component: component)
+      create(:problem, :execution, component:)
       visit_component
 
       within ".filters .with_any_state_check_boxes_tree_filter" do
@@ -105,13 +105,13 @@ describe "Filter Problems", :slow, type: :system do
 
       before do
         challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
-        create_list(:problem, 2, component: component, challenge: challenge)
+        create_list(:problem, 2, component:, challenge:)
         challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
-        create(:problem, component: component, challenge: challenge)
+        create(:problem, component:, challenge:)
         challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
-        create(:problem, component: component, challenge: challenge)
+        create(:problem, component:, challenge:)
         challenge = create(:challenge, component: challenges_component)
-        create(:problem, component: component, challenge: challenge)
+        create(:problem, component:, challenge:)
         visit_component
       end
 

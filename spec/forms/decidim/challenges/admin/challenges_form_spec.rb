@@ -10,7 +10,7 @@ module Decidim
 
         let(:component) { create :challenges_component }
         let(:organization) { component.organization }
-        let(:scope) { create :scope, organization: organization }
+        let(:scope) { create :scope, organization: }
         let(:title) do
           {
             en: "Challenge title",

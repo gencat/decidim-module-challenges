@@ -50,8 +50,8 @@ module Decidim
 
       def create_survey
         @survey = Decidim::Challenges::Survey.create!(
-          challenge: challenge,
-          user: user
+          challenge:,
+          user:
         )
       end
 

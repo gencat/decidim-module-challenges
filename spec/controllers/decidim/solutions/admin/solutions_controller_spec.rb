@@ -21,7 +21,7 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
     }
   end
   let(:challenge) { create :challenge }
-  let(:problem) { create :problem, challenge: challenge }
+  let(:problem) { create :problem, challenge: }
   let(:tags) { "tag1, tag2, tag3" }
   let(:objectives) do
     { en: "objectives" }
@@ -41,25 +41,25 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
   let(:params) do
     {
       solution: {
-        title: title,
-        description: description,
+        title:,
+        description:,
         decidim_problems_problem_id: problem.id,
-        tags: tags,
-        objectives: objectives,
-        indicators: indicators,
-        beneficiaries: beneficiaries,
-        financing_type: financing_type,
-        requirements: requirements,
+        tags:,
+        objectives:,
+        indicators:,
+        beneficiaries:,
+        financing_type:,
+        requirements:,
       },
       component_id: component,
-      scope: scope,
+      scope:,
       participatory_process_slug: component.participatory_space.slug,
     }
   end
-  let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-  let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "solutions", organization: organization }
-  let(:scope) { create :scope, organization: organization }
+  let(:current_user) { create :user, :admin, :confirmed, organization: }
+  let(:participatory_process) { create :participatory_process, organization: }
+  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "solutions", organization: }
+  let(:scope) { create :scope, organization: }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -108,18 +108,18 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
       let(:params) do
         {
           solution: {
-            title: title,
-            description: description,
+            title:,
+            description:,
             decidim_challenges_challenge_id: challenge.id,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
           },
           component_id: component,
-          scope: scope,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -134,7 +134,7 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
   end
 
   describe "PUT #update" do
-    let(:solution) { create :solution, component: component }
+    let(:solution) { create :solution, component: }
 
     context "with all mandatory fields with module problems" do
       let(:params) do
@@ -146,18 +146,18 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
               es: "Título solución actualizada",
               ca: "Títol solució actualitzada",
             },
-            description: description,
+            description:,
             decidim_problems_problem_id: problem.id,
             decidim_challenges_challenge_id: nil,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -180,18 +180,18 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
               es: "Título solución actualizada",
               ca: "Títol solució actualitzada",
             },
-            description: description,
+            description:,
             decidim_problems_problem_id: nil,
             decidim_challenges_challenge_id: challenge.id,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -215,8 +215,8 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
               ca: nil,
             },
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -231,12 +231,12 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    let(:solution) { create :solution, component: component }
+    let(:solution) { create :solution, component: }
     let(:params) do
       {
         id: solution.id,
-        component: component,
-        scope: scope,
+        component:,
+        scope:,
         participatory_process_slug: component.participatory_space.slug,
       }
     end

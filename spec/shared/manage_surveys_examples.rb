@@ -20,7 +20,7 @@ shared_examples "manage surveys" do
   end
 
   context "when exporting surveys answers", driver: :rack_test do
-    let!(:surveys) { create_list :survey, 10, challenge: challenge }
+    let!(:surveys) { create_list :survey, 10, challenge: }
 
     it "exports a CSV" do
       visit_edit_survey_page

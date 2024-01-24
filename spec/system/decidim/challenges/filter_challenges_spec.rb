@@ -7,18 +7,18 @@ describe "Filter Challenges", :slow, type: :system do
   let(:manifest_name) { "challenges" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create :scope, organization: }
+  let!(:user) { create :user, :confirmed, organization: }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   describe "when filtering challenges by SCOPE" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
     let!(:scope_2) { create :scope, organization: participatory_process.organization }
 
     before do
-      create_list(:challenge, 2, component: component, scope: scope)
-      create(:challenge, component: component, scope: scope_2)
-      create(:challenge, component: component, scope: nil)
+      create_list(:challenge, 2, component:, scope:)
+      create(:challenge, component:, scope: scope_2)
+      create(:challenge, component:, scope: nil)
       visit_component
     end
 
@@ -114,7 +114,7 @@ describe "Filter Challenges", :slow, type: :system do
     end
 
     it "lists proposal challenges" do
-      create(:challenge, :proposal, component: component, scope: scope)
+      create(:challenge, :proposal, component:, scope:)
       visit_component
 
       within ".filters .with_any_state_check_boxes_tree_filter" do
@@ -132,7 +132,7 @@ describe "Filter Challenges", :slow, type: :system do
     end
 
     it "lists the filtered challenges" do
-      create(:challenge, :execution, component: component, scope: scope)
+      create(:challenge, :execution, component:, scope:)
       visit_component
 
       within ".filters .with_any_state_check_boxes_tree_filter" do
@@ -165,10 +165,10 @@ describe "Filter Challenges", :slow, type: :system do
       let!(:sdgs_component) { create(:component, participatory_space: participatory_process, manifest_name: "sdgs") }
 
       before do
-        create_list(:challenge, 2, component: component, sdg_code: :no_poverty)
-        create(:challenge, component: component, sdg_code: :zero_hunger)
-        create(:challenge, component: component, sdg_code: :good_health)
-        create(:challenge, component: component, sdg_code: nil)
+        create_list(:challenge, 2, component:, sdg_code: :no_poverty)
+        create(:challenge, component:, sdg_code: :zero_hunger)
+        create(:challenge, component:, sdg_code: :good_health)
+        create(:challenge, component:, sdg_code: nil)
         visit_component
       end
 
@@ -204,7 +204,7 @@ describe "Filter Challenges", :slow, type: :system do
   end
 
   context "when filtering challenges by CATEGORY" do
-    let!(:challenge) { create(:challenge, component: component, category: category) }
+    let!(:challenge) { create(:challenge, component:, category:) }
 
     before do
       login_as user, scope: :user

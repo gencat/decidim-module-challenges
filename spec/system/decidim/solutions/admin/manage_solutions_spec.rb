@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin creates solutions", type: :system do
   let(:manifest_name) { "solutions" }
   let(:organization) { participatory_process.organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: organization }
-  let!(:solution) { create :solution, component: component }
+  let!(:user) { create :user, :admin, :confirmed, organization: }
+  let!(:solution) { create :solution, component: }
 
   include_context "when managing a component as an admin"
 

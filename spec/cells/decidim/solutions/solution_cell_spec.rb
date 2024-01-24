@@ -10,9 +10,9 @@ module Decidim::Solutions
       Decidim::Faker::Localized.sentence
     end
 
-    let!(:solution) { create :solution, description: description }
+    let!(:solution) { create :solution, description: }
     let!(:solution_title) { translated(solution.title) }
-    let(:html) { cell("decidim/solutions/solution", solution, context: { show_space: show_space }).call }
+    let(:html) { cell("decidim/solutions/solution", solution, context: { show_space: }).call }
     let!(:solution_description) { translated(solution.description) }
     let!(:problem_title) { translated(solution.problem.title) }
     let!(:challenge_title) { translated(solution.problem.challenge.title) }

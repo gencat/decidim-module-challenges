@@ -5,10 +5,10 @@ require "spec_helper"
 shared_examples_for "manage questionnaire answers" do
   let(:first_type) { "short_answer" }
   let!(:first) do
-    create :questionnaire_question, questionnaire: questionnaire, position: 1, question_type: first_type
+    create :questionnaire_question, questionnaire:, position: 1, question_type: first_type
   end
   let!(:second) do
-    create :questionnaire_question, questionnaire: questionnaire, position: 2, question_type: "single_option"
+    create :questionnaire_question, questionnaire:, position: 2, question_type: "single_option"
   end
   let(:questions) do
     [first, second]
@@ -24,9 +24,9 @@ shared_examples_for "manage questionnaire answers" do
   end
 
   context "when there are answers" do
-    let!(:answer_1) { create :answer, questionnaire: questionnaire, question: first }
-    let!(:answer_2) { create :answer, body: "second answer", questionnaire: questionnaire, question: first }
-    let!(:answer_3) { create :answer, questionnaire: questionnaire, question: second }
+    let!(:answer_1) { create :answer, questionnaire:, question: first }
+    let!(:answer_2) { create :answer, body: "second answer", questionnaire:, question: first }
+    let!(:answer_3) { create :answer, questionnaire:, question: second }
 
     it "shows the answer admin link" do
       visit questionnaire_edit_path
@@ -78,7 +78,7 @@ shared_examples_for "manage questionnaire answers" do
     end
 
     context "and managing individual answer page" do
-      let!(:answer_11) { create :answer, questionnaire: questionnaire, body: "", user: answer_1.user, question: second }
+      let!(:answer_11) { create :answer, questionnaire:, body: "", user: answer_1.user, question: second }
 
       before do
         visit questionnaire_edit_path

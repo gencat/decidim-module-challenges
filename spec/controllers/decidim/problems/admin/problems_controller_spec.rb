@@ -32,27 +32,27 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
   let(:params) do
     {
       problem: {
-        title: title,
-        description: description,
-        state: state,
+        title:,
+        description:,
+        state:,
         decidim_challenges_challenge_id: challenge.id,
-        tags: tags,
-        causes: causes,
-        groups_affected: groups_affected,
-        start_date: start_date,
-        end_date: end_date,
-        collaborating_entities: collaborating_entities,
-        proposing_entities: proposing_entities,
+        tags:,
+        causes:,
+        groups_affected:,
+        start_date:,
+        end_date:,
+        collaborating_entities:,
+        proposing_entities:,
       },
       component_id: component,
-      scope: scope,
+      scope:,
       participatory_process_slug: component.participatory_space.slug,
     }
   end
-  let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-  let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "problems", organization: organization }
-  let(:scope) { create :scope, organization: organization }
+  let(:current_user) { create :user, :admin, :confirmed, organization: }
+  let(:participatory_process) { create :participatory_process, organization: }
+  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "problems", organization: }
+  let(:scope) { create :scope, organization: }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -90,7 +90,7 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
   end
 
   describe "PUT #update" do
-    let(:problem) { create :problem, component: component }
+    let(:problem) { create :problem, component: }
 
     context "with all mandatory fields" do
       let(:params) do
@@ -102,19 +102,19 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
               es: "Título problema actualizado",
               ca: "Títol problema actualitzat",
             },
-            description: description,
-            state: state,
+            description:,
+            state:,
             decidim_challenges_challenge_id: challenge.id,
-            tags: tags,
-            causes: causes,
-            groups_affected: groups_affected,
-            start_date: start_date,
-            end_date: end_date,
-            collaborating_entities: collaborating_entities,
-            proposing_entities: proposing_entities,
+            tags:,
+            causes:,
+            groups_affected:,
+            start_date:,
+            end_date:,
+            collaborating_entities:,
+            proposing_entities:,
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -138,8 +138,8 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
               ca: nil,
             },
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -154,12 +154,12 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    let(:problem) { create :problem, component: component }
+    let(:problem) { create :problem, component: }
     let(:params) do
       {
         id: problem.id,
-        component: component,
-        scope: scope,
+        component:,
+        scope:,
         participatory_process_slug: component.participatory_space.slug,
       }
     end

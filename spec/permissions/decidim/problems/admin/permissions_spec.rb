@@ -6,7 +6,7 @@ describe Decidim::Problems::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let!(:organization) { create :organization }
-  let(:user) { create :user, :admin, organization: organization }
+  let(:user) { create :user, :admin, organization: }
   let(:problem) { create :problem }
   let(:context) { {} }
   let(:permission_action) do

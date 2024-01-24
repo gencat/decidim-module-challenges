@@ -7,23 +7,23 @@ module Decidim::Challenges
     subject { described_class.new(challenge, user, survey_form) }
 
     let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create :component, manifest_name: :challenges, participatory_space: participatory_process }
     let(:survey_enabled) { true }
 
     let(:challenge) do
       create(:challenge,
-             component: component,
-             survey_enabled: survey_enabled,
-             questionnaire: questionnaire)
+             component:,
+             survey_enabled:,
+             questionnaire:)
     end
 
-    let(:user) { create :user, :confirmed, organization: organization }
+    let(:user) { create :user, :confirmed, organization: }
 
     let!(:questionnaire) { create(:questionnaire) }
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
     let(:session_token) { "some-token" }
-    let(:survey_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token: session_token) }
+    let(:survey_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token:) }
 
     context "when everything is ok" do
       context "and the survey form is invalid" do
@@ -61,7 +61,7 @@ module Decidim::Challenges
 
     context "when the user has already answered survey" do
       before do
-        create(:survey, challenge: challenge, user: user)
+        create(:survey, challenge:, user:)
       end
 
       it "broadcasts invalid" do

@@ -33,7 +33,7 @@ module Decidim
         end
 
         context "when has dependent solutions" do
-          let(:solution) { create :solution, problem: problem }
+          let(:solution) { create :solution, problem: }
 
           it "not deletes the problem" do
             expect { subject.call }.not_to change(Decidim::Problems::Problem, :count)

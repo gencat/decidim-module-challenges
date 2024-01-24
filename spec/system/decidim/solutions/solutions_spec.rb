@@ -10,7 +10,7 @@ describe "Solutions", type: :system do
 
   describe "#show" do
     context "when a solution has contents" do
-      let!(:solution) { create(:solution, component: component) }
+      let!(:solution) { create(:solution, component:) }
 
       before do
         visit_component
@@ -34,7 +34,7 @@ describe "Solutions", type: :system do
     end
 
     context "when a solution optional contents are empty" do
-      let!(:solution) { create(:solution, component: component, indicators: {}, beneficiaries: {}, requirements: {}, financing_type: {}, objectives: {}, tags: {}) }
+      let!(:solution) { create(:solution, component:, indicators: {}, beneficiaries: {}, requirements: {}, financing_type: {}, objectives: {}, tags: {}) }
 
       before do
         visit_component
@@ -54,9 +54,9 @@ describe "Solutions", type: :system do
 
   describe("#index") do
     context "when list all solutions" do
-      let!(:older_solution) { create(:solution, component: component, created_at: 1.month.ago) }
-      let!(:recent_solution) { create(:solution, component: component, created_at: Time.now.utc) }
-      let!(:solutions) { create_list(:solution, 2, component: component) }
+      let!(:older_solution) { create(:solution, component:, created_at: 1.month.ago) }
+      let!(:recent_solution) { create(:solution, component:, created_at: Time.now.utc) }
+      let!(:solutions) { create_list(:solution, 2, component:) }
 
       before do
         visit_component

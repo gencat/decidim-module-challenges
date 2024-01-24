@@ -25,7 +25,7 @@ module Decidim
         def update
           enforce_permission_to :edit, :challenge, challenge: challenge
 
-          @form = ChallengeSurveysForm.from_params(params).with_context(current_organization: challenge.organization, challenge: challenge)
+          @form = ChallengeSurveysForm.from_params(params).with_context(current_organization: challenge.organization, challenge:)
 
           UpdateSurveys.call(@form, challenge) do
             on(:ok) do
@@ -74,11 +74,11 @@ module Decidim
         end
 
         def questionnaire_participant_answers_url(session_token)
-          show_answers_challenge_surveys_url(session_token: session_token)
+          show_answers_challenge_surveys_url(session_token:)
         end
 
         def questionnaire_export_response_url(session_token)
-          export_response_challenge_surveys_url(session_token: session_token, format: "pdf")
+          export_response_challenge_surveys_url(session_token:, format: "pdf")
         end
 
         def questionnaire_for
