@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.3.2 (MINOR)
+- Update Ruby to 3.1.3
+
 ## Version 0.3.1 (PATCH)
 - Fix search collection by current component in public controllers.
 
