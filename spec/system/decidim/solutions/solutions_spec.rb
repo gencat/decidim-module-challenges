@@ -53,13 +53,21 @@ describe "Solutions", type: :system do
   end
 
   describe("#index") do
-    context "when list all solutions" do
+    context "when list solutions" do
+      let(:other_component) { create(:solutions_component) }
       let!(:older_solution) { create(:solution, component: component, created_at: 1.month.ago) }
       let!(:recent_solution) { create(:solution, component: component, created_at: Time.now.utc) }
+      let!(:other_component_solution) { create(:solution, component: other_component, created_at: Time.now.utc) }
       let!(:solutions) { create_list(:solution, 2, component: component) }
 
       before do
         visit_component
+      end
+
+      it "show only solutions of current component" do
+        expect(page).to have_selector(".card--solution", count: 4)
+        expect(page).to have_content(translated(solutions.first.title))
+        expect(page).to have_content(translated(solutions.last.title))
       end
 
       it "ordered randomly" do

@@ -40,6 +40,10 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
 
+      - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 119.0.6045.105
+
       - name: Recover Ruby dependency cache
         uses: actions/cache@v1
         with:
