@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.3.2 (PATCH)
+- Fix card image validation in Challenges Form.
+
 ## Version 0.3.1 (PATCH)
 - Fix search collection by current component in public controllers.
 
