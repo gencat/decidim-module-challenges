@@ -40,10 +40,7 @@ module Decidim
 
         validates :card_image,
                   presence: false,
-                  passthru: { to: Decidim::Challenges::Challenge,
-                              with: lambda { |form|
-                                      { component: form.current_component }
-                                    } }
+                  passthru: { to: Decidim::Attachment }
 
         alias organization current_organization
 
