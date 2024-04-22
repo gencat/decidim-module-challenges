@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.3.3 (PATCH)
+- Fix update challenge with a card image
+
 ## Version 0.3.2 (PATCH)
 - Fix card image validation in Challenges Form.
 
