@@ -49,6 +49,7 @@ module Decidim
             beneficiaries: parsed_attribute(:beneficiaries),
             requirements: parsed_attribute(:requirements),
             financing_type: parsed_attribute(:financing_type),
+            author_id: form.author_id
           }
 
           @solution = Decidim.traceability.create!(

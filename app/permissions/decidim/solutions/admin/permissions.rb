@@ -18,6 +18,8 @@ module Decidim
 
           allow! if permission_action.subject == :solution && publish_permission_action?
 
+          allow! if permission_action.subject == :solution && show_permission_action?
+
           permission_action
         end
 
@@ -41,6 +43,10 @@ module Decidim
 
         def publish_permission_action?
           permission_action.action == :publish
+        end
+
+        def show_permission_action?
+          permission_action.action == :show
         end
 
         def solution

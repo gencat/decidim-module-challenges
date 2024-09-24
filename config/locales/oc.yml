@@ -3,13 +3,13 @@ oc:
   activemodel:
     attributes:
       challenge:
-        collaborating_entities: Entitat collaboradora
+        collaborating_entities: Entitat colaboradora
         coordinating_entities: Entitat coordinadora
-        end_date: Data de finalizacion
-        global_description: Descripcion del rèpte a escala global
-        local_description: Descripcion del rèpte al territòri
-        scope: Territòri
-        sdg: Objectius de Desvolopament Sostenible
+        end_date: Data finalització
+        global_description: Descripció del repte a escala global
+        local_description: Descripció del repte al territori
+        scope: Territori
+        sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
         survey_enabled: Habilitar enquesta
@@ -17,34 +17,37 @@ oc:
         title: Títol
       problem:
         causes: Causes
-        challenge: Rèpte
-        groups_affected: Collectius afectadi
-        collaborating_entities: Entitat collaboradora
-        decidim_sectorial_scope_id: Ambit sectoriau
-        decidim_technological_scope_id: Ambit tecnologic
-        description: Descripcion
-        end_date: Data de finalizacion
-        groups_affected: Collectius afectadi
+        challenge: Repte
+        groups_affected: Col·lectius afectats
+        collaborating_entities: Entitat colaboradora
+        decidim_sectorial_scope_id: Àmbit sectorial
+        decidim_technological_scope_id: Àmbit tecnològic
+        description: Descripció
+        end_date: Data finalització
         prop_entity: Entitat proposant
         published: Publicat
-        scope: Territòri
-        sdg: Objectius de Desvolopament Sostenible
+        scope: Territori
+        sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
         tags: Paraules clau
         title: Títol
       solution:
-        challenge: Repte
         beneficiaries: Beneficiaris
-        description: Descripcion
-        financing_type: Tipes de finançament
+        challenge: Repte
+        description: Descripció
+        financing_type: Tipus finançament
         indicators: Indicadors
         objectives: Objectius
         problem: Problema
+        project_status: Estat
+        coordinating_entity: Entitat coordinadora
+        decidim_challenges_challenge_id: Repte
+        project_url: Enllaç
         published: Publicat
         requirements: Requeriments
-        sdg: Objectius de Desvolopament Sostenible
-        scope: Territòri
+        sdg: Objectius de Desenvolupament Sostenible
+        scope: Territori
         tags: Paraules clau
         title: Títol
   decidim:
@@ -54,42 +57,46 @@ oc:
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
-          new_challenge: Nou Rèpte
+          new_challenge: Nou Repte
           publish: Publicar
           survey: Enquesta
           unpublish: Despublicar
-          view: Veure rèpte
+          view: Veure repte
         challenge_publications:
           create:
-            error: Hi ha hagut un problema publicant aquest rèpte
-            success: Rèpte publicat correctament
+            error: Hi ha hagut un problema publicant aquest repte
+            success: Repte publicat correctament
           destroy:
-            error: Hi ha hagut un problema despublicant aquest rèpte
-            success: Rèpte despublicat correctament
+            error: Hi ha hagut un problema despublicant aquest repte
+            success: Repte despublicat correctament
         challenges:
           create:
-            error: Hi ha hagut un problema creant aquest rèpte
-            success: Rèpte creat correctament
+            error: Hi ha hagut un problema creant aquest repte
+            success: Repte creat correctament
           destroy:
-            error: Hi ha hagut un problema esborrant aquest rèpte
-            has_problems: No es pot esborrar aquest rèpte perquè té problèmes associadi
-            success: Rèpte esborrat correctament
+            error: Hi ha hagut un problema esborrant aquest repte
+            has_problems: No es pot esborrar aquest repte perquè té problemes associats
+            success: Repte esborrat correctament
           edit:
             update: Actualitza
           form:
             duration: Durada
+            images: Imatges
             select_states: Selecciona l'estat
           new:
             create: Crea
-            title: Nou rèpte
+            title: Nou repte
           update:
-            error: Hi ha hagut un problema actualitzant aquest rèpte
-            success: Rèpte actualitzat correctament
+            error: Hi ha hagut un problema actualitzant aquest repte
+            success: Repte actualitzat correctament
+        exports:
+          answers: Respostes
+          export_as: "%{name} com a %{export_format}"
         models:
           challenge:
             fields:
               created_at: Creat
-              end_date: Data de finalizacion
+              end_date: Data fi
               published: Publicat
               sdg: ODS
               start_date: Data inici
@@ -97,7 +104,7 @@ oc:
               tags: Paraules clau
               title: Títol
         titles:
-          challenges_list: Llistat de rèptes
+          challenges_list: Llistat de reptes
         surveys:
           edit:
             save: Desa
@@ -112,9 +119,9 @@ oc:
             invalid: S'ha produït un error a l'desar la configuració de l'enquesta.
             success: La configuració de l'enquesta de l'repte s'ha guardat correctament.
       show:
-        associated_problems: Problèmes associadi
+        associated_problems: Problemes associats
         proposed_solutions: Solucions proposades
-        return_to_list: Torna ath listat
+        return_to_list: Torna al llistat
       surveys:
         answer: Realitzar l'enquesta
         create:
@@ -122,17 +129,17 @@ oc:
           success: Has realitzat l'enquesta amb èxit.
       challenges:
         challenges:
-          empty: No s'han pogut trobar rèptes
-          empty_filters: No s'han pogut trobar rèptes
+          empty: No s'han pogut trobar reptes
+          empty_filters: No s'han pogut trobar reptes
         count:
           challenges_count:
-            one: "%{count} rèpte"
-            other: "%{count} rèptes"
+            one: "%{count} repte"
+            other: "%{count} reptes"
         filters:
           all: Totes
           category: Categoria
-          execution: En execucion
-          finished: Finalizat
+          execution: En execució
+          finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
           scope: Àmbit
@@ -149,32 +156,31 @@ oc:
           recent: Més recents
       challenges_helper:
         filter_state_values:
-          all: Toti
-          execution: En execucion
-          finished: Finalizat
+          all: Tots
+          execution: En execució
+          finished: Acabat
           proposal: Proposta
       index:
-        title: Rèptes
+        title: Reptes
         published: Publicat
         not_published: No Publicat
-        published: Publicat
-        title: test
       states:
-        execution: En execucion
-        finished: Finalizat
+        execution: En execució
+        finished: Acabada
         proposal: Proposada
     components:
       challenges:
-        name: Rèptes
+        name: Reptes
         settings:
           global:
+            allow_card_image: Permetre targeta amb imatge
             announcement: Anunci
             hide_filters: Amagar filtres
           step:
             announcement: Anunci
             hide_filters: Amagar filtres
       problems:
-        name: Problèmes
+        name: Problemes
         settings:
           global:
             hide_filters: Amagar filtres
@@ -183,750 +189,805 @@ oc:
         settings:
           global:
             hide_filters: Amagar filtres
+            creation_enabled: Presentar solucions
       sdgs:
         clean_energy:
           logo:
             line1: ENERGIA NETA
-            line2: E ASSEQUIBLA
+            line2: I ASSEQUIBLE
           objectives:
-            objective1: Entath 2030, garantir er accès universau a servicis d’energia assequibles, 
-              confiables e modèrns.
-            objective2: Entath 2030, aumentar substanciaument eth percentatge d’energia renauibla 
-              en conjunt de hònts d’energia.
-            objective3: Entath 2030, duplicar era taxa mondiau de milhorar dera eficiéncia energetica.
-            objective4: Entath 2030, aumentar era cooperacion internacionau entà facilitar er accès  
-              ara investigacion e as tecnologies energetiques non contaminantes, includides es hònts 
-              d’energia renauibles, era eficiéncia energetica e es tecnologies combustibles fossiles 
-              auançades e mens contaminantes, e promòir era inversion en infraestructures energetiques 
-              e tecnologies d’energia non contaminanta.
-            objective5: Entath 2030, ampliar era infraestructura e milhorar era tecnologia entà aufrir 
-              servicis d’energia modèrns e sostenibles entà toti es païsi en desvolopament, en particular 
-              es païsi mens auançadi, es petiti estats insulars en desvolopament e es païsi en desvolopament 
-              sense litorau, d’acòrd damb es programes de supòrt respectius. 
+            objective1: Per a 2030, garantir l’accés universal a serveis d’energia
+              assequibles, confiables i moderns.
+            objective2: Per a 2030, augmentar substancialment el percentatge d’energia
+              renovable en el conjunt de fonts d’energia.
+            objective3: Per a 2030, duplicar la taxa mundial de millora de l’eficiència
+              energètica.
+            objective4: Per a 2030, augmentar la cooperació internacional per tal
+              de facilitar l’accés a la investigació i a les tecnologies energètiques
+              no contaminants, incloses les fonts d’energia renovables, l’eficiència
+              energètica i les tecnologies de combustibles fòssils avançades i menys
+              contaminants, i promoure la inversió en infraestructures energètiques
+              i tecnologies d’energia no contaminant.
+            objective5: Per a 2030, ampliar la infraestructura i millorar la tecnologia
+              per tal d’oferir serveis d’energia moderns i sostenibles per a tots
+              els països en desenvolupament, en particular els països menys avançats,
+              els petits estats insulars en desenvolupament i els països en desenvolupament
+              sense litoral, d’acord amb els programes de suport respectius.
+            subtitle: Energia neta i assequible
             title: Objectiu 7
         clean_water:
           logo:
             line1: AIGUA NETA
-            line2: E SANEJAMENT
+            line2: I SANEJAMENT
           objectives:
-            objective1: Entath 2030, arténher er accès universau e equitatiu ara aigua potabla, 
-              a un prètz assequible entà totes es persones. 
-            objective2: Entath 2030, arténher er accès equitatiu a servicis de sanejament e 
-              igiène adequadi entà totes es persones, e méter fin ara defecacion ar aire liure, 
-              damb especiau atencion as besonhs des hemnes e es mainades, atau com des persones 
-              en situacions vulnerables. 
-            objective3: Entat 2030, milhorar era qualitat dera aigua mejançant era reduccion dera 
-              contaminacion, era eliminacion des depòsits de lordères e era reduccion ath minimom 
-              dera descarga de materiaus e productes quimics dangerosi, era reduccion ara mitat 
-              deth percentatge d’aigües residuaus sense tractar, e un aument substanciau a escala 
-              mondiau deth reciclat e dera reutilizacion en condicions de seguretat. 
-            objective4: Entath 2030, aumentar substanciaument era utilizacion eficienta des recorsi 
-              idrics en toti es sectors, e assegurar era sostenibilitat dera extraccion e deth 
-              subministrament d’aigua potabla pr’amor de hèr front ara escassetat d’aigua e redusir 
-              substanciaument eth nombre de persones que’n patissen.
-            objective5: Entath 2030, amiar a tèrme ua gestion integrada des recorsi idrics a toti 
-              es nivèus, tanben mejançant era cooperacion transfronterèra, dera manèra que sigue convenenta. 
-            objective6: Entath 2020, protegir e restablir es ecosistèmes restacadi damb era aigua, 
-              includits bòsqui, montanhes, aiguamògi, arrius, aqüifèrs e lacs.
-            objective7: Entath 2030, ampliar era cooperacion internacionau e eth supòrt aufrit as  
-              païsi en desvolopoament entara captacion en matèria d’activitats e programes relatius ara 
-              aigua e eth sanejament, includint era provision e eth emmagazematge d’aigua, era desalinizacion, 
-              eth profitament eficient des recorsi idrics, eth tractament d’aigües residuaus e es tecnologies 
-              de reciclatge e reutilizacion.
-            objective8: Balhar supòrt e enfortir era participacion des comunitats locaus ena milhora dera 
-              gestion dera aigua e eth sanejament.
-            subtitle: Aigua neta e sanejament
+            objective1: Per a 2030, aconseguir l’accés universal i equitatiu a l’aigua
+              potable, a un preu assequible per a totes les persones.
+            objective2: Per a 2030, aconseguir l’accés equitatiu a serveis de sanejament
+              i higiene adequats per a totes les persones, i posar fi a la defecació
+              a l’aire lliure, amb especial atenció a les necessitats de les dones
+              i nenes, així com de les persones en situacions vulnerables.
+            objective3: Per a 2030, millorar la qualitat de l’aigua mitjançant la
+              reducció de la contaminació, l’eliminació dels abocaments i la reducció
+              al mínim de la descàrrega de materials i productes químics perillosos,
+              la reducció a la meitat del percentatge d’aigües residuals sense tractar,
+              i un augment substancial a escala mundial del reciclat i de la reutilització
+              en condicions de seguretat.
+            objective4: Per a 2030, augmentar substancialment la utilització eficient
+              dels recursos hídrics a tots els sectors, i assegurar la sostenibilitat
+              de l’extracció i del subministrament d’aigua potable per tal de fer
+              front a l’escassetat d’aigua i reduir substancialment el nombre de persones
+              que pateixen d’escassetat d’aigua.
+            objective5: Per a 2030, dur a terme una gestió integrada dels recursos
+              hídrics a tots els nivells, també mitjançant la cooperació transfronterera,
+              de la manera que sigui convenient.
+            objective6: Per a 2020, protegir i restablir els ecosistemes relacionats
+              amb l’aigua, inclosos boscos, muntanyes, aiguamolls, rius, aqüífers
+              i llacs.
+            objective7: Per a 2030, ampliar la cooperació internacional i el suport
+              ofert als països en desenvolupament per a la capacitació en matèria
+              d’activitats i programes relatius a l’aigua i el sanejament, incloent
+              la provisió i l’emmagatzematge d’aigua, la dessalinització, l’aprofitament
+              eficient dels recursos hídrics, el tractament d’aigües residuals i les
+              tecnologies de reciclatge i reutilització.
+            objective8: Donar suport i enfortir la participació de les comunitats
+              locals en la millora de la gestió de l'aigua i el sanejament.
+            subtitle: Aigua neta i sanejament
             title: Objectiu 6
         climate_action:
           logo:
-            line1: ACCION
+            line1: ACCIÓ
             line2: CLIMÀTICA
           objectives:
-            objective1: Enfortir era resiliéncia e era capacitat d’adaptacion as 
-              risques restacadi damb eth clima e es desastres naturaus en toti es païsi.
-            objective2: Incorporar mesures relatives ath cambi climatic enes politiques, 
-              es estratègies e es plans nacionaus.
-            objective3: Milhorar era educacion, era conscienciacion e era capacitat 
-              umana e institucionau en relacion damb era mitigacion deth cambi climatic, 
-              era adaptacion ad aguest, era reduccion des efèctes e d’alèrta prumerenca. 
-            objective4: Complir eth compromís des  païsi desvolopadi que son part dera 
-              Convencion marc des Nacions Unides sus eth cambi climatic d’arténher, 
-              er an 2020, er objectiu de mobilizar conjuntament 100.000 milions de 
-              dòlars annaus, procedenti deth conjunt des hònts,  a fin d’atier es 
-              besonhs des païsi en desvolopament respècte dera adopcion de mesures 
-              concrètes de mitigacion e era transparéncia ena aplicacion, e méter 
-              en plen foncionament eth Hons verd entath clima en tot capitalizar-lo 
-              com mès lèu milhor. 
-            objective5: Promòir mecanismes entà aumentar era capacitat de planificacion e 
-              gestion eficaces en relacion damb eth cambi climatic enes païsi mens auançadi 
-              e enes petiti estats insulars en desvolopament, centradi concretament enes 
-              hemnes, persones joenes e comunitats locaus e marginades. 
-            subtitle: Accion climatica
+            objective1: Enfortir la resiliència i la capacitat d’adaptació als riscos
+              relacionats amb el clima i els desastres naturals a tots els països.
+            objective2: Incorporar mesures relatives al canvi climàtic en les polítiques,
+              les estratègies i els plans nacionals.
+            objective3: Millorar l’educació, la conscienciació i la capacitat humana
+              i institucional en relació amb la mitigació del canvi climàtic, l’adaptació
+              a aquest, la reducció dels efectes i l’alerta primerenca.
+            objective4: Complir el compromís dels països desenvolupats que són part
+              de la Convenció marc de les Nacions Unides sobre el canvi climàtic d’assolir,
+              l’any 2020, l’objectiu de mobilitzar conjuntament 100.000 milions de
+              dòlars anuals, procedents del conjunt de les fonts, a fi d’atendre les
+              necessitats dels països en desenvolupament respecte de l’adopció de
+              mesures concretes de mitigació i la transparència en l’aplicació, i
+              posar en ple funcionament el Fons verd per al clima capitalitzant-lo
+              com més aviat millor.
+            objective5: Promoure mecanismes per a augmentar la capacitat de planificació
+              i gestió eficaces en relació amb el canvi climàtic als països menys
+              avançats i als petits estats insulars en desenvolupament, centrats concretament
+              en les dones, persones joves i comunitats locals i marginades.
+            subtitle: Acció climàtica
             title: Objectiu 13
         decent_work:
           logo:
-            line1: TREBALH DIGNE
-            line2: E CREISHEMENT
-            line3: ECONOMIC
+            line1: TREBALL DECENT
+            line2: I CREIXEMENT
+            line3: ECONÒMIC
           objectives:
-            objective1: Mantier eth creishement economic per capita de conformitat damb es 
-              circonstàncies nacionaus e, en particular, un creishement deth producte 
-              interior brut d’aumens un 7% annau enes païsi mens auançadi.
-            objective10: Refortilhar es institucions financères nacionaus entà encoratjar 
-              e ampliar er accès as servicis bancaris, financèrs e assegurances entà toti.
-            objective11: Aumentar eth supòrt ara iniciativa d’ajuda entath comèrç enes païsi 
-              en desvolopament, en particular es païsi mens auançadi, tanben en contèxte 
-              deth Marc intregrat milhorat d’assisténcia tecnica restacada damb eth comèrç 
-              entàs païsi mens auançadi. 
-            objective12: Entath 2020, desvolopar e entamenar ua estratègia mondiau entara 
-              ocupacion dera joenessa  e aplicar eth Pacte mondiau entara ocupacion dera 
-              Organizacion Internacionau deth Trabalh (OIT).
-            objective2: Arténher nivèus mès nauti de productivitat economica mejançant era 
-              diversificacion, era modernizacion tecnologica e era innovacion, entre d’autes 
-              manères d’atencion en sectors de mès valor ahijut e us intensiu de man d’òbra. 
-            objective3: Promòir politiques oridentades ath desvolopament que donguen supòrt 
-              as activitats productives, era creacion d’ocupacion digna, era emprenedoria, 
-              era creativitat e era innovacion, e encoratjar era regularizacion e eth 
-              creishement des microempreses e es petites e mejanes empreses, a trauès, entre 
-              d’auti, der accès a servicis financèrs.
-            objective4: Milhorar progressivament, entath 2030, era produccion e eth consum 
-              eficients des recorsi mondiaus e sajar de desvincular eth creishement economic 
-              dera degradacion deth mèdi ambient, de conformitat damb eth Marc decennau de 
-              programes sus modalitats sostenibles de consum e produccion, començant pes païsi 
-              desvolopadi. 
-            objective5: Entath 2030, arténher era ocupacion plia e productiva e garantir un trabalh 
-              digne entà toti es òmes e hemnes, includida era joenessa e es persones damb discapacitat, 
-              atau com era egalitat e remuneracion per trabalh d’egal valor. 
-            objective6: Entat 2020, redusir substanciaument era proporcion de joeni sense ocupacion e 
-              que non corsen estudis ne receben formacion.
-            objective7: Adoptar mesures immediates e eficaces entà erradicar eth trabalh forçat, méter 
-              fin as formes modèrnes d’esclavatge e eth trafic d’èsters umans e assegurar era proïbicion 
-              e era eliminacion des pejors formes de trabalh infantil, en tot includir eth reclutament e 
-              era utilizacion d’infants soldats, e, a tot darrèr eth 2025, méter fin ath trabalh infantil 
-              en totes es sues formes. 
-            objective8: Protegir es drets laboraus e promòir un entorn de trabalh segur e protegit entà 
-              totes es persones trabalhadores, includides es migrantes, en particular es hemnes migrantes 
-              e es persones damb ocupacions precàries. 
-            objective9: Entath 2030, elaborar e méter en practica politiques de promocion d’un torisme 
-              sostenible que cree ocupacion e promòigue era cultura e es productes locaus. 
-            subtitle: Trabalh digne e creishement economic
+            objective1: Mantenir el creixement econòmic per càpita de conformitat
+              amb les circumstàncies nacionals i, en particular, un creixement del
+              producte interior brut d’almenys un 7% anual als països menys avançats.
+            objective10: Reforçar les institucions financeres nacionals per a encoratjar
+              i ampliar l’accés als serveis bancaris, financers i d’assegurances per
+              a tothom.
+            objective11: Augmentar el suport a la iniciativa d’ajut per al comerç
+              als països en desenvolupament, en particular els països menys avançats,
+              també en el context del Marc integrat millorat d’assistència tècnica
+              relacionada amb el comerç per als països menys avançats.
+            objective12: Per a 2020, desenvolupar i posar en marxa una estratègia
+              mundial per a l’ocupació del jovent i aplicar el Pacte mundial per a
+              l’ocupació de l’Organització Internacional del Treball (OIT).
+            objective2: Aconseguir nivells més elevats de productivitat econòmica
+              mitjançant la diversificació, la modernització tecnològica i la innovació,
+              entre d’altres maneres centrant l’atenció en sectors de més valor afegit
+              i ús intensiu de mà d’obra.
+            objective3: Promoure polítiques orientades al desenvolupament que donin
+              suport a les activitats productives, la creació d’ocupació digna, l’emprenedoria,
+              la creativitat i la innovació, i encoratjar la regularització i el creixement
+              de les microempreses i les petites i mitjanes empreses, a través, entre
+              d’altres, de l’accés a serveis financers.
+            objective4: Millorar progressivament, per a 2030, la producció i el consum
+              eficients dels recursos mundials i procurar desvincular el creixement
+              econòmic de la degradació del medi ambient, de conformitat amb el Marc
+              decennal de programes sobre modalitats sostenibles de consum i producció,
+              començant pels països desenvolupats.
+            objective5: Per a 2030, aconseguir l’ocupació plena i productiva i garantir
+              un treball digne per a tots els homes i dones, inclosos el jovent i
+              les persones amb discapacitat, així com la igualtat de remuneració per
+              treball d’igual valor.
+            objective6: Per a 2020, reduir substancialment la proporció de joves sense
+              ocupació i que no cursen estudis ni reben formació.
+            objective7: Adoptar mesures immediates i eficaces per a erradicar el treball
+              forçat, posar fi a les formes modernes d’esclavitud i el tràfic d’éssers
+              humans i assegurar la prohibició i l’eliminació de les pitjors formes
+              de treball infantil, incloent el reclutament i la utilització d’infants
+              soldats, i, a tot tardar el 2025, posar fi al treball infantil en totes
+              les seves formes.
+            objective8: Protegir els drets laborals i promoure un entorn de treball
+              segur i protegit per a totes les persones treballadores, incloses les
+              migrants, en particular les dones migrants i les persones amb ocupacions
+              precàries.
+            objective9: Per a 2030, elaborar i posar en pràctica polítiques de promoció
+              d’un turisme sostenible que creï ocupació i promogui la cultura i els
+              productes locals.
+            subtitle: Treball digne i creixement econòmic
             title: Objectiu 8
-        description: Eth 25 de seteme deth 2015 siguec aprovada pera Assemblea Generau 
-                     des Nacions Unides era Agenda 2030 de Desvolopament Sostenible,
-                     damb es objectius d’erradicar era praubesa, lutar contra era
-                     desegalitat e era injustícia, e méter fren ath cambi climatic,
-                     entre d’autes. aguesta Agenda mercarà era accion globau entath
-                     desvolopament enquiar an 2030 e, amassa damb era rèsta d’agendes
-                     globaus, configure ua huelha de rota d’actuacions connectades
-                     entre eres entà arténher un objectiu comun, eth desvolopament
-                     mondiau sostenible.
+        description: Els 17 Objectius de Desenvolupament Sostenible (ODS) - objectius
+          universals, integradors i ambiciosos - són els que guien la implementació
+          de l'Agenda 2030 de les Nacions Unides per al Desenvolupament Sostenible,
+          aprovada el 25 de setembre de 2015. Les temàtiques que aborden van des de
+          la pobresa, la fam, la pau, la salut, l'educació, les desigualtats, la inclusió,
+          la prosperitat econòmica, la protecció del planeta, la lluita contra el
+          canvi climàtic, les ciutats i els territoris, l'energia, el consum i la
+          producció sostenibles i la governança.
         gender_equality:
           logo:
-            line1: EGALETAT
-            line2: DE GENRE
+            line1: IGUALTAT
+            line2: DE GÈNERE
           objectives:
-            objective1: Méter fin a totes es formes de discriminacion contra 
-              totes es hemnes e mainades en tot eth mon. 
-            objective2: Eliminar totes es formes de violéncia contra totes en 
-              hemnes e mainades enes ambits public e privat, includits eth trafic 
-              e espleita sexuau, atau com d’auti tipes d’espleita. 
-            objective3: Eliminar totes es practiques nocives, com eth 
-              matrimòni infantil, precòç e forçat, atau com era mutilacion 
-              genitau femenina. 
-            objective4: Reconéisher e valorar es suenhs non remuneradi e eth 
-              trabalh domètge non remunerat, mejançant era prestacion de servicis 
-              publics, era provision d’infraestructures e era formacion de politiques de 
-              proteccion sociau, atau com mejançant era promocion dera responsabilitat 
-              compartida en larèr e era familha, segontes sigue en cada país.
-            objective5: Velhar pera participacion plia e efectiva des hemnes, 
-              e pera egalitat d’oportunitats de lideratge en toti es encastres 
-              de presa de decisions ena vida politica, economica e publica. 
-            objective6: Garantir er accès universau ara salut sexuau e reproductiva 
-              e as drets reproductius, de conformitat damb eth Programa d’accion dera 
-              Conferéncia Internacionau sus era Poblacion e eth Desvolopament, era 
-              Plataforma d’Accion de Beijing e es documents finaus des conferéncies 
+            objective1: Posar fi a totes les formes de discriminació contra totes
+              les dones i nenes a tot el món.
+            objective2: Eliminar totes les formes de violència contra totes les dones
+              i nenes en els àmbits públic i privat, inclosos el tràfic i l’explotació
+              sexual, així com altres tipus d’explotació.
+            objective3: Eliminar totes les pràctiques nocives, com el matrimoni infantil,
+              precoç i forçat, així com la mutilació genital femenina.
+            objective4: Reconèixer i valorar les cures no remunerades i el treball
+              domèstic no remunerat, mitjançant la prestació de serveis públics, la
+              provisió d’infraestructures i la formulació de polítiques de protecció
+              social, així com mitjançant la promoció de la responsabilitat compartida
+              a la llar i la família, segons escaigui a cada país.
+            objective5: Vetllar per la participació plena i efectiva de les dones,
+              i per la igualtat d’oportunitats de lideratge en tots els àmbits de
+              presa de decisions en la vida política, econòmica i pública.
+            objective6: Garantir l’accés universal a la salut sexual i reproductiva
+              i als drets reproductius, de conformitat amb el Programa d’acció de
+              la Conferència Internacional sobre la Població i el Desenvolupament,
+              la Plataforma d’Acció de Beijing i els documents finals de les conferències
               d’examen respectives.
-            objective7: Empréner reformes qu’autregen as hemnes eth dret as recorsi economics 
-              en condicions d’egalitat, atau com er accès ara proprietat e contròtle des 
-              tèrres e d’auti bens, es servicis financèrs, era eréncia e es recorsi naturaus, 
-              de conformitat damb es leis nacionaus.
-            objective8: Milhorar es us dera tecnologia instrumentau, en particular es tecnologies 
-              dera informacion e era comunicacion, pr’amor de promòir er apoderament des hemnes. 
-            objective9: Adoptar e enfortir politiques encertades e leis apliclables entà promòir 
-              era egalitat entre es genres e er apoderament de hemnes e mainades a toti es nivèus. 
-            subtitle: Egaletat de genre
+            objective7: Emprendre reformes que atorguin a les dones el dret als recursos
+              econòmics en condicions d’igualtat, així com l’accés a la propietat
+              i al control de les terres i altres béns, els serveis financers, l’herència
+              i els recursos naturals, de conformitat amb les lleis nacionals.
+            objective8: Millorar l’ús de la tecnologia instrumental, en particular
+              les tecnologies de la informació i la comunicació, per tal de promoure
+              l’apoderament de les dones.
+            objective9: Adoptar i enfortir polítiques encertades i lleis aplicables
+              per a promoure la igualtat entre els gèneres i l’apoderament de dones
+              i nenes a tots els nivells.
+            subtitle: Igualtat de gènere
             title: Objectiu 5
         good_health:
           logo:
             line1: SALUT
-            line2: E BENÈSTAR
+            line2: I BENESTAR
           objectives:
-            objective1: Entath 2030, redusir era taxa mondiau de mortalitat matèrna 
-              a mens de 70 per cada 100.000 neishudi vius. 
-            objective10: Enfortir en toti es païsi, segontes calgue, era aplicacion deth ç
-              Convèni marc dera Organizacion Mondiau dera Salut entath contròtle deth tabac.
-            objective11: Balhar supòrt as activitats d’investigacion e desvolopament de 
-              vacunes e medicaments entàs malauties transmissibles e non transmissibles 
-              qu’afècten de forma subergessenta a païsi en desvolopament, e facilitar er 
-              accès a medicaments e a vacunes essenciaus assequibles de conformitat damb 
-              era Declaracion de Doha relativa ar Acòrd sus es aspèctes des drets de proprietat 
-              intellectuau restacadi damb eth comèrç (ADPIC) e era salut publica, ena quau s’afirme 
-              eth dret des païsi en desvolopament a utilizar ath maximom es disposicions der 
-              ADPIC per çò que hè ara flexibilitat entà protegir era salut publica, e en 
-              particular, balhar accès a medicaments entà totes es persones.
-            objective12: Incementar substanciaument eth finançament dera salut e era acontractacion, 
-              eth desvolopament, era capacitacion e era retencion deth personau sanitari enes païsi 
-              en desvolopament, especiaument enes païsi mens auançadi e enes petiti estats insulars 
-              en desvolopament. 
-            objective13: Refortilhar era capacitat de toti es païsi, en particular es païsi en 
-              desvolopament, en matèria d’alèrta prumerenca, reduccion de  risques e gestion 
-              des risques entara salut nacionau e mondiau.
-            objective2: Entatu 2030, méter fin as mòrts evitables de mainatjons e des 
-              menors de 5 ans, en tot arténher que toti es païsi sagen de redusir era 
-              mortalitat neonatau aumens enquia 12 per cada 1.000 neishudi vius, e era 
-              mortalitat des menors de 5 ans aumens enquia 25 per cada 1.000 neishudi vius.
-            objective3: Entath 2030, méter fin as epidèmies dera sida, tuberculòsi, malària 
-              e es malauties tropicaus desateses, e combàter era epatiti, es malauties 
-              transmetudes pera aigua e d’autes malauties transmissibles.
-            objective4: Entath 2030, redusir en un tèrç era mortalitat prematura per malauties 
-              non transmissibles, mejançant era prevencion e eth tractament, e promòir era 
-              salut mentau e eth benèster.
-            objective5: Enfortir era prevencion e eth tractament der abús de substàncies 
-              addictives, includits er us indegut d’estupefasents e eth consum nociu d’alcoòl.
-            objective6: Entath 2020, redusir ara mitat eth nombre mondiau de mòrts e lesions 
-              causadi per accidents de transit.
-            objective7: Entath 2030, garantir er accès universau as servicis de salut sexuau e 
-              reproductiva, includits es de planificacion familhara, informacion e educacion, 
-              atau com era integracion dera salut reproductiva as estratègies e es programes nacionaus.
-            objective8: Arténher era cobertura sanitària universau, en particular era proteccion 
-              contra es risques financèrs, er accès a servicis de salut essenciaus de qualitat e 
-              er accès a medicaments e vacunes segurs, aficaci, assequibles e de qualitat entà 
-              totes es persones. 
-            objective9: Entath 2030, redusir substanciaument eth nombre de mòrts e malauties 
-              causadi per productes quimics dangerosi e era pollucion der aire, aigua e solèr.
-            subtitle: Salut e benèster
+            objective1: Per a 2030, reduir la taxa mundial de mortalitat materna a
+              menys de 70 per cada 100.000 nascuts vius.
+            objective10: Enfortir a tots els països, segons escaigui, l’aplicació
+              del Conveni marc de l’Organització Mundial de la Salut per al control
+              del tabac.
+            objective11: Donar suport a les activitats d’investigació i desenvolupament
+              de vacunes i medicaments per a les malalties transmissibles i no transmissibles
+              que afecten primordialment països en desenvolupament, i facilitar l’accés
+              a medicaments i a vacunes essencials assequibles de conformitat amb
+              la Declaració de Doha relativa a l’Acord sobre els aspectes dels drets
+              de propietat intel·lectual relacionats amb el comerç (ADPIC) i la salut
+              pública, en la qual s’afirma el dret dels països en desenvolupament
+              a utilitzar al màxim les disposicions de l’ADPIC pel que fa a la flexibilitat
+              per a protegir la salut pública, i en particular, proporcionar accés
+              a medicaments per a totes les persones.
+            objective12: Incrementar substancialment el finançament de la salut i
+              la contractació, el desenvolupament, la capacitació i la retenció del
+              personal sanitari als països en desenvolupament, especialment als països
+              menys avançats i als petits estats insulars en desenvolupament.
+            objective13: Reforçar la capacitat de tots els països, en particular els
+              països en desenvolupament, en matèria d’alerta primerenca, reducció
+              de riscos i gestió dels riscos per a la salut nacional i mundial.
+            objective2: Per a 2030, posar fi a les morts evitables de nounats i dels
+              menors de 5 anys, aconseguint que tots els països intentin reduir la
+              mortalitat neonatal almenys fins a 12 per cada 1.000 nascuts vius, i
+              la mortalitat dels menors de 5 anys almenys fins a 25 per cada 1.000
+              nascuts vius.
+            objective3: Per a 2030, posar fi a les epidèmies de la sida, tuberculosi,
+              malària i les malalties tropicals desateses, i combatre l’hepatitis,
+              les malalties transmeses per l’aigua i altres malalties transmissibles.
+            objective4: Per a 2030, reduir en un terç la mortalitat prematura per
+              malalties no transmissibles, mitjançant la prevenció i el tractament,
+              i promoure la salut mental i el benestar.
+            objective5: Enfortir la prevenció i el tractament de l’abús de substàncies
+              addictives, inclosos l’ús indegut d’estupefaents i el consum nociu d’alcohol.
+            objective6: Per a 2020, reduir a la meitat el nombre mundial de morts
+              i lesions causats per accidents de trànsit.
+            objective7: Per a 2030, garantir l’accés universal als serveis de salut
+              sexual i reproductiva, inclosos els de planificació familiar, informació
+              i educació, així com la integració de la salut reproductiva a les estratègies
+              i els programes nacionals.
+            objective8: Assolir la cobertura sanitària universal, en particular la
+              protecció contra els riscos financers, l’accés a serveis de salut essencials
+              de qualitat i l’accés a medicaments i vacunes segurs, eficaços, assequibles
+              i de qualitat per a totes les persones.
+            objective9: Per a 2030, reduir substancialment el nombre de morts i malalties
+              causats per productes químics perillosos i la pol·lució de l’aire, l’aigua
+              i el sòl.
+            subtitle: Salut i benestar
             title: Objectiu 3
         iiai:
           logo:
             line1: INDÚSTRIA
-            line2: INNOVACION E
+            line2: INOVACIÓ I
             line3: INFRAESTRUCTURES
           objectives:
-            objective1: Desvolopar infraestructures fiables, sostenibles, resilientes 
-              e de qualitat, en tot includir infraestructures regionaus e transfronterères, 
-              pr’amor de balhar supòrt ath desvolopament economic e ath benèster uman, 
-              damb especiau atencion ar accès assequible e equitatiu entà totes es persones.
-            objective2: Promòir ua industrializacion inclusiva e sostenibla e, a tot darrèr 
-              eth 2030, aumentar de manèra significativa era contribucion dera indústria ara 
-              ocupacion e ath producte interior brut, d’acòrd damb es circonstàncies nacionaus, 
-              e duplicar aguesta contribucion as païsi mens auançadi. 
-            objective3: Aumentar er accès des petites indústries e d’autes empreses, en 
-              particular enes païsi en desvolopament, as servicis financèrs, includint es 
-              credits assequibles, e era integracion enes cadies de valor e es mercats. 
-            objective4: Entath 2030, modernizar es infraestructures e reconvertir es indústries 
-              entà que siguen sostenibles, en tot utilizar es recorsi damb mès eficàcia e en 
-              promòir era adopcion de tecnologies e procèssi industriaus nets e racionaus 
-              ambientaument, e en tot arténher que toti es païsi adòpten mesures d’acòrd damb 
-              es capacitats respectives. 
-            objective5: Aumentar era investigacion scientifica e milhorar era capacitat tecnologica 
-              des sectors industriaus de toti es païsi, en particular es païsi en desvolopament, 
-              entre d’autes manères, fomentant era innovacion e aumentant substanciaument, d’aciu ath 2030, 
-              eth nombre de persones que trabalhen en camp dera investigacion e eth desvolopament per cada 
-              milion d’abitants, atau com era despena en investigacion e desvolopament des sectors public e privat. 
-            objective6: Facilitar eth desvolopament d’infraestructures sostenibles e resilientes enes païsi en 
-              desvolopament per miei de mès supòrt financèr, tecnologic e tecnic enes païsi africans, païsi mens 
-              auançadi, païsi en desvolopament sense litorau e petiti estats insulars en desvolopament. 
-            objective7: Balhar supòrt ath desvolopament de tecnologies, investigacion e innovacion nacionaus enes 
-              païsi en desvolopament, garantir tanben un entorn normatiu propici ara diversificacion industriau e 
-              era addicion de valor as productes basics, entre d’auti. 
-            objective8: Aumentar de forma significativa er accès as tecnologies dera informacion e era 
-              comunicacion e esforçar-se en balhar accès universau e assequible a Internet enes païsi mens 
-              auançadi a tot darrèr eth 2020.
-            subtitle: Indústria, innovacion e infraestructures
+            objective1: Desenvolupar infraestructures fiables, sostenibles, resilients
+              i de qualitat, incloent infraestructures regionals i transfrontereres,
+              per tal de donar suport al desenvolupament econòmic i al benestar humà,
+              amb especial atenció a l’accés assequible i equitatiu per a totes les
+              persones.
+            objective2: Promoure una industrialització inclusiva i sostenible i, a
+              tot tardar el 2030, augmentar de manera significativa la contribució
+              de la indústria a l’ocupació i al producte interior brut, d’acord amb
+              les circumstàncies nacionals, i duplicar aquesta contribució als països
+              menys avançats.
+            objective3: Augmentar l’accés de les petites indústries i altres empreses,
+              en particular en els països en desenvolupament, als serveis financers,
+              incloent els crèdits assequibles, i la integració en les cadenes de
+              valor i els mercats.
+            objective4: Per a 2030, modernitzar les infraestructures i reconvertir
+              les indústries perquè siguin sostenibles, usant els recursos amb més
+              eficàcia i promovent l’adopció de tecnologies i processos industrials
+              nets i racionals ambientalment, i aconseguint que tots els països adoptin
+              mesures d’acord amb les capacitats respectives.
+            objective5: Augmentar la investigació científica i millorar la capacitat
+              tecnològica dels sectors industrials de tots els països, en particular
+              els països en desenvolupament, entre d’altres maneres fomentant la innovació
+              i augmentant substancialment, d’aquí al 2030, el nombre de persones
+              que treballen en el camp de la investigació i el desenvolupament per
+              cada milió d’habitants, així com la despesa en investigació i desenvolupament
+              dels sectors públic i privat.
+            objective6: Facilitar el desenvolupament d’infraestructures sostenibles
+              i resilients als països en desenvolupament per mitjà de més suport financer,
+              tecnològic i tècnic als països africans, països menys avançats, països
+              en desenvolupament sense litoral i petits estats insulars en desenvolupament.
+            objective7: Donar suport al desenvolupament de tecnologies, investigació
+              i innovació nacionals als països en desenvolupament, garantint també
+              un entorn normatiu propici a la diversificació industrial i l’addició
+              de valor als productes bàsics, entre d’altres.
+            objective8: Augmentar de forma significativa l’accés a les tecnologies
+              de la informació i la comunicació i esforçar-se a proporcionar accés
+              universal i assequible a Internet als països menys avançats a tot tardar
+              el 2020.
+            subtitle: Indústria, innovació, infraestructures
             title: Objectiu 9
         life_below_water:
           logo:
             line1: VIDA
-            line2: SOSMARINA
+            line2: SUBMARINA
           objectives:
-            objective1: Entath 2025, previer e redusir de manèra significativa era 
-              contaminacion marina de tota sòrta, en particular era contaminacion 
-              produsida per activitats realizades en tèrra, includits es detritus 
-              marins e era contaminacion per nutrients.
-            objective10: Milhorar era conservacion e er us sostenible des oceans 
-              e es sòns recorsi en tot aplicar eth dret internacionau reflectit ena 
-              Convencion des Nacions Unides sus eth Dret deth Mar, que balhe eth 
-              marc juridic entara conservacion e era  utilizacion sostenible des 
-              oceans e es sòns recorsi, com se rebrembe en paragraf 158 deth document 
-              «Eth futur que volem».
-            objective2: Entath 2020, gestionar e protegir de manèra sostenibla es 
-              ecosistèmes marins e costanèrs damb era tòca d’evitar efèctes nocius 
-              importanti, enquia mejançant er enfortiment dera sua resiliéncia, e 
-              adoptar mesures de restauracion a fin de restablir era salut e era 
-              productivitat des oceans. 
-            objective3: Redusir ath minimom es efèctes dera acidificacion des oceans 
-              e hèr-i front, includint era intensificacion dera cooperacion scientifica 
-              a toti es nivèus. 
-            objective4: Entath 2020, reglamentar eficaçament era espleita pesquèra e 
-              méter fin ara suberpesca, era pesca illegau, era pesca non declarada e 
-              non reglamentada e es practiques de pesca destructives, e aplicar plans 
-              de gestion damb fondament scientific pr’amor de restablir es poblacions 
-              de peishi en termini mès brac possible, aumens a nivèu que poguen produsir 
-              eth maxim rendiment sostenible d’acòrd damb es sues caracteristiques  
-              biologiques. 
-            objective5: Entath 2020, conservar aumens eth 10% des zònes costanères e 
-              marines, de conformitat damb es leis nacionaus e eth dret internacionau 
-              e sus era basa dera milhor informacion scientifica disponibla.
-            objective6: Entath 2020, proïbir cèrtes fomes de subvencions ara pesca que 
-              contribusissen ara capacitat de suberpesca e ara suberespleita pesquèra, 
-              eliminar es subvencions que contribusissen ara pesca illegau, non declarada 
-              e non reglamentada e abstier-se d’introdusir naues subvencions d’aguest 
-              biais, en tot reconéisher qu’era negociacion sus es subvencions ara pesca 
-              en marc dera Organizacion Mondiau deth Comerç a d’includir un tracte 
-              especiau e diferenciat, valable e efectiu entàs païsi en desvolopament e es 
-              païsi mens auançadi.
-            objective7: Entath 2030, aumentar es beneficis economics qu’es petiti 
-              estats insulars en desvolopament e es païsi mens auançadi receben der 
-              us sostenible des recorsi marins, en particular mejançant era gestion 
-              sostenibla dera pesca, era aqüicultura e eth torisme.
-            objective8: Aumentar es coneishements scientifics, desvolopar era 
-              capacitat de recerca e transferir era tecnologia marina, en tot tier 
-              en compde es critèris e es directritzes entara transferéncia de 
-              tecnologia marina dera Comission Oceanografica Intergovernamentau, 
-              a fin de milhorar era salut des oceans e potenciar era contribucion 
-              dera biodiversitat marina ath desvolopament des païsi en desvolopament, 
-              en particular es petiti estats insulars en desvolopament e es païsi 
-              mens auançadi. 
-            objective9: Facilitar er accès des pescaires artesanaus en petita escala as 
-              recorsi marins e as mercats.
-            subtitle: Vida sosmarina
+            objective1: Per al 2025, prevenir i reduir de manera significativa la
+              contaminació marina de tota mena, en particular la contaminació produïda
+              per activitats realitzades en terra ferma, inclosos els detritus marins
+              i la contaminació per nutrients.
+            objective10: Millorar la conservació i l'ús sostenible dels oceans i els
+              seus recursos aplicant el dret internacional reflectit en la Convenció
+              de les Nacions Unides sobre el Dret del Mar, que proporciona el marc
+              jurídic per a la conservació i la utilització sostenible dels oceans
+              i els seus recursos, com es recorda en el paràgraf 158 del document
+              «El futur que volem».
+            objective2: Per al 2020, gestionar i protegir de manera sostenible dels
+              ecosistemes marins i costaners amb vista a evitar efectes nocius importants,
+              fins i tot mitjançant l'enfortiment de la seva resiliència, i adoptar
+              mesures de restauració a fi de restablir la salut i la productivitat
+              dels oceans.
+            objective3: Reduir al mínim els efectes de l'acidificació dels oceans
+              i fer-hi front, incloent la intensificació de la cooperació científica
+              a tots els nivells.
+            objective4: Per al 2020, reglamentar eficaçment l'explotació pesquera
+              i posar fi a la sobrepesca, la pesca il·legal, la pesca no declarada
+              i no reglamentada i les pràctiques de pesca destructives, i aplicar
+              plans de gestió amb fonament científic per tal de restablir les poblacions
+              de peixos en el termini més breu possible, almenys a nivells que puguin
+              produir el màxim rendiment sostenible d'acord amb les seves característiques
+              biològiques.
+            objective5: Per al 2020, conservar almenys el 10% de les zones costaneres
+              i marines, de conformitat amb les lleis nacionals i el dret internacional
+              i sobre la base de la millor informació científica disponible.
+            objective6: Per al 2020, prohibir certes formes de subvencions a la pesca
+              que contribueixen a la capacitat de sobrepesca i a la sobreexplotació
+              pesquera, eliminar les subvencions que contribueixen a la pesca il·legal,
+              no declarada i no reglamentada i abstenir d'introduir noves subvencions
+              d'aquesta índole, reconeixent que la negociació sobre les subvencions
+              a la pesca en el marc de l'Organització Mundial del Comerç ha d'incloure
+              un tracte especial i diferenciat, apropiat i efectiu per als països
+              en desenvolupament i els països menys avançats.
+            objective7: Per al 2030, augmentar els beneficis econòmics que els petits
+              Estats insulars en desenvolupament i els països menys avançats reben
+              de l'ús sostenible dels recursos marins, en particular mitjançant la
+              gestió sostenible de la pesca, l'aqüicultura i el turisme.
+            objective8: Augmentar els coneixements científics, desenvolupar la capacitat
+              de recerca i transferir la tecnologia marina, tenint en compte els criteris
+              i directrius per a la transferència de tecnologia marina de la Comissió
+              Oceanogràfica Intergovernamental, a fi de millorar la salut dels oceans
+              i potenciar la contribució de la biodiversitat marina al desenvolupament
+              dels països en desenvolupament, en particular els petits Estats insulars
+              en desenvolupament i els països menys avançats.
+            objective9: Facilitar l'accés dels pescadors artesanals en petita escala
+              als recursos marins i als mercats.
+            subtitle: Vida submarina
             title: Objectiu 14
         life_on_land:
           logo:
             line1: VIDA
-            line2: D'ECOSISTÈMES
-            line3: TERRÈSTRES
+            line2: D'ECOSISTEMES
+            line3: TERRESTRES
           objectives:
-            objective1: Entath 2020, velhar pera conservacion, eth restabliment  
-              e er us sostenible des ecosistèmes terrèstres e es ecosistèmes 
-              interiors d’aigua doça  e es servicis que balhen, en particular 
-              es bòsqui, es aiguamògi, es montanhes e es zònes arides, d’acòrd 
-              damb es obligacions mercades pes acòrds internacionaus.
-            objective10: Mobilizar e aumentar de forma significativa es recorsi 
-              financèrs procedenti de totes es hònts pr’amor de conservar e 
-              utilizar de forma sostenibla era biodiversitat e es ecosistèmes. 
-            objective11: Mobilizar un volum apreciable de recorsi procedenti de totes 
-              es hònts e a toti es nivèus entà finançar ua gestion forestau sostenibla 
-              e balhar incentius avienti as païsi en desvolopament entà que promòiguen 
-              aguest tipe de gestion, en particular damb vista ara  conservacion e 
-              ara reforestacion. 
-            objective12: Aumentar eth supòrt mondiau ara luta contra era cacèra furtiva 
-              e eth trafic d’espècies protegides, en particular aumentant era capacitat 
-              des comunitats locaus entà cercar oportunitats de subsisténcia sostenibla. 
-            objective2: Entath 2020, promòir era gestion sostenibla de toti es tipes de 
-              bòsqui, méter fin ara desforestacion, recuperar es bòsqui degradadi  e 
-              incrementar substanciaument era repoblacion forestau e era reforestacion 
-              a escala mondiau. 
-            objective3: Entath 2030, lutar contra era desertificacion, reabilitar es 
-              tèrres e es solèrs degradadi, includides es tèrres afectades pera 
-              desertificacion, era sequèra e es aiguats, e sajar d’arténher un mon 
-              neutrau per çò que tanh ara degradacion des tèrres. 
-            objective4: Entath 2030, velhar pera consevacion des ecosistèmes montanhosi, 
-              includint-i era biodiversitat, a fin de milhorar-ne era capacitat de 
-              proporcionar beneficis essenciaus entath desvolopamet sostenible. 
-            objective5: Empréner accions urgentes e significatives entà redusir era 
-              degradacion des abitats naturaus, arturar era pèrta de biodiversitat e, 
-              entath 2020, protegir es espècies menaçades e evitar-ne era extincion.
-            objective6: Promòir era participacion justa e equitativa des beneficis que 
-              se deriven dera utilizacion de recorsi genetics e  promòir er accès adequat 
-              ad aguesti recorsi, atau com s’a acordat internacionaument.
-            objective7: Adoptar mesures urgentes entà méter fin ara cacèra furtiva e 
-              eth trafic d’espècies protegides de flòra e fauna, e abordar era demana 
-              e era ofèrta illegaus de productes silvèstres. 
-            objective8: Entath 2020, adoptar mesures entà previer era introduccion 
-              d’espècies exotiques invasores redusir-ne de forma significativa es 
-              efèctes enes ecosistèmes terrèstres e aquatics, e controtlar o 
-              erradicar es espècies prioritàries. 
-            objective9: Entath 2020, integrar es valors des ecosistèmes e dera 
-              biodiversitat ara planificacion nacionau e locau e as procèssi de 
-              desvolopament, atau com as estratègies e as informes de reduccion dera 
-              praubesa.
-            subtitle: Vida d'ecosistèmes terrèstres
+            objective1: Per a 2020, vetllar per la conservació, el restabliment i
+              l’ús sostenible dels ecosistemes terrestres i els ecosistemes interiors
+              d’aigua dolça i els serveis que proporcionen, en particular els boscos,
+              els aiguamolls, les muntanyes i les zones àrides, d’acord amb les obligacions
+              marcades pels acords internacionals.
+            objective10: Mobilitzar i augmentar de forma significativa els recursos
+              financers procedents de totes les fonts per tal de conservar i utilitzar
+              de forma sostenible la biodiversitat i els ecosistemes.
+            objective11: Mobilitzar un volum apreciable de recursos procedents de
+              totes les fonts i a tots els nivells per a finançar una gestió forestal
+              sostenible i proporcionar incentius adequats als països en desenvolupament
+              perquè promoguin aquest tipus de gestió, en particular amb vista a la
+              conservació i la reforestació.
+            objective12: Augmentar el suport mundial a la lluita contra la cacera
+              furtiva i el tràfic d’espècies protegides, en particular augmentant
+              la capacitat de les comunitats locals per a cercar oportunitats de subsistència
+              sostenible.
+            objective2: Per a 2020, promoure la gestió sostenible de tots els tipus
+              de boscos, posar fi a la desforestació, recuperar els boscos degradats
+              i incrementar substancialment la repoblació forestal i la reforestació
+              a escala mundial.
+            objective3: Per a 2030, lluitar contra la desertificació, rehabilitar
+              les terres i els sòls degradats, incloses les terres afectades per la
+              desertificació, la sequera i les inundacions, i procurar assolir un
+              món neutral quant a la degradació de les terres.
+            objective4: Per a 2030, vetllar per la conservació dels ecosistemes muntanyosos,
+              incloent-hi la biodiversitat, a fi de millorar-ne la capacitat de proporcionar
+              beneficis essencials per al desenvolupament sostenible.
+            objective5: Emprendre accions urgents i significatives per a reduir la
+              degradació dels hàbitats naturals, aturar la pèrdua de biodiversitat
+              i, per a 2020, protegir les espècies amenaçades i evitar-ne l’extinció.
+            objective6: Promoure la participació justa i equitativa dels beneficis
+              que es derivin de la utilització de recursos genètics i promoure l’accés
+              adequat a aquests recursos, tal com s’ha acordat internacionalment.
+            objective7: Adoptar mesures urgents per a posar fi a la cacera furtiva
+              i al tràfic d’espècies protegides de flora i fauna, i abordar la demanda
+              i l’oferta il·legals de productes silvestres.
+            objective8: Per a 2020, adoptar mesures per a prevenir la introducció
+              d’espècies exòtiques invasores i reduir-ne de forma significativa els
+              efectes en els ecosistemes terrestres i aquàtics, i controlar o erradicar
+              les espècies prioritàries.
+            objective9: Per a 2020, integrar els valors dels ecosistemes i de la biodiversitat
+              a la planificació nacional i local i als processos de desenvolupament,
+              així com a les estratègies i als informes de reducció de la pobresa.
+            subtitle: Vida d'ecosistemes terrestres
             title: Objectiu 15
-        name: Objectius de Desvolopament Sostenible
+        name: Objectius de Desenvolupament Sostenible
         no_poverty:
           logo:
-            line1: FIN
-            line2: DERA PRAUBESA
+            line1: FI
+            line2: DE LA POBRESA
           objectives:
-            objective1: Entath 2030, erradicar entà totes es persones deth mon era praubesa extrema, 
-              actuaument mesurada per un ingrès per persona inferior a 1,25 dolars EUA ath dia.
-            objective2: Entath 2030, redusir coma minimom ara mitat era proporcion d’òmes, hemnes, 
-              mainatges e mainades de totes es edats que viuen ena praubesa en totes es sues dimensions 
-              d’acòrd damb es definicions nacionaus. 
-            objective3: Méter en practica en ambit nacionau mesures e sistèmes avienti de proteccion 
-              sociau entà totes es persones, nivèus minims includits, e, entath 2030, arténher ua 
-              ampla cobertura entàs persones praubes e vulnerables.
-            objective4: Entath 2030, garantir que toti es òmes e hemnes, en particular es persones 
-              praubes e vulnerables, agen es madeishi drets as recorsi economics, atau com accès as 
-              servicis basics, proprietat e contròtle des tèrres e d’auti bens, eréncia, recorsi naturaus, 
-              naues tecnologies apropriades e servicis financèrs, includides es microfinances.
-            objective5: Entath 2030, fomentar era resiliéncia des persones praubes e aqueres que se trapen 
-              en situacions vulnerables, e redusir-ne era exposicion e vulnerabilitat as fenomèns extrems 
-              restacadi damb eth clima, atau com d’autes crisis e desastres economics, sociaus e ambientaus.
-            objective6: Garantir ua mobilizacion importanta de recorsi procedenti de diuèrses hònts, enquia 
-              mejançant era milhora dera cooperacion entath desvolopament, a fin de balhar mejans sufisents 
-              e previsibles as païsi en desvolopament, en particular as païsi mens auançadi, pr’amor de méter 
-              en practica programes e politiques adreçadi ara erradicaion dera praubesa en totes es sues dimensions. 
-            objective7: Crear marcs normatius solids enes plans nacionau, regionau e internacionau, sus era basa 
-              d’estratègies de desvolopament que tenguen en compde es qüestions de genre e s’orienten en favor des 
-              persones praubes, pr’amor d’impulsar era inversion accelerada en mesures d’erradicacion dera praubesa.
-            subtitle: Fin dera praubesa
+            objective1: Per a 2030, reduir la taxa mundial de mortalitat materna a
+              menys de 70 per cada 100.000 nascuts vius.
+            objective2: Per a 2030, reduir com a mínim a la meitat la proporció d’homes,
+              dones, nens i nenes de totes les edats que viuen en la pobresa en totes
+              les seves dimensions d’acord amb les definicions nacionals.
+            objective3: Posar en pràctica en l’àmbit nacional mesures i sistemes apropiats
+              de protecció social per a totes les persones, nivells mínims inclosos,
+              i, per a 2030, aconseguir una àmplia cobertura per a les persones pobres
+              i vulnerables.
+            objective4: Per a 2030, garantir que tots els homes i dones, en particular
+              les persones pobres i vulnerables, tinguin els mateixos drets als recursos
+              econòmics, així com accés als serveis bàsics, propietat i control de
+              les terres i altres béns, herència, recursos naturals, noves tecnologies
+              apropiades i serveis financers, incloses les microfinances.
+            objective5: Per a 2030, fomentar la resiliència de les persones pobres
+              i aquelles que es troben en situacions vulnerables, i reduir-ne l’exposició
+              i vulnerabilitat als fenòmens extrems relacionats amb el clima, així
+              com altres crisis i desastres econòmics, socials i ambientals.
+            objective6: Garantir una mobilització important de recursos procedents
+              de diverses fonts, fins i tot mitjançant la millora de la cooperació
+              per al desenvolupament, a fi de proporcionar mitjans suficients i previsibles
+              als països en desenvolupament, en particular els països menys avançats,
+              per tal de posar en pràctica programes i polítiques encaminats a l’erradicació
+              de la pobresa en totes les seves dimensions.
+            objective7: Crear marcs normatius sòlids en els plans nacional, regional
+              i internacional, sobre la base d’estratègies de desenvolupament que
+              tinguin en compte les qüestions de gènere i s’orientin en favor de les
+              persones pobres, per tal d’impulsar la inversió accelerada en mesures
+              d’erradicació de la pobresa.
+            subtitle: Fi de la pobresa
             title: Objectiu 1
         ods_logo:
           subtitle: de Desenvolupament Sostenible
           title: OBJECTIUS GLOBALS
         partnership:
           logo:
-            line1: ALIANÇA ENTA A
-            line2: ARTÉNHER ES
+            line1: ALIANÇA PER A
+            line2: ASSOLIR ELS
             line3: OBJECTIUS
           objectives:
-            objective1: Enfortir era mobilizacion de recorsi intèrns, tanben 
-              mejançant era prestacion de supòrt internacionau as païsi en 
-              desvolopament, a fin de milhorar era capacitat nacionau entà 
-              recaptar ingrèssi fiscaus e de ua aute tipe.
-            objective10: Promòir un sistèma de comèrç multilaterau universau, 
-              basat en normes, dubèrt, non discriminatòri e equitatiu en marc 
-              dera Organizacion Mondiau deth Comèrç, mejançant, entre d’autes, 
-              era conclusion de negociacions d’acòrd damb eth Programa de Doha 
-              entath desvolopament. 
-            objective11: Aumentar de manèra significativa es exportacions des 
-              païsi en desvolopament, en particular damb era perspectiva de 
-              duplicar era participacion des païsi mens auançadi enes exportacions 
-              mondiaus entath 2020. 
-            objective12: Arténher era implementacion oportuna d’un accès permanent 
-              as mercats, sense aranzèls ne quòtes entà toti es païsi mens auançadi, 
-              de conformitat damb es decisions dera Organizacion Mondiau deth Comèrç, 
-              e, entre d’autes, velhant perque es normes d’origen preferenciaus 
-              aplicables as importacions des païsi mens auançadi siguen transparentes 
-              e senzilhes, e contribusisquen a facilitar er accès as mercats. 
-            objective13: Aumentar era estabilitat macroeconomica mondiau, mejançant, 
-              entre d’autes, era coordinacion e coeréncia de politiques. 
-            objective14: Milhorar era coeréncia de politiques entath desvolopament 
-              sostenible.  
-            objective15: Respectar eth lideratge e era politica de cada país entà 
-              establir e aplicar politiques  orientades ara erradicacion dera praubesa 
-              e era promocion deth desvolopament sostenible.
-            objective16: Enfortir era Aliança Mondiau entath Desvolopament Sostenible, 
-              complementada per aliances entre multiples actors que mobilizen e promòigen 
-              er escambi de coneishements, expertesa, tecnologies e recorsi financèrs, 
-              damb era finalitat de balhar supòrt ara artenhuda des Objectius de 
-              Desvolopament Sostenible en toti es païsi, en particular enes païsi en 
-              desvolopament. 
-            objective17: Encoratjar e promòir era construccion d’aliances eficaces enes 
-              encastres public, publicoprivat e dera societat civil, en tot profitar era 
-              experiéncia e es estratègies d’obtencion de recorsi des partenariats. 
-            objective18: Entath 2020, milhorar era prestacion de supòrt ara formacion 
-              enes païsi en desvolopament, includits es païsi mens auançadi e es petiti 
-              estats insulars en desvolopament, damb era perspectiva d’aumentar de forma 
-              significativa era disponibilitat de donades actualizades, fiables e de 
-              qualitat, desglossades per grops d’ingrèssi, genre, edat, raça, origen etnic, 
-              condicion migratòria, discapacitat, ubicacion geografica e d’autes caracteristiques 
-              pertinentes segontes eth contèxte nacionau.
-            objective19: Entath 2030, profitar es iniciatives existentes entà elaborar indicadors 
-              que permeten de mesurar es progrèssi artenhudi en matèria de desvolopament sostenible 
-              e que constituïsquen un complement des indicadors utilizadi entà mesurar eth producte 
-              nacionau brut, e balhar supòrt ara formacion en estadistica enes païsi en desvolopament.
-            objective2: Velhar perque es païsi desvolopadi complisquen pliament es sòns compromisi 
-              en relacion damb era ajuda oficiau ath desvolopament (AOD), includit eth compromís aquerit 
-              per nombrosi païsi desvolopadi d’arténher er objectiu de destinar eth 0,7% deth producte 
-              nacionau brut (PNB) ara AOD e entre eth 0,15%  e eth 0,20%  deth PNB ara AOD des païsi mens 
-              auançadi, e encoratjar es provedidors d’AOD que considèren fixar ua meta pr’amor de destinar 
-              aumens eeth 0,20% deth PNB ara AOD des païsi mens auançadi. 
-            objective3: Mobilizar recorsi financèrs addicionaus provienti de multiples hònts entàs païsi 
-              en desvolopament. 
-            objective4: Assistir es païsi en desvolopament entà arténher era sostenibilitat deth deute a 
-              long termini damb politiques coordinades orientades a fomentar  eth finançament, er aleujament 
-              e era reestructuracion deth deute, s’ei eth cas, e hèr front ath deute extèrn des païsi praubi 
-              nautament endeutadi  a fin de redusir er endeutament excessiu.
-            objective5: Adoptar e aplicar sistèmes de promocion d’inversion a favor des païsi mens auançadi.
-            objective6: Milhorar era cooperacion regionau e internacionau nòrd-sud, sud-sud e triangulara e 
-              er accès ara sciéncia, tecnologia e innovacion, e aumentar er escambi de coneishements en 
-              condicions mutuaument convengudes, entre d’autes manères, en tot milhorar era coordinacion 
-              entre es mecanismes existenti, en particular en ambit des Nacions Unides, e mejançant un 
-              mecanisme globau de facilitacion dera tecnologia. 
-            objective7: Promòir eth desvolopament, atau com era transferéncia, divulgacion e difusion de 
-              tecnologies ecologicament racionaus enes païsi en desvolopament en condicions favorables, 
-              includint condicions concessionàries e preferenciaus, de mutuau acòrd.
-            objective8: Méter en plen foncionament, a tot darrèr eth 2017, eth banc de tecnologia e eth 
-              mecanisme de supòrt ara sciéncia, tecnologia e innovacion entàs  païsi mens auançadi, e 
-              aumentar er us de tecnologies instrumentaus, en particular des tecnologies dera informacion 
-              e era comunicacion.
-            objective9: Aumentar eth supòrt internacionau ara implementacion eficaça, e damb objectius 
-              concrèts de programes de formacion enes païsi en desvolopament pr’amor de balhar supòrt as 
-              plans nacionaus orientadi a aplicar toti es Objectius de Desvolopament Sostenible, mejançant, 
-              entre d’autes, era cooperacion nòrd-sud, sud-sud e triangulara. 
-            subtitle: Aliança entà arténher es objectius
+            objective1: Enfortir la mobilització de recursos interns, també mitjançant
+              la prestació de suport internacional als països en desenvolupament,
+              a fi de millorar la capacitat nacional per a recaptar ingressos fiscals
+              i d’altra índole.
+            objective10: Promoure un sistema de comerç multilateral universal, basat
+              en normes, obert, no discriminatori i equitatiu en el marc de l’Organització
+              Mundial del Comerç, mitjançant, entre d’altres, la conclusió de negociacions
+              d’acord amb el Programa de Doha per al desenvolupament.
+            objective11: Augmentar de manera significativa les exportacions dels països
+              en desenvolupament, en particular amb la perspectiva de duplicar la
+              participació dels països menys avançats en les exportacions mundials
+              per a 2020.
+            objective12: Aconseguir la implementació oportuna d’un accés permanent
+              als mercats, sense aranzels ni quotes per a tots els països menys avançats,
+              de conformitat amb les decisions de l’Organització Mundial del Comerç,
+              i, entre d’altres, vetllant per tal que les normes d’origen preferencials
+              aplicables a les importacions dels països menys avançats siguin transparents
+              i senzilles, i contribueixin a facilitar l’accés als mercats.
+            objective13: Augmentar l’estabilitat macroeconòmica mundial, mitjançant,
+              entre d’altres, la coordinació i coherència de polítiques.
+            objective14: Millorar la coherència de polítiques per al desenvolupament
+              sostenible.
+            objective15: Respectar el lideratge i la política de cada país per a establir
+              i aplicar polítiques orientades a l’erradicació de la pobresa i la promoció
+              del desenvolupament sostenible.
+            objective16: Enfortir l’Aliança Mundial per al Desenvolupament Sostenible,
+              complementada per aliances entre múltiples actors que mobilitzin i promoguin
+              l’intercanvi de coneixements, expertesa, tecnologies i recursos financers,
+              amb la finalitat de donar suport a l’assoliment dels Objectius de Desenvolupament
+              Sostenible a tots els països, en particular als països en desenvolupament.
+            objective17: Encoratjar i promoure la constitució d’aliances eficaces
+              en els àmbits públic, publicoprivat i de la societat civil, aprofitant
+              l’experiència i les estratègies d’obtenció de recursos dels partenariats.
+            objective18: Per a 2020, millorar la prestació de suport a la formació
+              per als països en desenvolupament, inclosos els països menys avançats
+              i els petits estats insulars en desenvolupament, amb la perspectiva
+              d’augmentar de forma significativa la disponibilitat de dades actualitzades,
+              fiables i de qualitat, desglossades per grups d’ingressos, gènere, edat,
+              raça, origen ètnic, condició migratòria, discapacitat, ubicació geogràfica
+              i altres característiques pertinents segons el context nacional.
+            objective19: Per a 2030, aprofitar les iniciatives existents per a elaborar
+              indicadors que permetin mesurar els progressos aconseguits en matèria
+              de desenvolupament sostenible i constitueixin un complement dels indicadors
+              utilitzats per a mesurar el producte interior brut, i donar suport a
+              la formació en estadística als països en desenvolupament.
+            objective2: Vetllar perquè els països desenvolupats compleixin plenament
+              els seus compromisos en relació amb l’ajut oficial al desenvolupament
+              (AOD), inclòs el compromís adquirit per nombrosos països desenvolupats
+              d’assolir l’objectiu de destinar el 0,7% del producte nacional brut
+              (PNB) a l’AOD i del 0,15% al 0,20% del PNB a l’AOD dels països menys
+              avançats, i encoratjar els proveïdors d’AOD que considerin fixar una
+              meta per tal de destinar almenys el 0,20% del PNB a l’AOD dels països
+              menys avançats.
+            objective3: Mobilitzar recursos financers addicionals provinents de múltiples
+              fonts per als països en desenvolupament.
+            objective4: Assistir els països en desenvolupament per a aconseguir la
+              sostenibilitat del deute a llarg termini amb polítiques coordinades
+              orientades a fomentar el finançament, l’alleujament i la reestructuració
+              del deute, si escau, i fer front al deute extern dels països pobres
+              altament endeutats a fi de reduir l’endeutament excessiu.
+            objective5: Adoptar i aplicar sistemes de promoció d’inversió a favor
+              dels països menys avançats.
+            objective6: Millorar la cooperació regional i internacional nord-sud,
+              sud-sud i triangular i l’accés a la ciència, tecnologia i innovació,
+              i augmentar l’intercanvi de coneixements en condicions mútuament convingudes,
+              entre d’altres maneres millorant la coordinació entre els mecanismes
+              existents, en particular en l’àmbit de les Nacions Unides, i mitjançant
+              un mecanisme global de facilitació de la tecnologia.
+            objective7: Promoure el desenvolupament, així com la transferència, divulgació
+              i difusió de tecnologies ecològicament racionals als països en desenvolupament
+              en condicions favorables, incloent condicions concessionàries i preferencials,
+              de mutu acord.
+            objective8: Posar en ple funcionament, a tot tardar el 2017, el banc de
+              tecnologia i el mecanisme de suport a la ciència, tecnologia i innovació
+              per als països menys avançats, i augmentar l’ús de tecnologies instrumentals,
+              en particular de les tecnologies de la informació i la comunicació.
+            objective9: Augmentar el suport internacional a la implementació eficaç
+              i amb objectius concrets de programes de formació als països en desenvolupament
+              per tal de donar suport als plans nacionals orientats a aplicar tots
+              els Objectius de Desenvolupament Sostenible, mitjançant, entre d’altres,
+              la cooperació nord-sud, sud-sud i triangular.
+            subtitle: Aliança per a assolir els objectius
             title: Objectiu 17
         pjsi:
           logo:
-            line1: PATZ, JUSTÍCIA
-            line2: E INSTITUCIONS
-            line3: SOLIDES
+            line1: PAU, JUSTÍCIA
+            line2: I INSTITUCIONS
+            line3: SÒLIDES
           objectives:
-            objective1: Redusir considerablament totes es formes de violéncia e es 
-              taxes de mortalitat connèxes en tot eth mon.
-            objective10: Garantir er accès public ara informacion e protegir 
-              es libertats fondamentaus, de conformitat damb es leis nacionaus 
-              e es acòrds internacionaus. 
-            objective11: Enfortir es institucions nacionaus pertinentes, 
-              mejançant, entre d’autes, era cooperacion internacionau, 
-              damb vista a realizar formacion a toti es nivèus, en 
-              particular enes païsi en desvolopament, pr’amor de previer 
-              era violéncia e combàter eth terrorisme e era delinqüéncia. 
-            objective12: Promòir e aplicar leis e politiques non discriminatòries 
-              en favor deth desvolopament sostenible.
-            objective2: Méter fin ath mautractament, era espleita, eth trafic, 
-              era tortura e totes es formes de violéncia contra es infants. 
-            objective3: Promòir er estat de dret enes ambits nacionaus e 
-              internacionaus, e garantir era egalitat d’accès ara justícia 
-              entà totes es persones. 
-            objective4: Entath 2030, redusir de forma significativa eth trafic 
-              illicit de finances e d’armes, enfortir era recuperacion e 
-              devolucion de bens panadi, e lutar contra totes es formes de 
-              delinqüéncia organizada. 
-            objective5: Redusir substanciaument totes es formes de corrupcion e subòrn. 
-            objective6: Crear ues institucions eficaces, responsables e 
-              transparentes a toti es nivèus. 
-            objective7: Garantir era adopcion de decisions inclusives, participatives 
-              e representatives que responguen as besonhs a toti es nivèus.
-            objective8: Ampliar e enfortir era participacion des païsi en desvolopament 
-              enes institucions de governança mondiau. 
-            objective9: Entath 2030, balhar er accès a ua identitat juridica entà 
-              totes es persones, en particular mejançant eth registre de neishements. 
-            subtitle: Patz, justícia e institucions solides
+            objective1: Reduir considerablement totes les formes de violència i les
+              taxes de mortalitat connexes a tot el món.
+            objective10: Garantir l’accés públic a la informació i protegir les llibertats
+              fonamentals, de conformitat amb les lleis nacionals i els acords internacionals.
+            objective11: Enfortir les institucions nacionals pertinents, mitjançant,
+              entre d’altres, la cooperació internacional, amb vista a realitzar formació
+              a tots els nivells, en particular als països en desenvolupament, per
+              tal de prevenir la violència i combatre el terrorisme i la delinqüència.
+            objective12: Promoure i aplicar lleis i polítiques no discriminatòries
+              en favor del desenvolupament sostenible.
+            objective2: Posar fi al maltractament, l’explotació, el tràfic, la tortura
+              i totes les formes de violència contra els infants.
+            objective3: Promoure l’estat de dret en els àmbits nacionals i internacionals,
+              i garantir la igualtat d’accés a la justícia per a totes les persones.
+            objective4: Per a 2030, reduir de forma significativa el tràfic il·lícit
+              de finances i d’armes, enfortir la recuperació i devolució de béns robats,
+              i lluitar contra totes les formes de delinqüència organitzada.
+            objective5: Reduir substancialment totes les formes de corrupció i suborn.
+            objective6: Crear unes institucions eficaces, responsables i transparents
+              a tots els nivells.
+            objective7: Garantir l’adopció de decisions inclusives, participatives
+              i representatives que responguin a les necessitats a tots els nivells.
+            objective8: Ampliar i enfortir la participació dels països en desenvolupament
+              en les institucions de governança mundial.
+            objective9: Per a 2030, proporcionar l’accés a una identitat jurídica
+              per a totes les persones, en particular mitjançant el registre de naixements.
+            subtitle: Pau, justícia i institucions sòlides
             title: Objectiu 16
         quality_education:
           logo:
-            line1: EDUCACION
+            line1: EDUCACIÓ
             line2: DE QUALITAT
           objectives:
-            objective1: Entath 2030, velhar perque totes es mainades e mainatges acaben es 
-              cicles der ensenhament primari e segondari, qu’a d’èster gratuït e de qualitat 
-              e a de produsir resultats escolars pertinenti e eficaci. 
-            objective10: Entath 2030, aumentar substanciaument era ofèrta de mèstres qualificadi 
-              mejançant, ente d’autes, era cooperacion internacionau entara formacion de docents 
-              enes païsi en desvolopament, especiaument enes païsi mens auançadi e enes petiti 
-              estats insulars en desvolopament. 
-            objective2: Entath 2030, velhar perque totes es mainades e mainatges agen accès 
-              a servicis d’atencion e desvolopament ena prumèra infantesa, e a un ensenhament 
-              preescolar de qualitat, a fin que siguen premanidi entar ensenhament primari. 
-            objective3: Entath 2030, assegurar er accès en condicions d’egalitat entà toti 
-              es òmes e es hemnes a ua formacion tecnica, professionau e superiora de qualitat, 
-              includit er ensenhament universitari.
-            objective4: Entath 2030, aumentar substanciaument eth nombre de joeni e persones 
-              adultes qu’an es competéncies de besonh, en particular tecniques e professionaus, 
-              entà accedir ara ocupacion, eth trabalh digne e era emprenedoria.
-            objective5: Entath 2030, eliminar es disparitats de genre ena educacion e 
-              garantir er accès en condicions d’egalitat as persones vulnerables, 
-              includides es persones damb discapacitat, es pòbles indigènes e es 
-              mainatges e mainades en situacions de vulnerabilitat, a toti es nivèus der 
-              ensenhament e era formacion professionau. 
-            objective6: Entath 2030, garantir que tota era joenessa e aumens ua proporcion 
-              substanciau d’adults, tant òmes com hemnes, agen competéncies de lectura, 
-              esriptura e aritmetica. 
-            objective7: Entath 2030, garantir que tot er escolanat aquerisque es coneishements 
-              teorics e practics de besonh entà promòir eth desvolopament sostenible, a trauès, 
-              entre d’autes, dera educacion entath desvolopament sostenible e era adopcion d’estils 
-              de vida sostenibles, es drets umans, era egalitat de genre, era promocion d’ua cultura 
-              de patz e non-violéncia, era ciutadanetat mondiau e era valoracion dera diversitat 
-              culturau e dera contribucion dera cultura ath desvolopament sostenible.
-            objective8: Bastir e adequar installacions escolares que responguen as besonhs des 
-              infants e es persones discapacitades, tenguen en compde es qüestions de genre, e 
-              aufrisquen entorns d’aprendissatge segurs, non violents, inclusius e eficaci entà 
-              totes es persones. 
-            objective9: Entath 2020, aumentar substanciaument a escala mondiau eth nombre de bèques 
-              disponibles entàs païsi en desvolopament, en particular es païsi mens auançadi, es petiti 
-              estats insulars en desvolopament e es païsi d’Africa, entà qu’es sòns estudiants poguen 
-              matricular-se en programes d’estudis superiors, includits programes de formacion  professionau 
-              e programes tecnics, scientifics, d’engenheria e de tecnologies dera informacion e era comunicacion, 
-              en païsi desvolopadi e païsi en desvolopament.  
-            subtitle: Educacion de qualitat
+            objective1: Per a 2030, vetllar perquè totes les nenes i nens acabin els
+              cicles de l’ensenyament primari i secundari, que ha de ser gratuït,
+              equitatiu i de qualitat i ha de produir resultats escolars pertinents
+              i eficaços.
+            objective10: Per a 2030, augmentar substancialment l’oferta de mestres
+              qualificats mitjançant, entre d’altres, la cooperació internacional
+              per a la formació de docents als països en desenvolupament, especialment
+              als països menys avançats i als petits estats insulars en desenvolupament.
+            objective2: Per a 2030, vetllar perquè totes les nenes i nens tinguin
+              accés a serveis d’atenció i desenvolupament en la primera infantesa,
+              i a un ensenyament preescolar de qualitat, a fi que estiguin preparats
+              per a l’ensenyament primari.
+            objective3: Per a 2030, assegurar l’accés en condicions d’igualtat per
+              a tots els homes i dones a una formació tècnica, professional i superior
+              de qualitat, inclòs l’ensenyament universitari.
+            objective4: Per a 2030, augmentar substancialment el nombre de joves i
+              persones adultes que tenen les competències necessàries, en particular
+              tècniques i professionals, per a accedir a l’ocupació, el treball digne
+              i l’emprenedoria.
+            objective5: Per a 2030, eliminar les disparitats de gènere en l’educació
+              i garantir l’accés en condicions d’igualtat a les persones vulnerables,
+              incloses les persones amb discapacitat, els pobles indígenes i els nens
+              i nenes en situacions de vulnerabilitat, a tots els nivells de l’ensenyament
+              i la formació professional.
+            objective6: Per a 2030, garantir que tot el jovent i almenys una proporció
+              substancial d’adults, tant homes com dones, tinguin competències de
+              lectura, escriptura i aritmètica.
+            objective7: Per a 2030, garantir que tot l’alumnat adquireixi els coneixements
+              teòrics i pràctics necessaris per a promoure el desenvolupament sostenible,
+              a través, entre d’altres, de l’educació per al desenvolupament sostenible
+              i l’adopció d’estils de vida sostenibles, els drets humans, la igualtat
+              de gènere, la promoció d’una cultura de pau i no-violència, la ciutadania
+              mundial i la valoració de la diversitat cultural i de la contribució
+              de la cultura al desenvolupament sostenible.
+            objective8: Construir i adequar instal·lacions escolars que responguin
+              a les necessitats dels infants i les persones discapacitades, tinguin
+              en compte les qüestions de gènere, i ofereixin entorns d’aprenentatge
+              segurs, no violents, inclusius i eficaços per a totes les persones.
+            objective9: Per a 2020, augmentar substancialment a escala mundial el
+              nombre de beques disponibles per als països en desenvolupament, en particular
+              els països menys avançats, els petits estats insulars en desenvolupament
+              i els països d’Àfrica, perquè els seus estudiants puguin matricular-se
+              en programes d’estudis superiors, inclosos programes de formació professional
+              i programes tècnics, científics, d’enginyeria i de tecnologies de la
+              informació i la comunicació, a països desenvolupats i a països en desenvolupament.
+            subtitle: Educació de qualitat
             title: Objectiu 4
         reduced_inequalities:
           logo:
-            line1: REDUCCION DES
-            line2: DESEGALETATS
+            line1: REDUCCIÓ DE LES
+            line2: DESIGUALTATS
           objectives:
-            objective1: Entath 2030, arténher prograssivament e mantier eth creishement des 
-              ingrèssi deth 40% mès praube dera poblacion a ua taxa superiora ara mejana 
-              nacionau.
-            objective10: Entath 2030, resdusir es còsti de transaccion enes remeses de 
-              migrants per dejós deth 3% e eliminar es canaus de tramesa de remeses damb un 
-              còst superior ath 5%.
-            objective2: Entath 2030, potenciar e promòir era inclusion sociau, economica e  
-              politica de totes es persones, independentament dera edat, sèxe, discapacitat, 
-              raça, ètnia, origen, religion, situacion economica o  quinsevolha auta condicion. 
-            objective3: Garantir era egalitat d’oportunitats e redusir era desegalitat des 
-              resultats, tanben eliminant es leis, politiques e practiques discriminatòries 
-              e en tot promòir legislacion, politiques e mesures adequades ad aguest efècte. 
-            objective4: Adoptar politiques, en especiau fiscaus, salariaus e de proteccion 
-              sociau, e arténher progressivament mès egalitat. 
-            objective5: Milhorar era reglamentacion e era vigéncia des institucions e des 
-              mercats financèrs mondiaus e enfortir era aplicacion d’aguesta reglamentacion.
-            objective6: Assegurar mès representacion e intervencion des païsi en desvolopament 
-              enes decisions adoptades pes institucions economiques e financères internacionaus 
-              pr’amor d’aumentar era eficàcia, era fialibitat, era rendicion de compdes e era 
-              legitimitat d’aguestes institucions. 
-            objective7: Facilitar ua migracion e mobilitat ordenades, segures, regulares e 
-              responsables des persones, tanben mejançant era aplicacion de politiques migratòries 
-              planificades e ben gestionades.
-            objective8: Aplicar eth principi  deth tracte especiau e diferenciat entàs païsi en 
-              desvolopament, en particular entàs païsi mens auançadi, de conformitat damb es 
-              acòrds dera Organizaion Mondiau deth Comèrç.
-            objective9: Fomentar era ajuda oficiau ath desvolopament e es fluxes financèrs, 
-              includida era inversion estrangèra dirècta, entàs estats damb mès besonhs, en 
-              particular es  païsi mens auançadi, païsi africans, petiti estats insulars en 
-              desvolopament e païsi en desvolopament sense litorau, d’acòrd damb es plans e 
-              programes nacionaus respectius. 
-            subtitle: Reduccion des desegaletats
+            objective1: Per a 2030, aconseguir progressivament i mantenir el creixement
+              dels ingressos del 40% més pobre de la població a una taxa superior
+              a la mitjana nacional.
+            objective10: Per a 2030, reduir els costos de transacció de les remeses
+              de migrants per sota del 3% i eliminar els canals de tramesa de remeses
+              amb un cost superior al 5%.
+            objective2: Per a 2030, potenciar i promoure la inclusió social, econòmica
+              i política de totes les persones, independentment de l’edat, sexe, discapacitat,
+              raça, ètnia, origen, religió, situació econòmica o altra condició.
+            objective3: Garantir la igualtat d’oportunitats i reduir la desigualtat
+              dels resultats, també eliminant les lleis, polítiques i pràctiques discriminatòries
+              i promovent legislació, polítiques i mesures adequades a aquest efecte.
+            objective4: Adoptar polítiques, en especial fiscals, salarials i de protecció
+              social, i aconseguir progressivament més igualtat.
+            objective5: Millorar la reglamentació i la vigilància de les institucions
+              i dels mercats financers mundials i enfortir l’aplicació d’aquesta reglamentació.
+            objective6: Assegurar més representació i intervenció dels països en desenvolupament
+              en les decisions adoptades per les institucions econòmiques i financeres
+              internacionals per tal d’augmentar l’eficàcia, la fiabilitat, la rendició
+              de comptes i la legitimitat d’aquestes institucions.
+            objective7: Facilitar una migració i mobilitat ordenades, segures, regulars
+              i responsables de les persones, també mitjançant l’aplicació de polítiques
+              migratòries planificades i ben gestionades.
+            objective8: Aplicar el principi del tracte especial i diferenciat per
+              als països en desenvolupament, en particular per als països menys avançats,
+              de conformitat amb els acords de l’Organització Mundial del Comerç.
+            objective9: Fomentar l’ajut oficial al desenvolupament i els fluxos financers,
+              inclosa la inversió estrangera directa, per als estats amb majors necessitats,
+              en particular els països menys avançats, països africans, petits estats
+              insulars en desenvolupament i països en desenvolupament sense litoral,
+              d’acord amb els respectius plans i programes nacionals.
+            subtitle: Reduir la desigualtat en i entre els països
             title: Objectiu 10
         responsible_consumption:
           logo:
-            line1: CONSUM E
-            line2: PRODUCCION
+            line1: CONSUM I
+            line2: PRODUCCIÓ
             line3: RESPONSABLES
           objectives:
-            objective1: Aplicar eth Marc decennau de programes sus modalitats de consum e produccion 
-              sostenibles, damb era participacion de toti es païsi e eth lideratge des païsi 
-              desvolopadi, tenguent en compde eth grad de desvolopament e es capacitats 
-              des païsi en desvolopament. 
-            objective10: Elaborar e aplicar esturments que permeten de susvelhar es efèctes 
-              en desvolopament sostenible pr’amor d’arténher un torisme sostenible que cree 
-              lòcs de trabalh e promòigue era cultura e es productes locaus.
-            objective11: Racionalizar es subsidis ineficients as combustibles fossils 
-              qu’encoratgen eth consum antieconomic, mejançant era eliminacion des 
-              distorsions deth mercat d’acòrd damb es circonstàncies nacionaus, tanben 
-              per miei d’ua reestructuracion des sistèmes tributaris e era eliminacion 
-              graduau des subsidis daumatjosi, quan existisquen, pr’amor de reflectir-ne 
-              er impacte ambientau, en tot tier pliament en compde es besonhs e condicions 
-              especifiques des païsi en desvolopament e redusint ath minimom es possibles 
-              efèctes advèrsi en sòn desvolopament, d’ua manèra que permete de protegir 
-              es persones praubes e es comunitats afectades. 
-            objective2: Entath 2030, arténher era gestion sostenibla e er us eficient des 
-              recorsi naturaus. 
-            objective3: Entath 2030, redusir ara mitat eth degalh d’aliments per capita 
-              mondiau ena venda ath detalh e eth consum, atau com es pèrtes d’aliments enes 
-              cadies de produccion e distribucion, includides es pèrtes pòstcuelheta.
-            objective4: Entath 2020, arténher era gestion ecologicament racionau des productes 
-              quimics e de toti es residus ath long deth sòn cicle de vida, de conformitat damb 
-              es marcs internacionaus convengudi, e redusir-ne de manèra significativa eth 
-              liberament tara atmosfèra, tara aigua e tath solèr a fin de minimizar-ne es 
-              efèctes nocius sus era salut umana e eth mèdi ambient. 
-            objective5: Entath 2030, amendrir de manèra substanciau era generacion de residus 
-              mejançant politiques de prevencion, reduccion, reciclatge e reutilizacion. 
-            objective6: Encoratjar es empeses, en especiau es granes empreses e es empreses 
-              transnacionaus, a adoptar practiques sostenibles e a incorporar informacion sus 
-              era sostenibilitat en sòn cicle de presentacion d’informes.
-            objective7: Promòir practiques de contractacion publica que siguen sostenibles, de 
-              conformitat damb es politiques e prioritats nacionaus. 
-            objective8: Entath 2030, assegurar qu’es persones de tot eth mon agen informacion 
-              e conscienciacion pertinentes entath desvolopament e es estils de vida sostenibles, 
-              en armonia damb era natura.
-            objective9: Ajudar es païsi en desvolopament a enfortir era sua capacitat scientifica 
-              e tecnologica a fin d’auançar  cap a modalitats de consum e produccion mès sostenibles. 
-            subtitle: Consum e produccion responsables
+            objective1: Aplicar el Marc decennal de programes sobre modalitats de
+              consum i producció sostenibles, amb la participació de tots els països
+              i el lideratge dels països desenvolupats, tenint en compte el grau de
+              desenvolupament i les capacitats dels països en desenvolupament.
+            objective10: Elaborar i aplicar instruments que permetin vigilar els efectes
+              en el desenvolupament sostenible a fi d’aconseguir un turisme sostenible
+              que creï llocs de treball i promogui la cultura i els productes locals.
+            objective11: Racionalitzar els subsidis ineficients als combustibles fòssils
+              que encoratgen el consum antieconòmic, mitjançant l’eliminació de les
+              distorsions del mercat d’acord amb les circumstàncies nacionals, també
+              per mitjà d’una reestructuració dels sistemes tributaris i l’eliminació
+              gradual dels subsidis perjudicials, quan existeixin, per tal de reflectir-ne
+              l’impacte ambiental, tenint plenament en compte les necessitats i condicions
+              específiques dels països en desenvolupament i reduint al mínim els possibles
+              efectes adversos en el seu desenvolupament, d’una manera que permeti
+              protegir les persones pobres i les comunitats afectades.
+            objective2: Per a 2030, assolir la gestió sostenible i l’ús eficient dels
+              recursos naturals.
+            objective3: Per a 2030, reduir a la meitat el malbaratament d’aliments
+              per càpita mundial en la venda al detall i el consum, així com les pèrdues
+              d’aliments a les cadenes de producció i distribució, incloses les pèrdues
+              postcollita.
+            objective4: Per a 2020, aconseguir la gestió ecològicament racional dels
+              productes químics i de tots els residus al llarg del seu cicle de vida,
+              de conformitat amb els marcs internacionals convinguts, i reduir-ne
+              de manera significativa l’alliberament a l’atmosfera, a l’aigua i al
+              sòl a fi de minimitzar-ne els efectes adversos sobre la salut humana
+              i el medi ambient.
+            objective5: Per a 2030, disminuir de manera substancial la generació de
+              residus mitjançant polítiques de prevenció, reducció, reciclatge i reutilització.
+            objective6: Encoratjar les empreses, en especial les grans empreses i
+              les empreses transnacionals, a adoptar pràctiques sostenibles i a incorporar
+              informació sobre la sostenibilitat en el seu cicle de presentació d’informes.
+            objective7: Promoure pràctiques de contractació pública que siguin sostenibles,
+              de conformitat amb les polítiques i prioritats nacionals.
+            objective8: Per a 2030, assegurar que les persones de tot el món tinguin
+              informació i conscienciació pertinents per al desenvolupament i els
+              estils de vida sostenibles, en harmonia amb la natura.
+            objective9: Ajudar els països en desenvolupament a enfortir la seva capacitat
+              científica i tecnològica a fi d’avançar cap a modalitats de consum i
+              producció més sostenibles.
+            subtitle: Consum i producció responsables
             title: Objectiu 12
-        subtitle: Coneishetz es 17 Objectius de Desvolopament Sostenible
+        subtitle: Coneix els 17 Objectius de Desenvolupament Sostenible
         sustainable_cities:
           logo:
-            line1: CIUTATS E
+            line1: CIUTATS I
             line2: COMUNITATS
             line3: SOSTENIBLES
           objectives:
-            objective1: Entath 2030, assegurar er accès de totes es persones a abitatges 
-              e a servicis basics adequadi, segurs e assequibles, e milhorar es barris 
-              marginaus. 
-            objective10: Balhar supòrt as païsi mens auançadi, includint ua assisténcia 
-              financèra e tecnica, entà que poguen hèr bastisses sostenibles e 
-              resilientes en tot utilizar materiaus locaus.
-            objective2: Entath 2030, balhar accès a sistèmes de transpòrt segurs, 
-              assequibles, accessibles e sostenibles entà totes es persones, e milhorar 
-              era seguretat viària, en particular mejançant era ampliacion deth transpòrt 
-              public, damb especiau atencion as besonhs des persones en situacion 
-              vulnerabla, hemnes, mainades, mainatges, persones damb discapacitat e 
-              persones granes.
-            objective3: Entath 2030, aumentar era urbanizacion inclusiva e sostenibla, 
-              atau com era capacitat de planificar e gestionar de manèra participativa, 
-              integrada e sostenibla es assentamens umans en toti es païsi. 
-            objective4: Redoblar es esfòrci entà protegir e sauvaguardar eth patrimòni culturau 
-              e naturau deth mon. 
-            objective5: Entath 2030, redusir de forma significativa eth nombre de mòrts 
-              causades per desastres, includits es restacadi damb era aigua, e de persones 
-              afectades per aguesti, e redusir substanciaument es pèrtes economiques dirèctes 
-              causades per desastres restacades damb eth producte interior brut mondiau, en tot 
-              hèr enfasi especiau ena proteccion des persones praubes e des persones en situacions 
-              de vulnerabilitat.
-            objective6: Entath 2030, redusir er impacte ambientau negatiu per capita des ciutats, 
-              damb especiau atencion ara qualitat der aire, atau com ara gestion des residus municipaus 
-              e d’auti tipe. 
-            objective7: Entath 2030, balhar accès universau a zònes verdes e espacis publics 
-              segurs, inclusius e accessibles, en particular entàs hemnes e es infants, es 
-              persones granes e es persones damb discapacitat. 
-            objective8: Balhar supòrt as vincles economics, sociaus e ambientaus positius entre es 
-              zònes urbanes, periurbanes e ruraus  en tot enfortir era planificacion deth desvolopament 
-              nacionau e regionau.
-            objective9: Entath 2020, aumentar substanciaument eth nombre de ciutats e assentaments 
-              umans qu’adòpten e entamenen politiques e plans integradi entà promòir era inclusion, 
-              er us eficient des recorsi, era mitigacion deth cambi climatic e adaptacion ad aguest, 
-              atau com era resiliéncia deuant des desastres,  e desvolopar e méter en practica ua 
-              gestion integrau des risques de desastre a toti es nivèus, d’acòrd damb eth Marc de 
-              Sendai entara reduccion deth  risc de desastre 2015-2030.
+            objective1: Per a 2030, assegurar l’accés de totes les persones a habitatges
+              i a serveis bàsics adequats, segurs i assequibles, i millorar els barris
+              marginals.
+            objective10: Proporcionar suport als països menys avançats, incloent una
+              assistència financera i tècnica, perquè puguin construir edificis sostenibles
+              i resilients utilitzant materials locals.
+            objective2: Per a 2030, proporcionar accés a sistemes de transport segurs,
+              assequibles, accessibles i sostenibles per a totes les persones, i millorar
+              la seguretat viària, en particular mitjançant l’ampliació del transport
+              públic, amb especial atenció a les necessitats de les persones en situació
+              vulnerable, dones, nenes, nens, persones amb discapacitat i persones
+              grans.
+            objective3: Per a 2030, augmentar la urbanització inclusiva i sostenible,
+              així com la capacitat de planificar i gestionar de manera participativa,
+              integrada i sostenible els assentaments humans a tots els països.
+            objective4: Redoblar els esforços per a protegir i salvaguardar el patrimoni
+              cultural i natural del món.
+            objective5: Per a 2030, reduir de forma significativa el nombre de morts
+              causades per desastres, inclosos els relacionats amb l’aigua, i de persones
+              afectades per aquests, i reduir substancialment les pèrdues econòmiques
+              directes causades per desastres relacionades amb el producte interior
+              brut mundial, fent un èmfasi especial en la protecció de les persones
+              pobres i de les persones en situacions de vulnerabilitat.
+            objective6: Per a 2030, reduir l’impacte ambiental negatiu per capita
+              de les ciutats, amb especial atenció a la qualitat de l’aire, així com
+              a la gestió dels residus municipals i d’altre tipus.
+            objective7: Per a 2030, proporcionar accés universal a zones verdes i
+              espais públics segurs, inclusius i accessibles, en particular per a
+              les dones i els infants, les persones grans i les persones amb discapacitat.
+            objective8: Donar suport als vincles econòmics, socials i ambientals positius
+              entre les zones urbanes, periurbanes i rurals enfortint la planificació
+              del desenvolupament nacional i regional.
+            objective9: Per a 2020, augmentar substancialment el nombre de ciutats
+              i assentaments humans que adopten i posen en marxa polítiques i plans
+              integrats per promoure la inclusió, l’ús eficient dels recursos, la
+              mitigació del canvi climàtic i l’adaptació a aquest, així com la resiliència
+              davant dels desastres, i desenvolupar i posar en pràctica una gestió
+              integral dels riscos de desastre a tots els nivells, d’acord amb el
+              Marc de Sendai per a la reducció del risc de desastres 2015-2030.
             subtitle: Ciutats i comunitats sostebibles
             title: Objectiu 11
         zero_hunger:
           logo:
-            line1: HAME
-            line2: ZÈRO
+            line1: FAM
+            line2: ZERO
           objectives:
-            objective1: Entath 2030, méter fin ara hame e assegurar er accès de totes es persones, 
-              en particular des persones praubes e en situacions vulnerables, includits es lactants, 
-              a ua alimentacion sana, nutritiva e sufisenta pendent tot er an.
-            objective2: Entath 2030, méter fin a totes es formes de mauneuriment, en tot includir-i 
-              arténher, a tot tardar eth 2025, es hites convengudes internacionaument sus eth retard 
-              deth creishement e era emancipacion des menors de 5 ans, e abordar es besonhs de 
-              neuriment des adolescents, hemnes embarassades e lactants, atau com des persones granes.
-            objective3: Entath 2030, duplicar era productivitat agricòla e es ingrèssi des 
-              productors/ores d’aliments de petita escala, en particular es hemnes, es pòbles 
-              indigènes,  agricultors/ores familhars, pastors/ores e pescaires, a trauès, entre 
-              d’auti, d’un accès segur e equitatiu as tèrres, a d’auti recorsi de produccion e 
-              inputs, coneishements, servicis financèrs, mercats e oportunitats entara generacion de 
-              valor ahijut e trabalh non agricòla.
-            objective4: Entath 2030, assegurar era sostenibilitat des sistèmes de produccion d’aliments 
-              e aplicar practiques agricòles resilientes qu’aumenten era productivitat e era produccion, 
-              contribusisquen ath mentienement des ecosistèmes, enfortisquen era capacitat d’adaptacion ath 
-              cambi climatic, fenomèns meteorologics extrems, sequères, aiguats e d’auti desastres, e 
-              milhoren progressivament era qualitat deth solèr e era tèrra.
-            objective5: Entath 2020, mantier era diversitat genetica des semes, coitius e animaus de granja 
-              e dometjats atau com es espècies silvèstres connèxes, a trauès, entre d’auti, d’ua bona gestion  
-              e diversificacion des bancs de semes e plantes a escala nacionau, regionau e internacionau, 
-              e promòir er accès as beneficis que se deriven dera utilizacion des recorsi genetics e coneishements 
-              tradicionaus, atau com era distribucion justa e equitativa  d’aguesti, com s’a convengut 
-              internacionaument.
-            objective6: Aumentar es inversions, enquia mejançant ua cooperacion internacionau mès ampla, 
-              en infraestructura rurau, investigacion agricòla e servicis d’extension, atau com en desvolopament 
-              tecnologic e bancs de gèns de plantes e bestiar, a fin de milhorar era capacitat de produccion 
-              agicòla enes païsi en desvolopament, en particular enes païsi mens auançadi.
-            objective7: Corregir e previer es restriccions e distorsions comerciaus des mercats agropecuaris mondiaus, 
-              a trauès, entre d’auti, dera eliminacion parallèla de totes es formes de subvencions as exportacions 
-              agricòles e totes es mesures d’exportacion d’efèctes equivalenti, de conformitat damb eth mandat dera 
-              Ronda de Doha entath Desvolopament. 
-            objective8: Adoptar mesures pr’amor d’assegurar eth bon foncionament des mercats de productes basics 
-              alimentaris e derivats d’aguesti, e facilitar er accès adequat ara informacion sus es mercats, 
-              en particular sus es resèrves d’aliments, a fin d’ajudar a limitar era extrema volatilitat 
-              des prètzi des aliments. 
-            subtitle: Hame zèro
+            objective1: Per a 2030, posar fi a la fam i assegurar l’accés de totes
+              les persones, en particular de les persones pobres i en situacions vulnerables,
+              inclosos els lactants, a una alimentació sana, nutritiva i suficient
+              durant tot l’any.
+            objective2: Per a 2030, posar fi a totes les formes de malnutrició, incloent-hi
+              aconseguir, a tot tardar el 2025, les fites convingudes internacionalment
+              sobre el retard del creixement i l’emaciació dels menors de 5 anys,
+              i abordar les necessitats de nutrició de les adolescents, dones embarassades
+              i lactants, així com de les persones grans.
+            objective3: Per a 2030, duplicar la productivitat agrícola i els ingressos
+              dels productors/es d’aliments de petita escala, en particular les dones,
+              els pobles indígenes, agricultors/es familiars, pastors/es i pescadors/es,
+              a través, entre d’altres, d’un accés segur i equitatiu a les terres,
+              a altres recursos de producció i inputs, coneixements, serveis financers,
+              mercats i oportunitats per a la generació de valor afegit i treball
+              no agrícola.
+            objective4: Per a 2030, assegurar la sostenibilitat dels sistemes de producció
+              d’aliments i aplicar pràctiques agrícoles resilients que augmentin la
+              productivitat i la producció, contribueixin al manteniment dels ecosistemes,
+              enforteixin la capacitat d’adaptació al canvi climàtic, fenòmens meteorològics
+              extrems, sequeres, inundacions i altres desastres, i millorin progressivament
+              la qualitat del sòl i la terra.
+            objective5: Per a 2020, mantenir la diversitat genètica de les llavors,
+              cultius i animals de granja i domesticats així com les espècies silvestres
+              connexes, a través, entre d’altres, d’una bona gestió i diversificació
+              dels bancs de llavors i plantes a escala nacional, regional i internacional,
+              i promoure l’accés als beneficis que es derivin de la utilització dels
+              recursos genètics i coneixements tradicionals, així com la distribució
+              justa i equitativa d’aquests, com s’ha convingut internacionalment.
+            objective6: Augmentar les inversions, fins i tot mitjançant una cooperació
+              internacional més àmplia, en infraestructura rural, investigació agrícola
+              i serveis d’extensió, així com en desenvolupament tecnològic i bancs
+              de gens de plantes i bestiar, a fi de millorar la capacitat de producció
+              agrícola als països en desenvolupament, en particular als països menys
+              avançats.
+            objective7: Corregir i prevenir les restriccions i distorsions comercials
+              dels mercats agropecuaris mundials, a través, entre d’altres, de l’eliminació
+              paral·lela de totes les formes de subvencions a les exportacions agrícoles
+              i totes les mesures d’exportació d’efectes equivalents, de conformitat
+              amb el mandat de la Ronda de Doha per al Desenvolupament.
+            objective8: Adoptar mesures per tal d’assegurar el bon funcionament dels
+              mercats de productes bàsics alimentaris i derivats d’aquests, i facilitar
+              l’accés adequat a informació sobre els mercats, en particular sobre
+              les reserves d’aliments, a fi d’ajudar a limitar l’extrema volatilitat
+              dels preus dels aliments.
+            subtitle: Fam zero
             title: Objectiu 2
     problems:
       admin:
@@ -941,10 +1002,9 @@ oc:
         models:
           problem:
             fields:
-              challenge: Rèpte
+              challenge: Repte
               created_at: Creat
-              challenge: Rèpte
-              end_date: Data de finalizacion
+              end_date: Data fi
               published: Publicat
               start_date: Data inici
               state: Estat
@@ -968,7 +1028,7 @@ oc:
           edit:
             update: Actualitza
           form:
-            challenge: Rèpte associat
+            challenge: Repte associat
             duration: Durada
             select_states: Selecciona l'estat
           new:
@@ -978,10 +1038,10 @@ oc:
             error: Hi ha hagut un error actualitzant aquest problema
             success: Problema actualitzat correctament
         titles:
-          problems_list: Llistat de problèmes
+          problems_list: Llistat de problemes
       show:
         proposed_solutions: Solucions proposades
-        return_to_list: Torna ath listat
+        return_to_list: Torna al llistat
       index:
         not_published: No Publicat
         published: Publicat
@@ -990,19 +1050,19 @@ oc:
         count:
           problems_count:
             one: "%{count} problema"
-            other: "%{count} problèmes"
+            other: "%{count} problemes"
         filters:
           all: Totes
           category: Categoria
-          execution: En execucion
-          finished: Finalizat
+          execution: En execució
+          finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
           scope: Àmbit
           search: Cerca
-          sectorial_scope: Ambit sectoriau
+          sectorial_scope: Àmbit sectorial
           state: Estat
-          technological_scope: Ambit tecnologic
+          technological_scope: Àmbit tecnològic
           territorial_scope: Àmbit territorial
         filters_small_view:
           close_modal: Tancar finestra
@@ -1014,50 +1074,54 @@ oc:
           random: Aleatori
           recent: Més recents
         problems:
-          empty: No s'han pogut trobar problèmes
-          empty_filters: No s'han pogut trobar problèmes
+          empty: No s'han pogut trobar problemes
+          empty_filters: No s'han pogut trobar problemes
       problems_helper:
         filter_state_values:
-          all: Toti
-          execution: En execucion
-          finished: Finalizat
+          all: Tots
+          execution: En execució
+          finished: Acabat
           proposal: Proposta
       states:
-        execution: En execucion
-        finished: Finalizat
+        execution: En execució
+        finished: Acabada
         proposal: Proposada
-      challenge: Rèpte
+      challenge: Repte
     sdgs:
+      admin:
+        sdgs:
+          index:
+            cant_manage: Els ODSs no es poden gestionar. No hi ha res per configurar.
       names:
-        clean_energy: Energia neta e assequibla
-        clean_water: Aigua neta e sanejament
-        climate_action: Accion climatica
-        decent_work: Trabalh digne e creishement economic
-        gender_equality: Egaletat de genre
-        good_health: Salut e benèster
-        iiai: Indústria, innovacion e infraestructures
-        reduced_inequalities: Reduccion des desegaletats
-        responsible_consumption: Consum e produccion responsables
-        life_below_water: Vida sosmarina
-        life_on_land: Vida d'ecosistèmes terrèstres
-        no_poverty: Fin dera praubesa
-        partnership: Aliança entà arténher es objectius
-        pjsi: Patz, justícia e institucions solides
-        quality_education: Educacion de qualitat
-        reduced_inequalities: Reduccion des desegaletats
-        sustainable_cities: Ciutats e comunitats sostenibles
-        zero_hunger: Hame zèro
+        clean_energy: Energia neta i assequible
+        clean_water: Aigua neta i sanejament
+        climate_action: Acció climàtica
+        decent_work: Treball digne i creixement econòmic
+        gender_equality: Igualtat de gènere
+        good_health: Salut i benestar
+        iiai: Indústria, innovació, infraestructures
+        reduced_inequalities: Reduir la desigualtat en i entre els països
+        sustainable_cities: Ciutats i comunitats sostenibles
+        responsible_consumption: Consum i producció responsables
+        life_below_water: Vida submarina
+        life_on_land: Vida d'ecosistemes terrestres
+        no_poverty: Fi de la pobresa
+        partnership: Aliança per a assolir els objectius
+        pjsi: Pau, justícia i institucions sòlides
+        quality_education: Educació de qualitat
+        zero_hunger: Fam zero
       sdgs_filter:
         filter_selector:
           select: Selecciona
         modal:
           close: Selecciona
-          title: Objectius de Desvolopament Sostenible
+          title: Objectius de Desenvolupament Sostenible
     solutions:
       problem: Problema
-      challenge: Rèpte
+      challenge: Repte
       admin:
         actions:
+          publish_solution: Publica solució
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
@@ -1081,6 +1145,20 @@ oc:
             success: Solució esborrada correctament
           edit:
             update: Actualitza
+          show:
+            link: Enllaç
+            author: Autor
+            title: Títol
+            documents: Documents
+            description: Descripció
+            solutions: Solucions
+            created_at: Data de creació
+            photos: Imatges
+            challenge: Repte associat
+            project_status: Estat
+            coordinating_entity: Entitat coordinadora
+            decidim_challenges_challenge_id: Repte
+            project_url: Enllaç
           form:
             challenge: Repte associat
             problem: Problema associat
@@ -1093,6 +1171,7 @@ oc:
         models:
           solution:
             fields:
+              author: Autor
               challenge: Repte
               created_at: Creada
               problem: Problema
@@ -1103,6 +1182,19 @@ oc:
         titles:
           solutions_list: Llistat de solucions
       solutions:
+        form:
+          project_statuses:
+            in_progress: En curs
+            finished: Finalitzat
+        index:
+          new_solution: Nova solució
+        new:
+          action: Estàs creant una nova solució.
+          back: Torna
+          create: Crea una nova solució
+          send: Crea
+        create:
+          success: La solució s'ha creat correctament i serà revisada per un administrador.
         solutions:
           empty: No s'han pogut trobar solucions
           empty_filters: No s'han pogut trobar solucions
@@ -1131,6 +1223,7 @@ oc:
           random: Aleatori
           recent: Més recents
       index:
+        official: Solució oficial
         title: Solucions
         published: Publicada
         not_published: No Publicada
@@ -1139,5 +1232,5 @@ oc:
         economic: Econòmics
         financial: Finançers
       show:
-        return_to_list: Torna ath listat
+        return_to_list: Tornar al llistat
         sdg_logo: Logo ODS

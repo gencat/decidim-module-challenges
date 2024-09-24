@@ -37,6 +37,11 @@ module Decidim
           end
         end
 
+        def show
+          enforce_permission_to :show, :solution
+          @solution = Decidim::Solutions::Solution.find(params[:id])
+        end
+
         def edit
           enforce_permission_to :edit, :solution, solution: solution
           @form = form(Decidim::Solutions::Admin::SolutionsForm).from_model(solution)

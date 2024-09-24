@@ -20,4 +20,18 @@ describe "Solutions component" do
       expect(component.settings.hide_filters).to be true
     end
   end
+
+  context "when check creation enabled in settings" do
+    before do
+      component.settings = { creation_enabled: true }
+    end
+
+    it "save correctly component" do
+      expect(component.save!).to be true
+    end
+
+    it "has correct settings" do
+      expect(component.settings.creation_enabled).to be true
+    end
+  end
 end

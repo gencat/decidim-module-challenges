@@ -8,7 +8,10 @@ module Decidim
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Solutions::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
 
-        # nothing to check in the front
+        if permission_action.action == :create
+          toggle_allow(authorized?(:create) && component_settings&.creation_enabled?)
+        end
+
         permission_action
       end
     end

@@ -24,7 +24,6 @@ ca:
         decidim_technological_scope_id: Àmbit tecnològic
         description: Descripció
         end_date: Data finalització
-        groups_affected: Col·lectius afectats
         prop_entity: Entitat proposant
         published: Publicat
         scope: Territori
@@ -41,6 +40,10 @@ ca:
         indicators: Indicadors
         objectives: Objectius
         problem: Problema
+        project_status: Estat
+        coordinating_entity: Entitat coordinadora
+        decidim_challenges_challenge_id: Repte
+        project_url: Enllaç
         published: Publicat
         requirements: Requeriments
         sdg: Objectius de Desenvolupament Sostenible
@@ -161,8 +164,6 @@ ca:
         title: Reptes
         published: Publicat
         not_published: No Publicat
-        published: Publicat
-        title: test
       states:
         execution: En execució
         finished: Acabada
@@ -188,6 +189,7 @@ ca:
         settings:
           global:
             hide_filters: Amagar filtres
+            creation_enabled: Presentar solucions
       sdgs:
         clean_energy:
           logo:
@@ -1002,7 +1004,6 @@ ca:
             fields:
               challenge: Repte
               created_at: Creat
-              challenge: Repte
               end_date: Data fi
               published: Publicat
               start_date: Data inici
@@ -1102,16 +1103,12 @@ ca:
         reduced_inequalities: Reduir la desigualtat en i entre els països
         sustainable_cities: Ciutats i comunitats sostenibles
         responsible_consumption: Consum i producció responsables
-        climate_action: Acció climàtica
         life_below_water: Vida submarina
         life_on_land: Vida d'ecosistemes terrestres
         no_poverty: Fi de la pobresa
         partnership: Aliança per a assolir els objectius
         pjsi: Pau, justícia i institucions sòlides
         quality_education: Educació de qualitat
-        reduced_inequalities: Reduir la desigualtat en i entre els països
-        responsible_consumption: Consum i producció responsables
-        sustainable_cities: Ciutats i comunitats sostenibles
         zero_hunger: Fam zero
       sdgs_filter:
         filter_selector:
@@ -1124,6 +1121,7 @@ ca:
       challenge: Repte
       admin:
         actions:
+          publish_solution: Publica solució
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
@@ -1147,6 +1145,20 @@ ca:
             success: Solució esborrada correctament
           edit:
             update: Actualitza
+          show:
+            link: Enllaç
+            author: Autor
+            title: Títol
+            documents: Documents
+            description: Descripció
+            solutions: Solucions
+            created_at: Data de creació
+            photos: Imatges
+            challenge: Repte associat
+            project_status: Estat
+            coordinating_entity: Entitat coordinadora
+            decidim_challenges_challenge_id: Repte
+            project_url: Enllaç
           form:
             challenge: Repte associat
             problem: Problema associat
@@ -1159,6 +1171,7 @@ ca:
         models:
           solution:
             fields:
+              author: Autor
               challenge: Repte
               created_at: Creada
               problem: Problema
@@ -1169,6 +1182,19 @@ ca:
         titles:
           solutions_list: Llistat de solucions
       solutions:
+        form:
+          project_statuses:
+            in_progress: En curs
+            finished: Finalitzat
+        index:
+          new_solution: Nova solució
+        new:
+          action: Estàs creant una nova solució.
+          back: Torna
+          create: Crea una nova solució
+          send: Crea
+        create:
+          success: La solució s'ha creat correctament i serà revisada per un administrador.
         solutions:
           empty: No s'han pogut trobar solucions
           empty_filters: No s'han pogut trobar solucions
@@ -1197,6 +1223,7 @@ ca:
           random: Aleatori
           recent: Més recents
       index:
+        official: Solució oficial
         title: Solucions
         published: Publicada
         not_published: No Publicada
