@@ -12,6 +12,7 @@ module Decidim
       #
       # form - A form object with the params.
       def initialize(form)
+        super
         @form = form
       end
 
@@ -24,7 +25,6 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        
         transaction do
           create_solution!
 
@@ -50,7 +50,7 @@ module Decidim
           project_status: parsed_attribute(:project_status),
           project_url: parsed_attribute(:project_url),
           coordinating_entity: parsed_attribute(:coordinating_entity),
-          author_id: form.author_id
+          author_id: form.author_id,
         }
 
         @solution = Decidim.traceability.create!(

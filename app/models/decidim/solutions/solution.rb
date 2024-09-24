@@ -21,7 +21,7 @@ module Decidim
 
       belongs_to :problem, foreign_key: "decidim_problems_problem_id", class_name: "Decidim::Problems::Problem", optional: true
       belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge", optional: true
-      belongs_to :author, foreign_key: "author_id", class_name: "Decidim::User"
+      belongs_to :author, class_name: "Decidim::User"
 
       scope :published, -> { where.not(published_at: nil) }
 

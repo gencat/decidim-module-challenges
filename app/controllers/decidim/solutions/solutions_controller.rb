@@ -12,12 +12,12 @@ module Decidim
       include Paginable
       include OrderableSolutions
       include FormFactory
-      
+
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::ShowFiltersHelper
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::Solutions::ApplicationHelper
-      
+
       helper_method :solutions, :form_presenter
 
       def new
@@ -112,7 +112,7 @@ module Decidim
       def search_collection
         ::Decidim::Solutions::Solution.where(component: current_component).published
       end
-      
+
       def form_presenter
         @form_presenter ||= present(@form, presenter_class: Decidim::Solutions::SolutionPresenter)
       end

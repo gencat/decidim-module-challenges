@@ -45,8 +45,6 @@ module Decidim
       def author
         Decidim::User.find(author_id)
       end
-
-      def map_model(model); end
     end
   end
 end
