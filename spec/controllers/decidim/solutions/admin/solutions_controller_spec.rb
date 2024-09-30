@@ -43,6 +43,7 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
       solution: {
         title: title,
         description: description,
+        author_id: current_user.id,
         decidim_problems_problem_id: problem.id,
         tags: tags,
         objectives: objectives,
@@ -110,6 +111,7 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
           solution: {
             title: title,
             description: description,
+            author_id: current_user.id,
             decidim_challenges_challenge_id: challenge.id,
             tags: tags,
             objectives: objectives,
@@ -147,6 +149,7 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
               ca: "Títol solució actualitzada",
             },
             description: description,
+            author_id: current_user.id,
             decidim_problems_problem_id: problem.id,
             decidim_challenges_challenge_id: nil,
             tags: tags,
@@ -181,6 +184,7 @@ describe Decidim::Solutions::Admin::SolutionsController, type: :controller do
               ca: "Títol solució actualitzada",
             },
             description: description,
+            author_id: current_user.id,
             decidim_problems_problem_id: nil,
             decidim_challenges_challenge_id: challenge.id,
             tags: tags,

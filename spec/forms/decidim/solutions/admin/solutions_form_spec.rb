@@ -10,6 +10,7 @@ module Decidim
 
         let(:organization) { create :organization }
         let(:scope) { create :scope, organization: organization }
+        let(:current_user) { create :user, :confirmed, organization: organization }
         let(:title) do
           {
             en: "Problem title",
@@ -66,6 +67,7 @@ module Decidim
           {
             "title" => title,
             "description" => description,
+            "author_id" => current_user.id,
             "decidim_problems_problem_id" => problem&.id,
             "decidim_challenges_challenge_id" => challenge&.id,
             "tags" => tags,
