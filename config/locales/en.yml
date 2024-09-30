@@ -1192,6 +1192,9 @@ en:
           back: Back
           create: Create a new solution
           send: Create
+          attachment_legend: "(Optional) Add a new file"
+          add_documents: Documents
+          edit_documents: Edit documents
         create:
           success: The solution has been created and an administrator will be review it.
         solutions:

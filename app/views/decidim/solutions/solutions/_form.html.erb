@@ -26,13 +26,13 @@
 <%= form.hidden_field :author_id, value: current_user.id %>
 
 <fieldset class="attachments_container gallery__container documents_container">
-  <legend><%= t("attachment_legend", scope: "decidim.solutions.solutions.edit") %></legend>
+  <legend><%= t("attachment_legend", scope: "decidim.solutions.solutions.new") %></legend>
   <div class="row column">
     <%= form.attachment :documents,
       multiple: true,
-      label: t("decidim.solutions.solutions.edit.add_documents"),
-      button_label: t("decidim.solutions.solutions.edit.add_documents"),
-      button_edit_label: t("decidim.solutions.solutions.edit.edit_documents"),
+      label: t("decidim.solutions.solutions.new.add_documents"),
+      button_label: t("decidim.solutions.solutions.new.add_documents"),
+      button_edit_label: t("decidim.solutions.solutions.new.edit_documents"),
       help_i18n_scope: "decidim.forms.file_help.file" %>
   </div>
 </fieldset>

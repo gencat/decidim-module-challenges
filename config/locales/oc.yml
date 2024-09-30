@@ -1193,6 +1193,9 @@ oc:
           back: Torna
           create: Crea una nova solució
           send: Crea
+          attachment_legend: "(Opcional) Afegir un fitxer adjunt"
+          add_documents: Documents
+          edit_documents: Edita documents
         create:
           success: La solució s'ha creat correctament i serà revisada per un administrador.
         solutions:

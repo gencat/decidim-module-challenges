@@ -1203,6 +1203,9 @@ es:
           back: Atrás
           create: Crear una nueva solución
           send: Crear
+          attachment_legend: "(Opcional) Añade un fichero adjunto"
+          add_documents: Documentos
+          edit_documents: Edita documentos
         create:
           success: La solución se ha creado correctamente y será revisada por un administrador.
         solutions:
