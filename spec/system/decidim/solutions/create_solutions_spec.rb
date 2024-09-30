@@ -4,9 +4,13 @@ require "spec_helper"
 
 describe "User creates solutions", type: :system do
   let(:manifest_name) { "solutions" }
-  let(:organization) { participatory_process.organization }
+  let(:organization) { create :organization }
   let!(:user) { create :user, :confirmed, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "solutions", organization: organization }
   let!(:solution) { create :solution, component: component }
+  let(:challenge) { create :challenge }
+  let(:participatory_space) { challenge.participatory_space }
 
   describe "creating a solution" do
     it "browses the new view" do
