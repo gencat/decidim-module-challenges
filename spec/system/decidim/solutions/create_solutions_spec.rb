@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "User creates solutions", type: :system do
+  include_context "with a component"
+
   let(:manifest_name) { "solutions" }
   let(:organization) { create :organization }
   let!(:user) { create :user, :confirmed, organization: organization }
