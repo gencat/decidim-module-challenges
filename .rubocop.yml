@@ -4,7 +4,6 @@ require: rubocop-rspec
 AllCops:
   NewCops: enable
   Include:
-    - .simplecov
     - "**/*.rb"
     - "**/*.rake"
     - "**/*.gemspec"
