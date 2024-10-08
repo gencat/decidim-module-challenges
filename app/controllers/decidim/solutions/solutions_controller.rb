@@ -27,7 +27,8 @@ module Decidim
 
       def create
         enforce_permission_to :create, :solution
-        @form = form(Decidim::Solutions::SolutionsForm).from_params(params)
+        @form = form(Decidim::Solutions::SolutionsForm).from_params(params,
+        author_id: current_user.id)
 
         Decidim::Solutions::CreateSolution.call(@form) do
           on(:ok) do

@@ -39,7 +39,7 @@ module Decidim
       #
       # Returns a Decidim::Challenges::Challenge
       def challenge
-        @challenge ||= @problem.present? ? Decidim::Challenges::Challenge.find(@problem.challenge.id) : false
+        @challenge ||= @problem.present? ? Decidim::Challenges::Challenge.find(@problem.challenge.id) : Decidim::Challenges::Challenge.find(@decidim_challenges_challenge_id)
       end
 
       def author
