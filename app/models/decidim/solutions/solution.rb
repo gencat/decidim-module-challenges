@@ -14,11 +14,14 @@ module Decidim
       include Decidim::Traceable
       include Decidim::TranslatableAttributes
       include Decidim::Randomable
+      include Decidim::HasAttachments
+      include Decidim::Publicable
 
       component_manifest_name "solutions"
 
       belongs_to :problem, foreign_key: "decidim_problems_problem_id", class_name: "Decidim::Problems::Problem", optional: true
       belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge", optional: true
+      belongs_to :author, class_name: "Decidim::User"
 
       scope :published, -> { where.not(published_at: nil) }
 

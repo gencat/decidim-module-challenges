@@ -13,6 +13,7 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:solutions_component) }
+    author { build(:user, :admin) }
     problem { build(:problem) }
     challenge { build(:challenge) }
 

@@ -27,6 +27,7 @@ Decidim.register_component(:solutions) do |component|
     # Add your global settings
     # Available types: :integer, :boolean
     settings.attribute :hide_filters, type: :boolean, default: false
+    settings.attribute :creation_enabled, type: :boolean, default: false
   end
 
   # component.settings(:step) do |settings|

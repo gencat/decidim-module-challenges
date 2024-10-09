@@ -1,0 +1,34 @@
+<% add_decidim_page_title(t(".create")) %>
+
+<div class="row">
+  <div class="columns large-3">
+    <div class="m-bottom">
+      <%= link_to solutions_path do %>
+        <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+        <%= t(".back") %>
+      <% end %>
+
+      <div class="show-for-large">
+        <%= t(".action") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns large-6">
+    <h2 class="section-heading">
+      <%= t(".create") %>
+    </h2>
+    <div class="card">
+      <div class="card__content">
+        <%= decidim_form_for(@form, html: { class: "form" }) do |form| %>
+          <%= render partial: "form", object: form %>
+
+          <div class="actions">
+            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="columns large-3"></div>
+</div>

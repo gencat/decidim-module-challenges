@@ -6,17 +6,42 @@ module Decidim
     #
     class SolutionsController < Decidim::Solutions::ApplicationController
       include Decidim::ApplicationHelper
+      include Decidim::ShowFiltersHelper
+      include Decidim::Sdgs::SdgsHelper
       include FilterResource
       include Paginable
       include OrderableSolutions
-      include Decidim::Sdgs::SdgsHelper
-      include Decidim::ShowFiltersHelper
+      include FormFactory
 
       helper Decidim::CheckBoxesTreeHelper
-      helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
+      helper Decidim::Sdgs::SdgsHelper
+      helper Decidim::Solutions::ApplicationHelper
 
-      helper_method :solutions
+      helper_method :solutions, :form_presenter
+
+      def new
+        enforce_permission_to :create, :solution
+        @form = form(Decidim::Solutions::SolutionsForm).instance
+      end
+
+      def create
+        enforce_permission_to :create, :solution
+        @form = form(Decidim::Solutions::SolutionsForm).from_params(params,
+                                                                    author_id: current_user.id)
+
+        Decidim::Solutions::CreateSolution.call(@form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("solutions.create.success", scope: "decidim.solutions")
+            redirect_to solutions_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("solutions.create.error", scope: "decidim.solutions")
+            render action: "new"
+          end
+        end
+      end
 
       def index
         @solutions = search.result
@@ -87,6 +112,10 @@ module Decidim
 
       def search_collection
         ::Decidim::Solutions::Solution.where(component: current_component).published
+      end
+
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Solutions::SolutionPresenter)
       end
     end
   end

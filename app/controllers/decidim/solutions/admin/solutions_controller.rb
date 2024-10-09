@@ -22,7 +22,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :solution
-          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_params(params)
+          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_params(params, author_id: current_user.id)
 
           Decidim::Solutions::Admin::CreateSolution.call(@form) do
             on(:ok) do
@@ -35,6 +35,11 @@ module Decidim
               render action: "new"
             end
           end
+        end
+
+        def show
+          enforce_permission_to :show, :solution
+          @solution = Decidim::Solutions::Solution.find(params[:id])
         end
 
         def edit

@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.4.0 (MINOR)
+- Create solutions by users in public page and admins can show and manage the users solutions.
+
 ## Version 0.3.3 (PATCH)
 - Fix update challenge with a card image
 

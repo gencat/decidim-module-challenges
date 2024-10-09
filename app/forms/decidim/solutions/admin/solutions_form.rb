@@ -17,6 +17,7 @@ module Decidim
 
         attribute :decidim_problems_problem_id, Integer
         attribute :decidim_challenges_challenge_id, Integer
+        attribute :author_id, Integer
         attribute :tags, String
         translatable_attribute :objectives, String
         translatable_attribute :indicators, String
@@ -27,6 +28,7 @@ module Decidim
         validates :title, :description, translatable_presence: true
         validates :decidim_challenges_challenge_id, presence: false
         validates :decidim_problems_problem_id, presence: false
+        validates :author_id, presence: true
 
         alias organization current_organization
 

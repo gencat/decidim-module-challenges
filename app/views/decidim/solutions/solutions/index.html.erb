@@ -6,6 +6,12 @@
     <h2 id="solutions-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
     </h2>
+    <% if @component_settings.creation_enabled %>
+      <%= action_authorized_link_to :create, new_solution_path, class: "title-action__action button small", data: { "redirect_url": new_solution_path } do %>
+        <%= t(".new_solution") %>
+        <%= icon "plus", role: "img", "aria-hidden": true %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

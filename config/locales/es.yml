@@ -24,7 +24,6 @@ es:
         decidim_technological_scope_id: Ámbito tecnológico
         description: Descripción
         end_date: Fecha finalización
-        groups_affected: Colectivos afectados
         prop_entity: Entidad proponente
         published: Publicado
         sdg: Objectivos de Desarrollo Sostenible
@@ -40,6 +39,10 @@ es:
         indicators: Indicadores
         objectives: Objectivos
         problem: Problema
+        project_status: Estado
+        coordinating_entity: Entidad coordinadora
+        decidim_challenges_challenge_id: Reto
+        project_url: Enlace
         published: Publicado
         requirements: Requerimientos
         sdg: Objectivos de Desarrollo Sostenible
@@ -185,6 +188,7 @@ es:
         settings:
           global:
             hide_filters: Ocultar filtros
+            creation_enabled: Presentar soluciones
       sdgs:
         clean_energy:
           logo:
@@ -1009,7 +1013,6 @@ es:
             fields:
               challenge: Reto
               created_at: Creado
-              challenge: Reto
               end_date: Fecha fin
               published: Publicado
               start_date: Fecha inicio
@@ -1120,6 +1123,7 @@ es:
       sdgs_filter:
         filter_selector:
           select: Selecciona
+          publish_solution: Publicar solución
         modal:
           close: Selecciona
           title: Objetivos de Desarrollo Sostenible
@@ -1151,6 +1155,20 @@ es:
             success: Solución borrada correctamente
           edit:
             update: Actualiza
+          show:
+            link: Enlace
+            author: Autor
+            title: Título
+            documents: Documentos
+            description: Descripción
+            solutions: Soluciones
+            created_at: Fecha de creación
+            photos: Imágenes
+            challenge: Reto asociado
+            project_status: Estado
+            coordinating_entity: Entidad coordinadora
+            decidim_challenges_challenge_id: Reto
+            project_url: Enlace
           form:
             challenge: Reto asociado
             problem: Problema asociado
@@ -1163,6 +1181,7 @@ es:
         models:
           solution:
             fields:
+              author: Autor
               challenge: Reto
               created_at: Creada
               problem: Problema
@@ -1173,6 +1192,22 @@ es:
         titles:
           solutions_list: Listado de soluciones
       solutions:
+        form:
+          project_statuses:
+            in_progress: En curso
+            finished: Finalizado
+        index:
+          new_solution: Nueva solución
+        new:
+          action: Estas creando una nueva solución.
+          back: Atrás
+          create: Crear una nueva solución
+          send: Crear
+          attachment_legend: "(Opcional) Añade un fichero adjunto"
+          add_documents: Documentos
+          edit_documents: Edita documentos
+        create:
+          success: La solución se ha creado correctamente y será revisada por un administrador.
         solutions:
           empty: No se han podido encontrar soluciones
           empty_filters: No se han podido encontrar soluciones
@@ -1201,6 +1236,7 @@ es:
           random: Aleatorio
           recent: Más recientes
       index:
+        official: Solución oficial
         title: Soluciones
         published: Publicada
         not_published: No Publicada

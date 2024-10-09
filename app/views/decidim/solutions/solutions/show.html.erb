@@ -163,8 +163,9 @@
                 <h3><strong><%= t("tags", scope: "activemodel.attributes.solution") %></strong></h3>
                 <p class="tags"><%= present(@solution).tags %></p>
                 <% end %>
-
             </div>
         </div>
     </div>
 </div>
+
+<%= attachments_for @solution %>

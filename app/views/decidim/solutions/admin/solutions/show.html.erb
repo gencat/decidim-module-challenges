@@ -1,0 +1,82 @@
+<% add_decidim_page_title(solution.title) %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "#{t ".solutions"} > ", solutions_path %>
+      <%= decidim_html_escape(solution.title).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <strong><%= t ".author" %>:</strong>
+      <%= link_to_if(
+        decidim.profile_path(solution.author.nickname).present?,
+        solution.author.name,
+        decidim.profile_path(solution.author.nickname),
+        target: :blank
+      ) %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".title" %>:</strong> <%= solution.title %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".description" %>:</strong> <%= solution.description %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".created_at" %>:</strong> <%= l solution.created_at, format: :decidim_short %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".project_status" %>:</strong> <%= t("decidim.solutions.solutions.form.project_statuses.#{solution.project_status}") %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".coordinating_entity" %>:</strong> <%= solution.coordinating_entity %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".challenge" %>:</strong> <%= link_to translated_attribute(solution.challenge.title), Decidim::ResourceLocatorPresenter.new(solution.challenge).path %></strong>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".project_url" %>:</strong> <%= link_to solution.project_url, "http://#{solution.project_url}", target: "_blank" %>
+    </div>
+
+    <% if solution.documents.any? %>
+      <div class="row column">
+        <strong><%= t ".documents" %>:</strong>
+          <ul id="documents">
+            <% solution.documents.each do |document| %>
+              <li>
+                <%= link_to translated_attribute(document.title), document.url %>
+                <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+
+    <% if solution.photos.any? %>
+      <div class="row column">
+        <strong><%= t(".photos") %>:</strong>
+        <div id="photos" class="gallery row">
+          <% solution.photos.each do |photo| %>
+            <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
+              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if solution.published? %>
+  <%= link_to t("actions.unpublish", scope: "decidim.solutions.admin"), solution_publish_path(solution), method: :delete, class: "button muted" %>
+<% else %>
+  <%= link_to t("actions.publish", scope: "decidim.solutions.admin"), solution_publish_path(solution), method: :post, class: "button hollow" %>
+<% end %>
