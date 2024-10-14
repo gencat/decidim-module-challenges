@@ -3,6 +3,10 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.4.1 (PATCH)
+- Add new fields and refactor status field in solutions show on public page.
+- Fix error in create solutions in backoffice.
+
 ## Version 0.4.0 (MINOR)
 - Create solutions by users in public page and admins can show and manage the users solutions.
 
