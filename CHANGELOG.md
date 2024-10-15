@@ -6,6 +6,7 @@ Following Semantic Versioning 2.
 ## Version 0.4.1 (PATCH)
 - Add new fields and refactor status field in solutions show on public page.
 - Fix error in create solutions in backoffice.
+- Depending on authorship (admin or user) show different status of solution in public view.
 
 ## Version 0.4.0 (MINOR)
 - Create solutions by users in public page and admins can show and manage the users solutions.
