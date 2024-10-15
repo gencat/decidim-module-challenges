@@ -11,12 +11,20 @@
             <% if current_participatory_space.components.where(manifest_name: "problems").present? && @solution.problem.present? %>
               <div class="definition-data__item status">
                   <span class="definition-data__title"><%= t("status", scope: "activemodel.attributes.problem") %></span>
-                  <%= t(@solution.problem.state, scope: "decidim.problems.states") %>
+                    <% if @solution.author.admin? %>
+                      <%= t(@solution.challenge.state, scope: "decidim.challenges.states") %>
+                    <% else %>
+                      <%= t(@solution.project_status, scope: "decidim.solutions.solutions.form.project_statuses") %>
+                    <% end %>    
               </div>
             <% else %>
               <div class="definition-data__item status">
                   <span class="definition-data__title"><%= t("status", scope: "activemodel.attributes.problem") %></span>
-                  <%= t(@solution.challenge.state, scope: "decidim.challenges.states") %>
+                    <% if @solution.author.admin? %>
+                      <%= t(@solution.challenge.state, scope: "decidim.challenges.states") %>
+                    <% else %>
+                      <%= t(@solution.project_status, scope: "decidim.solutions.solutions.form.project_statuses") %>
+                    <% end %>  
               </div>
             <% end %>
 
@@ -162,6 +170,16 @@
                 <% if present(@solution).tags.present? %>
                 <h3><strong><%= t("tags", scope: "activemodel.attributes.solution") %></strong></h3>
                 <p class="tags"><%= present(@solution).tags %></p>
+                <% end %>
+
+                <% if present(@solution).project_url.present? %>
+                  <h3><strong><%= t("project_url", scope: "activemodel.attributes.solution") %></strong></h3>
+                  <%= link_to @solution.project_url, "http://#{@solution.project_url}", target: "_blank" %>
+                <% end %>
+
+                <% if present(@solution).coordinating_entity.present? %>
+                  <h3><strong><%= t("coordinating_entity", scope: "activemodel.attributes.solution") %></strong></h3>
+                  <p class="coordinating-entity"><%= present(@solution).coordinating_entity %></p>
                 <% end %>
             </div>
         </div>
