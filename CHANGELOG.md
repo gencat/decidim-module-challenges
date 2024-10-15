@@ -3,6 +3,10 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.5.0 (MINOR)
+- Upgrade module's Ruby to 3.1.1
+- Increase minimum Decidim version to 0.28
+
 ## Version 0.4.1 (PATCH)
 - Add new fields and refactor status field in solutions show on public page.
 - Fix error in create solutions in backoffice.

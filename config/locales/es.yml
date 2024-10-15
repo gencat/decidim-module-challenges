@@ -53,6 +53,7 @@ es:
     challenges:
       admin:
         actions:
+          title: Acciones
           configure: Configura
           confirm_destroy: Estás seguro de querer destruir este  %{name}?
           destroy: Borra
@@ -78,6 +79,7 @@ es:
             success: Reto borrado correctamente
           edit:
             update: Actualiza
+            title: Editar reto
           form:
             duration: Durada
             images: Imágenes
@@ -88,6 +90,8 @@ es:
           update:
             error: Ha habido un problema actualizando este reto
             success: Reto actualizado correctamente
+          index:
+            title: Retos
         exports:
           answers: Respuestas
           export_as: "%{name} en %{export_format}"
@@ -102,8 +106,6 @@ es:
               state: Estado
               tags: Palabras clave
               title: Titulo
-        titles:
-          challenges_list: Listado de retos
         surveys:
           edit:
             save: Guarda

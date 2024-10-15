@@ -5,6 +5,7 @@ module Decidim
     # Custom helpers, scoped to the challenges engine.
     #
     module ApplicationHelper
+      include PaginateHelper
     end
   end
 end

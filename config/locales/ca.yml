@@ -54,6 +54,7 @@ ca:
     challenges:
       admin:
         actions:
+          title: Accions
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
@@ -79,6 +80,7 @@ ca:
             success: Repte esborrat correctament
           edit:
             update: Actualitza
+            title: Edita repte
           form:
             duration: Durada
             images: Imatges
@@ -89,6 +91,8 @@ ca:
           update:
             error: Hi ha hagut un problema actualitzant aquest repte
             success: Repte actualitzat correctament
+          index:
+            title: Reptes
         exports:
           answers: Respostes
           export_as: "%{name} com a %{export_format}"
@@ -103,8 +107,6 @@ ca:
               state: Estat
               tags: Paraules clau
               title: Títol
-        titles:
-          challenges_list: Llistat de reptes
         surveys:
           edit:
             save: Desa

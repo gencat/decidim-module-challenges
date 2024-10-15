@@ -8,6 +8,7 @@ module Decidim
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
 
+        helper Challenges::ApplicationHelper
         helper Decidim::Sdgs::SdgsHelper
 
         helper_method :challenges, :challenge, :form_presenter
