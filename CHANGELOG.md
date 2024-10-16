@@ -3,6 +3,10 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.4.1.1 (PATCH)
+- Add missing translation.
+- Fix update solution in backoffice.
+
 ## Version 0.4.1 (PATCH)
 - Add new fields and refactor status field in solutions show on public page.
 - Fix error in create solutions in backoffice.
