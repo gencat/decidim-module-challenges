@@ -102,7 +102,7 @@
                     </div>
                 <% end %>
               <% else %>
-                <% if @solution.challenge.sdg_code %>
+                <% if @solution.challenge&.sdg_code %>
                       <div class="definition-data__item sdg">
                           <span class="definition-data__title"><%= t("sdg", scope: "activemodel.attributes.challenge") %></span>
                           <div class="ods solutions">
