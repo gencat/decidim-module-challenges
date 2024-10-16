@@ -1198,7 +1198,7 @@ ca:
           edit_documents: Edita documents
         create:
           success: La solució s'ha creat correctament i serà revisada per un administrador.
-          error: Hi ha hagut un problema en crear aquesta solució
+          error: Hi ha hagut un problema al crear aquesta solució
         solutions:
           empty: No s'han pogut trobar solucions
           empty_filters: No s'han pogut trobar solucions
