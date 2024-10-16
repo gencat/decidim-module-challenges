@@ -2,9 +2,9 @@
 
 module Decidim
   module Challenges
-    # This cell renders the Medium (:m) Challenge card
+    # This cell renders the Grid (:g) Challenge card
     # for an given instance of a Challenge
-    class ChallengeMCell < Decidim::CardMCell
+    class ChallengeGCell < Decidim::CardGCell
       include ActiveSupport::NumberHelper
       include Decidim::Challenges::ChallengesHelper
       include Decidim::Sdgs::SdgsHelper
@@ -13,6 +13,18 @@ module Decidim
 
       def resource_icon
         icon "challenges", class: "icon--big"
+      end
+
+      def resource_image_url
+        model.attached_uploader(:card_image).url
+      end
+
+      def has_image?
+        @has_image ||= model.component.settings.allow_card_image && model.card_image.attached?
+      end
+
+      def resource_image_path
+        @resource_image_path ||= has_image? ? model.attached_uploader(:card_image).path : nil
       end
 
       def description
@@ -52,13 +64,7 @@ module Decidim
         current_organization
       end
 
-      def has_image?
-        @has_image ||= model.component.settings.allow_card_image && model.card_image.attached?
-      end
-
-      def resource_image_path
-        @resource_image_path ||= has_image? ? model.attached_uploader(:card_image).path : nil
-      end
+     
     end
   end
 end

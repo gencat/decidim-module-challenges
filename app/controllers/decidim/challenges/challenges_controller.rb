@@ -41,9 +41,9 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_category: default_filter_category_params,
+          with_any_category: nil,
           with_any_state: %w(proposal execution finished),
-          with_any_scope: default_filter_scope_params,
+          with_any_scope: nil,
           with_related_to: "",
           with_any_sdgs_codes: [],
         }

@@ -132,8 +132,8 @@ en:
         challenges:
           empty: No challenges could be found
           empty_filters: No challenges could be found
-        count:
-          challenges_count:
+        index:
+          count:
             one: "%{count} challenge"
             other: "%{count} challenges"
         filters:
