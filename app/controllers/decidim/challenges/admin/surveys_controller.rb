@@ -85,6 +85,10 @@ module Decidim
           challenge
         end
 
+        def public_url
+          Decidim::EngineRouter.main_proxy(current_component).answer_challenge_survey_path(challenge.id)
+        end
+
         private
 
         def challenge
