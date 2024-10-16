@@ -49,7 +49,7 @@ module Decidim
 
         def update
           enforce_permission_to :edit, :solution, solution: solution
-          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_params(params)
+          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_params(params.merge({ author_id: current_user.id }))
 
           Decidim::Solutions::Admin::UpdateSolution.call(@form, solution) do
             on(:ok) do |_solution|
