@@ -7,12 +7,9 @@ module Decidim
     module ChallengesHelper
       def filter_sections
         [
+          { method: :with_any_state, collection: filter_challenges_state_values, label_scope: "decidim.shared.filters", id: "state" },
           { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
-          { method: :with_any_state, collection: filter_challenges_state_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
-          { method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
-          { method: :with_any_type, collection: filter_types_values, label_scope: "decidim.challenges.challenges.filters", id: "type" },
-          { method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.challenges.challenges.filters", id: "related_to" }
-          { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.challenges.challenges.filters", id: "sdgs" }
+          { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" }
         ].reject { |item| item[:collection].blank? }
       end
 
@@ -24,6 +21,15 @@ module Decidim
             Decidim::CheckBoxesTreeHelper::TreePoint.new("execution", t("decidim.challenges.challenges_helper.filter_state_values.execution")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("finished", t("decidim.challenges.challenges_helper.filter_state_values.finished")),
           ]
+        )
+      end
+
+      def filter_sdgs_values
+        Decidim::CheckBoxesTreeHelper::TreeNode.new(
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.challenges.challenges_helper.filter_state_values.all")),
+          Decidim::Sdgs::Sdg::SDGS.map do |sdg_code|
+            Decidim::CheckBoxesTreeHelper::TreePoint.new(sdg_code, I18n.t("#{sdg_code}.objectives.subtitle", scope: "decidim.components.sdgs"))
+          end
         )
       end
 

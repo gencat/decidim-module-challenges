@@ -1,6 +1,5 @@
 <% add_decidim_page_title(t("name", scope: "decidim.components.challenges")) %>
 
-<%= append_stylesheet_pack_tag "decidim_sdgs", media: "all" %>
 <%= append_stylesheet_pack_tag "decidim_challenges", media: "all" %>
 
 <% content_for :aside do %>
@@ -19,6 +18,4 @@
   <section id="challenges" class="layout-main__section layout-main__heading">
     <%= render partial: "challenges" %>
   </section>
-
-  <%= render partial: "decidim/sdgs/sdgs_filter/modal" %>
 <% end %>

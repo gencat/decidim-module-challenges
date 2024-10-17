@@ -51,6 +51,10 @@ ca:
         tags: Paraules clau
         title: Títol
   decidim:
+    shared:
+      filters:
+        state: Estat
+        sdgs: SDGs
     challenges:
       admin:
         actions:
@@ -147,6 +151,7 @@ ca:
           scope: Àmbit
           search: Cerca
           state: Estat
+          sdgs: SDGs
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra

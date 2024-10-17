@@ -55,6 +55,10 @@
   font-weight: bold;
 }
 
+.defininition-data__title {
+  text-transform: uppercase;
+}
+
 .definition-data__image {
   padding-top: 0.1em;
 }
@@ -73,25 +77,25 @@
     transition: all 0.0s ease;
   }
 
-  .text-container {
-    top: 0.3rem;
-    left: 1.3rem;
-    width: 60px;
-  }
-  .text-container.show {
-      top: 0.6rem;
-      left: 6.5rem;
-      width: 60px;
-      text-align: start;
-  }
+//   .text-container {
+//     top: 0.3rem;
+//     left: 1.3rem;
+//     width: 60px;
+//   }
+//   .text-container.show {
+//     top: 0.6rem;
+//     left: 6.5rem;
+//     width: 60px;
+//     text-align: start;
+//   }
 
-  p {
-      font-size: 6pt;
-  }
+//   p {
+//     font-size: 6pt;
+//   }
 
   img.challenge--view {
-      width: 100%;
-      max-width: 100px;
+    width: 100%;
+    max-width: 100px;
   }
 }
 
