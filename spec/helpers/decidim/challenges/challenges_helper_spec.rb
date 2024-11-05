@@ -12,7 +12,7 @@ module Decidim::Challenges
 
     context "when solutions are associated to problems" do
       let(:problems_component) { create(:problems_component, participatory_space: challenge.participatory_space) }
-      let(:problem) { create :problem, component: problems_component, challenge: challenge }
+      let(:problem) { create(:problem, component: problems_component, challenge: challenge) }
       let!(:solution) { create(:solution, component: solutions_component, problem: problem) }
 
       it "shows solutions if the problem is published" do

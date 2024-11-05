@@ -8,11 +8,11 @@ module Decidim
       describe CreateChallenge do
         subject { described_class.new(form) }
 
-        let(:organization) { create :organization, available_locales: [:en] }
-        let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-        let(:participatory_process) { create :participatory_process, organization: organization }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "challenges" }
-        let(:scope) { create :scope, organization: organization }
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "challenges") }
+        let(:scope) { create(:scope, organization: organization) }
         let(:sdg_code) { "clean_water" }
         let(:tags) { "tag1, tag2, tag3" }
         let(:state) { 2 }

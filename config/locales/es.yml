@@ -50,6 +50,10 @@ es:
         tags: Palabras clave
         title: Titulo
   decidim:
+    shared:
+      filters:
+        state: Estado
+        sdgs: SDGs
     challenges:
       admin:
         actions:

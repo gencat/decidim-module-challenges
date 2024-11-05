@@ -50,6 +50,10 @@ en:
         tags: Keywords
         title: Title
   decidim:
+    shared:
+      filters:
+        state: State
+        sdgs: SDGs
     challenges:
       admin:
         actions:

@@ -63,8 +63,6 @@ module Decidim
       def current_organization
         current_organization
       end
-
-     
     end
   end
 end

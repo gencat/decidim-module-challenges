@@ -65,7 +65,7 @@
   </section>
 
   <% content_for :aside do %>
-    <section class="layout-aside__section layout-aside__buttons">
+    <section class="layout-aside__section layout-aside__buttons mb-4">
       <% if @challenge.survey_enabled %>
         <%= link_to t('surveys.answer', scope: "decidim.challenges"), answer_challenge_survey_path(@challenge), class: "button button__lg w-full button__secondary" %>
       <% end %>

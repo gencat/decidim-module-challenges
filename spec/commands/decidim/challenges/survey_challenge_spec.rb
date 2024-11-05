@@ -6,9 +6,9 @@ module Decidim::Challenges
   describe SurveyChallenge do
     subject { described_class.new(challenge, user, survey_form) }
 
-    let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:component) { create :component, manifest_name: :challenges, participatory_space: participatory_process }
+    let(:organization) { create(:organization) }
+    let(:participatory_process) { create(:participatory_process, organization: organization) }
+    let(:component) { create(:component, manifest_name: :challenges, participatory_space: participatory_process) }
     let(:survey_enabled) { true }
 
     let(:challenge) do
@@ -18,7 +18,7 @@ module Decidim::Challenges
              questionnaire: questionnaire)
     end
 
-    let(:user) { create :user, :confirmed, organization: organization }
+    let(:user) { create(:user, :confirmed, organization: organization) }
 
     let!(:questionnaire) { create(:questionnaire) }
     let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }

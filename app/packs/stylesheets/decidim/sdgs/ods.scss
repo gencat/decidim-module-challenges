@@ -80,6 +80,15 @@
 
 }
 
+.card__highlight {
+  .text-container {
+    position: absolute;
+    top: 0;
+    left: 23px;
+    width: 120px;
+  }
+}
+
 .objectives_container {
   background-color: #c22244;
   padding-left: 30px;

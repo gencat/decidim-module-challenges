@@ -9,7 +9,7 @@
   <div class="<%= classes[:text] %>">
     <%= content_tag title_tag, title, class: title_class %>
     <span class="challenge-status <%= resource_state %>"><%= t(resource_state, scope: 'decidim.challenges.states') %></span>
-    <%= description if show_description? %>
+    <%= description %>
 
     <% if metadata_cell.present? %>
       <div class="<%= classes[:metadata] %>">
@@ -44,6 +44,4 @@
   <div class="card__footer">
   </div>
 <% end %>
-
-        
 </div>

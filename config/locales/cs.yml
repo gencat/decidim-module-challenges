@@ -45,6 +45,10 @@ cs:
         tags: Značky
         title: Nadpis
   decidim:
+    shared:
+      filters:
+        state: State
+        sdgs: SDGs
     challenges:
       admin:
         actions:

@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.description = "Articulates the collective action of diverse actors in order to address shared challenges and the problems that derive from them across the territory."
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
-  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "decidim-core", Decidim::Challenges.decidim_version
 

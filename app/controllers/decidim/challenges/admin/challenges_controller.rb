@@ -23,6 +23,11 @@ module Decidim
           @form = form(Decidim::Challenges::Admin::ChallengesForm).instance
         end
 
+        def edit
+          enforce_permission_to :edit, :challenge, challenge: challenge
+          @form = form(Decidim::Challenges::Admin::ChallengesForm).from_model(challenge)
+        end
+
         def create
           enforce_permission_to :create, :challenge
           @form = form(Decidim::Challenges::Admin::ChallengesForm).from_params(params)
@@ -41,11 +46,6 @@ module Decidim
               render action: "new"
             end
           end
-        end
-
-        def edit
-          enforce_permission_to :edit, :challenge, challenge: challenge
-          @form = form(Decidim::Challenges::Admin::ChallengesForm).from_model(challenge)
         end
 
         def update

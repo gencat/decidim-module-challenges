@@ -51,6 +51,10 @@ oc:
         tags: Paraules clau
         title: Títol
   decidim:
+    shared:
+      filters:
+        state: Estat
+        sdgs: SDGs
     challenges:
       admin:
         actions:
