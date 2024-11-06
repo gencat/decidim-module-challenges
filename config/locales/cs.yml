@@ -489,6 +489,9 @@ cs:
             error: Při rušení publikování tohoto problému došlo k chybě
             success: Zveřejnění problému bylo úspěšně zrušeno
         problems:
+          index:
+            title: Problémů
+            selected: vybraný
           create:
             error: Při vytváření této výzvy došlo k chybě
             success: Problém byl úspěšně vytvořen
@@ -497,6 +500,7 @@ cs:
             has_solutions: Tento problém nelze odstranit kvůli souvisejícím řešením
             success: Problém byl úspěšně smazán
           edit:
+            title: Upravit problém
             update: Aktualizace
           form:
             challenge: Související výzva
@@ -607,6 +611,8 @@ cs:
             error: Při zrušení publikování tohoto řešení došlo k problému
             success: Řešení bylo správně odebráno publikování
         solutions:
+          index:
+            title: řešení
           create:
             error: Při vytváření tohoto řešení došlo k problému
             success: Řešení bylo správně vytvořeno
@@ -614,6 +620,7 @@ cs:
             error: Při mazání tohoto řešení došlo k problému
             success: Řešení bylo úspěšně odstraněno
           edit:
+            title: Upravit řešení
             update: Aktualizace
           form:
             problem: související problém
@@ -640,6 +647,10 @@ cs:
           empty_filters: Nebyla nalezena žádná řešení
         count:
           solutions_count:
+            one: "%{count} řešení"
+            other: "%{count} řešení"
+        index:
+          count:
             one: "%{count} řešení"
             other: "%{count} řešení"
         filters:

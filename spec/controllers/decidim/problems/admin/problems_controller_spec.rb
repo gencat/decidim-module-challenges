@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-describe Decidim::Problems::Admin::ProblemsController, type: :controller do
+describe Decidim::Problems::Admin::ProblemsController do
   routes { Decidim::Problems::AdminEngine.routes }
 
-  let(:organization) { create :organization, available_locales: [:en] }
+  let(:organization) { create(:organization, available_locales: [:en]) }
   let(:title) do
     {
       en: "Problem title",
@@ -20,7 +20,7 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
       ca: "Descripció problema",
     }
   end
-  let(:challenge) { create :challenge }
+  let(:challenge) { create(:challenge) }
   let(:tags) { "tag1, tag2, tag3" }
   let(:causes) { "causes" }
   let(:groups_affected) { "groups affected" }
@@ -49,10 +49,10 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
       participatory_process_slug: component.participatory_space.slug,
     }
   end
-  let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-  let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "problems", organization: organization }
-  let(:scope) { create :scope, organization: organization }
+  let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "problems", organization: organization) }
+  let(:scope) { create(:scope, organization: organization) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -90,7 +90,7 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
   end
 
   describe "PUT #update" do
-    let(:problem) { create :problem, component: component }
+    let(:problem) { create(:problem, component: component) }
 
     context "with all mandatory fields" do
       let(:params) do
@@ -154,7 +154,7 @@ describe Decidim::Problems::Admin::ProblemsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    let(:problem) { create :problem, component: component }
+    let(:problem) { create(:problem, component: component) }
     let(:params) do
       {
         id: problem.id,

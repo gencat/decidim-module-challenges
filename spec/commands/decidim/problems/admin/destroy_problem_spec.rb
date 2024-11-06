@@ -8,10 +8,10 @@ module Decidim
       describe DestroyProblem do
         subject { described_class.new(problem, current_user) }
 
-        let(:my_process) { create :participatory_process }
-        let!(:current_user) { create :user, email: "some_email@example.org", organization: my_process.organization }
-        let!(:user) { create :user, :confirmed, organization: my_process.organization }
-        let(:problem) { create :problem }
+        let(:my_process) { create(:participatory_process) }
+        let!(:current_user) { create(:user, email: "some_email@example.org", organization: my_process.organization) }
+        let!(:user) { create(:user, :confirmed, organization: my_process.organization) }
+        let(:problem) { create(:problem) }
 
         context "when everything is ok" do
           it "deletes the problem" do
@@ -33,7 +33,7 @@ module Decidim
         end
 
         context "when has dependent solutions" do
-          let(:solution) { create :solution, problem: problem }
+          let(:solution) { create(:solution, problem: problem) }
 
           it "not deletes the problem" do
             expect { subject.call }.not_to change(Decidim::Problems::Problem, :count)

@@ -8,12 +8,12 @@ module Decidim
       describe UpdateSolution do
         subject { described_class.new(form_with_problem, solution) }
 
-        let(:organization) { create :organization, available_locales: [:en] }
-        let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-        let(:participatory_process) { create :participatory_process, organization: organization }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "solutions" }
-        let(:challenge) { create :challenge }
-        let(:problem) { create :problem, challenge: challenge }
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions") }
+        let(:challenge) { create(:challenge) }
+        let(:problem) { create(:problem, challenge: challenge) }
         let(:title) { "Solution title" }
         let(:tags) { "tag1, tag2, tag3" }
         let(:objectives) do
@@ -70,7 +70,7 @@ module Decidim
           )
         end
         let(:invalid) { false }
-        let(:solution) { create :solution }
+        let(:solution) { create(:solution) }
 
         describe "when module problems is active" do
           context "when the form is not valid" do

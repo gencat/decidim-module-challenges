@@ -1023,6 +1023,9 @@ en:
             error: There's been an error unpublishing this problem
             success: Problem successfully unpublished
         problems:
+          index:
+            title: Problems
+            selected: selected
           create:
             error: There's been an error creating this challenge
             success: Problem successfully created
@@ -1031,6 +1034,7 @@ en:
             has_solutions: This problem couldn't be deleted due to related solutions
             success: Problem successfully deleted
           edit:
+            title: Edit problem
             update: Update
           form:
             challenge: Related challenge
@@ -1142,6 +1146,8 @@ en:
             error: There's been a problem unpublising this solution
             success: The solution has been correctly unpublished
         solutions:
+          index:
+            title: Solucions
           create:
             error: There's been a problem creating this solution
             success: The solution has been correctly created
@@ -1149,6 +1155,7 @@ en:
             error: There's been a problem deleting this solution
             success: Solution deleted successfully
           edit:
+            title: Edit solution
             update: Update
           show:
             link: Link
@@ -1193,6 +1200,9 @@ en:
             finished: Finished
         index:
           new_solution: New solution
+          count:
+            one: "%{count} solution"
+            other: "%{count} solutions"
         new:
           action: You are creating a new solution
           back: Back

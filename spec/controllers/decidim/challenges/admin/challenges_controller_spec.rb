@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-describe Decidim::Challenges::Admin::ChallengesController, type: :controller do
+describe Decidim::Challenges::Admin::ChallengesController do
   routes { Decidim::Challenges::AdminEngine.routes }
 
-  let(:organization) { create :organization, available_locales: [:en] }
+  let(:organization) { create(:organization, available_locales: [:en]) }
   let(:title) do
     {
       en: "Challenge title",
@@ -55,10 +55,10 @@ describe Decidim::Challenges::Admin::ChallengesController, type: :controller do
       participatory_process_slug: component.participatory_space.slug,
     }
   end
-  let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-  let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "challenges", organization: organization }
-  let(:scope) { create :scope, organization: organization }
+  let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "challenges", organization: organization) }
+  let(:scope) { create(:scope, organization: organization) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -96,7 +96,7 @@ describe Decidim::Challenges::Admin::ChallengesController, type: :controller do
   end
 
   describe "PUT #update" do
-    let(:challenge) { create :challenge, component: component }
+    let(:challenge) { create(:challenge, component: component) }
 
     context "with all mandatory fields" do
       let(:params) do
@@ -159,7 +159,7 @@ describe Decidim::Challenges::Admin::ChallengesController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    let(:challenge) { create :challenge, component: component }
+    let(:challenge) { create(:challenge, component: component) }
     let(:params) do
       {
         id: challenge.id,

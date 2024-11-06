@@ -16,6 +16,12 @@ module Decidim
           @total = participants_query.count_participants
         end
 
+        def show
+          enforce_permission_to :show, :questionnaire_answers
+
+          @participant = participant(participants_query.participant(params[:session_token]))
+        end
+
         def edit
           enforce_permission_to :edit, :challenge, challenge: challenge
 
@@ -61,12 +67,6 @@ module Decidim
           flash[:notice] = t("decidim.admin.exports.notice")
 
           redirect_back(fallback_location: questionnaire_participant_answers_url(session_token))
-        end
-
-        def show
-          enforce_permission_to :show, :questionnaire_answers
-
-          @participant = participant(participants_query.participant(params[:session_token]))
         end
 
         def questionnaire_participants_url

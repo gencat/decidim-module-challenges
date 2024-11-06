@@ -8,9 +8,9 @@ module Decidim
       describe SolutionsForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-        let(:organization) { create :organization }
-        let(:scope) { create :scope, organization: organization }
-        let(:current_user) { create :user, :confirmed, organization: organization }
+        let(:organization) { create(:organization) }
+        let(:scope) { create(:scope, organization: organization) }
+        let(:current_user) { create(:user, :confirmed, organization: organization) }
         let(:title) do
           {
             en: "Problem title",
@@ -25,8 +25,8 @@ module Decidim
             ca: "Descripció problema",
           }
         end
-        let(:challenge) { create :challenge }
-        let(:problem) { create :problem, challenge: challenge }
+        let(:challenge) { create(:challenge) }
+        let(:problem) { create(:problem, challenge: challenge) }
         let(:tags) { "tag1, tag2, tag3" }
         let(:objectives) do
           {
@@ -91,7 +91,7 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when default language in description is missing" do
@@ -101,7 +101,7 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when problem is missing but there is a challenge" do

@@ -1033,6 +1033,9 @@ es:
             error: Ha habido un problema despublicando este problema
             success: Problema despublicado correctamente
         problems:
+          index:
+            title: Problemas
+            selected: seleccionado
           create:
             error: Ha habido un problema creando este problema
             success: Problema creado correctamente
@@ -1041,6 +1044,7 @@ es:
             has_solutions: Este problema no se ha podido borrar porqué tiene soluciones asociadas
             success: Problema borrado correctamente
           edit:
+            title: Editar problema
             update: Actualiza
           form:
             challenge: Reto asociado
@@ -1153,6 +1157,8 @@ es:
             error: Ha habido un problema despublicando esta solución
             success: Solución despublicada correctamente
         solutions:
+          index:
+            title: Soluciones
           create:
             error: Ha habido un problema creando esta solución
             success: Solución creada correctamente
@@ -1160,6 +1166,7 @@ es:
             error: Ha habido un problema borrando esta solución
             success: Solución borrada correctamente
           edit:
+            title: Editar solución
             update: Actualiza
           show:
             link: Enlace
@@ -1204,6 +1211,9 @@ es:
             finished: Finalizado
         index:
           new_solution: Nueva solución
+          count:
+            one: "%{count} solución"
+            other: "%{count} soluciones"
         new:
           action: Estas creando una nueva solución.
           back: Atrás

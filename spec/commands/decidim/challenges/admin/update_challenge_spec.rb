@@ -8,11 +8,11 @@ module Decidim
       describe UpdateChallenge do
         subject { described_class.new(form, challenge) }
 
-        let(:organization) { create :organization, available_locales: [:en] }
-        let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-        let(:participatory_process) { create :participatory_process, organization: organization }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "challenges" }
-        let(:scope) { create :scope, organization: organization }
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "challenges") }
+        let(:scope) { create(:scope, organization: organization) }
         let(:title) { "title" }
         let(:sdg_code) { Sdgs::Sdg::SDGS.first }
         let(:tags) { "tag1, tag2, tag3" }
@@ -44,7 +44,7 @@ module Decidim
           )
         end
         let(:invalid) { false }
-        let(:challenge) { create :challenge }
+        let(:challenge) { create(:challenge) }
 
         context "when the form is not valid" do
           let(:invalid) { true }

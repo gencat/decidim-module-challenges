@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing admin problems.
       #
       class ProblemsController < Decidim::Problems::Admin::ApplicationController
-        include Decidim::ApplicationHelper
+        helper Challenges::ApplicationHelper
 
         helper_method :problems, :problem, :form_presenter
 
@@ -18,6 +18,11 @@ module Decidim
         def new
           enforce_permission_to :create, :problem
           @form = form(Decidim::Problems::Admin::ProblemsForm).instance
+        end
+
+        def edit
+          enforce_permission_to :edit, :problem, problem: problem
+          @form = form(Decidim::Problems::Admin::ProblemsForm).from_model(problem)
         end
 
         def create
@@ -35,11 +40,6 @@ module Decidim
               render action: "new"
             end
           end
-        end
-
-        def edit
-          enforce_permission_to :edit, :problem, problem: problem
-          @form = form(Decidim::Problems::Admin::ProblemsForm).from_model(problem)
         end
 
         def update

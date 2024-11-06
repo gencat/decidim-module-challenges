@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing admin problems.
       #
       class SolutionsController < Decidim::Solutions::Admin::ApplicationController
-        include Decidim::ApplicationHelper
+        helper Challenges::ApplicationHelper
 
         helper_method :solution, :solution, :form_presenter
 
@@ -15,9 +15,19 @@ module Decidim
           @solutions = solutions
         end
 
+        def show
+          enforce_permission_to :show, :solution
+          @solution = Decidim::Solutions::Solution.find(params[:id])
+        end
+
         def new
           enforce_permission_to :create, :solution
           @form = form(Decidim::Solutions::Admin::SolutionsForm).instance
+        end
+
+        def edit
+          enforce_permission_to :edit, :solution, solution: solution
+          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_model(solution)
         end
 
         def create
@@ -35,16 +45,6 @@ module Decidim
               render action: "new"
             end
           end
-        end
-
-        def show
-          enforce_permission_to :show, :solution
-          @solution = Decidim::Solutions::Solution.find(params[:id])
-        end
-
-        def edit
-          enforce_permission_to :edit, :solution, solution: solution
-          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_model(solution)
         end
 
         def update

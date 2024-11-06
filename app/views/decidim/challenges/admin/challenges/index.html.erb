@@ -1,10 +1,10 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
- <div class="item_show__header">
+  <div class="item_show__header">
     <h1 class="item_show__header-title">
       <div>
         <%= t(".title") %>
-        <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
+        <span id="js-selected-challenges-count" class="component-counter component-counter--inline" title="<%= t("decidim.challenges.admin.challenges.index.selected") %>"></span>
       </div>
       <div class="flex items-center gap-x-4">
         <% if allowed_to? :create, :challenge %>

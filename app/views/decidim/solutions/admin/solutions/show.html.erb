@@ -1,34 +1,53 @@
 <% add_decidim_page_title(solution.title) %>
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= link_to "#{t ".solutions"} > ", solutions_path %>
-      <%= decidim_html_escape(solution.title).html_safe %>
-    </h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <strong><%= t ".author" %>:</strong>
-      <%= link_to_if(
-        decidim.profile_path(solution.author.nickname).present?,
-        solution.author.name,
-        decidim.profile_path(solution.author.nickname),
-        target: :blank
-      ) %>
+<div class="component__show">
+  <div class="card">
+    <div class="component__show_header">
+      <h2 class="component__show_header-title">
+        <%= decidim_html_escape(present(solution).title).html_safe %>
+      </h2>
     </div>
 
-    <div class="row column">
-      <strong><%= t ".title" %>:</strong> <%= solution.title %>
+    <div class="component__show_nav">
+      <div class="component__show_nav-author">
+        <div class="component__show_nav-circle">
+          <%= icon "award-line" %>
+        </div>
+        <div>
+          <li class="component__show_nav-author-title">
+            <strong><%= t ".author":</strong> %>
+            <%= link_to_if(
+              decidim.profile_path(solution.author.nickname).present?,
+              solution.author.name,
+              decidim.profile_path(solution.author.nickname),
+              target: :blank
+            ) %>
+          </li>
+          <span class="component__show_nav-author-date">
+            <%= l solution.created_at, format: :decidim_short %>
+          </span>
+        </div>
+      </div> 
     </div>
 
-    <div class="row column">
-      <strong><%= t ".description" %>:</strong> <%= solution.description %>
-    </div>
+    <div class="component__show_grid">
+      <div class="component__show_grid-item">
+        <div class="card-section">
+          <div class="row column">
+            <span class="component__show-title"><%= t ".description" %></span>
+            <p class="component__show-text">
+              <%= simple_format(present(solution).description(strip_tags: true)) %>
+            </p>
+          </div>
+        </div>
 
-    <div class="row column">
-      <strong><%= t ".created_at" %>:</strong> <%= l solution.created_at, format: :decidim_short %>
-    </div>
+        <% if solution.documents.any? %>
+          <%= render partial: "documents", locals: { solution: } %>
+        <% end %>
+
+        <% if solution.photos.any? %>
+          <%= render partial: "photos", locals: { solution: } %>
+        <% end %>
+
 
     <div class="row column">
       <strong><%= t ".project_status" %>:</strong> <%= t("decidim.solutions.solutions.form.project_statuses.#{solution.project_status}") %>
@@ -45,33 +64,6 @@
     <div class="row column">
       <strong><%= t ".project_url" %>:</strong> <%= link_to solution.project_url, "http://#{solution.project_url}", target: "_blank" %>
     </div>
-
-    <% if solution.documents.any? %>
-      <div class="row column">
-        <strong><%= t ".documents" %>:</strong>
-          <ul id="documents">
-            <% solution.documents.each do |document| %>
-              <li>
-                <%= link_to translated_attribute(document.title), document.url %>
-                <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-              </li>
-            <% end %>
-          </ul>
-      </div>
-    <% end %>
-
-    <% if solution.photos.any? %>
-      <div class="row column">
-        <strong><%= t(".photos") %>:</strong>
-        <div id="photos" class="gallery row">
-          <% solution.photos.each do |photo| %>
-            <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
-              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
 
