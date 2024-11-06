@@ -89,6 +89,7 @@ en:
             success: Challenge successfully updated
           index:
             title: Challenges
+            selected: selected
         challenge_publications:
           create:
             error: There's been a problem publishing this challenge

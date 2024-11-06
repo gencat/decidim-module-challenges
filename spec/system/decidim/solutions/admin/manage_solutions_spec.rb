@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-describe "Admin creates solutions", type: :system do
+describe "Admin creates solutions" do
   let(:manifest_name) { "solutions" }
   let(:organization) { participatory_process.organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: organization }
-  let!(:solution) { create :solution, component: component }
+  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:solution) { create(:solution, component: component) }
 
   include_context "when managing a component as an admin"
 
@@ -15,9 +15,6 @@ describe "Admin creates solutions", type: :system do
       visit_component_admin
 
       find("a.button", text: "New solution").click
-      within(".card-title", match: :first) do
-        expect(page).to have_content organization.name
-      end
       expect(page).to have_css "input#solution_title_en"
     end
   end

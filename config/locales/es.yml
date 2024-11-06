@@ -96,6 +96,7 @@ es:
             success: Reto actualizado correctamente
           index:
             title: Retos
+            selected: seleccionado
         exports:
           answers: Respuestas
           export_as: "%{name} en %{export_format}"

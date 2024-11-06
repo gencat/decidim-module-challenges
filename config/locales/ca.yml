@@ -97,6 +97,7 @@ ca:
             success: Repte actualitzat correctament
           index:
             title: Reptes
+            selected: seleccionat
         exports:
           answers: Respostes
           export_as: "%{name} com a %{export_format}"
