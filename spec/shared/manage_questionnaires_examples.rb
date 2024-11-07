@@ -18,8 +18,8 @@ shared_examples_for "manage questionnaires" do
 
   it "updates the questionnaire" do
     visit questionnaire_edit_path
-    click_link("Survey")
-    click_link("Edit survey")
+    click_on("Survey")
+    click_on("Edit survey")
 
     new_description = {
       en: "<p>New description</p>",
@@ -29,14 +29,14 @@ shared_examples_for "manage questionnaires" do
 
     within "form.edit_questionnaire" do
       fill_in_i18n_editor(:questionnaire_description, "#questionnaire-description-tabs", new_description)
-      click_button "Save"
+      click_on "Save"
     end
 
     expect(page).to have_admin_callout("successfully")
 
     visit questionnaire_edit_path
-    click_link("Survey")
-    click_link("Edit survey")
+    click_on("Survey")
+    click_on("Edit survey")
 
     expect(page).to have_content("New description")
   end
@@ -44,8 +44,6 @@ shared_examples_for "manage questionnaires" do
   # context "when the questionnaire is not already answered" do
   #   before do
   #     visit questionnaire_edit_path
-  #     click_link("Survey")
-  #     click_link("Edit survey")
   #   end
 
   #   it_behaves_like "add questions"
@@ -60,19 +58,19 @@ shared_examples_for "manage questionnaires" do
 
     it "cannot modify questionnaire questions" do
       visit questionnaire_edit_path
-      click_link("Survey")
-      click_link("Edit survey")
+      click_on("Survey")
+      click_on("Edit survey")
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
 
       expand_all_questions
 
-      expect(page).to have_selector("input[value='This is the first question'][disabled]")
-      expect(page).to have_selector("select[id$=question_type][disabled]")
-      expect(page).to have_selector("select[id$=max_choices][disabled]")
-      expect(page).to have_selector("input[id$=max_characters][disabled]")
-      expect(page).to have_selector(".ql-editor[contenteditable=false]")
+      expect(page).to have_css("input[value='This is the first question'][disabled]")
+      expect(page).to have_css("select[id$=question_type][disabled]")
+      expect(page).to have_css("select[id$=max_choices][disabled]")
+      expect(page).to have_css("input[id$=max_characters][disabled]")
+      expect(page).to have_css(".ProseMirror[contenteditable=false]")
     end
   end
 
@@ -100,7 +98,7 @@ shared_examples_for "manage questionnaires" do
 
   def within_add_display_condition(&block)
     within ".questionnaire-question:last-of-type" do
-      click_button "Add display condition"
+      click_on "Add display condition"
 
       within ".questionnaire-question-display-condition:last-of-type", &block
     end
@@ -112,8 +110,8 @@ shared_examples_for "manage questionnaires" do
 
   def visit_questionnaire_edit_path_and_expand_all
     visit questionnaire_edit_path
-    click_link("Survey")
-    click_link("Edit survey")
+    click_on("Survey")
+    click_on("Edit survey")
     expand_all_questions
   end
 end

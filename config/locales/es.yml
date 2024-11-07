@@ -151,11 +151,6 @@ es:
           scope: Ámbito
           search: Búsqueda
           state: Estado
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtra
-          filter_by: Filtrar por
-          unfold: Despliega
         orders:
           label: Ordenaciones
           random: Aleatorio
@@ -1085,11 +1080,6 @@ es:
           state: Estado
           technological_scope: Ámbito tecnológico
           territorial_scope: Ámbito territorial
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Despliega
         orders:
           label: test
           random: Aleatorio
@@ -1243,11 +1233,6 @@ es:
           scope: Ámbito
           search: Búsqueda
           territorial_scope: Ámbito territorial
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtra
-          filter_by: Filtra por
-          unfold: Despliega
         orders:
           label: Ordenaciones
           random: Aleatorio

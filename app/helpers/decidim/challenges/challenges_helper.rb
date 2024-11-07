@@ -6,11 +6,16 @@ module Decidim
     #
     module ChallengesHelper
       def filter_sections
-        [
-          { method: :with_any_state, collection: filter_challenges_state_values, label_scope: "decidim.shared.filters", id: "state" },
-          { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
-          { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" },
-        ].reject { |item| item[:collection].blank? }
+        if has_sdgs
+          [
+            { method: :with_any_state, collection: filter_challenges_state_values, label_scope: "decidim.shared.filters", id: "state" },
+            { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" },
+          ].reject { |item| item[:collection].blank? }
+        else
+          [
+            { method: :with_any_state, collection: filter_challenges_state_values, label_scope: "decidim.shared.filters", id: "state" },
+          ].reject { |item| item[:collection].blank? }
+        end
       end
 
       def filter_challenges_state_values

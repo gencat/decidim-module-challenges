@@ -127,11 +127,6 @@ cs:
           scope: Rozsah působnosti
           search: Hledat
           state: Stav
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtrovat
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         orders:
           label: test
           random: Náhodně
@@ -539,11 +534,6 @@ cs:
           state: State
           technological_scope: Technologický rozsah
           territorial_scope: Územní rozsah
-        filters_small_view:
-          close_modal: Zavřít modální okno
-          filter: Filtrovat
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         orders:
           label: test
           random: Náhodně
@@ -664,11 +654,6 @@ cs:
           scope: Rozsah působnosti
           search: Hledat
           territorial_scope: Územní rozsah působnosti
-        filters_small_view:
-          close_modal: Zavřít modální okno
-          filter: Filtrovat
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         orders:
           label: Seřadit
           random: Náhodně

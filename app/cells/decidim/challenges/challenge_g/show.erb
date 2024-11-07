@@ -1,47 +1,45 @@
-<%= link_to resource_path, class: classes[:default], id: resource_id do %>
-  <div class="<%= classes[:img] %>">
+<%= link_to resource_path, class: "card__list", id: resource_id do %>
+  <div class="card__list-image">
     <% if has_image? %>
-      <%= image_tag resource_image_url, alt: alt_title %>
+      <%= image_tag resource_image_url, class: "w-full h-full object-cover" %>
     <% else %>
-      <%= external_icon "media/images/placeholder-card-g.svg", class: "card__placeholder-g" %>
+      <div class="w-full h-full relative">
+        <div class="w-full h-full bg-primary opacity-10 absolute top-0 left-0 z-10">
+        </div>
+        <%= external_icon "media/images/placeholder-card-l.svg", class: "card__placeholder-l" %>
+      </div>
     <% end %>
   </div>
-  <div class="<%= classes[:text] %>">
-    <%= content_tag title_tag, title, class: title_class %>
-    <span class="challenge-status <%= resource_state %>"><%= t(resource_state, scope: 'decidim.challenges.states') %></span>
-    <%= description %>
 
-    <% if metadata_cell.present? %>
-      <div class="<%= classes[:metadata] %>">
-        <%= cell metadata_cell, resource, links: false, **options %>
-      </div>
+  <div class="card__list-content">
+    <%= content_tag title_tag, class: "h4 card__list-title" do %>
+      <%= title %>
     <% end %>
-
-    <div class="card__sdg">
-      <div class="card_text--sdg--image">
-        <div class="ods challenges">
-          <% if resource_sdg %>
-            <div class="text-container">
-              <p><%= t(resource_sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
-              <p><%= t(resource_sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
+    <div class="card__list-text">
+      <%= description %>
+      <% if has_sdgs? %>
+        <div class="card__sdg">
+          <div class="card_text--sdg--image">
+            <div class="ods challenges">
+              <% if resource_sdg_index %>
+                <%= image_pack_tag "media/images/ods-#{resource_sdg_index}.svg", alt: "Logo SDG #{resource_sdg_index}", class: "challenge--view" %>
+              <% end %>
             </div>
-          <% end %>
-          <% if resource_sdg_index %>
-            <%= image_pack_tag "media/images/ods-#{resource_sdg_index}.svg", alt: "Logo SDG #{resource_sdg_index}", class: "challenge--view" %>
-          <% end %>
+          </div>
+          <div class="card_text--sdg--text">
+            <% if resource_sdg %>
+              <strong><%= t_sdg(resource_sdg) %></strong>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="card_text--sdg--text">
-        <% if resource_sdg %>
-          <p><%= t('sdg', scope: "activemodel.attributes.challenge") %></p>
-          <strong><%= t_sdg(resource_sdg) %></strong>
-        <% end %>
+      <% end %>
+    </div>
+    <div class="card__list-metadata">
+      <div>
+        <span class="label challenge-status <%= resource_state %>">
+          <%= t(resource_state, scope: 'decidim.challenges.states') %>
+        </span>
       </div>
     </div>
   </div>
-  <div class="card__status">
-  </div>
-  <div class="card__footer">
-  </div>
 <% end %>
-</div>

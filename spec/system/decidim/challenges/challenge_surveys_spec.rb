@@ -3,14 +3,14 @@
 require "spec_helper"
 require "decidim/forms/test/shared_examples/has_questionnaire"
 
-describe "Challenge surveys", type: :system do
+describe "Challenge surveys" do
   include_context "with a component"
   let(:manifest_name) { "challenges" }
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
-  let!(:challenge) { create :challenge, component: component, questionnaire: questionnaire }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:challenge) { create(:challenge, component: component, questionnaire: questionnaire) }
+  let!(:user) { create(:user, :confirmed, organization: organization) }
 
   let(:survey_enabled) { true }
   let(:survey_form_enabled) { false }
@@ -35,8 +35,8 @@ describe "Challenge surveys", type: :system do
     it "the survey button is not visible" do
       visit_challenge
 
-      within ".card.extra .card__content" do
-        expect(page).not_to have_button("ANSWER SURVEY")
+      within ".layout-aside__buttons" do
+        expect(page).to have_no_button("ANSWER SURVEY")
       end
     end
 
@@ -58,8 +58,8 @@ describe "Challenge surveys", type: :system do
       it "they have the option to sign in" do
         visit questionnaire_public_path
 
-        expect(page).not_to have_css(".form.answer-questionnaire")
-        expect(page).to have_content("Sign in with your account or sign up to answer the form")
+        expect(page).to have_no_css(".form.answer-questionnaire")
+        expect(page).to have_content("Already have an account?")
       end
     end
   end

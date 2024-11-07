@@ -151,11 +151,6 @@ en:
           scope: Scope
           search: Search
           state: State
-        filters_small_view:
-          close_modal: Close window
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         orders:
           label: test
           random: Random
@@ -1074,11 +1069,6 @@ en:
           state: State
           technological_scope: Technological scope
           territorial_scope: Territorial scope
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         orders:
           label: test
           random: Random
@@ -1232,11 +1222,6 @@ en:
           scope: Scope
           search: Search
           territorial_scope: Territorial scope
-        filters_small_view:
-          close_modal: Close window
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         orders:
           label: Sorts
           random: Random

@@ -1,94 +1,60 @@
-@import "stylesheets/decidim/sdgs/ods.scss";
 @import "stylesheets/decidim/sdgs/sdgs_filter/button.scss";
 @import "stylesheets/decidim/sdgs/sdgs_filter/modal.scss";
 
-.card__highlight-text {
-  .proposal {
-    color: rgb(254, 174, 2);
-  }
-
-  .executing {
-    color: rgb(0, 163, 144);
-  }
-
-  .finished {
-    color: rgb(0, 188, 255);
-  }
-
-  .card_text--sdg--image {
-    display: inline-block;
-    width: 20%;
-
-    img {
-      vertical-align: bottom;
-    }
-  }
-
-  .card__sdg {
-    display: inline-flex;
-  }
-
-  .card_text--sdg--text {
-    display: inline-block;
-    width: 75%;
-    padding-left: 5px;
-
-    p {
-      margin-bottom: 8px;
-    }
-  }
-
-  .card__text--paragraph--status {
-    font-weight: bold;
-    display: inline;
-    text-transform: uppercase;
-    padding-right: 5px;
-  }
-
-  .card__text--paragraph p:first-of-type {
-    display: inline;
-  }
-}
-
-.challenge-status {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.defininition-data__title {
-  text-transform: uppercase;
-}
-
-.definition-data__image {
-  padding-top: 0.1em;
-}
-
-.section p.tags{
-  color: #D04040;
-  font-weight: 600;
-}
-
-.ods.challenges {
-  display: flex;
-  justify-content: center;
-  cursor: default;
-  &:hover {
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
-    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
-    transition: all 0.0s ease;
-  }
-
-  img.challenge--view {
+.card__list {
+  .card__list-content {
     width: 100%;
-    max-width: 100px;
+  }
+  
+  .card__list-image {
+    margin-right: 14px;
+  }
+  
+  .card__list-text {
+    display: flex;
+  
+    p {
+      width: 650px;
+      min-width: 650px;
+    }
+  
+    .card__sdg {
+      margin-right: 20px;
+    }
+  
+    .card_text--sdg--image {
+      width: 48px;
+  
+      img {
+        vertical-align: bottom;
+      }
+    }
+  
+    .card_text--sdg--text {
+      font-size: 12px;
+    }
+  }
+  
+  .card__list-metadata {
+    .label.proposal {
+      background-color: rgb(254, 174, 2);
+      color: rgb(86, 59, 1);
+    }
+  
+    .label.executing {
+      background-color: rgb(0, 163, 144);
+      color: rgb(0, 49, 43);
+    }
+  
+    .label.finished {
+      background-color: rgb(0, 188, 255);
+      color: rgb(0, 49, 43);
+    }
   }
 }
 
-.card-associated-problem {
-  padding: 5px 10px;
-}
-
-.card-proposed-solution {
-  padding: 5px 10px;
+.layout-item__aside {
+  .ods.challenges {
+    width: 150px;
+  }
 }

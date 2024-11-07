@@ -5,9 +5,7 @@
 
   <%= order_selector available_orders, i18n_scope: "decidim.challenges.challenges.orders" %>
 
-  <div class="card__list-list">
-    <%= render @challenges %>
-  </div>
+  <%= render @challenges, locals: { has_sdgs: } %>
 
   <%= decidim_paginate @challenges %>
 <% end %>

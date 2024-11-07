@@ -23,6 +23,12 @@ module Decidim
         @has_image ||= model.component.settings.allow_card_image && model.card_image.attached?
       end
 
+      def has_sdgs?
+        sdgs_component = model.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil)
+
+        sdgs_component.present?
+      end
+
       def resource_image_path
         @resource_image_path ||= has_image? ? model.attached_uploader(:card_image).path : nil
       end

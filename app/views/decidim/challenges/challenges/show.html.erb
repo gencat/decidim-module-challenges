@@ -9,7 +9,6 @@
   </section>
 
   <section class="layout-main__section content-block__description">
-    <%= resource_reference(current_participatory_space) %>
     <%= render partial: "decidim/shared/share_modal" %>
 
     <h3 class="h4"><%= t("local_description", scope: "activemodel.attributes.challenge") %></h3>
@@ -27,40 +26,12 @@
       <p class="tags"><%= present(@challenge).tags %></p>
     <% end %>
 
-    <% if @challenge.problems.present? %>
-      <h3 class="h4"><%= t("associated_problems", scope: "decidim.challenges.show") %></h3>
-      <% @challenge.problems.each do |problem| %>
-        <div class="rich-text-display">
-          <%= link_to resource_locator(problem).path, class: "card__link" do %>
-            <%= translated_attribute problem.title %>
-          <% end %>
-        </div>
-        <div class="rich-text-display">
-          <%= truncate_description(problem.description) %>
-        </div>
-      <% end %>
-
-      <div class="row small-up-1 medium-up-2 card-grid">
-        <% @challenge.problems.each do |problem| %>
-          <div class="column">
-            <div class="card card-associated-problem">
-          </div>
-        <% end %>
-      </div>
+   <% if @challenge.problems.present? %>
+      <%= render partial: "related_problems", locals: {problems: @challenge.problems} %>
     <% end %>
 
     <% if challenge_associated_solutions(@challenge).present? %>
-      <h3 class="h4"><%= t("proposed_solutions", scope: "decidim.challenges.show") %></h3>
-      <div class="rich-text-display">
-        <% challenge_associated_solutions(@challenge).each do |solution| %>
-          <%= link_to resource_locator(solution).path, class: "card__link" do %>
-            <div class="card__title">
-              <%= translated_attribute solution.title %>
-            </div>
-          <% end %>
-        <% end %>
-        <%= truncate_description(solution.description) %>
-      </div>
+      <%= render partial: "related_solutions", locals: {solutions: challenge_associated_solutions(@challenge)} %>
     <% end %>
   </section>
 
@@ -100,10 +71,9 @@
         <% end %>
       </div>
 
-      <% if @sdg %>
+      <% if has_sdgs && @sdg %>
         <div class="text-sm flex flex-col items-center gap-1">
           <p class="uppercase text-xs text-center"><%= t("sdg", scope: "activemodel.attributes.challenge") %></p>
-          <p><%= t_sdg(@sdg) %></p>
           <div class="ods challenges flex items-center">
             <div class="text-container show">
               <p><%= t(@sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
@@ -116,6 +86,7 @@
     </div>
 
     <section class="layout-aside__section actions__secondary">
+      <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: false } %>
       <%= cell "decidim/share_button", nil %>
     </section>

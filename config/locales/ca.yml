@@ -153,11 +153,6 @@ ca:
           search: Cerca
           state: Estat
           sdgs: SDGs
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: Ordenacions
           random: Aleatori
@@ -1076,11 +1071,6 @@ ca:
           state: Estat
           technological_scope: Àmbit tecnològic
           territorial_scope: Àmbit territorial
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: test
           random: Aleatori
@@ -1235,11 +1225,6 @@ ca:
           scope: Àmbit
           search: Cerca
           territorial_scope: Àmbit territorial
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: Ordenacions
           random: Aleatori

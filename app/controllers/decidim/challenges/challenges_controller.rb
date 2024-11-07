@@ -9,15 +9,13 @@ module Decidim
       include FilterResource
       include Paginable
       include OrderableChallenges
-      include ChallengesHelper
-      include Decidim::Sdgs::SdgsHelper
-      include Decidim::ShowFiltersHelper
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
+      helper Decidim::Challenges::ChallengesHelper
 
-      helper_method :challenges
+      helper_method :challenges, :has_sdgs
 
       def index
         @challenges = search.result
@@ -34,17 +32,29 @@ module Decidim
 
       private
 
+      def has_sdgs
+        sdgs_component = current_component.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil)
+
+        sdgs_component.present?
+      end
+
       def challenge_scope
         @challenge_scope ||= current_organization.scopes.find_by(id: @challenge.decidim_scope_id)
       end
 
       def default_filter_params
-        {
-          search_text_cont: "",
-          with_any_state: %w(proposal execution finished),
-          with_any_scope: nil,
-          with_any_sdgs_codes: [],
-        }
+        if has_sdgs
+          {
+            search_text_cont: "",
+            with_any_state: %w(proposal execution finished),
+            with_any_sdgs_codes: [],
+          }
+        else
+          {
+            search_text_cont: "",
+            with_any_state: %w(proposal execution finished),
+          }
+        end
       end
 
       def challenges

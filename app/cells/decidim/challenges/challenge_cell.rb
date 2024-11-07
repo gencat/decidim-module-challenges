@@ -8,6 +8,8 @@ module Decidim
       include Cell::ViewModel::Partial
 
       def show
+        @has_sdgs = current_component.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil).present?
+
         cell card_size, model, options
       end
 

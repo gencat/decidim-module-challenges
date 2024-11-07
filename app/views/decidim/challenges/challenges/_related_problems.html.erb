@@ -1,0 +1,14 @@
+<section id="problems">
+  <h2 class="h4 flex items-center gap-2 mb-4">
+    <%= resource_type_icon "Decidim::Amendment", class: "fill-tertiary w-6 h-6" %>
+    <%= t("decidim.problems.problems.count.problems_count", count: problems.count) %>
+  </h2>
+
+  <div id="problems-list">
+    <% problems.each do |problem| %>
+      <%= link_to resource_locator(problem).path, class: "card__link" do %>
+        <%= translated_attribute problem.title %>
+      <% end %>
+    <% end %>
+  </div>
+</section>

@@ -2,18 +2,18 @@
 
 require "spec_helper"
 
-describe "Filter Challenges", :slow, type: :system do
+describe "Filter Challenges", :slow do
   include_context "with a component"
   let(:manifest_name) { "challenges" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization: organization) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
   describe "when filtering challenges by SCOPE" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-    let!(:scope_2) { create :scope, organization: participatory_process.organization }
+    let!(:scope_2) { create(:scope, organization: participatory_process.organization) }
 
     before do
       create_list(:challenge, 2, component: component, scope: scope)
@@ -91,7 +91,7 @@ describe "Filter Challenges", :slow, type: :system do
       end
 
       context "with subscopes" do
-        let!(:subscopes) { create_list :subscope, 5, parent: scope }
+        let!(:subscopes) { create_list(:subscope, 5, parent: scope) }
 
         it "can be filtered by scope" do
           visit_component
@@ -157,7 +157,7 @@ describe "Filter Challenges", :slow, type: :system do
       end
 
       it "the filter is not rendered" do
-        expect(page).not_to have_css(".filters__section.sdgs-filter")
+        expect(page).to have_no_css(".filters__section.sdgs-filter")
       end
     end
 
@@ -230,7 +230,7 @@ describe "Filter Challenges", :slow, type: :system do
 
       page.find(".card--challenge .card__link").click
 
-      click_link "Return to list"
+      click_on "Return to list"
 
       expect(page).to have_css(".card--challenge", count: 1)
     end
