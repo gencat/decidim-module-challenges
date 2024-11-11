@@ -5,15 +5,17 @@ module Decidim
     # Custom helpers, scoped to the problems engine.
     #
     module ProblemsHelper
-      def filter_problems_state_values
-        Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.problems.problems_helper.filter_state_values.all")),
+      def filter_sections
+        if has_sdgs
           [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("proposal", t("decidim.problems.problems_helper.filter_state_values.proposal")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("execution", t("decidim.problems.problems_helper.filter_state_values.execution")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("finished", t("decidim.problems.problems_helper.filter_state_values.finished")),
-          ]
-        )
+            { method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state" },
+            { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" },
+          ].reject { |item| item[:collection].blank? }
+        else
+          [
+            { method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state" },
+          ].reject { |item| item[:collection].blank? }
+        end
       end
     end
   end

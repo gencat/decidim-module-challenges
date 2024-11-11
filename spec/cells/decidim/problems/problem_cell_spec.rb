@@ -9,7 +9,7 @@ module Decidim::Problems
     let(:description) do
       Decidim::Faker::Localized.sentence
     end
-    let!(:problem) { create :problem, description: description }
+    let!(:problem) { create(:problem, description: description) }
     let(:model) { problem }
     let!(:problem_title) { translated(problem.title) }
     let!(:problem_description) { translated(problem.description) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Problems", type: :system do
+describe "Problems" do
   include_context "with a component"
   let(:manifest_name) { "problems" }
 
@@ -15,7 +15,7 @@ describe "Problems", type: :system do
 
       before do
         visit_component
-        click_link translated(problem.title)
+        click_on translated(problem.title)
       end
 
       it "does render the contents" do
@@ -31,12 +31,12 @@ describe "Problems", type: :system do
 
       before do
         visit_component
-        click_link translated(problem.title)
+        click_on translated(problem.title)
       end
 
       it "does not render titles for empty contents" do
-        expect(page).not_to have_content("Keywords")
-        expect(page).not_to have_content("Proposed solutions")
+        expect(page).to have_no_content("Keywords")
+        expect(page).to have_no_content("Proposed solutions")
       end
     end
   end
@@ -54,30 +54,30 @@ describe "Problems", type: :system do
       end
 
       it "show only problems of current component" do
-        expect(page).to have_selector(".card--problem", count: 4)
+        expect(page).to have_css(".card--problem", count: 4)
         expect(page).to have_content(translated(problems.first.title))
         expect(page).to have_content(translated(problems.last.title))
       end
 
       it "ordered randomly" do
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_css("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
         end
 
-        expect(page).to have_selector(".card--problem", count: 4)
+        expect(page).to have_css(".card--problem", count: 4)
         expect(page).to have_content(translated(problems.first.title))
         expect(page).to have_content(translated(problems.last.title))
       end
 
       it "ordered by created at" do
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_css("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
           page.find("a", text: "Random").click
-          click_link "Most recent"
+          click_on "Most recent"
         end
 
-        expect(page).to have_selector("#problems .card-grid .column:first-child", text: recent_problem.title[:en])
-        expect(page).to have_selector("#problems .card-grid .column:last-child", text: older_problem.title[:en])
+        expect(page).to have_css("#problems .card-grid .column:first-child", text: recent_problem.title[:en])
+        expect(page).to have_css("#problems .card-grid .column:last-child", text: older_problem.title[:en])
       end
     end
   end

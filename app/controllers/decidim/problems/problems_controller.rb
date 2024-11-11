@@ -9,15 +9,15 @@ module Decidim
       include FilterResource
       include Paginable
       include OrderableProblems
-      include ProblemsHelper
-      include Decidim::Sdgs::SdgsHelper
-      include Decidim::ShowFiltersHelper
+      include Decidim::Sdgs
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
+      helper ProblemsHelper
+      helper Decidim::Challenges::ApplicationHelper
 
-      helper_method :problems
+      helper_method :problems, :has_sdgs
 
       def index
         @problems = search.result
@@ -32,21 +32,29 @@ module Decidim
 
       private
 
+      def has_sdgs
+        sdgs_component = current_component.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil)
+
+        sdgs_component.present?
+      end
+
       def challenge_scope
         @challenge_scope ||= current_organization.scopes.find_by(id: @problem.challenge.decidim_scope_id)
       end
 
       def default_filter_params
-        {
-          search_text_cont: "",
-          with_any_category: default_filter_category_params,
-          with_any_state: %w(proposal execution finished),
-          with_any_sectorial_scope_id: default_filter_scope_params,
-          with_any_technological_scope_id: default_filter_scope_params,
-          with_any_territorial_scope_id: default_filter_scope_params,
-          with_related_to: "",
-          with_any_sdgs_codes: [],
-        }
+        if has_sdgs
+          {
+            search_text_cont: "",
+            with_any_state: %w(proposal execution finished),
+            with_any_sdgs_codes: [],
+          }
+        else
+          {
+            search_text_cont: "",
+            with_any_state: %w(proposal execution finished),
+          }
+        end
       end
 
       def default_filter_scope_params

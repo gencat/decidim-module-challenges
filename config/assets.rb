@@ -23,4 +23,5 @@ Decidim::Webpacker.register_entrypoints(
   decidim_problems: "#{base_path}/app/packs/entrypoints/decidim_problems.js",
   decidim_solutions: "#{base_path}/app/packs/entrypoints/decidim_solutions.js",
   decidim_sdgs: "#{base_path}/app/packs/entrypoints/decidim_sdgs.js",
+  decidim_shared: "#{base_path}/app/packs/entrypoints/decidim_shared.js",
 )

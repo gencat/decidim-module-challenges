@@ -5,14 +5,18 @@ module Decidim
     # This cell renders the problem card for an instance of a problem
     # the default size is the Medium Card (:m)
     class ProblemCell < Decidim::ViewModel
+      include ProblemCellsHelper
+      include Decidim::SanitizeHelper
       include Cell::ViewModel::Partial
 
       def show
+        @has_sdgs = current_component.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil).present?
+
         cell card_size, model, options
       end
 
       def card_size
-        "decidim/problems/problem_m"
+        "decidim/problems/problem_g"
       end
     end
   end
