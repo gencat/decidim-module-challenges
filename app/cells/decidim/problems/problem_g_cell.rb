@@ -9,6 +9,8 @@ module Decidim
       include Decidim::Problems::ProblemsHelper
       include Decidim::Sdgs::SdgsHelper
 
+      private
+
       def resource_icon
         icon "problems", class: "icon--big"
       end

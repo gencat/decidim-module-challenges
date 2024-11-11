@@ -55,6 +55,9 @@ ca:
       filters:
         state: Estat
         sdgs: SDGs
+        scope: Àmbit
+        category: Categoria
+        related_to: Relacionat amb
     challenges:
       admin:
         actions:

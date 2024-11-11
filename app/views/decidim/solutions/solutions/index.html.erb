@@ -1,34 +1,20 @@
-<%= stylesheet_pack_tag "decidim_sdgs" %>
-<%= stylesheet_pack_tag "decidim_solutions" %>
+<% add_decidim_page_title(t("name", scope: "decidim.components.solutions")) %>
 
-<div class="row columns">
-  <div class="title-action">
-    <h2 id="solutions-count" class="title-action__title section-heading">
-      <%= render partial: "count" %>
-    </h2>
-    <% if @component_settings.creation_enabled %>
-      <%= action_authorized_link_to :create, new_solution_path, class: "title-action__action button small", data: { "redirect_url": new_solution_path } do %>
-        <%= t(".new_solution") %>
-        <%= icon "plus", role: "img", "aria-hidden": true %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<%= append_stylesheet_pack_tag "decidim_sdgs" %>
+<%= append_stylesheet_pack_tag "decidim_solutions" %>
 
-<div class="row">
+<% content_for :aside do %>
+  <h1 id="solutions-count" class="title-decorator"><%= component_name %></h1>
+
   <% if !@component_settings.hide_filters %>
-    <div class="columns mediumlarge-4 large-3">
-      <%= render partial: "filters_small_view" %>
-      <div class="card card--secondary show-for-mediumlarge">
-        <%= render partial: "filters" %>
-      </div>
-    </div>
-    <div id="solutions" class="columns mediumlarge-8 large-9" aria-live="polite">
-  <% else %>
-    <div id="solutions" class="columns mediumlarge-11 large-12" aria-live="polite">
+    <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable: :search_text_cont, skip_to_id: "solutions" } do %>
+      <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+    <% end %>
   <% end %>
-    <%= render partial: "solutions" %>
-  </div>
-</div>
+<% end %>
 
-<%= render partial: "decidim/sdgs/sdgs_filter/modal" %>
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <section id="solutions" class="layout-main__section layout-main__heading">
+    <%= render partial: "solutions", locals: { has_sdgs: } %>
+  </section>
+<% end %>

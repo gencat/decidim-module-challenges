@@ -58,7 +58,7 @@ module Decidim
       }
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :search_text_cont, :with_any_sdgs_codes, :with_any_scope, :with_any_category]
+        [:with_any_state, :search_text_cont, :with_any_sdgs_codes, :with_any_scope, :with_any_category, :related_to]
       end
 
       searchable_fields({

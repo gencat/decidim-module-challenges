@@ -17,44 +17,44 @@ shared_examples "manage solutions" do
     context "when there are multiple locales" do
       it "shows the title correctly in all available locales" do
         within "#solution-title-tabs" do
-          click_link "English"
+          click_on "English"
         end
         expect(page).to have_css("input", text: solution.title[:en], visible: :visible)
 
         within "#solution-title-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
         expect(page).to have_css("input", text: solution.title[:ca], visible: :visible)
 
         within "#solution-title-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
         expect(page).to have_css("input", text: solution.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#solution-description-tabs" do
-          click_link "English"
+          click_on "English"
         end
         expect(page).to have_css("input", text: solution.description[:en], visible: :visible)
 
         within "#solution-description-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
         expect(page).to have_css("input", text: solution.description[:ca], visible: :visible)
 
         within "#solution-description-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
         expect(page).to have_css("input", text: solution.description[:es], visible: :visible)
       end
     end
 
     context "when there is only one locale" do
-      let(:organization) { create :organization, available_locales: [:en] }
+      let(:organization) { create(:organization, available_locales: [:en]) }
       let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
-      let(:challenge) { create :challenge }
-      let(:problem) { create :problem, challenge: challenge }
+      let(:challenge) { create(:challenge) }
+      let(:problem) { create(:problem, challenge: challenge) }
       let!(:solution) do
         create(:solution, scope: scope, component: component, problem: problem,
                           title: { en: "Solution title" },
@@ -62,19 +62,19 @@ shared_examples "manage solutions" do
       end
 
       it "shows the title correctly" do
-        expect(page).not_to have_css("#solution-title-tabs")
+        expect(page).to have_no_css("#solution-title-tabs")
         expect(page).to have_css("input", text: solution.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
-        expect(page).not_to have_css("#solution-description-tabs")
+        expect(page).to have_no_css("#solution-description-tabs")
         expect(page).to have_css("input", text: solution.description[:en], visible: :visible)
       end
     end
   end
 
   it "updates a solution" do
-    within find("tr", text: Decidim::Solutions::SolutionPresenter.new(solution).title) do
+    within "tr", text: Decidim::Solutions::SolutionPresenter.new(solution).title do
       find("a", class: "action-icon--new").click
     end
 
@@ -129,7 +129,7 @@ shared_examples "manage solutions" do
       ca: "Descripció de la solució"
     )
 
-    page.find("#solution_decidim_problems_problem_id").value(problem.id)
+    page.find_by_id("solution_decidim_problems_problem_id").value(problem.id)
 
     scope_pick select_data_picker(:solution_decidim_scope_id), scope
 
@@ -145,8 +145,8 @@ shared_examples "manage solutions" do
   end
 
   describe "deleting a solution" do
-    let(:challenge) { create :challenge }
-    let(:problem) { create :problem, challenge: challenge }
+    let(:challenge) { create(:challenge) }
+    let(:problem) { create(:problem, challenge: challenge) }
     let!(:solution_2) { create(:solution, component: current_component, problem: problem) }
 
     before do
@@ -154,8 +154,8 @@ shared_examples "manage solutions" do
     end
 
     it "deletes a solution" do
-      within find("tr", text: Decidim::Solutions::SolutionPresenter.new(solution_2).title) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: Decidim::Solutions::SolutionPresenter.new(solution_2).title do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

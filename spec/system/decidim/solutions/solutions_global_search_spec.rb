@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Solutions global search", type: :system do
+describe "Solutions global search" do
   include_context "with a component"
   let(:manifest_name) { "solutions" }
   let!(:searchables) { create_list(:solution, 3, component: component) }

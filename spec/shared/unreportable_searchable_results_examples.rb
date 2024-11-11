@@ -27,7 +27,7 @@ shared_examples "unreportable searchable results" do
 
       expect(page).to have_current_path decidim.search_path, ignore_query: true
       expect(page).to have_content(/results for the search: "#{term}"/i)
-      expect(page).to have_selector(".filters__section")
+      expect(page).to have_css(".filters__section")
       expect(page.find("#search-count .section-heading").text.to_i).to be_positive
     end
 
@@ -55,7 +55,7 @@ shared_examples "unreportable searchable results" do
 
           expect(page).to have_current_path decidim.search_path, ignore_query: true
           expect(page).to have_content(/results for the search: "#{term}"/i)
-          expect(page).to have_selector(".filters__section")
+          expect(page).to have_css(".filters__section")
           expect(page.find("#search-count .section-heading").text.to_i).not_to be_positive
         end
 
@@ -67,7 +67,7 @@ shared_examples "unreportable searchable results" do
             expect(page.find("#search-count .section-heading").text.to_i).not_to be_positive
 
             within "#results" do
-              expect(page).not_to have_content(hashtag)
+              expect(page).to have_no_content(hashtag)
             end
           end
         end

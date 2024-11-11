@@ -2,7 +2,7 @@
 
 RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_name_counter, card_css_class, checkboxes_tree_filter_css_class|
   let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-  let!(:scope_2) { create :scope, organization: participatory_process.organization }
+  let!(:scope_2) { create(:scope, organization: participatory_process.organization) }
 
   before do
     visit_component
@@ -77,7 +77,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
     end
 
     context "with subscopes" do
-      let!(:subscopes) { create_list :subscope, 5, parent: scope }
+      let!(:subscopes) { create_list(:subscope, 5, parent: scope) }
 
       it "can be filtered by scope" do
         visit_component

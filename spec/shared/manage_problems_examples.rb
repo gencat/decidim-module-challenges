@@ -22,41 +22,41 @@ shared_examples "manage problems" do
     context "when there are multiple locales" do
       it "shows the title correctly in all available locales" do
         within "#problem-title-tabs" do
-          click_link "English"
+          click_on "English"
         end
         expect(page).to have_css("input", text: problem.title[:en], visible: :visible)
 
         within "#problem-title-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
         expect(page).to have_css("input", text: problem.title[:ca], visible: :visible)
 
         within "#problem-title-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
         expect(page).to have_css("input", text: problem.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#problem-description-tabs" do
-          click_link "English"
+          click_on "English"
         end
         expect(page).to have_css("input", text: problem.description[:en], visible: :visible)
 
         within "#problem-description-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
         expect(page).to have_css("input", text: problem.description[:ca], visible: :visible)
 
         within "#problem-description-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
         expect(page).to have_css("input", text: problem.description[:es], visible: :visible)
       end
     end
 
     context "when there is only one locale" do
-      let(:organization) { create :organization, available_locales: [:en] }
+      let(:organization) { create(:organization, available_locales: [:en]) }
       let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
       let!(:problem) do
         create(:problem, scope: scope, component: component,
@@ -65,19 +65,19 @@ shared_examples "manage problems" do
       end
 
       it "shows the title correctly" do
-        expect(page).not_to have_css("#problem-title-tabs")
+        expect(page).to have_no_css("#problem-title-tabs")
         expect(page).to have_css("input", text: problem.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
-        expect(page).not_to have_css("#problem-description-tabs")
+        expect(page).to have_no_css("#problem-description-tabs")
         expect(page).to have_css("input", text: problem.description[:en], visible: :visible)
       end
     end
   end
 
   it "updates a problem" do
-    within find("tr", text: Decidim::Problems::ProblemPresenter.new(problem).title) do
+    within "tr", text: Decidim::Problems::ProblemPresenter.new(problem).title do
       find("a", class: "action-icon--new").click
     end
 
@@ -159,8 +159,8 @@ shared_examples "manage problems" do
     end
 
     it "deletes a problem" do
-      within find("tr", text: Decidim::Problems::ProblemPresenter.new(problem_2).title) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: Decidim::Problems::ProblemPresenter.new(problem_2).title do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

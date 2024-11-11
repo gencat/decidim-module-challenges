@@ -2,16 +2,13 @@
 
 require "spec_helper"
 
-describe "Public Sustainable Development Goals", type: :system do
+describe "Public Sustainable Development Goals" do
   include_context "with a component"
 
   let(:manifest_name) { "sdgs" }
 
-  # rubocop:disable Style/FormatStringToken
   let(:ods_ids) { [*1..17].map! { |n| "#ods-#{format "%<n>02d", n: n}" } }
   let(:objective_ids) { [*1..17].map! { |n| "#objective_#{format "%<n>02d", n: n}" } }
-  # rubocop:enable Style/FormatStringToken
-
   before do
     switch_to_host(organization.host)
   end
@@ -23,7 +20,7 @@ describe "Public Sustainable Development Goals", type: :system do
       end
 
       it "shows the list of all SDGs" do
-        expect(page).to have_selector(".ods", count: 18)
+        expect(page).to have_css(".ods", count: 18)
       end
 
       describe "ods logo click" do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Solutions", type: :system do
+describe "Solutions" do
   include ActionView::Helpers::SanitizeHelper
 
   include_context "with a component"
@@ -14,7 +14,7 @@ describe "Solutions", type: :system do
 
       before do
         visit_component
-        click_link translated(solution.title)
+        click_on translated(solution.title)
       end
 
       it "does render the contents" do
@@ -38,16 +38,16 @@ describe "Solutions", type: :system do
 
       before do
         visit_component
-        click_link translated(solution.title)
+        click_on translated(solution.title)
       end
 
       it "does not render titles for empty contents" do
-        expect(page).not_to have_content("Indicators")
-        expect(page).not_to have_content("Beneficiaries")
-        expect(page).not_to have_content("Requeriments")
-        expect(page).not_to have_content("FINANCING TYPE")
-        expect(page).not_to have_content("Objectives")
-        expect(page).not_to have_content("Keywords")
+        expect(page).to have_no_content("Indicators")
+        expect(page).to have_no_content("Beneficiaries")
+        expect(page).to have_no_content("Requeriments")
+        expect(page).to have_no_content("FINANCING TYPE")
+        expect(page).to have_no_content("Objectives")
+        expect(page).to have_no_content("Keywords")
       end
     end
   end
@@ -65,30 +65,30 @@ describe "Solutions", type: :system do
       end
 
       it "show only solutions of current component" do
-        expect(page).to have_selector(".card--solution", count: 4)
+        expect(page).to have_css(".card--solution", count: 4)
         expect(page).to have_content(translated(solutions.first.title))
         expect(page).to have_content(translated(solutions.last.title))
       end
 
       it "ordered randomly" do
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_css("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
         end
 
-        expect(page).to have_selector(".card--solution", count: 4)
+        expect(page).to have_css(".card--solution", count: 4)
         expect(page).to have_content(translated(solutions.first.title))
         expect(page).to have_content(translated(solutions.last.title))
       end
 
       it "ordered by created at" do
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_css("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
           page.find("a", text: "Random").click
-          click_link "Most recent"
+          click_on "Most recent"
         end
 
-        expect(page).to have_selector("#solutions .card-grid .column:first-child", text: recent_solution.title[:en])
-        expect(page).to have_selector("#solutions .card-grid .column:last-child", text: older_solution.title[:en])
+        expect(page).to have_css("#solutions .card-grid .column:first-child", text: recent_solution.title[:en])
+        expect(page).to have_css("#solutions .card-grid .column:last-child", text: older_solution.title[:en])
       end
     end
   end

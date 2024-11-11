@@ -7,11 +7,11 @@ module Decidim
     describe CreateSolution do
       subject { described_class.new(form) }
 
-      let(:organization) { create :organization, available_locales: [:en] }
-      let(:current_user) { create :user, :confirmed, organization: organization }
-      let(:participatory_process) { create :participatory_process, organization: organization }
-      let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "solutions" }
-      let(:challenge) { create :challenge }
+      let(:organization) { create(:organization, available_locales: [:en]) }
+      let(:current_user) { create(:user, :confirmed, organization: organization) }
+      let(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions") }
+      let(:challenge) { create(:challenge) }
       let(:project_status) { "in_progress" }
       let(:project_url) { "http://test.example.org" }
       let(:coordinating_entity) { "Coordinating entity" }

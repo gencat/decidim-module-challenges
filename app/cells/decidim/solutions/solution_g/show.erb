@@ -1,0 +1,28 @@
+<%= link_to resource_path, class: "card__list", id: resource_id do %>
+  <div class="card__list-content">
+    <%= content_tag resource_title, class: "h4 card__list-title" do %>
+      <%= title %>
+    <% end %>
+    <div class="card__list-text">
+      <%= description %>
+      <% if resource_sdg %>
+        <div class="card__sdg">
+          <div class="card_text--sdg--image">
+            <div class="ods challenges">
+              <% if resource_sdg_index %>
+                <%= image_pack_tag "media/images/ods-#{resource_sdg_index}.svg", alt: "Logo SDG #{resource_sdg_index}", class: "challenge--view" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="card_text--sdg--text">
+            <% if resource_sdg %>
+              <strong><%= t_sdg(resource_sdg) %></strong>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="card__list-metadata">
+    </div>
+  </div>
+<% end %>

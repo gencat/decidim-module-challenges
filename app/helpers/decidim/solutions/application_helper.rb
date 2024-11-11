@@ -6,6 +6,7 @@ module Decidim
     #
     module ApplicationHelper
       include Decidim::RichTextEditorHelper
+      include Decidim::PaginateHelper
 
       def text_editor_for_description(form)
         options = {

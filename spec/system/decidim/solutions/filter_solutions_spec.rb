@@ -3,13 +3,13 @@
 require "spec_helper"
 require_relative "../filter_resources_by_scope_examples"
 
-describe "Filter Solutions", :slow, type: :system do
+describe "Filter Solutions", :slow do
   include_context "with a component"
   let(:manifest_name) { "solutions" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization: organization) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
   describe "when filtering solutions by challenge's territorial scopes" do
@@ -40,7 +40,7 @@ describe "Filter Solutions", :slow, type: :system do
       end
 
       it "the filter is not rendered" do
-        expect(page).not_to have_css(".filters__section.sdgs-filter")
+        expect(page).to have_no_css(".filters__section.sdgs-filter")
       end
     end
 

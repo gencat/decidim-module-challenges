@@ -2,13 +2,13 @@
 
 require "spec_helper"
 
-describe Decidim::Solutions::SolutionsController, type: :controller do
+describe Decidim::Solutions::SolutionsController do
   routes { Decidim::Solutions::Engine.routes }
 
-  let(:organization) { create :organization, available_locales: [:en] }
+  let(:organization) { create(:organization, available_locales: [:en]) }
   let(:title) { "Títol solució" }
   let(:description) { "Descripció solució" }
-  let(:challenge) { create :challenge }
+  let(:challenge) { create(:challenge) }
   let(:project_status) { "in_progress" }
   let(:project_url) { "http://test.example.org" }
   let(:coordinating_entity) { "Coordinating entity" }
@@ -31,10 +31,10 @@ describe Decidim::Solutions::SolutionsController, type: :controller do
       participatory_process_slug: component.participatory_space.slug,
     }
   end
-  let(:current_user) { create :user, :confirmed, organization: organization }
-  let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:component) { create :component, participatory_space: participatory_process, manifest_name: "solutions", organization: organization, settings: { creation_enabled: true } }
-  let(:scope) { create :scope, organization: organization }
+  let(:current_user) { create(:user, :confirmed, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions", organization: organization, settings: { creation_enabled: true }) }
+  let(:scope) { create(:scope, organization: organization) }
 
   before do
     request.env["decidim.current_organization"] = organization

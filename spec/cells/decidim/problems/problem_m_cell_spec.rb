@@ -11,7 +11,7 @@ module Decidim::Problems
     end
     let!(:problem) { create(:problem, description: description) }
     let(:model) { problem }
-    let(:cell_html) { cell("decidim/problems/problem_m", problem, context: { show_space: show_space }).call }
+    let(:cell_html) { cell("decidim/problems/problem_g", problem, context: { show_space: show_space }).call }
     let!(:problem_title) { translated(problem.title) }
     let!(:problem_description) { translated(problem.description) }
     let!(:challenge_title) { translated(problem.challenge.title) }

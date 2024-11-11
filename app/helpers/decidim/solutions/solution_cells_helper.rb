@@ -29,7 +29,7 @@ module Decidim
       end
 
       def solutions_controller?
-        context[:controller].class.to_s == "Decidim::Solutions::SolutionsController"
+        context[:controller].instance_of?(::Decidim::Solutions::SolutionsController)
       end
 
       def index_action?

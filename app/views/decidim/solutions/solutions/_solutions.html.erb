@@ -1,28 +1,13 @@
-<div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
-  <div class="column">
-    <%= order_selector available_orders, i18n_scope: "decidim.solutions.solutions.orders" %>
+<% if @solutions.empty? %>
+  <%= params[:filter].present? ? t(".empty_filters") : t(".empty") %>
+<% else %>
+  <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.solutions.solutions.index", count: @solutions.total_count) %></h2>
+
+  <%= order_selector available_orders, i18n_scope: "decidim.solutions.solutions.orders" %>
+
+  <div class="card__list-list">
+    <%= render @solutions, locals: { has_sdgs: } %>
   </div>
 
-  <div class="column">
-    <%= render partial: "decidim/shared/results_per_page" %>
-  </div>
-</div>
-
-<div class="<%= css_full_cardgrid_cols(@component_settings.hide_filters) %>">
-  <%= render solutions %>
-</div>
-
-<div class="row">
-  <div class="columns mediumlarge-8 large-9">
-    <% if solutions.empty? %>
-      <div class="callout secondary">
-        <% if params[:filter].present? %>
-          <p><%= t(".empty_filters") %></p>
-        <% else %>
-          <p><%= t(".empty") %></p>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
-<%= decidim_paginate solutions %>
+  <%= decidim_paginate @solutions %>
+<% end %>
