@@ -33,7 +33,7 @@
     <% end %>
   </div>
 
-  <% if has_sdgs && @sdg %>
+  <% if has_sdgs? && @sdg %>
     <div class="text-sm flex flex-col items-center gap-1">
       <p class="uppercase text-xs text-center"><%= t("sdg", scope: "activemodel.attributes.challenge") %></p>
       <div class="ods challenges flex items-center">

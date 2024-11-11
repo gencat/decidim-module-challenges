@@ -19,34 +19,34 @@ shared_examples "manage solutions" do
         within "#solution-title-tabs" do
           click_on "English"
         end
-        expect(page).to hace_field("input", text: solution.title[:en], visible: :visible)
+        expect(page).to have_field("input", text: solution.title[:en], visible: :visible)
 
         within "#solution-title-tabs" do
           click_on "Català"
         end
-        expect(page).to hace_field("input", text: solution.title[:ca], visible: :visible)
+        expect(page).to have_field("input", text: solution.title[:ca], visible: :visible)
 
         within "#solution-title-tabs" do
           click_on "Castellano"
         end
-        expect(page).to hace_field("input", text: solution.title[:es], visible: :visible)
+        expect(page).to have_field("input", text: solution.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#solution-description-tabs" do
           click_on "English"
         end
-        expect(page).to hace_field("input", text: solution.description[:en], visible: :visible)
+        expect(page).to have_field("input", text: solution.description[:en], visible: :visible)
 
         within "#solution-description-tabs" do
           click_on "Català"
         end
-        expect(page).to hace_field("input", text: solution.description[:ca], visible: :visible)
+        expect(page).to have_field("input", text: solution.description[:ca], visible: :visible)
 
         within "#solution-description-tabs" do
           click_on "Castellano"
         end
-        expect(page).to hace_field("input", text: solution.description[:es], visible: :visible)
+        expect(page).to have_field("input", text: solution.description[:es], visible: :visible)
       end
     end
 
@@ -63,12 +63,12 @@ shared_examples "manage solutions" do
 
       it "shows the title correctly" do
         expect(page).to have_no_css("#solution-title-tabs")
-        expect(page).to hace_field("input", text: solution.title[:en], visible: :visible)
+        expect(page).to have_field("input", text: solution.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
         expect(page).to have_no_css("#solution-description-tabs")
-        expect(page).to hace_field("input", text: solution.description[:en], visible: :visible)
+        expect(page).to have_field("input", text: solution.description[:en], visible: :visible)
       end
     end
   end

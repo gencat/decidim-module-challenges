@@ -5,7 +5,7 @@
 
   <%= order_selector available_orders, i18n_scope: "decidim.challenges.challenges.orders" %>
 
-  <%= render @challenges, locals: { has_sdgs: } %>
+  <%= render @challenges, locals: { has_sdgs?: } %>
 
   <%= decidim_paginate @challenges %>
 <% end %>

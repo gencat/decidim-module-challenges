@@ -7,7 +7,7 @@
   <h1 id="problems-count" class="title-decorator"><%= component_name %></h1>
 
   <% unless @component_settings.hide_filters %>
-    <%= render layout: "decidim/shared/filters", locals: { filter_sections:, has_sdgs:, search_variable: :search_text_cont, skip_to_id: "problems" } do %>
+    <%= render layout: "decidim/shared/filters", locals: { filter_sections:, has_sdgs?:, search_variable: :search_text_cont, skip_to_id: "problems" } do %>
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
     <% end %>
   <% end %>
@@ -15,6 +15,6 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <section id="problems" class="layout-main__section layout-main__heading">
-    <%= render partial: "problems", locals: { has_sdgs: } %>
+    <%= render partial: "problems", locals: { has_sdgs?: } %>
   </section>
 <% end %>

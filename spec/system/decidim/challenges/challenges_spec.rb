@@ -17,7 +17,7 @@ describe "Challenges" do
 
       before do
         visit_component
-        click_on translated(challenge.title)
+        click_link_or_button translated(challenge.title)
       end
 
       it "does render the contents" do
@@ -35,7 +35,7 @@ describe "Challenges" do
 
       before do
         visit_component
-        click_on translated(challenge.title)
+        click_link_or_button translated(challenge.title)
       end
 
       it "does not render titles for empty contents" do
@@ -59,17 +59,17 @@ describe "Challenges" do
       end
 
       it "show only challenges of current component" do
-        expect(page).to hace_field(".card__list", count: 4)
+        expect(page).to have_css(".card__list", count: 4)
         expect(page).to have_content(translated(challenges.first.title))
         expect(page).to have_content(translated(challenges.last.title))
       end
 
       it "ordered randomly" do
         within ".order-by" do
-          expect(page).to have_content("Random")
+          page.find("a", text: "Random").click
         end
 
-        expect(page).to hace_field(".card__list", count: 4)
+        expect(page).to have_css(".card__list", count: 4)
         expect(page).to have_content(translated(challenges.first.title))
         expect(page).to have_content(translated(challenges.last.title))
       end
@@ -80,8 +80,8 @@ describe "Challenges" do
           click_on "Most recent"
         end
 
-        expect(page).to hace_field(".order-by .button:first-child", text: recent_challenge.title[:en])
-        expect(page).to hace_field(".order-by .button:last-child", text: older_challenge.title[:en])
+        expect(page).to have_css(".order-by .button:first-child", text: recent_challenge.title[:en])
+        expect(page).to have_css(".order-by .button:last-child", text: older_challenge.title[:en])
       end
     end
 
@@ -96,8 +96,8 @@ describe "Challenges" do
         end
 
         it "show cards with images" do
-          expect(page).to hace_field(".card__list", count: 2)
-          expect(page).to hace_field(".card__list-image", count: 2)
+          expect(page).to have_css(".card__list", count: 2)
+          expect(page).to have_css(".card__list-image", count: 2)
 
           expect(page).to have_content(translated(challenge_with_card_image.title))
           expect(page).to have_content(translated(challenge.title))

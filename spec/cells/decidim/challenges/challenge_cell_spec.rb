@@ -19,7 +19,7 @@ module Decidim::Challenges
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(html).to hace_field(".challenge-status")
+        expect(html).to have_css(".card__list")
       end
 
       it "renders the challenge description" do

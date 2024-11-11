@@ -8,7 +8,7 @@ module Decidim
       def filter_sections
         filters = default_filters
 
-        filters << { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" } if has_sdgs
+        filters << { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" } if has_sdgs?
 
         filters.reject { |item| item[:collection].blank? }
       end

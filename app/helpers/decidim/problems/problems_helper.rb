@@ -6,7 +6,7 @@ module Decidim
     #
     module ProblemsHelper
       def filter_sections
-        if has_sdgs
+        if has_sdgs?
           [
             { method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state" },
             { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" },

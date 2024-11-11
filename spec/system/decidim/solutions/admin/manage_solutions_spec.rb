@@ -15,7 +15,7 @@ describe "Admin creates solutions" do
       visit_component_admin
 
       find("a.button", text: "New solution").click_on
-      expect(page).to hace_field "input#solution_title_en"
+      expect(page).to have_field "input#solution_title_en"
     end
   end
 end

@@ -14,7 +14,7 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Edit survey")
 
-    find(".exports.button").click_on
+    find(".exports.button").click
     perform_enqueued_jobs { click_on "CSV" }
 
     within ".flash.success" do
@@ -31,7 +31,7 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Edit survey")
 
-    find(".exports.button").click_on
+    find(".exports.button").click
     perform_enqueued_jobs { click_on "JSON" }
 
     within ".flash.success" do
@@ -48,7 +48,7 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Edit survey")
 
-    find(".exports.button").click_on
+    find(".exports.button").click
     perform_enqueued_jobs { click_on "PDF" }
 
     within ".flash.success" do

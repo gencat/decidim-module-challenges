@@ -21,7 +21,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
         check "Global"
       end
 
-      expect(page).to hace_field(card_css_class, count: 1)
+      expect(page).to have_field(card_css_class, count: 1)
       expect(page).to have_content("1 #{singular_rsrc_name_counter}")
     end
   end
@@ -33,7 +33,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
         check scope.name[I18n.locale.to_s]
       end
 
-      expect(page).to hace_field(card_css_class, count: 2)
+      expect(page).to have_field(card_css_class, count: 2)
       expect(page).to have_content("2 #{singular_rsrc_name_counter}S")
     end
   end
@@ -46,7 +46,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
         check scope.name[I18n.locale.to_s]
       end
 
-      expect(page).to hace_field(card_css_class, count: 3)
+      expect(page).to have_field(card_css_class, count: 3)
       expect(page).to have_content("3 #{singular_rsrc_name_counter}S")
     end
   end
@@ -60,7 +60,7 @@ RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_na
         uncheck scope.name[I18n.locale.to_s]
       end
 
-      expect(page).to hace_field(card_css_class, count: 1)
+      expect(page).to have_field(card_css_class, count: 1)
       expect(page).to have_content("1 #{singular_rsrc_name_counter}")
     end
   end

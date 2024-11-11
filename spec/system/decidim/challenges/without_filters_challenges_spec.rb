@@ -25,7 +25,7 @@ describe "Without filters Challenges", :slow do
     end
 
     it "not show filters" do
-      expect(page).to have_no_css(".filters")
+      expect(page).to have_no_css(".new_filter")
     end
   end
 end

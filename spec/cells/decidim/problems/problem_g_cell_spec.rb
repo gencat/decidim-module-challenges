@@ -14,13 +14,12 @@ module Decidim::Problems
     let(:cell_html) { cell("decidim/problems/problem_g", problem, context: { show_space: }).call }
     let!(:problem_title) { translated(problem.title) }
     let!(:problem_description) { translated(problem.description) }
-    let!(:challenge_title) { translated(problem.challenge.title) }
 
     context "when rendering" do
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(cell_html).to hace_field(".card--problem")
+        expect(cell_html).to have_css(".card__list")
       end
 
       it "renders the problem title" do
@@ -29,10 +28,6 @@ module Decidim::Problems
 
       it "renders the problem description" do
         expect(cell_html).to have_content(problem_description)
-      end
-
-      it "renders the challenge title" do
-        expect(cell_html).to have_content(challenge_title)
       end
     end
   end

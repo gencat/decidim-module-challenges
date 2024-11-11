@@ -38,7 +38,7 @@ describe "Without filters Solutions", :slow do
     end
 
     it "show challenges in three columns" do
-      expect(page).to hace_field(".mediumlarge-11.large-12")
+      expect(page).to have_field(".mediumlarge-11.large-12")
     end
 
     it "not show filters" do

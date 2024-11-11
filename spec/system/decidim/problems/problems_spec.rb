@@ -54,30 +54,30 @@ describe "Problems" do
       end
 
       it "show only problems of current component" do
-        expect(page).to hace_field(".card--problem", count: 4)
+        expect(page).to have_field(".card--problem", count: 4)
         expect(page).to have_content(translated(problems.first.title))
         expect(page).to have_content(translated(problems.last.title))
       end
 
       it "ordered randomly" do
         within ".order-by" do
-          expect(page).to hace_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
         end
 
-        expect(page).to hace_field(".card--problem", count: 4)
+        expect(page).to have_field(".card--problem", count: 4)
         expect(page).to have_content(translated(problems.first.title))
         expect(page).to have_content(translated(problems.last.title))
       end
 
       it "ordered by created at" do
         within ".order-by" do
-          expect(page).to hace_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
           page.find("a", text: "Random").click_on
           click_on "Most recent"
         end
 
-        expect(page).to hace_field("#problems .card-grid .column:first-child", text: recent_problem.title[:en])
-        expect(page).to hace_field("#problems .card-grid .column:last-child", text: older_problem.title[:en])
+        expect(page).to have_field("#problems .card-grid .column:first-child", text: recent_problem.title[:en])
+        expect(page).to have_field("#problems .card-grid .column:last-child", text: older_problem.title[:en])
       end
     end
   end

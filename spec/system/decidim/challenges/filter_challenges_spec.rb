@@ -35,7 +35,7 @@ describe "Filter Challenges", :slow do
           check "Global"
         end
 
-        expect(page).to hace_field(".card--challenge", count: 1)
+        expect(page).to have_field(".card--challenge", count: 1)
         expect(page).to have_content("1 CHALLENGE")
       end
     end
@@ -47,7 +47,7 @@ describe "Filter Challenges", :slow do
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to hace_field(".card--challenge", count: 2)
+        expect(page).to have_field(".card--challenge", count: 2)
         expect(page).to have_content("2 CHALLENGES")
       end
     end
@@ -60,7 +60,7 @@ describe "Filter Challenges", :slow do
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to hace_field(".card--challenge", count: 3)
+        expect(page).to have_field(".card--challenge", count: 3)
         expect(page).to have_content("3 CHALLENGES")
       end
     end
@@ -74,7 +74,7 @@ describe "Filter Challenges", :slow do
           uncheck scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to hace_field(".card--challenge", count: 1)
+        expect(page).to have_field(".card--challenge", count: 1)
         expect(page).to have_content("1 CHALLENGE")
       end
     end
@@ -123,7 +123,7 @@ describe "Filter Challenges", :slow do
         check "Proposal"
       end
 
-      expect(page).to hace_field(".card--challenge", count: 1)
+      expect(page).to have_field(".card--challenge", count: 1)
       expect(page).to have_content("1 CHALLENGE")
 
       within ".card--challenge" do
@@ -141,7 +141,7 @@ describe "Filter Challenges", :slow do
         check "Execution"
       end
 
-      expect(page).to hace_field(".card--challenge", count: 1)
+      expect(page).to have_field(".card--challenge", count: 1)
       expect(page).to have_content("1 CHALLENGE")
 
       within ".card--challenge" do
@@ -173,12 +173,12 @@ describe "Filter Challenges", :slow do
       end
 
       it "the filter is rendered" do
-        expect(page).to hace_field(".filters__section.sdgs-filter")
+        expect(page).to have_field(".filters__section.sdgs-filter")
       end
 
       context "when NOT selecting any SDG" do
         it "lists all the challenges" do
-          expect(page).to hace_field(".card--challenge", count: 5)
+          expect(page).to have_field(".card--challenge", count: 5)
           expect(page).to have_content("5 CHALLENGES")
         end
       end
@@ -186,7 +186,7 @@ describe "Filter Challenges", :slow do
       context "when selecting some SDGs" do
         before do
           find(".filters__section.sdgs-filter button").click_on
-          expect(page).to hace_field("#sdgs-modal")
+          expect(page).to have_field("#sdgs-modal")
 
           within "#sdgs-modal" do
             find('.sdg-cell[data-value="no_poverty"]').click_on
@@ -196,7 +196,7 @@ describe "Filter Challenges", :slow do
         end
 
         it "lists the challenges with the selected SDGs" do
-          expect(page).to hace_field(".card--challenge", count: 3)
+          expect(page).to have_field(".card--challenge", count: 3)
           expect(page).to have_content("3 CHALLENGES")
         end
       end
@@ -217,7 +217,7 @@ describe "Filter Challenges", :slow do
         check category.name[I18n.locale.to_s]
       end
 
-      expect(page).to hace_field(".card--challenge", count: 1)
+      expect(page).to have_field(".card--challenge", count: 1)
     end
 
     it "works with 'back to list' link" do
@@ -226,13 +226,13 @@ describe "Filter Challenges", :slow do
         check category.name[I18n.locale.to_s]
       end
 
-      expect(page).to hace_field(".card--challenge", count: 1)
+      expect(page).to have_field(".card--challenge", count: 1)
 
       page.find(".card--challenge .card__link").click_on
 
       click_on "Return to list"
 
-      expect(page).to hace_field(".card--challenge", count: 1)
+      expect(page).to have_field(".card--challenge", count: 1)
     end
   end
 end

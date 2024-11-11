@@ -38,7 +38,7 @@ module Decidim
       end
 
       def default_filter_params
-        has_sdgs ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filter_params
+        has_sdgs? ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filter_params
       end
 
       def challenges

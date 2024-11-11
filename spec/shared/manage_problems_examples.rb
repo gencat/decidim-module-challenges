@@ -24,34 +24,34 @@ shared_examples "manage problems" do
         within "#problem-title-tabs" do
           click_on "English"
         end
-        expect(page).to hace_field("input", text: problem.title[:en], visible: :visible)
+        expect(page).to have_field("input", text: problem.title[:en], visible: :visible)
 
         within "#problem-title-tabs" do
           click_on "Català"
         end
-        expect(page).to hace_field("input", text: problem.title[:ca], visible: :visible)
+        expect(page).to have_field("input", text: problem.title[:ca], visible: :visible)
 
         within "#problem-title-tabs" do
           click_on "Castellano"
         end
-        expect(page).to hace_field("input", text: problem.title[:es], visible: :visible)
+        expect(page).to have_field("input", text: problem.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#problem-description-tabs" do
           click_on "English"
         end
-        expect(page).to hace_field("input", text: problem.description[:en], visible: :visible)
+        expect(page).to have_field("input", text: problem.description[:en], visible: :visible)
 
         within "#problem-description-tabs" do
           click_on "Català"
         end
-        expect(page).to hace_field("input", text: problem.description[:ca], visible: :visible)
+        expect(page).to have_field("input", text: problem.description[:ca], visible: :visible)
 
         within "#problem-description-tabs" do
           click_on "Castellano"
         end
-        expect(page).to hace_field("input", text: problem.description[:es], visible: :visible)
+        expect(page).to have_field("input", text: problem.description[:es], visible: :visible)
       end
     end
 
@@ -66,12 +66,12 @@ shared_examples "manage problems" do
 
       it "shows the title correctly" do
         expect(page).to have_no_css("#problem-title-tabs")
-        expect(page).to hace_field("input", text: problem.title[:en], visible: :visible)
+        expect(page).to have_field("input", text: problem.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
         expect(page).to have_no_css("#problem-description-tabs")
-        expect(page).to hace_field("input", text: problem.description[:en], visible: :visible)
+        expect(page).to have_field("input", text: problem.description[:en], visible: :visible)
       end
     end
   end

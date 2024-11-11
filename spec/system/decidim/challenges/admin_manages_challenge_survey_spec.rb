@@ -48,7 +48,7 @@ describe "Admin manages challenge survey" do
 
       it "allows editing questions" do
         click_on "Expand all"
-        expect(page).to hace_field("#questionnaire_questions_#{question.id}_body_en")
+        expect(page).to have_css("#questionnaire_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
       end
 

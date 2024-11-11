@@ -37,7 +37,7 @@ module Decidim
       end
 
       def default_filter_params
-        if has_sdgs
+        if has_sdgs?
           {
             search_text_cont: "",
             with_any_state: %w(proposal execution finished),

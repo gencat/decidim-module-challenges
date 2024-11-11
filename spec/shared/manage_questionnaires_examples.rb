@@ -66,11 +66,11 @@ shared_examples_for "manage questionnaires" do
 
       expand_all_questions
 
-      expect(page).to hace_field("input[value='This is the first question'][disabled]")
-      expect(page).to hace_field("select[id$=question_type][disabled]")
-      expect(page).to hace_field("select[id$=max_choices][disabled]")
-      expect(page).to hace_field("input[id$=max_characters][disabled]")
-      expect(page).to hace_field(".ProseMirror[contenteditable=false]")
+      expect(page).to have_css("input[value='This is the first question'][disabled]")
+      expect(page).to have_css("select[id$=question_type][disabled]")
+      expect(page).to have_css("select[id$=max_choices][disabled]")
+      expect(page).to have_css("input[id$=max_characters][disabled]")
+      expect(page).to have_css(".ProseMirror[contenteditable=false]")
     end
   end
 
@@ -105,7 +105,7 @@ shared_examples_for "manage questionnaires" do
   end
 
   def expand_all_questions
-    find(".button.expand-all").click_on
+    find(".button.expand-all").click
   end
 
   def visit_questionnaire_edit_path_and_expand_all

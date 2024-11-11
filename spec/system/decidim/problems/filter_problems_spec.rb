@@ -60,7 +60,7 @@ describe "Filter Problems", :slow do
         check "Proposal"
       end
 
-      expect(page).to hace_field(".card--problem", count: 1)
+      expect(page).to have_field(".card--problem", count: 1)
       expect(page).to have_content("1 PROBLEM")
 
       within ".card--problem" do
@@ -79,7 +79,7 @@ describe "Filter Problems", :slow do
         check "Execution"
       end
 
-      expect(page).to hace_field(".card--problem", count: 1)
+      expect(page).to have_field(".card--problem", count: 1)
       expect(page).to have_content("1 PROBLEM")
 
       within ".card--problem" do
@@ -116,12 +116,12 @@ describe "Filter Problems", :slow do
       end
 
       it "the filter is rendered" do
-        expect(page).to hace_field(".filters__section.sdgs-filter")
+        expect(page).to have_field(".filters__section.sdgs-filter")
       end
 
       context "when NOT selecting any SDG" do
         it "lists all the problems" do
-          expect(page).to hace_field(".card--problem", count: 5)
+          expect(page).to have_field(".card--problem", count: 5)
           expect(page).to have_content("5 PROBLEMS")
         end
       end
@@ -129,7 +129,7 @@ describe "Filter Problems", :slow do
       context "when selecting some SDGs" do
         before do
           find(".filters__section.sdgs-filter button").click_on
-          expect(page).to hace_field("#sdgs-modal")
+          expect(page).to have_field("#sdgs-modal")
 
           within "#sdgs-modal" do
             find('.sdg-cell[data-value="no_poverty"]').click_on
@@ -139,7 +139,7 @@ describe "Filter Problems", :slow do
         end
 
         it "lists the problems with the selected SDGs" do
-          expect(page).to hace_field(".card--problem", count: 3)
+          expect(page).to have_field(".card--problem", count: 3)
           expect(page).to have_content("3 PROBLEMS")
         end
       end
@@ -166,7 +166,7 @@ describe "Filter Problems", :slow do
   #         check category.name[I18n.locale.to_s]
   #       end
 
-  #       expect(page).to hace_field(".card--problem", count: 1)
+  #       expect(page).to have_field(".card--problem", count: 1)
   #     end
 
   #     it "can be filtered by two categories" do
@@ -178,7 +178,7 @@ describe "Filter Problems", :slow do
   #         check category2.name[I18n.locale.to_s]
   #       end
 
-  #       expect(page).to hace_field(".card--problem", count: 2)
+  #       expect(page).to have_field(".card--problem", count: 2)
   #     end
   #   end
   # end
@@ -198,11 +198,11 @@ describe "Filter Problems", :slow do
   #       check "Rejected"
   #     end
 
-  #     expect(page).to hace_field(".card.card--problem", count: 8)
+  #     expect(page).to have_field(".card.card--problem", count: 8)
 
   #     page.go_back
 
-  #     expect(page).to hace_field(".card.card--problem", count: 6)
+  #     expect(page).to have_field(".card.card--problem", count: 6)
   #   end
 
   #   it "recover filters from previous pages" do
@@ -222,19 +222,19 @@ describe "Filter Problems", :slow do
   #       check "Accepted"
   #     end
 
-  #     expect(page).to hace_field(".card.card--problem", count: 2)
+  #     expect(page).to have_field(".card.card--problem", count: 2)
 
   #     page.go_back
 
-  #     expect(page).to hace_field(".card.card--problem", count: 6)
+  #     expect(page).to have_field(".card.card--problem", count: 6)
 
   #     page.go_back
 
-  #     expect(page).to hace_field(".card.card--problem", count: 8)
+  #     expect(page).to have_field(".card.card--problem", count: 8)
 
   #     page.go_forward
 
-  #     expect(page).to hace_field(".card.card--problem", count: 6)
+  #     expect(page).to have_field(".card.card--problem", count: 6)
   #   end
   # end
 end

@@ -20,7 +20,7 @@ describe "Public Sustainable Development Goals" do
       end
 
       it "shows the list of all SDGs" do
-        expect(page).to hace_field(".ods", count: 18)
+        expect(page).to have_field(".ods", count: 18)
       end
 
       describe "ods logo click" do

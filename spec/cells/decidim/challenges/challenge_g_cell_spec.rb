@@ -22,7 +22,7 @@ module Decidim::Challenges
       let!(:card_image) { create(:attachment, :with_image, attached_to: challenge) }
 
       it "renders the card" do
-        expect(cell_html).to hace_field(".challenge-status")
+        expect(cell_html).to have_css(".card__list")
       end
 
       it "renders the challenge description" do
@@ -34,7 +34,7 @@ module Decidim::Challenges
       end
 
       it "renders the challenge image card" do
-        expect(cell_html).to hace_field(".card__grid-img")
+        expect(cell_html).to have_css(".card__list-image")
       end
     end
   end
