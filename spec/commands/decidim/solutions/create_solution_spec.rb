@@ -8,8 +8,8 @@ module Decidim
       subject { described_class.new(form) }
 
       let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:current_user) { create(:user, :confirmed, organization: organization) }
-      let(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:current_user) { create(:user, :confirmed, organization:) }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions") }
       let(:challenge) { create(:challenge) }
       let(:project_status) { "in_progress" }
@@ -26,12 +26,12 @@ module Decidim
           author_id: current_user.id,
           decidim_challenges_challenge_id: challenge.id,
           decidim_problems_problem_id: nil,
-          project_status: project_status,
-          project_url: project_url,
-          coordinating_entity: coordinating_entity,
-          current_user: current_user,
+          project_status:,
+          project_url:,
+          coordinating_entity:,
+          current_user:,
           current_organization: organization,
-          current_component: current_component,
+          current_component:,
           add_documents: uploaded_files,
         )
       end

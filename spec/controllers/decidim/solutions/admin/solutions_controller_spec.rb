@@ -21,7 +21,7 @@ describe Decidim::Solutions::Admin::SolutionsController do
     }
   end
   let(:challenge) { create(:challenge) }
-  let(:problem) { create(:problem, challenge: challenge) }
+  let(:problem) { create(:problem, challenge:) }
   let(:tags) { "tag1, tag2, tag3" }
   let(:objectives) do
     { en: "objectives" }
@@ -41,26 +41,26 @@ describe Decidim::Solutions::Admin::SolutionsController do
   let(:params) do
     {
       solution: {
-        title: title,
-        description: description,
+        title:,
+        description:,
         author_id: current_user.id,
         decidim_problems_problem_id: problem.id,
-        tags: tags,
-        objectives: objectives,
-        indicators: indicators,
-        beneficiaries: beneficiaries,
-        financing_type: financing_type,
-        requirements: requirements,
+        tags:,
+        objectives:,
+        indicators:,
+        beneficiaries:,
+        financing_type:,
+        requirements:,
       },
       component_id: component,
-      scope: scope,
+      scope:,
       participatory_process_slug: component.participatory_space.slug,
     }
   end
-  let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions", organization: organization) }
-  let(:scope) { create(:scope, organization: organization) }
+  let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions", organization:) }
+  let(:scope) { create(:scope, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -72,7 +72,7 @@ describe Decidim::Solutions::Admin::SolutionsController do
   describe "POST #create" do
     context "with all mandatory fields" do
       it "creates a solution" do
-        post :create, params: params
+        post(:create, params:)
 
         expect(flash[:notice]).not_to be_empty
         expect(response).to have_http_status(:found)
@@ -89,7 +89,7 @@ describe Decidim::Solutions::Admin::SolutionsController do
       end
 
       it "doesn't create a solution" do
-        post :create, params: params
+        post(:create, params:)
 
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:ok)
@@ -98,7 +98,7 @@ describe Decidim::Solutions::Admin::SolutionsController do
 
     context "when module problem is active" do
       it "with problem" do
-        post :create, params: params
+        post(:create, params:)
 
         expect(flash[:notice]).not_to be_empty
         expect(response).to have_http_status(:found)
@@ -109,25 +109,25 @@ describe Decidim::Solutions::Admin::SolutionsController do
       let(:params) do
         {
           solution: {
-            title: title,
-            description: description,
+            title:,
+            description:,
             author_id: current_user.id,
             decidim_challenges_challenge_id: challenge.id,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
           },
           component_id: component,
-          scope: scope,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
 
       it "has a challenge" do
-        post :create, params: params
+        post(:create, params:)
 
         expect(flash[:notice]).not_to be_empty
         expect(response).to have_http_status(:found)
@@ -136,7 +136,7 @@ describe Decidim::Solutions::Admin::SolutionsController do
   end
 
   describe "PUT #update" do
-    let(:solution) { create(:solution, component: component) }
+    let(:solution) { create(:solution, component:) }
 
     context "with all mandatory fields with module problems" do
       let(:params) do
@@ -148,25 +148,25 @@ describe Decidim::Solutions::Admin::SolutionsController do
               es: "Título solución actualizada",
               ca: "Títol solució actualitzada",
             },
-            description: description,
+            description:,
             author_id: current_user.id,
             decidim_problems_problem_id: problem.id,
             decidim_challenges_challenge_id: nil,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
 
       it "updates a solution" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(flash[:notice]).not_to be_empty
         expect(response).to have_http_status(:found)
@@ -183,25 +183,25 @@ describe Decidim::Solutions::Admin::SolutionsController do
               es: "Título solución actualizada",
               ca: "Títol solució actualitzada",
             },
-            description: description,
+            description:,
             author_id: current_user.id,
             decidim_problems_problem_id: nil,
             decidim_challenges_challenge_id: challenge.id,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
 
       it "updates a solution" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(flash[:notice]).not_to be_empty
         expect(response).to have_http_status(:found)
@@ -219,14 +219,14 @@ describe Decidim::Solutions::Admin::SolutionsController do
               ca: nil,
             },
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
 
       it "doesn't update a solution" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:ok)
@@ -235,18 +235,18 @@ describe Decidim::Solutions::Admin::SolutionsController do
   end
 
   describe "DELETE #destroy" do
-    let(:solution) { create(:solution, component: component) }
+    let(:solution) { create(:solution, component:) }
     let(:params) do
       {
         id: solution.id,
-        component: component,
-        scope: scope,
+        component:,
+        scope:,
         participatory_process_slug: component.participatory_space.slug,
       }
     end
 
     it "deletes a solution" do
-      delete :destroy, params: params
+      delete(:destroy, params:)
 
       expect(flash[:notice]).not_to be_empty
       expect(response).to have_http_status(:found)

@@ -9,10 +9,10 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create(:organization, available_locales: [:en]) }
-        let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "challenges") }
-        let(:scope) { create(:scope, organization: organization) }
+        let(:scope) { create(:scope, organization:) }
         let(:sdg_code) { "clean_water" }
         let(:tags) { "tag1, tag2, tag3" }
         let(:state) { 2 }
@@ -28,18 +28,18 @@ module Decidim
             title: { en: "title" },
             local_description: { en: "local desc" },
             global_description: { en: "global desc" },
-            tags: tags,
-            scope: scope,
-            sdg_code: sdg_code,
-            state: state,
-            start_date: start_date,
-            end_date: end_date,
-            coordinating_entities: coordinating_entities,
-            collaborating_entities: collaborating_entities,
-            current_user: current_user,
+            tags:,
+            scope:,
+            sdg_code:,
+            state:,
+            start_date:,
+            end_date:,
+            coordinating_entities:,
+            collaborating_entities:,
+            current_user:,
             current_organization: organization,
-            current_component: current_component,
-            card_image: card_image
+            current_component:,
+            card_image:
           )
         end
         let(:invalid) { false }

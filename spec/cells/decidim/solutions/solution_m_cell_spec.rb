@@ -16,15 +16,15 @@ module Decidim::Solutions
     let(:challenge_title) { translated(challenge.title) }
     let(:sdg_code) { :sustainable_cities }
     let(:show_space) { false }
-    let(:cell_html) { cell("decidim/solutions/solution_g", solution, context: { show_space: show_space }).call }
+    let(:cell_html) { cell("decidim/solutions/solution_g", solution, context: { show_space: }).call }
 
     shared_examples "rendering the cell" do
       before do
-        challenge.update_columns(sdg_code: sdg_code)
+        challenge.update_columns(sdg_code:)
       end
 
       it "renders the card" do
-        expect(cell_html).to have_css(".card--solution")
+        expect(cell_html).to hace_field(".card--solution")
         expect(cell_html).to have_content(solution_description)
         expect(cell_html).to have_content(solution_title)
         expect(cell_html).to have_content(challenge_title)
@@ -33,7 +33,7 @@ module Decidim::Solutions
     end
 
     context "when the parent is a problem" do
-      let!(:solution) { create(:solution, description: description) }
+      let!(:solution) { create(:solution, description:) }
       let(:challenge) { solution.problem.challenge }
       let(:problem_title) { translated(solution.problem.title) }
 
@@ -46,7 +46,7 @@ module Decidim::Solutions
 
     context "when the parent is a challenge" do
       let(:challenge) { create(:challenge) }
-      let!(:solution) { create(:solution, description: description, problem: nil, challenge: challenge) }
+      let!(:solution) { create(:solution, description:, problem: nil, challenge:) }
 
       it_behaves_like "rendering the cell"
 

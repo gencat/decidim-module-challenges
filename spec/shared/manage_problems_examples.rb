@@ -11,7 +11,7 @@ shared_examples "manage problems" do
 
   describe "when rendering the text in the update page" do
     before do
-      find("a", class: "action-icon--new").click
+      find("a", class: "action-icon--new").click_on
     end
 
     it "shows help text" do
@@ -24,61 +24,61 @@ shared_examples "manage problems" do
         within "#problem-title-tabs" do
           click_on "English"
         end
-        expect(page).to have_css("input", text: problem.title[:en], visible: :visible)
+        expect(page).to hace_field("input", text: problem.title[:en], visible: :visible)
 
         within "#problem-title-tabs" do
           click_on "Català"
         end
-        expect(page).to have_css("input", text: problem.title[:ca], visible: :visible)
+        expect(page).to hace_field("input", text: problem.title[:ca], visible: :visible)
 
         within "#problem-title-tabs" do
           click_on "Castellano"
         end
-        expect(page).to have_css("input", text: problem.title[:es], visible: :visible)
+        expect(page).to hace_field("input", text: problem.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#problem-description-tabs" do
           click_on "English"
         end
-        expect(page).to have_css("input", text: problem.description[:en], visible: :visible)
+        expect(page).to hace_field("input", text: problem.description[:en], visible: :visible)
 
         within "#problem-description-tabs" do
           click_on "Català"
         end
-        expect(page).to have_css("input", text: problem.description[:ca], visible: :visible)
+        expect(page).to hace_field("input", text: problem.description[:ca], visible: :visible)
 
         within "#problem-description-tabs" do
           click_on "Castellano"
         end
-        expect(page).to have_css("input", text: problem.description[:es], visible: :visible)
+        expect(page).to hace_field("input", text: problem.description[:es], visible: :visible)
       end
     end
 
     context "when there is only one locale" do
       let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let(:component) { create(:component, manifest_name:, organization:) }
       let!(:problem) do
-        create(:problem, scope: scope, component: component,
+        create(:problem, scope:, component:,
                          title: { en: "Problem title" },
                          description: { en: "Problem description" })
       end
 
       it "shows the title correctly" do
         expect(page).to have_no_css("#problem-title-tabs")
-        expect(page).to have_css("input", text: problem.title[:en], visible: :visible)
+        expect(page).to hace_field("input", text: problem.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
         expect(page).to have_no_css("#problem-description-tabs")
-        expect(page).to have_css("input", text: problem.description[:en], visible: :visible)
+        expect(page).to hace_field("input", text: problem.description[:en], visible: :visible)
       end
     end
   end
 
   it "updates a problem" do
     within "tr", text: Decidim::Problems::ProblemPresenter.new(problem).title do
-      find("a", class: "action-icon--new").click
+      find("a", class: "action-icon--new").click_on
     end
 
     within ".edit_problem" do
@@ -90,7 +90,7 @@ shared_examples "manage problems" do
         ca: "El meu nou títol"
       )
 
-      find("*[type=submit]").click
+      find("*[type=submit]").click_on
     end
 
     expect(page).to have_admin_callout("successfully")
@@ -115,7 +115,7 @@ shared_examples "manage problems" do
   # end
 
   it "creates a new problem" do
-    find(".card-title a.button").click
+    find(".card-title a.button").click_on
 
     fill_in_i18n(
       :problem_title,
@@ -133,15 +133,15 @@ shared_examples "manage problems" do
     )
 
     page.execute_script("$('#problem_start_date').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .day", text: "12").click_on
 
     page.execute_script("$('#problem_end_date').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .day", text: "12").click_on
 
     scope_pick select_data_picker(:problem_decidim_scope_id), scope
 
     within ".new_problem" do
-      find("*[type=submit]").click
+      find("*[type=submit]").click_on
     end
 
     expect(page).to have_admin_callout("successfully")

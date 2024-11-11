@@ -6,7 +6,7 @@ module Decidim
     #
     module SdgsHelper
       def sdgs_filter_selector(form)
-        render partial: "decidim/sdgs/sdgs_filter/filter_selector", locals: { form: form }
+        render partial: "decidim/sdgs/sdgs_filter/filter_selector", locals: { form: }
       end
 
       def t_sdg(code)

@@ -9,11 +9,11 @@ module Decidim
         subject { described_class.new(form_with_problem) }
 
         let(:organization) { create(:organization, available_locales: [:en]) }
-        let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions") }
         let(:challenge) { create(:challenge) }
-        let(:problem) { create(:problem, challenge: challenge) }
+        let(:problem) { create(:problem, challenge:) }
         let(:tags) { "tag1, tag2, tag3" }
         let(:objectives) do
           { en: "objectives" }
@@ -39,15 +39,15 @@ module Decidim
             author_id: current_user.id,
             decidim_problems_problem_id: problem.id,
             decidim_challenges_challenge_id: nil,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
-            current_user: current_user,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
+            current_user:,
             current_organization: organization,
-            current_component: current_component
+            current_component:
           )
         end
         let(:form_without_problem) do
@@ -59,15 +59,15 @@ module Decidim
             description: { en: "Solution desc" },
             decidim_problems_problem_id: nil,
             decidim_challenges_challenge_id: challenge.id,
-            tags: tags,
-            objectives: objectives,
-            indicators: indicators,
-            beneficiaries: beneficiaries,
-            financing_type: financing_type,
-            requirements: requirements,
-            current_user: current_user,
+            tags:,
+            objectives:,
+            indicators:,
+            beneficiaries:,
+            financing_type:,
+            requirements:,
+            current_user:,
             current_organization: organization,
-            current_component: current_component
+            current_component:
           )
         end
         let(:invalid) { false }

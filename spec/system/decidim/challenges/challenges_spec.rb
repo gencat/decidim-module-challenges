@@ -10,10 +10,10 @@ describe "Challenges" do
 
   describe "#show" do
     context "when a challenge has contents" do
-      let!(:challenge) { create(:challenge, component: component) }
+      let!(:challenge) { create(:challenge, component:) }
       let(:problems_component) { create(:problems_component, participatory_space: challenge.participatory_space) }
-      let!(:problem) { create(:problem, component: problems_component, challenge: challenge) }
-      let!(:solution) { create(:solution, component: solutions_component, problem: problem) }
+      let!(:problem) { create(:problem, component: problems_component, challenge:) }
+      let!(:solution) { create(:solution, component: solutions_component, problem:) }
 
       before do
         visit_component
@@ -31,7 +31,7 @@ describe "Challenges" do
     end
 
     context "when a challenge optional contents are empty" do
-      let!(:challenge) { create(:challenge, component: component, tags: {}) }
+      let!(:challenge) { create(:challenge, component:, tags: {}) }
 
       before do
         visit_component
@@ -49,17 +49,17 @@ describe "Challenges" do
   describe("#index") do
     context "when list challenges" do
       let(:other_component) { create(:challenges_component, :with_card_image_allowed) }
-      let!(:older_challenge) { create(:challenge, component: component, created_at: 1.month.ago) }
-      let!(:recent_challenge) { create(:challenge, component: component, created_at: Time.now.utc) }
+      let!(:older_challenge) { create(:challenge, component:, created_at: 1.month.ago) }
+      let!(:recent_challenge) { create(:challenge, component:, created_at: Time.now.utc) }
       let!(:other_component_challenge) { create(:challenge, component: other_component, created_at: Time.now.utc) }
-      let!(:challenges) { create_list(:challenge, 2, component: component) }
+      let!(:challenges) { create_list(:challenge, 2, component:) }
 
       before do
         visit_component
       end
 
       it "show only challenges of current component" do
-        expect(page).to have_css(".card__list", count: 4)
+        expect(page).to hace_field(".card__list", count: 4)
         expect(page).to have_content(translated(challenges.first.title))
         expect(page).to have_content(translated(challenges.last.title))
       end
@@ -69,25 +69,25 @@ describe "Challenges" do
           expect(page).to have_content("Random")
         end
 
-        expect(page).to have_css(".card__list", count: 4)
+        expect(page).to hace_field(".card__list", count: 4)
         expect(page).to have_content(translated(challenges.first.title))
         expect(page).to have_content(translated(challenges.last.title))
       end
 
       it "ordered by created at" do
         within ".order-by" do
-          page.find("a", text: "Random").click
+          page.find("a", text: "Random").click_on
           click_on "Most recent"
         end
 
-        expect(page).to have_css(".order-by .button:first-child", text: recent_challenge.title[:en])
-        expect(page).to have_css(".order-by .button:last-child", text: older_challenge.title[:en])
+        expect(page).to hace_field(".order-by .button:first-child", text: recent_challenge.title[:en])
+        expect(page).to hace_field(".order-by .button:last-child", text: older_challenge.title[:en])
       end
     end
 
     context "when card images are allow" do
-      let!(:challenge_with_card_image) { create(:challenge, :with_card_image, component: component) }
-      let!(:challenge) { create(:challenge, component: component) }
+      let!(:challenge_with_card_image) { create(:challenge, :with_card_image, component:) }
+      let!(:challenge) { create(:challenge, component:) }
 
       context "when list all challenges" do
         before do
@@ -96,8 +96,8 @@ describe "Challenges" do
         end
 
         it "show cards with images" do
-          expect(page).to have_css(".card__list", count: 2)
-          expect(page).to have_css(".card__list-image", count: 2)
+          expect(page).to hace_field(".card__list", count: 2)
+          expect(page).to hace_field(".card__list-image", count: 2)
 
           expect(page).to have_content(translated(challenge_with_card_image.title))
           expect(page).to have_content(translated(challenge.title))

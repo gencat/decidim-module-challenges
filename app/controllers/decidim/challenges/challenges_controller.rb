@@ -16,7 +16,7 @@ module Decidim
       helper Decidim::ShowFiltersHelper
       helper Decidim::Challenges::ChallengesHelper
 
-      helper_method :challenges, :has_sdgs
+      helper_method :challenges, :has_sdgs?
 
       def index
         @challenges = search.result
@@ -38,7 +38,7 @@ module Decidim
       end
 
       def default_filter_params
-        has_sdgs ? default_filters.merge({with_any_sdgs_codes: []}) : default_filter_params
+        has_sdgs ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filter_params
       end
 
       def challenges
@@ -54,7 +54,7 @@ module Decidim
           search_text_cont: "",
           with_any_state: %w(proposal execution finished),
           with_any_scope: nil,
-          with_any_sdgs_codes: [],          
+          with_any_sdgs_codes: [],
           with_any_category: nil,
           related_to: "",
         }

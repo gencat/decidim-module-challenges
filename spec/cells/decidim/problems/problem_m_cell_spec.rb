@@ -9,9 +9,9 @@ module Decidim::Problems
     let(:description) do
       Decidim::Faker::Localized.sentence
     end
-    let!(:problem) { create(:problem, description: description) }
+    let!(:problem) { create(:problem, description:) }
     let(:model) { problem }
-    let(:cell_html) { cell("decidim/problems/problem_g", problem, context: { show_space: show_space }).call }
+    let(:cell_html) { cell("decidim/problems/problem_g", problem, context: { show_space: }).call }
     let!(:problem_title) { translated(problem.title) }
     let!(:problem_description) { translated(problem.description) }
     let!(:challenge_title) { translated(problem.challenge.title) }
@@ -20,7 +20,7 @@ module Decidim::Problems
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(cell_html).to have_css(".card--problem")
+        expect(cell_html).to hace_field(".card--problem")
       end
 
       it "renders the problem title" do

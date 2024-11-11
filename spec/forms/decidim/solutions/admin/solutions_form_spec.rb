@@ -9,8 +9,8 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create(:organization) }
-        let(:scope) { create(:scope, organization: organization) }
-        let(:current_user) { create(:user, :confirmed, organization: organization) }
+        let(:scope) { create(:scope, organization:) }
+        let(:current_user) { create(:user, :confirmed, organization:) }
         let(:title) do
           {
             en: "Problem title",
@@ -26,7 +26,7 @@ module Decidim
           }
         end
         let(:challenge) { create(:challenge) }
-        let(:problem) { create(:problem, challenge: challenge) }
+        let(:problem) { create(:problem, challenge:) }
         let(:tags) { "tag1, tag2, tag3" }
         let(:objectives) do
           {

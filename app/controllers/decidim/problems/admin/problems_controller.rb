@@ -21,7 +21,7 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :edit, :problem, problem: problem
+          enforce_permission_to(:edit, :problem, problem:)
           @form = form(Decidim::Problems::Admin::ProblemsForm).from_model(problem)
         end
 
@@ -43,7 +43,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :edit, :problem, problem: problem
+          enforce_permission_to(:edit, :problem, problem:)
           @form = form(Decidim::Problems::Admin::ProblemsForm).from_params(params)
 
           Decidim::Problems::Admin::UpdateProblem.call(@form, problem) do
@@ -60,7 +60,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :problem, problem: problem
+          enforce_permission_to(:destroy, :problem, problem:)
 
           Decidim::Problems::Admin::DestroyProblem.call(problem, current_user) do
             on(:ok) do

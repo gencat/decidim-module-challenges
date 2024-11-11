@@ -8,8 +8,8 @@ module Decidim
       subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
       let(:organization) { create(:organization) }
-      let(:scope) { create(:scope, organization: organization) }
-      let(:current_user) { create(:user, :confirmed, organization: organization) }
+      let(:scope) { create(:scope, organization:) }
+      let(:current_user) { create(:user, :confirmed, organization:) }
       let(:title) { "Títol solució" }
       let(:description) { "Descripció solució" }
       let(:challenge) { create(:challenge) }

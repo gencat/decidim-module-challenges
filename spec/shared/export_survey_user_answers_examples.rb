@@ -2,10 +2,10 @@
 
 shared_examples "export survey user answers" do
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: questionnaire) }
+  let!(:questions) { create_list(:questionnaire_question, 3, questionnaire:) }
   let!(:answers) do
     questions.map do |question|
-      create_list(:answer, 3, questionnaire: questionnaire, question: question)
+      create_list(:answer, 3, questionnaire:, question:)
     end.flatten
   end
 
@@ -14,7 +14,7 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Edit survey")
 
-    find(".exports.button").click
+    find(".exports.button").click_on
     perform_enqueued_jobs { click_on "CSV" }
 
     within ".flash.success" do
@@ -31,7 +31,7 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Edit survey")
 
-    find(".exports.button").click
+    find(".exports.button").click_on
     perform_enqueued_jobs { click_on "JSON" }
 
     within ".flash.success" do
@@ -48,7 +48,7 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Edit survey")
 
-    find(".exports.button").click
+    find(".exports.button").click_on
     perform_enqueued_jobs { click_on "PDF" }
 
     within ".flash.success" do

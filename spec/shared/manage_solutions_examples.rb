@@ -11,7 +11,7 @@ shared_examples "manage solutions" do
 
   describe "when rendering the text in the update page" do
     before do
-      find("a", class: "action-icon--new").click
+      find("a", class: "action-icon--new").click_on
     end
 
     context "when there are multiple locales" do
@@ -19,63 +19,63 @@ shared_examples "manage solutions" do
         within "#solution-title-tabs" do
           click_on "English"
         end
-        expect(page).to have_css("input", text: solution.title[:en], visible: :visible)
+        expect(page).to hace_field("input", text: solution.title[:en], visible: :visible)
 
         within "#solution-title-tabs" do
           click_on "Català"
         end
-        expect(page).to have_css("input", text: solution.title[:ca], visible: :visible)
+        expect(page).to hace_field("input", text: solution.title[:ca], visible: :visible)
 
         within "#solution-title-tabs" do
           click_on "Castellano"
         end
-        expect(page).to have_css("input", text: solution.title[:es], visible: :visible)
+        expect(page).to hace_field("input", text: solution.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#solution-description-tabs" do
           click_on "English"
         end
-        expect(page).to have_css("input", text: solution.description[:en], visible: :visible)
+        expect(page).to hace_field("input", text: solution.description[:en], visible: :visible)
 
         within "#solution-description-tabs" do
           click_on "Català"
         end
-        expect(page).to have_css("input", text: solution.description[:ca], visible: :visible)
+        expect(page).to hace_field("input", text: solution.description[:ca], visible: :visible)
 
         within "#solution-description-tabs" do
           click_on "Castellano"
         end
-        expect(page).to have_css("input", text: solution.description[:es], visible: :visible)
+        expect(page).to hace_field("input", text: solution.description[:es], visible: :visible)
       end
     end
 
     context "when there is only one locale" do
       let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let(:component) { create(:component, manifest_name:, organization:) }
       let(:challenge) { create(:challenge) }
-      let(:problem) { create(:problem, challenge: challenge) }
+      let(:problem) { create(:problem, challenge:) }
       let!(:solution) do
-        create(:solution, scope: scope, component: component, problem: problem,
+        create(:solution, scope:, component:, problem:,
                           title: { en: "Solution title" },
                           description: { en: "Solution description" })
       end
 
       it "shows the title correctly" do
         expect(page).to have_no_css("#solution-title-tabs")
-        expect(page).to have_css("input", text: solution.title[:en], visible: :visible)
+        expect(page).to hace_field("input", text: solution.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
         expect(page).to have_no_css("#solution-description-tabs")
-        expect(page).to have_css("input", text: solution.description[:en], visible: :visible)
+        expect(page).to hace_field("input", text: solution.description[:en], visible: :visible)
       end
     end
   end
 
   it "updates a solution" do
     within "tr", text: Decidim::Solutions::SolutionPresenter.new(solution).title do
-      find("a", class: "action-icon--new").click
+      find("a", class: "action-icon--new").click_on
     end
 
     within ".edit_solution" do
@@ -87,7 +87,7 @@ shared_examples "manage solutions" do
         ca: "El meu nou títol"
       )
 
-      find("*[type=submit]").click
+      find("*[type=submit]").click_on
     end
 
     expect(page).to have_admin_callout("successfully")
@@ -112,7 +112,7 @@ shared_examples "manage solutions" do
   # end
 
   it "creates a new solution" do
-    find(".card-title a.button").click
+    find(".card-title a.button").click_on
 
     fill_in_i18n(
       :solution_title,
@@ -134,7 +134,7 @@ shared_examples "manage solutions" do
     scope_pick select_data_picker(:solution_decidim_scope_id), scope
 
     within ".new_solution" do
-      find("*[type=submit]").click
+      find("*[type=submit]").click_on
     end
 
     expect(page).to have_admin_callout("successfully")
@@ -146,8 +146,8 @@ shared_examples "manage solutions" do
 
   describe "deleting a solution" do
     let(:challenge) { create(:challenge) }
-    let(:problem) { create(:problem, challenge: challenge) }
-    let!(:solution_2) { create(:solution, component: current_component, problem: problem) }
+    let(:problem) { create(:problem, challenge:) }
+    let!(:solution_2) { create(:solution, component: current_component, problem:) }
 
     before do
       visit current_path

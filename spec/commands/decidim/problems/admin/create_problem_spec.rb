@@ -9,12 +9,12 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create(:organization, available_locales: [:en]) }
-        let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "problems") }
         let(:challenge) { create(:challenge) }
-        let(:sectorial_scope) { create(:scope, organization: organization) }
-        let(:technological_scope) { create(:scope, organization: organization) }
+        let(:sectorial_scope) { create(:scope, organization:) }
+        let(:technological_scope) { create(:scope, organization:) }
         let(:tags) { "tag1, tag2, tag3" }
         let(:causes) { "causes" }
         let(:groups_affected) { "groups affected" }
@@ -32,17 +32,17 @@ module Decidim
             decidim_challenges_challenge_id: challenge.id,
             decidim_sectorial_scope_id: sectorial_scope.id,
             decidim_technological_scope_id: technological_scope.id,
-            tags: tags,
-            causes: causes,
-            groups_affected: groups_affected,
-            state: state,
-            start_date: start_date,
-            end_date: end_date,
-            proposing_entities: proposing_entities,
-            collaborating_entities: collaborating_entities,
-            current_user: current_user,
+            tags:,
+            causes:,
+            groups_affected:,
+            state:,
+            start_date:,
+            end_date:,
+            proposing_entities:,
+            collaborating_entities:,
+            current_user:,
             current_organization: organization,
-            current_component: current_component
+            current_component:
           )
         end
         let(:invalid) { false }

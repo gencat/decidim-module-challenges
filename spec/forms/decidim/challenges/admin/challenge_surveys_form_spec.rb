@@ -9,11 +9,11 @@ module Decidim::Challenges
     let(:challenge) { create(:challenge) }
     let(:attributes) do
       {
-        survey_enabled: survey_enabled,
+        survey_enabled:,
       }
     end
     let(:survey_enabled) { true }
-    let(:context) { { current_organization: challenge.organization, challenge: challenge } }
+    let(:context) { { current_organization: challenge.organization, challenge: } }
 
     context "when surveys are enabled" do
       it { is_expected.to be_valid }

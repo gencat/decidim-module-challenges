@@ -6,7 +6,7 @@ FactoryBot.define do
   factory :challenges_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :challenges).i18n_name }
     manifest_name { :challenges }
-    participatory_space { create(:participatory_process, :with_steps) }
+    participatory_space { association(:participatory_process, :with_steps) }
 
     trait :with_card_image_allowed do
       settings do
@@ -25,11 +25,11 @@ FactoryBot.define do
     state { "execution" }
     start_date { 1.day.from_now }
     end_date { start_date + 2.months }
-    component { build(:challenges_component) }
+    component { association(:challenges_component) }
     coordinating_entities { [1..5].collect { generate(:name) }.join(", ") }
     collaborating_entities { [1..5].collect { generate(:name) }.join(", ") }
     published_at { Time.current }
-    questionnaire { build(:questionnaire) }
+    questionnaire { association(:questionnaire) }
 
     trait :proposal do
       state { 0 }

@@ -12,14 +12,14 @@ module Decidim::Challenges
 
     let!(:challenge) { create(:challenge, global_description: description) }
     let!(:challenge_title) { translated(challenge.title) }
-    let(:html) { cell("decidim/challenges/challenge", challenge, context: { show_space: show_space }).call }
+    let(:html) { cell("decidim/challenges/challenge", challenge, context: { show_space: }).call }
     let!(:challenge_description) { translated(challenge.global_description) }
 
     context "when rendering" do
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(html).to have_css(".challenge-status")
+        expect(html).to hace_field(".challenge-status")
       end
 
       it "renders the challenge description" do

@@ -25,7 +25,7 @@ module Decidim
 
     module ChallengesTypeHelper
       def self.base_scope(component)
-        Challenge.where(component: component).published
+        Challenge.where(component:).published
       end
     end
   end

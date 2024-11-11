@@ -24,7 +24,7 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :edit, :challenge, challenge: challenge
+          enforce_permission_to(:edit, :challenge, challenge:)
           @form = form(Decidim::Challenges::Admin::ChallengesForm).from_model(challenge)
         end
 
@@ -49,7 +49,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :edit, :challenge, challenge: challenge
+          enforce_permission_to(:edit, :challenge, challenge:)
           @form = form(Decidim::Challenges::Admin::ChallengesForm).from_params(params)
 
           Decidim::Challenges::Admin::UpdateChallenge.call(@form, challenge) do
@@ -66,7 +66,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :challenge, challenge: challenge
+          enforce_permission_to(:destroy, :challenge, challenge:)
 
           Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
             on(:ok) do

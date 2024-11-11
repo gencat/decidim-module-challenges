@@ -18,7 +18,7 @@ module Decidim
       helper SolutionsHelper
       helper Decidim::Challenges::ApplicationHelper
 
-      helper_method :solutions, :form_presenter, :has_sdgs, :has_problem?
+      helper_method :solutions, :form_presenter, :has_sdgs?, :has_problem?
 
       def index
         @solutions = search.result

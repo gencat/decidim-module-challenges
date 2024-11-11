@@ -10,7 +10,7 @@ describe "Solutions" do
 
   describe "#show" do
     context "when a solution has contents" do
-      let!(:solution) { create(:solution, component: component) }
+      let!(:solution) { create(:solution, component:) }
 
       before do
         visit_component
@@ -34,7 +34,7 @@ describe "Solutions" do
     end
 
     context "when a solution optional contents are empty" do
-      let!(:solution) { create(:solution, component: component, indicators: {}, beneficiaries: {}, requirements: {}, financing_type: {}, objectives: {}, tags: {}) }
+      let!(:solution) { create(:solution, component:, indicators: {}, beneficiaries: {}, requirements: {}, financing_type: {}, objectives: {}, tags: {}) }
 
       before do
         visit_component
@@ -55,40 +55,40 @@ describe "Solutions" do
   describe("#index") do
     context "when list solutions" do
       let(:other_component) { create(:solutions_component) }
-      let!(:older_solution) { create(:solution, component: component, created_at: 1.month.ago) }
-      let!(:recent_solution) { create(:solution, component: component, created_at: Time.now.utc) }
+      let!(:older_solution) { create(:solution, component:, created_at: 1.month.ago) }
+      let!(:recent_solution) { create(:solution, component:, created_at: Time.now.utc) }
       let!(:other_component_solution) { create(:solution, component: other_component, created_at: Time.now.utc) }
-      let!(:solutions) { create_list(:solution, 2, component: component) }
+      let!(:solutions) { create_list(:solution, 2, component:) }
 
       before do
         visit_component
       end
 
       it "show only solutions of current component" do
-        expect(page).to have_css(".card--solution", count: 4)
+        expect(page).to hace_field(".card--solution", count: 4)
         expect(page).to have_content(translated(solutions.first.title))
         expect(page).to have_content(translated(solutions.last.title))
       end
 
       it "ordered randomly" do
         within ".order-by" do
-          expect(page).to have_css("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to hace_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
         end
 
-        expect(page).to have_css(".card--solution", count: 4)
+        expect(page).to hace_field(".card--solution", count: 4)
         expect(page).to have_content(translated(solutions.first.title))
         expect(page).to have_content(translated(solutions.last.title))
       end
 
       it "ordered by created at" do
         within ".order-by" do
-          expect(page).to have_css("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-          page.find("a", text: "Random").click
+          expect(page).to hace_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click_on
           click_on "Most recent"
         end
 
-        expect(page).to have_css("#solutions .card-grid .column:first-child", text: recent_solution.title[:en])
-        expect(page).to have_css("#solutions .card-grid .column:last-child", text: older_solution.title[:en])
+        expect(page).to hace_field("#solutions .card-grid .column:first-child", text: recent_solution.title[:en])
+        expect(page).to hace_field("#solutions .card-grid .column:last-child", text: older_solution.title[:en])
       end
     end
   end

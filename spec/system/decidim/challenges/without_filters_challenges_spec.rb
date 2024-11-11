@@ -7,9 +7,9 @@ describe "Without filters Challenges", :slow do
   let(:manifest_name) { "challenges" }
 
   let!(:category) { create(:category, participatory_space: participatory_process) }
-  let!(:scope) { create(:scope, organization: organization) }
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   describe "when filters are hide" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
@@ -18,9 +18,9 @@ describe "Without filters Challenges", :slow do
     before do
       component.settings = { hide_filters: true }
       component.save!
-      create_list(:challenge, 2, component: component, scope: scope)
-      create(:challenge, component: component, scope: scope_2)
-      create(:challenge, component: component, scope: nil)
+      create_list(:challenge, 2, component:, scope:)
+      create(:challenge, component:, scope: scope_2)
+      create(:challenge, component:, scope: nil)
       visit_component
     end
 

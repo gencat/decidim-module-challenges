@@ -9,7 +9,7 @@ module Decidim
     included do
       private
 
-      def has_sdgs
+      def has_sdgs?
         sdgs_component = current_component.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil)
 
         sdgs_component.present?

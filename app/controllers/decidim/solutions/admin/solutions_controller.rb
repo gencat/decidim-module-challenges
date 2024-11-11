@@ -26,7 +26,7 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :edit, :solution, solution: solution
+          enforce_permission_to(:edit, :solution, solution:)
           @form = form(Decidim::Solutions::Admin::SolutionsForm).from_model(solution)
         end
 
@@ -48,7 +48,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :edit, :solution, solution: solution
+          enforce_permission_to(:edit, :solution, solution:)
           @form = form(Decidim::Solutions::Admin::SolutionsForm).from_params(params.merge({ author_id: current_user.id }))
 
           Decidim::Solutions::Admin::UpdateSolution.call(@form, solution) do
@@ -65,7 +65,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :solution, solution: solution
+          enforce_permission_to(:destroy, :solution, solution:)
 
           Decidim::Solutions::Admin::DestroySolution.call(solution, current_user) do
             on(:ok) do

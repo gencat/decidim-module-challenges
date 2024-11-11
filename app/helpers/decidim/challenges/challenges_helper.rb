@@ -7,10 +7,8 @@ module Decidim
     module ChallengesHelper
       def filter_sections
         filters = default_filters
- 
-        if has_sdgs
-          filters << { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" }
-        end
+
+        filters << { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" } if has_sdgs
 
         filters.reject { |item| item[:collection].blank? }
       end
@@ -37,7 +35,8 @@ module Decidim
           { method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state" },
           { method: :with_any_scope, collection: filter_custom_scopes_values, label_scope: "decidim.shared.filters", id: "scope" },
           { method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.shared.filters", id: "category" },
-          { method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to", type: :radio_buttons },
+          { method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to",
+            type: :radio_buttons },
         ]
       end
     end

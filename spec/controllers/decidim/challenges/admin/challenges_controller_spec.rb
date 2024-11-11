@@ -38,27 +38,27 @@ describe Decidim::Challenges::Admin::ChallengesController do
   let(:params) do
     {
       challenge: {
-        title: title,
-        local_description: local_description,
-        global_description: global_description,
-        state: state,
-        sdg_code: sdg_code,
-        tags: tags,
-        start_date: start_date,
-        end_date: end_date,
-        collaborating_entities: collaborating_entities,
-        coordinating_entities: coordinating_entities,
-        card_image: card_image,
+        title:,
+        local_description:,
+        global_description:,
+        state:,
+        sdg_code:,
+        tags:,
+        start_date:,
+        end_date:,
+        collaborating_entities:,
+        coordinating_entities:,
+        card_image:,
       },
       component_id: component,
-      scope: scope,
+      scope:,
       participatory_process_slug: component.participatory_space.slug,
     }
   end
-  let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "challenges", organization: organization) }
-  let(:scope) { create(:scope, organization: organization) }
+  let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "challenges", organization:) }
+  let(:scope) { create(:scope, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -70,7 +70,7 @@ describe Decidim::Challenges::Admin::ChallengesController do
   describe "POST #create" do
     context "with all mandatory fields" do
       it "creates a challenge" do
-        post :create, params: params
+        post(:create, params:)
 
         expect(flash[:notice]).not_to be_empty
         expect(response).to have_http_status(:found)
@@ -87,7 +87,7 @@ describe Decidim::Challenges::Admin::ChallengesController do
       end
 
       it "doesn't create a challenge" do
-        post :create, params: params
+        post(:create, params:)
 
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:ok)
@@ -96,7 +96,7 @@ describe Decidim::Challenges::Admin::ChallengesController do
   end
 
   describe "PUT #update" do
-    let(:challenge) { create(:challenge, component: component) }
+    let(:challenge) { create(:challenge, component:) }
 
     context "with all mandatory fields" do
       let(:params) do
@@ -108,24 +108,24 @@ describe Decidim::Challenges::Admin::ChallengesController do
               es: "Título reto actualizado",
               ca: "Títol repte actualitzat",
             },
-            local_description: local_description,
-            global_description: global_description,
-            state: state,
-            sdg_code: sdg_code,
-            tags: tags,
-            start_date: start_date,
-            end_date: end_date,
-            collaborating_entities: collaborating_entities,
-            coordinating_entities: coordinating_entities,
+            local_description:,
+            global_description:,
+            state:,
+            sdg_code:,
+            tags:,
+            start_date:,
+            end_date:,
+            collaborating_entities:,
+            coordinating_entities:,
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
 
       it "updates a challenge" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(flash[:notice]).not_to be_empty
         expect(response).to have_http_status(:found)
@@ -143,14 +143,14 @@ describe Decidim::Challenges::Admin::ChallengesController do
               ca: nil,
             },
           },
-          component: component,
-          scope: scope,
+          component:,
+          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
 
       it "doesn't update a challenge" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:ok)
@@ -159,18 +159,18 @@ describe Decidim::Challenges::Admin::ChallengesController do
   end
 
   describe "DELETE #destroy" do
-    let(:challenge) { create(:challenge, component: component) }
+    let(:challenge) { create(:challenge, component:) }
     let(:params) do
       {
         id: challenge.id,
-        component: component,
-        scope: scope,
+        component:,
+        scope:,
         participatory_process_slug: component.participatory_space.slug,
       }
     end
 
     it "deletes a challenge" do
-      delete :destroy, params: params
+      delete(:destroy, params:)
 
       expect(flash[:notice]).not_to be_empty
       expect(response).to have_http_status(:found)
