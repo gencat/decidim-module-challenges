@@ -1,0 +1,54 @@
+<section class="layout-aside__section layout-aside__buttons mb-4">
+  <% if @challenge.survey_enabled %>
+    <%= link_to t('surveys.answer', scope: "decidim.challenges"), answer_challenge_survey_path(@challenge), class: "button button__lg w-full button__secondary" %>
+  <% end %>
+</section>
+
+<div class="rounded p-4 bg-background mb-4 divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">
+  <div class="text-gray-2 space-y-1.5">
+    <div class="text-sm flex flex-col items-center gap-1">
+      <p class="uppercase text-xs"><%= t("status", scope: "activemodel.attributes.challenge") %></p>
+      <p class="uppercase mb-4"><%= t(@challenge.state, scope: "decidim.challenges.states") %></p>
+    </div>
+
+    <% if @challenge_scope.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("scope", scope: "activemodel.attributes.challenge") %></p>
+        <p class="uppercase mb-4"><%= translated_attribute(@challenge_scope.name) %></p>
+      </div>
+    <% end %>
+
+    <% if @challenge.coordinating_entities.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></p>
+        <p class="uppercase mb-4"><%= present(@challenge).coordinating_entities %></p>
+      </div>
+    <% end %>
+
+    <% if @challenge.collaborating_entities.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("collaborating_entities", scope: "activemodel.attributes.challenge") %></p>
+        <p class="uppercase mb-4"><%= present(@challenge).collaborating_entities %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <% if has_sdgs && @sdg %>
+    <div class="text-sm flex flex-col items-center gap-1">
+      <p class="uppercase text-xs text-center"><%= t("sdg", scope: "activemodel.attributes.challenge") %></p>
+      <div class="ods challenges flex items-center">
+        <div class="text-container show">
+          <p><%= t(@sdg + ".logo.line1", scope: "decidim.components.sdgs") %></p>
+          <p><%= t(@sdg + ".logo.line2", scope: "decidim.components.sdgs") %></p>
+        </div>
+        <%= image_pack_tag "media/images/ods-#{@sdg_index}.svg", alt: "Logo ODS #{@sdg_index}", class: "challenge--view" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<section class="layout-aside__section actions__secondary">
+  <%= resource_reference(current_participatory_space) %>
+  <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: false } %>
+  <%= cell "decidim/share_button", nil %>
+</section>
