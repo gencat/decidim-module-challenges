@@ -127,3 +127,9 @@
 .card-proposed-solution {
   padding: 5px 10px;
 }
+
+.challenge-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

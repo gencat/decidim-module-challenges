@@ -153,6 +153,8 @@ en:
           label: test
           random: Random
           recent: Most recent
+        show:
+          new_solution: New solution
       challenges_helper:
         filter_state_values:
           all: All
