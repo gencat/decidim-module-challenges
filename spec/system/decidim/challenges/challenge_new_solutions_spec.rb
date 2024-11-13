@@ -27,7 +27,7 @@ describe "Challenge new solutions", type: :system do
     let(:problems_component) { create(:problems_component, participatory_space: challenge.participatory_space) }
     let!(:problem) { create :problem, component: problems_component }
     let(:solutions_component) { create(:solutions_component, participatory_space: challenge.participatory_space) }
-    let!(:solution) { create :solution, component: solutions_component}
+    let!(:solution) { create :solution, component: solutions_component }
 
     before do
       solutions_component.update!(
