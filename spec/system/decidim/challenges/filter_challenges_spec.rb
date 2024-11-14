@@ -202,37 +202,4 @@ describe "Filter Challenges", :slow do
       end
     end
   end
-
-  context "when filtering challenges by CATEGORY" do
-    let!(:challenge) { create(:challenge, component:, category:) }
-
-    before do
-      login_as user, scope: :user
-      visit_component
-    end
-
-    it "can be filtered by category" do
-      within ".filters .with_any_category_check_boxes_tree_filter" do
-        uncheck "All"
-        check category.name[I18n.locale.to_s]
-      end
-
-      expect(page).to have_field(".card--challenge", count: 1)
-    end
-
-    it "works with 'back to list' link" do
-      within ".filters .with_any_category_check_boxes_tree_filter" do
-        uncheck "All"
-        check category.name[I18n.locale.to_s]
-      end
-
-      expect(page).to have_field(".card--challenge", count: 1)
-
-      page.find(".card--challenge .card__link").click_on
-
-      click_on "Return to list"
-
-      expect(page).to have_field(".card--challenge", count: 1)
-    end
-  end
 end

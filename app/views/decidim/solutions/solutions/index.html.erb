@@ -6,6 +6,15 @@
 <% content_for :aside do %>
   <h1 id="solutions-count" class="title-decorator"><%= component_name %></h1>
 
+  <% if @component_settings.creation_enabled? %>
+    <div class="proposal-list__aside__button-container">
+      <%= action_authorized_link_to :create, new_solution_path, class: "button button__xl button__secondary w-full", data: { "redirect_url" => new_solution_path } do %>
+        <span><%= t("actions.new_solution", scope: "decidim.solutions.admin") %></span>
+        <%= icon "add-line" %>
+      <% end %>
+    </div>
+  <% end %>
+
   <% if !@component_settings.hide_filters %>
     <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable: :search_text_cont, skip_to_id: "solutions" } do %>
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
@@ -15,6 +24,6 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <section id="solutions" class="layout-main__section layout-main__heading">
-    <%= render partial: "solutions", locals: { has_sdgs?: } %>
+    <%= render partial: "solutions", locals: { has_sdgs: has_sdgs? } %>
   </section>
 <% end %>

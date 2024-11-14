@@ -6,11 +6,19 @@ module Decidim
     #
     module SolutionsHelper
       def filter_sections
+        filters = default_filters
+
+        filters << { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" } if has_sdgs?
+
+        filters.reject { |item| item[:collection].blank? }
+      end
+
+      def default_filters
         [
-          { method: :with_any_territorial_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.filters", id: "sdgs" },
-          { method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.shared.filters", id: "sdgs" },
-          { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" },
-        ].reject { |item| item[:collection].blank? }
+          { method: :with_any_territorial_scope, collection: filter_custom_scopes_values, label_scope: "decidim.problems.problems.filters", id: "territorial_scope" },
+          { method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.problems.problems.filters", id: "related_to",
+            type: :radio_buttons },
+        ]
       end
 
       def filter_sdgs_values

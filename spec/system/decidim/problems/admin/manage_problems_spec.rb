@@ -14,7 +14,7 @@ describe "Admin creates problems" do
     it "browses the new view" do
       visit_component_admin
 
-      find("a.button", text: "New Problem").click_on
+      find("a.button", text: "New Problem").click
       expect(page).to have_field "input#problem_title_en"
     end
   end

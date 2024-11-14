@@ -38,7 +38,7 @@ module Decidim
       end
 
       def default_filter_params
-        has_sdgs? ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filter_params
+        has_sdgs? ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filters
       end
 
       def challenges
@@ -54,8 +54,6 @@ module Decidim
           search_text_cont: "",
           with_any_state: %w(proposal execution finished),
           with_any_scope: nil,
-          with_any_sdgs_codes: [],
-          with_any_category: nil,
           related_to: "",
         }
       end

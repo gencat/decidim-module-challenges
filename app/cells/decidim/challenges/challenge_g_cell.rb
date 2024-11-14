@@ -8,6 +8,7 @@ module Decidim
       include ActiveSupport::NumberHelper
       include Decidim::Challenges::ChallengesHelper
       include Decidim::Sdgs::SdgsHelper
+      include ChallengeCellsHelper
 
       private
 
@@ -21,12 +22,6 @@ module Decidim
 
       def has_image?
         @has_image ||= model.component.settings.allow_card_image && model.card_image.attached?
-      end
-
-      def has_sdgs?
-        sdgs_component = model.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil)
-
-        sdgs_component.present?
       end
 
       def resource_image_path

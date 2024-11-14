@@ -5,8 +5,8 @@
 <% content_for :aside do %>
   <h1 id="challenges-count" class="title-decorator"><%= component_name %></h1>
 
-  <% unless @component_settings.hide_filters %>
-    <%= render layout: "decidim/shared/filters", locals: { filter_sections:, has_sdgs?: ,search_variable: :search_text_cont, skip_to_id: "challenges" } do %>
+  <% unless @component_settings.hide_filters? %>
+    <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable: :search_text_cont, skip_to_id: "challenges" } do %>
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
     <% end %>
   <% end %>
@@ -16,6 +16,6 @@
   <%= render partial: "decidim/shared/component_announcement" %>
 
   <section id="challenges" class="layout-main__section layout-main__heading">
-    <%= render partial: "challenges", locals: { has_sdgs?:} %>
+    <%= render partial: "challenges" %>
   </section>
 <% end %>

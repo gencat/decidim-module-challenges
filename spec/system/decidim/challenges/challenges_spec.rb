@@ -2,22 +2,23 @@
 
 require "spec_helper"
 
-describe "Challenges" do
+describe "Challenges", :slow do
+  include ActionView::Helpers::SanitizeHelper
+
   include_context "with a component"
   let(:manifest_name) { "challenges" }
-
-  let(:solutions_component) { create(:solutions_component, participatory_space: challenge.participatory_space) }
 
   describe "#show" do
     context "when a challenge has contents" do
       let!(:challenge) { create(:challenge, component:) }
       let(:problems_component) { create(:problems_component, participatory_space: challenge.participatory_space) }
       let!(:problem) { create(:problem, component: problems_component, challenge:) }
+      let(:solutions_component) { create(:solutions_component, participatory_space: challenge.participatory_space) }
       let!(:solution) { create(:solution, component: solutions_component, problem:) }
 
       before do
         visit_component
-        click_link_or_button translated(challenge.title)
+        click_on translated(challenge.title)
       end
 
       it "does render the contents" do

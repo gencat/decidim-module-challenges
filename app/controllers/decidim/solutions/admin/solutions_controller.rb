@@ -6,6 +6,8 @@ module Decidim
       # Controller that allows managing admin problems.
       #
       class SolutionsController < Decidim::Solutions::Admin::ApplicationController
+        include Decidim::ApplicationHelper
+
         helper Challenges::ApplicationHelper
 
         helper_method :solution, :solution, :form_presenter

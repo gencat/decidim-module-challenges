@@ -34,7 +34,6 @@ module Decidim
         [
           { method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state" },
           { method: :with_any_scope, collection: filter_custom_scopes_values, label_scope: "decidim.shared.filters", id: "scope" },
-          { method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.shared.filters", id: "category" },
           { method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to",
             type: :radio_buttons },
         ]

@@ -9,7 +9,7 @@ DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/
 gem "decidim", DECIDIM_VERSION
 gem "decidim-challenges", path: "."
 
-gem "bootsnap", "~> 1.4"
+gem "bootsnap"
 gem "puma", ">= 4.3"
 gem "uglifier", "~> 4.1"
 

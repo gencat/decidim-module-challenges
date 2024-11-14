@@ -37,28 +37,18 @@ module Decidim
       end
 
       def default_filter_params
-        if has_sdgs?
-          {
-            search_text_cont: "",
-            with_any_state: %w(proposal execution finished),
-            with_any_sdgs_codes: [],
-          }
-        else
-          {
-            search_text_cont: "",
-            with_any_state: %w(proposal execution finished),
-          }
-        end
+        has_sdgs? ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filters
       end
 
-      def default_filter_scope_params
-        return "all" unless current_component.participatory_space.scopes.any?
-
-        if current_component.participatory_space.scope
-          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
-        end
+      def default_filters
+        {
+          search_text_cont: "",
+          with_any_state: %w(proposal execution finished),
+          with_any_sectorial_scope: nil,
+          with_any_technological_scope: nil,
+          with_any_territorial_scope: nil,
+          related_to: "",
+        }
       end
 
       def problems

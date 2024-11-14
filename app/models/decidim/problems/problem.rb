@@ -52,7 +52,7 @@ module Decidim
         joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: Array(values).map(&:to_sym) })
       }
 
-      scope :with_any_sectorial_scope_id, lambda { |*sectorial_scope_id|
+      scope :with_any_sectorial_scope, lambda { |*sectorial_scope_id|
         if sectorial_scope_id.include?("all")
           all
         else
@@ -66,7 +66,7 @@ module Decidim
         end
       }
 
-      scope :with_any_technological_scope_id, lambda { |*technological_scope_id|
+      scope :with_any_technological_scope, lambda { |*technological_scope_id|
         if technological_scope_id.include?("all")
           all
         else
@@ -80,7 +80,7 @@ module Decidim
         end
       }
 
-      scope :with_any_territorial_scope_id, lambda { |*territorial_scope_id|
+      scope :with_any_territorial_scope, lambda { |*territorial_scope_id|
         if territorial_scope_id.include?("all")
           all
         else
@@ -95,8 +95,8 @@ module Decidim
       }
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :search_text_cont, :with_any_sdgs_codes, :with_any_category,
-         :with_any_sectorial_scope_id, :with_any_technological_scope_id, :with_any_territorial_scope_id]
+        [:with_any_state, :search_text_cont, :with_any_sdgs_codes,
+         :with_any_sectorial_scope, :with_any_technological_scope, :with_any_territorial_scope, :related_to]
       end
 
       searchable_fields({

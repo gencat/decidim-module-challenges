@@ -13,6 +13,7 @@ module Decidim
       include Decidim::ResourceReferenceHelper
       include Decidim::TranslatableAttributes
       include Decidim::CardHelper
+      include WithSdgs
 
       def current_component
         model.component

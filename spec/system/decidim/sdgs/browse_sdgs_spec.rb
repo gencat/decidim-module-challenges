@@ -20,14 +20,14 @@ describe "Public Sustainable Development Goals" do
       end
 
       it "shows the list of all SDGs" do
-        expect(page).to have_field(".ods", count: 18)
+        expect(page).to have_css(".ods", count: 18)
       end
 
       describe "ods logo click" do
         context "when a ODS logo is clicked" do
           it "has to display an element containing the objective explanation" do
             [*0..16].each do |i|
-              page.find(ods_ids[i]).click_on
+              page.find(ods_ids[i]).click
               expect(page).to have_selector(objective_ids[i], visible: :visible)
             end
           end

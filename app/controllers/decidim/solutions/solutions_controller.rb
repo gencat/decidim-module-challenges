@@ -61,24 +61,16 @@ module Decidim
       private
 
       def default_filter_params
+        has_sdgs? ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filters
+      end
+
+      def default_filters
         {
           search_text_cont: "",
-          with_any_category: nil,
-          with_any_territorial_scope: default_filter_scope_params,
-          with_any_area: nil,
+          with_any_territorial_scope: nil,
           with_any_sdgs_codes: [],
           related_to: "",
         }
-      end
-
-      def default_filter_scope_params
-        return "all" unless current_component.participatory_space.scopes.any?
-
-        if current_component.participatory_space.scope
-          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
-        end
       end
 
       def solutions

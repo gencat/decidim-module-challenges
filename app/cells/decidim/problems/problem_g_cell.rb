@@ -8,6 +8,7 @@ module Decidim
       include ActiveSupport::NumberHelper
       include Decidim::Problems::ProblemsHelper
       include Decidim::Sdgs::SdgsHelper
+      include ProblemCellsHelper
 
       private
 
@@ -54,12 +55,6 @@ module Decidim
 
       def resource_sdg_index
         model.challenge.sdg_code ? (1 + Decidim::Sdgs::Sdg.index_from_code(model.challenge.sdg_code.to_sym)).to_s.rjust(2, "0") : nil
-      end
-
-      def has_sdgs?
-        sdgs_component = model.participatory_space.components.where(manifest_name: "sdgs").where.not(published_at: nil)
-
-        sdgs_component.present?
       end
     end
   end
