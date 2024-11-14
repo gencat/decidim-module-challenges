@@ -4,7 +4,7 @@ Following Semantic Versioning 2.
 ## next version:
 
 ## Version 0.4.2 (MINOR)
-- Show create solution button in challenge show if there is a solution component. 
+- Show create solution button in challenge, show only if there is a solution component. 
 
 ## Version 0.4.1.1 (PATCH)
 - Add missing translation.

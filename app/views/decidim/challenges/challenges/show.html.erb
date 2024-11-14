@@ -9,11 +9,11 @@
       <div class="card extra">
         <div class="card__content">
           <div class="challenge-action-buttons">
-            <% if @challenge.survey_enabled %>
+            <% if @challenge.survey_enabled? %>
               <%= link_to t('surveys.answer', scope: "decidim.challenges"), answer_challenge_survey_path(@challenge), class: "card__button button button--sc small" %>
             <% end %>
 
-            <% if solutions_component.present? && solutions_component.settings.creation_enabled %>
+            <% if solutions_component&.settings&.creation_enabled? %>
               <%= action_authorized_link_to :create, new_solution_path, class: "card__button button button--sc small", data: { "redirect_url": new_solution_path } do %>
                 <%= t(".new_solution") %>
                 <%= icon "plus", role: "img", "aria-hidden": true %>

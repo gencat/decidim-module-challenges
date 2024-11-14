@@ -58,7 +58,7 @@ module Decidim
       end
 
       def new_solution_path
-        component = current_participatory_space.components.find_by(manifest_name: "solutions")
+        component = solutions_component
         Decidim::EngineRouter.main_proxy(component).new_solution_path
       end
 
