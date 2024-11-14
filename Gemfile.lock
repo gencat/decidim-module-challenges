@@ -174,7 +174,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-challenges (0.4.1.1)
+    decidim-challenges (0.4.2)
       decidim-core (~> 0.27)
 
 GEM
@@ -270,7 +270,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bindex (0.8.1)
-    bootsnap (1.17.0)
+    bootsnap (1.18.4)
       msgpack (~> 1.2)
     browser (2.7.1)
     builder (3.2.4)
@@ -501,7 +501,7 @@ GEM
       tomlrb
     mixlib-shellout (3.2.7)
       chef-utils
-    msgpack (1.7.2)
+    msgpack (1.7.5)
     multi_xml (0.6.0)
     mustache (1.1.1)
     net-imap (0.4.9)

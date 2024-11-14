@@ -17,7 +17,7 @@ module Decidim
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
 
-      helper_method :challenges
+      helper_method :challenges, :new_solution_path, :solutions_component
 
       def index
         @challenges = search.result
@@ -55,6 +55,15 @@ module Decidim
 
       def search_collection
         ::Decidim::Challenges::Challenge.where(component: current_component).published
+      end
+
+      def new_solution_path
+        component = solutions_component
+        Decidim::EngineRouter.main_proxy(component).new_solution_path
+      end
+
+      def solutions_component
+        current_participatory_space.components.find_by(manifest_name: "solutions")
       end
     end
   end

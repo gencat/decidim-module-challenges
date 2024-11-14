@@ -153,6 +153,8 @@ es:
           label: Ordenaciones
           random: Aleatorio
           recent: Más recientes
+        show:
+          new_solution: Nueva solución
       challenges_helper:
         filter_state_values:
           all: Todos
