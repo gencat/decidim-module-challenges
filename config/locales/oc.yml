@@ -143,7 +143,6 @@ oc:
             other: "%{count} reptes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -1054,7 +1053,6 @@ oc:
             other: "%{count} problemes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -1203,7 +1201,6 @@ oc:
             other: "%{count} solucions"
         filters:
           all: Totes
-          category: Categoria
           technical: Tècnics
           economic: Econòmics
           financial: Finançers

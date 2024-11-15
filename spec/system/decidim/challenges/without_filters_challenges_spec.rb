@@ -6,7 +6,6 @@ describe "Without filters Challenges", :slow do
   include_context "with a component"
   let(:manifest_name) { "challenges" }
 
-  let!(:category) { create(:category, participatory_space: participatory_process) }
   let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }

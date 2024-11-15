@@ -7,7 +7,6 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::FilterableResource
       include Decidim::ScopableResource
-      include Decidim::HasCategory
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable

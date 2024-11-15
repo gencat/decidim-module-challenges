@@ -2,6 +2,7 @@
 
 require "spec_helper"
 
+# rubocop:disable Capybara/SpecificMatcher
 describe "Admin creates solutions" do
   let(:manifest_name) { "solutions" }
   let(:organization) { participatory_process.organization }
@@ -14,8 +15,9 @@ describe "Admin creates solutions" do
     it "browses the new view" do
       visit_component_admin
 
-      find("a.button", text: "New solution").click_on
-      expect(page).to have_field "input#solution_title_en"
+      find("a.button", text: "New solution").click
+      expect(page).to have_css "input#solution_title_en"
     end
   end
 end
+# rubocop:enable Capybara/SpecificMatcher

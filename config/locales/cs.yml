@@ -119,7 +119,6 @@ cs:
             other: "%{count} výzvy"
         filters:
           all: Vše
-          category: Kategorie
           execution: Provedení
           finished: Dokončeno
           proposal: Návrh
@@ -523,7 +522,6 @@ cs:
             other: "%{count} problémů"
         filters:
           all: Vše
-          category: Kategorie
           execution: Provedení
           finished: Dokončeno
           proposal: Návrh
@@ -645,7 +643,6 @@ cs:
             other: "%{count} řešení"
         filters:
           all: Vše
-          category: Kategorie
           technical: Technické
           economic: Ekonomické
           financial: Finanční

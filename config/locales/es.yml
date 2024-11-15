@@ -143,7 +143,6 @@ es:
             other: "%{count} retos"
         filters:
           all: Todas
-          category: Categoría
           execution: En ejecución
           finished: Acabada
           proposal: Propuesta
@@ -1069,7 +1068,6 @@ es:
             other: "%{count} problemas"
         filters:
           all: Todas
-          category: Categoria
           execution: En ejecución
           finished: Acabada
           proposal: Propuesta
@@ -1224,7 +1222,6 @@ es:
             other: "%{count} soluciones"
         filters:
           all: Todas
-          category: Categoria
           technical: Técnicos
           economic: Económicos
           financial: Financieros

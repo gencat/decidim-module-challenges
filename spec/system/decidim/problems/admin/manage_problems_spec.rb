@@ -2,6 +2,7 @@
 
 require "spec_helper"
 
+# rubocop:disable Capybara/SpecificMatcher
 describe "Admin creates problems" do
   let(:manifest_name) { "problems" }
   let(:organization) { participatory_process.organization }
@@ -15,7 +16,8 @@ describe "Admin creates problems" do
       visit_component_admin
 
       find("a.button", text: "New Problem").click
-      expect(page).to have_field "input#problem_title_en"
+      expect(page).to have_css "input#problem_title_en"
     end
   end
 end
+# rubocop:enable Capybara/SpecificMatcher

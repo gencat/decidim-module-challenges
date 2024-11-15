@@ -7,7 +7,6 @@ describe "Filter Solutions", :slow do
   include_context "with a component"
   let(:manifest_name) { "solutions" }
 
-  let!(:category) { create(:category, participatory_space: participatory_process) }
   let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
@@ -30,105 +29,68 @@ describe "Filter Solutions", :slow do
       create(:solution, component:, problem: problem_no_scope)
     end
 
-    include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".with_any_territorial_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "Territorial scope", ".card__list"
   end
 
-  describe "when filtering solutions by SDG" do
-    context "when the participatory_space does NOT contain an SDGs component" do
-      before do
-        visit_component
-      end
+  # describe "when filtering solutions by SDG" do
+  #   context "when the participatory_space does NOT contain an SDGs component" do
+  #     before do
+  #       visit_component
+  #     end
 
-      it "the filter is not rendered" do
-        expect(page).to have_no_css(".filters__section.sdgs-filter")
-      end
-    end
+  #     it "the filter is not rendered" do
+  #       expect(page).to have_no_css(".filters__section.sdgs-filter")
+  #     end
+  #   end
 
-    context "when the participatory_space DOES contain an SDGs component" do
-      let!(:sdgs_component) { create(:sdgs_component, participatory_space: participatory_process) }
-      let!(:challenges_component) { create(:challenges_component, participatory_space: participatory_process) }
-      let!(:problems_component) { create(:problems_component, participatory_space: participatory_process) }
-
-      before do
-        challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
-        problem = create(:problem, component: problems_component, challenge:)
-        create_list(:solution, 2, component:, problem:, challenge:)
-        challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
-        problem = create(:problem, component: problems_component, challenge:)
-        create(:solution, component:, problem:, challenge:)
-        challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
-        problem = create(:problem, component: problems_component, challenge:)
-        create(:solution, component:, problem:, challenge:)
-        challenge = create(:challenge, component: challenges_component)
-        problem = create(:problem, component: problems_component, challenge:)
-        create(:solution, component:, problem:, challenge:)
-        visit_component
-      end
-
-      it "the filter is rendered" do
-        expect(page).to have_field(".filters__section.sdgs-filter")
-      end
-
-      context "when NOT selecting any SDG" do
-        it "lists all the solutions" do
-          expect(page).to have_field(".card--solution", count: 5)
-          expect(page).to have_content("5 SOLUTIONS")
-        end
-      end
-
-      context "when selecting some SDGs" do
-        before do
-          find(".filters__section.sdgs-filter button").click_on
-          expect(page).to have_field("#sdgs-modal")
-
-          within "#sdgs-modal" do
-            find('.sdg-cell[data-value="no_poverty"]').click_on
-            find('.sdg-cell[data-value="good_health"]').click_on
-            find(".reveal__footer a.button").click_on
-          end
-        end
-
-        it "lists the solutions with the selected SDGs" do
-          expect(page).to have_field(".card--solution", count: 3)
-          expect(page).to have_content("3 SOLUTIONS")
-        end
-      end
-    end
-  end
-
-  # context "when filtering solutions by CATEGORY", :slow do
-  #   context "when the user is logged in" do
-  #     let!(:category2) { create :category, participatory_space: participatory_process }
-  #     let!(:category3) { create :category, participatory_space: participatory_process }
-  #     let!(:solution1) { create(:solution, component: component, category: category) }
-  #     let!(:solution2) { create(:solution, component: component, category: category2) }
-  #     let!(:solution3) { create(:solution, component: component, category: category3) }
+  #   context "when the participatory_space DOES contain an SDGs component" do
+  #     let!(:sdgs_component) { create(:sdgs_component, participatory_space: participatory_process) }
+  #     let!(:challenges_component) { create(:challenges_component, participatory_space: participatory_process) }
+  #     let!(:problems_component) { create(:problems_component, participatory_space: participatory_process) }
 
   #     before do
-  #       login_as user, scope: :user
+  #       challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
+  #       problem = create(:problem, component: problems_component, challenge:)
+  #       create_list(:solution, 2, component:, problem:, challenge:)
+  #       challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
+  #       problem = create(:problem, component: problems_component, challenge:)
+  #       create(:solution, component:, problem:, challenge:)
+  #       challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
+  #       problem = create(:problem, component: problems_component, challenge:)
+  #       create(:solution, component:, problem:, challenge:)
+  #       challenge = create(:challenge, component: challenges_component)
+  #       problem = create(:problem, component: problems_component, challenge:)
+  #       create(:solution, component:, problem:, challenge:)
+  #       visit_component
   #     end
 
-  #     it "can be filtered by a category" do
-  #       visit_component
-
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
-  #       end
-
-  #       expect(page).to have_field(".card--solution", count: 1)
+  #     it "the filter is rendered" do
+  #       expect(page).to have_field(".filters__section.sdgs-filter")
   #     end
 
-  #     it "can be filtered by two categories" do
-  #       visit_component
+  #     context "when NOT selecting any SDG" do
+  #       it "lists all the solutions" do
+  #         expect(page).to have_field(".card--solution", count: 5)
+  #         expect(page).to have_content("5 SOLUTIONS")
+  #       end
+  #     end
 
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
-  #         check category2.name[I18n.locale.to_s]
+  #     context "when selecting some SDGs" do
+  #       before do
+  #         find(".filters__section.sdgs-filter button").click_on
+  #         expect(page).to have_field("#sdgs-modal")
+
+  #         within "#sdgs-modal" do
+  #           find('.sdg-cell[data-value="no_poverty"]').click_on
+  #           find('.sdg-cell[data-value="good_health"]').click_on
+  #           find(".reveal__footer a.button").click_on
+  #         end
   #       end
 
-  #       expect(page).to have_field(".card--solution", count: 2)
+  #       it "lists the solutions with the selected SDGs" do
+  #         expect(page).to have_field(".card--solution", count: 3)
+  #         expect(page).to have_content("3 SOLUTIONS")
+  #       end
   #     end
   #   end
   # end

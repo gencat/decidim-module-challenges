@@ -56,7 +56,6 @@ ca:
         state: Estat
         sdgs: SDGs
         scope: Àmbit
-        category: Categoria
         related_to: Relacionat amb
     challenges:
       admin:
@@ -147,7 +146,6 @@ ca:
             other: "%{count} reptes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -1063,7 +1061,6 @@ ca:
             other: "%{count} problemes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -1219,7 +1216,6 @@ ca:
             other: "%{count} solucions"
         filters:
           all: Totes
-          category: Categoria
           technical: Tècnics
           economic: Econòmics
           financial: Finançers

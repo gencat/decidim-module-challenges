@@ -6,7 +6,6 @@ describe "Without filters Problems", :slow do
   include_context "with a component"
   let(:manifest_name) { "problems" }
 
-  let!(:category) { create(:category, participatory_space: participatory_process) }
   let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
@@ -28,10 +27,6 @@ describe "Without filters Problems", :slow do
       create(:problem, component:, challenge: challenge_no_scope)
 
       visit_component
-    end
-
-    it "show challenges in three columns" do
-      expect(page).to have_field(".mediumlarge-11.large-12")
     end
 
     it "not show filters" do

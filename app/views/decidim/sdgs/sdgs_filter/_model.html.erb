@@ -1,0 +1,31 @@
+<div id="sdgs-modal" class="reveal" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".title") %></h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="ods">
+    <div id="sdg-container">
+      <div class="row">
+        <% Decidim::Sdgs::Sdg::SDGS.each_with_index do |sdg_code, idx|
+          idx+= 1
+          idx_str= idx.to_s.rjust(2, "0") %>
+          <div class="sdg-cell columns mediumlarge-4" data-value="<%= sdg_code %>">
+          <%= image_pack_tag "media/images/ods-#{idx_str}.svg", alt: "Logo SDG #{idx_str}"%>
+            <div class="text">
+              <p><%= "#{idx_str}. #{t_sdg(sdg_code)}" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="reveal__footer">
+    <div class="buttons button--double">
+      <a class="button" data-close="" role="button"><%= t(".close") %></a>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag "decidim_sdgs" %>

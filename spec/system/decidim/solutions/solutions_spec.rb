@@ -65,30 +65,28 @@ describe "Solutions" do
       end
 
       it "show only solutions of current component" do
-        expect(page).to have_field(".card--solution", count: 4)
+        expect(page).to have_css(".card__list", count: 4)
         expect(page).to have_content(translated(solutions.first.title))
         expect(page).to have_content(translated(solutions.last.title))
       end
 
       it "ordered randomly" do
         within ".order-by" do
-          expect(page).to have_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
         end
 
-        expect(page).to have_field(".card--solution", count: 4)
+        expect(page).to have_css(".card__list", count: 4)
         expect(page).to have_content(translated(solutions.first.title))
         expect(page).to have_content(translated(solutions.last.title))
       end
 
       it "ordered by created at" do
         within ".order-by" do
-          expect(page).to have_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-          page.find("a", text: "Random").click_on
-          click_on "Most recent"
+          page.find("a", text: "Most recent").click
         end
 
-        expect(page).to have_field("#solutions .card-grid .column:first-child", text: recent_solution.title[:en])
-        expect(page).to have_field("#solutions .card-grid .column:last-child", text: older_solution.title[:en])
+        expect(page).to have_css(".order-by .button:first-child", text: recent_solution.title[:en])
+        expect(page).to have_css(".order-by .button:last-child", text: older_solution.title[:en])
       end
     end
   end

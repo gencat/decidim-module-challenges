@@ -77,8 +77,7 @@ describe "Challenges", :slow do
 
       it "ordered by created at" do
         within ".order-by" do
-          page.find("a", text: "Random").click_on
-          click_on "Most recent"
+          page.find("a", text: "Most recent").click
         end
 
         expect(page).to have_css(".order-by .button:first-child", text: recent_challenge.title[:en])

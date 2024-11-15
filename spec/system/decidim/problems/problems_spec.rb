@@ -21,7 +21,7 @@ describe "Problems" do
       it "does render the contents" do
         expect(page).to have_content("Keywords")
         expect(page).to have_content(translated(problem.tags))
-        expect(page).to have_content("Proposed solutions")
+        expect(page).to have_content("1 solution")
         expect(page).to have_content(translated(solution.title))
       end
     end
@@ -36,7 +36,7 @@ describe "Problems" do
 
       it "does not render titles for empty contents" do
         expect(page).to have_no_content("Keywords")
-        expect(page).to have_no_content("Proposed solutions")
+        expect(page).to have_no_content("solutions")
       end
     end
   end
@@ -54,30 +54,28 @@ describe "Problems" do
       end
 
       it "show only problems of current component" do
-        expect(page).to have_field(".card--problem", count: 4)
+        expect(page).to have_css(".card__list", count: 4)
         expect(page).to have_content(translated(problems.first.title))
         expect(page).to have_content(translated(problems.last.title))
       end
 
       it "ordered randomly" do
         within ".order-by" do
-          expect(page).to have_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
         end
 
-        expect(page).to have_field(".card--problem", count: 4)
+        expect(page).to have_css(".card__list", count: 4)
         expect(page).to have_content(translated(problems.first.title))
         expect(page).to have_content(translated(problems.last.title))
       end
 
       it "ordered by created at" do
         within ".order-by" do
-          expect(page).to have_field("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-          page.find("a", text: "Random").click_on
-          click_on "Most recent"
+          page.find("a", text: "Most recent").click
         end
 
-        expect(page).to have_field("#problems .card-grid .column:first-child", text: recent_problem.title[:en])
-        expect(page).to have_field("#problems .card-grid .column:last-child", text: older_problem.title[:en])
+        expect(page).to have_css(".order-by .button:first-child", text: recent_problem.title[:en])
+        expect(page).to have_css(".order-by .button:last-child", text: older_problem.title[:en])
       end
     end
   end

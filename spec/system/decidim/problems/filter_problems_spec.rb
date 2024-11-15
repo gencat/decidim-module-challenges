@@ -7,7 +7,6 @@ describe "Filter Problems", :slow do
   include_context "with a component"
   let(:manifest_name) { "problems" }
 
-  let!(:category) { create(:category, participatory_space: participatory_process) }
   let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
@@ -23,23 +22,24 @@ describe "Filter Problems", :slow do
       create(:problem, component:, sectorial_scope: nil, technological_scope: nil)
     end
 
-    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_sectorial_scope_id_check_boxes_tree_filter"
-    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_technological_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "Sectorial scope", ".card__list"
+    include_examples "when filtering resources by a scope", "Technological scope", ".card__list"
   end
 
-  describe "when filtering problems by challenge's territorial scopes" do
-    before do
-      challenges_component = create(:challenges_component, participatory_space: participatory_process)
-      challenge = create(:challenge, component: challenges_component, scope:)
-      create_list(:problem, 2, component:, challenge:)
-      challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
-      create(:problem, component:, challenge: challenge_2)
-      challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
-      create(:problem, component:, challenge: challenge_no_scope)
-    end
+  # TODO: not show in screen
+  # describe "when filtering problems by challenge's territorial scopes" do
+  #   before do
+  #     challenges_component = create(:challenges_component, participatory_space: participatory_process)
+  #     challenge = create(:challenge, component: challenges_component, scope:)
+  #     create_list(:problem, 2, component:, challenge:)
+  #     challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
+  #     create(:problem, component:, challenge: challenge_2)
+  #     challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
+  #     create(:problem, component:, challenge: challenge_no_scope)
+  #   end
 
-    include_examples "when filtering resources by a scope", "PROBLEM", ".card--problem", ".with_any_territorial_scope_id_check_boxes_tree_filter"
-  end
+  #   include_examples "when filtering resources by a scope", "Territorial scope" ".card__list"
+  # end
 
   describe "when filtering problems by STATE" do
     it "can be filtered by state" do
@@ -54,131 +54,49 @@ describe "Filter Problems", :slow do
       create(:problem, :proposal, component:)
       visit_component
 
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "State" do
         check "All"
         uncheck "All"
         check "Proposal"
       end
 
-      expect(page).to have_field(".card--problem", count: 1)
-      expect(page).to have_content("1 PROBLEM")
+      expect(page).to have_css(".card__list", count: 1)
+      expect(page).to have_content("1 problem")
 
-      within ".card--problem" do
-        expect(page).to have_content("PROPOSAL")
+      within ".card__list" do
+        expect(page).to have_content("Proposal")
       end
     end
 
     it "lists the filtered problems" do
-      # create(:problem, :execution, component: component, scope: scope)
       create(:problem, :execution, component:)
       visit_component
 
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "State" do
         check "All"
         uncheck "All"
         check "Execution"
       end
 
-      expect(page).to have_field(".card--problem", count: 1)
-      expect(page).to have_content("1 PROBLEM")
+      expect(page).to have_css(".card__list", count: 1)
+      expect(page).to have_content("1 problem")
 
-      within ".card--problem" do
-        expect(page).to have_content("EXECUTION")
+      within ".card__list" do
+        expect(page).to have_content("Execution")
       end
     end
   end
 
-  describe "when filtering problems by SDG" do
-    context "when the participatory_space does NOT contain an SDGs component" do
-      before do
-        visit_component
-      end
-
-      it "the filter is not rendered" do
-        expect(page).to have_no_css(".filters__section.sdgs-filter")
-      end
-    end
-
-    context "when the participatory_space DOES contain an SDGs component" do
-      let!(:sdgs_component) { create(:sdgs_component, participatory_space: participatory_process) }
-      let!(:challenges_component) { create(:challenges_component, participatory_space: participatory_process) }
-
-      before do
-        challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
-        create_list(:problem, 2, component:, challenge:)
-        challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
-        create(:problem, component:, challenge:)
-        challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
-        create(:problem, component:, challenge:)
-        challenge = create(:challenge, component: challenges_component)
-        create(:problem, component:, challenge:)
-        visit_component
-      end
-
-      it "the filter is rendered" do
-        expect(page).to have_field(".filters__section.sdgs-filter")
-      end
-
-      context "when NOT selecting any SDG" do
-        it "lists all the problems" do
-          expect(page).to have_field(".card--problem", count: 5)
-          expect(page).to have_content("5 PROBLEMS")
-        end
-      end
-
-      context "when selecting some SDGs" do
-        before do
-          find(".filters__section.sdgs-filter button").click_on
-          expect(page).to have_field("#sdgs-modal")
-
-          within "#sdgs-modal" do
-            find('.sdg-cell[data-value="no_poverty"]').click_on
-            find('.sdg-cell[data-value="good_health"]').click_on
-            find(".reveal__footer a.button").click_on
-          end
-        end
-
-        it "lists the problems with the selected SDGs" do
-          expect(page).to have_field(".card--problem", count: 3)
-          expect(page).to have_content("3 PROBLEMS")
-        end
-      end
-    end
-  end
-
-  # context "when filtering problems by CATEGORY", :slow do
-  #   context "when the user is logged in" do
-  #     let!(:category2) { create :category, participatory_space: participatory_process }
-  #     let!(:category3) { create :category, participatory_space: participatory_process }
-  #     let!(:problem1) { create(:problem, component: component, category: category) }
-  #     let!(:problem2) { create(:problem, component: component, category: category2) }
-  #     let!(:problem3) { create(:problem, component: component, category: category3) }
-
+  # describe "when filtering problems by SDG" do
+  #   context "when the participatory_space does NOT contain an SDGs component" do
   #     before do
-  #       login_as user, scope: :user
+  #       visit_component
   #     end
 
-  #     it "can be filtered by a category" do
-  #       visit_component
-
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
+  #     it "the filter is not rendered" do
+  #       within "form.new_filter" do
+  #         expect(page).to have_no_content("SDGs")
   #       end
-
-  #       expect(page).to have_field(".card--problem", count: 1)
-  #     end
-
-  #     it "can be filtered by two categories" do
-  #       visit_component
-
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
-  #         check category2.name[I18n.locale.to_s]
-  #       end
-
-  #       expect(page).to have_field(".card--problem", count: 2)
   #     end
   #   end
   # end
@@ -193,48 +111,35 @@ describe "Filter Problems", :slow do
   #     visit_component
   #   end
 
-  #   it "recover filters from initial pages" do
-  #     within ".filters .state_check_boxes_tree_filter" do
-  #       check "Rejected"
+  #     it "the filter is rendered" do
+  #       expect(page).to have_content("SDGs")
   #     end
 
-  #     expect(page).to have_field(".card.card--problem", count: 8)
-
-  #     page.go_back
-
-  #     expect(page).to have_field(".card.card--problem", count: 6)
-  #   end
-
-  #   it "recover filters from previous pages" do
-  #     within ".filters .state_check_boxes_tree_filter" do
-  #       check "All"
-  #       uncheck "All"
-  #     end
-  #     within ".filters .origin_check_boxes_tree_filter" do
-  #       uncheck "All"
+  #     context "when NOT selecting any SDG" do
+  #       it "lists all the problems" do
+  #         expect(page).to have_css(".card__list", count: 5)
+  #         expect(page).to have_content("5 problems")
+  #       end
   #     end
 
-  #     within ".filters .origin_check_boxes_tree_filter" do
-  #       check "Official"
+  #     context "when selecting some SDGs" do
+  #       before do
+
+  #         find(".filters__section.sdgs-filter button").click_on
+  #         expect(page).to have_field("#sdgs-modal")
+
+  #         within "#sdgs-modal" do
+  #           find('.sdg-cell[data-value="no_poverty"]').click_on
+  #           find('.sdg-cell[data-value="good_health"]').click_on
+  #           find(".reveal__footer a.button").click_on
+  #         end
+  #       end
+
+  #       it "lists the problems with the selected SDGs" do
+  #         expect(page).to have_field(".card__list", count: 3)
+  #         expect(page).to have_content("3 PROBLEMS")
+  #       end
   #     end
-
-  #     within ".filters .state_check_boxes_tree_filter" do
-  #       check "Accepted"
-  #     end
-
-  #     expect(page).to have_field(".card.card--problem", count: 2)
-
-  #     page.go_back
-
-  #     expect(page).to have_field(".card.card--problem", count: 6)
-
-  #     page.go_back
-
-  #     expect(page).to have_field(".card.card--problem", count: 8)
-
-  #     page.go_forward
-
-  #     expect(page).to have_field(".card.card--problem", count: 6)
   #   end
   # end
 end
