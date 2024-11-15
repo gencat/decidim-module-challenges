@@ -2,6 +2,12 @@
   <% if @challenge.survey_enabled %>
     <%= link_to t('surveys.answer', scope: "decidim.challenges"), answer_challenge_survey_path(@challenge), class: "button button__lg w-full button__secondary" %>
   <% end %>
+
+  <% if solutions_component&.settings&.creation_enabled? %>
+    <%= action_authorized_link_to :create, new_solution_path, class: "button button__lg w-full button__secondary", data: { "redirect_url": new_solution_path } do %>
+      <%= t("decidim.challenges.challenges.show.new_solution") %>
+    <% end %>
+  <% end %>
 </section>
 
 <div class="rounded p-4 bg-background mb-4 divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">

@@ -158,6 +158,8 @@ ca:
           label: Ordenacions
           random: Aleatori
           recent: Més recents
+        show:
+          new_solution: Nova solució
       challenges_helper:
         filter_state_values:
           all: Tots
