@@ -3,14 +3,14 @@
     <div class="text-sm flex flex-col items-center gap-1">
       <p class="uppercase text-xs"><%= t("status", scope: "activemodel.attributes.problem") %></p>
       <% if has_problem? %>
-        <% if @solution.author.admin? %>
+        <% if @solution&.author&.admin? %>
           <p class="uppercase mb-4"><%= t(@solution.challenge.state, scope: "decidim.challenges.states") %></p>
         <% else %>
           <p class="uppercase mb-4"><%= t(@solution.project_status, scope: "decidim.solutions.solutions.form.project_statuses") %></p>
         <% end %>
       <% else %>
         <div class="definition-data__item status">
-          <% if @solution.author.admin? %>
+          <% if @solution&.author&.admin? %>
             <p class="uppercase mb-4"><%= t(@solution.challenge.state, scope: "decidim.challenges.states") %></p>
           <% else %>
             <p class="uppercase mb-4"><%= t(@solution.project_status, scope: "decidim.solutions.solutions.form.project_statuses") %></p>
