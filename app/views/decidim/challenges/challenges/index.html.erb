@@ -9,6 +9,12 @@
     <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable: :search_text_cont, skip_to_id: "challenges" } do %>
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
     <% end %>
+
+    <% if has_sdgs? %>
+      <%= filter_form_for filter do |form| %>
+        <%= sdgs_filter_selector(form) %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
@@ -19,3 +25,5 @@
     <%= render partial: "challenges" %>
   </section>
 <% end %>
+
+<%= render partial: "decidim/sdgs/sdgs_filter/modal" %>

@@ -11,6 +11,12 @@
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
     <% end %>
   <% end %>
+
+  <% if has_sdgs? %>
+      <%= filter_form_for filter do |form| %>
+        <%= sdgs_filter_selector(form) %>
+      <% end %>
+    <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
@@ -18,3 +24,5 @@
     <%= render partial: "problems", locals: { has_sdgs: has_sdgs? } %>
   </section>
 <% end %>
+
+<%= render partial: "decidim/sdgs/sdgs_filter/modal" %>

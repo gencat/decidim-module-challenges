@@ -160,45 +160,45 @@ describe "Filter Challenges", :slow do
       end
     end
 
-    # context "when the participatory_space DOES contain an SDGs component" do
-    #   let!(:sdgs_component) { create(:component, participatory_space: participatory_process, manifest_name: "sdgs") }
+    context "when the participatory_space DOES contain an SDGs component" do
+      let!(:sdgs_component) { create(:component, participatory_space: participatory_process, manifest_name: "sdgs") }
 
-    #   before do
-    #     create_list(:challenge, 2, component:, sdg_code: :no_poverty)
-    #     create(:challenge, component:, sdg_code: :zero_hunger)
-    #     create(:challenge, component:, sdg_code: :good_health)
-    #     create(:challenge, component:, sdg_code: nil)
-    #     visit_component
-    #   end
+      before do
+        create_list(:challenge, 2, component:, sdg_code: :no_poverty)
+        create(:challenge, component:, sdg_code: :zero_hunger)
+        create(:challenge, component:, sdg_code: :good_health)
+        create(:challenge, component:, sdg_code: nil)
+        visit_component
+      end
 
-    #   it "the filter is rendered" do
-    #     expect(page).to have_field(".filters__section.sdgs-filter")
-    #   end
+      it "the filter is rendered" do
+        expect(page).to have_css(".filters__section.sdgs-filter")
+      end
 
-    #   context "when NOT selecting any SDG" do
-    #     it "lists all the challenges" do
-    #       expect(page).to have_field(".card--challenge", count: 5)
-    #       expect(page).to have_content("5 CHALLENGES")
-    #     end
-    #   end
+      context "when NOT selecting any SDG" do
+        it "lists all the challenges" do
+          expect(page).to have_css(".card__list", count: 5)
+          expect(page).to have_content("5 challenges")
+        end
+      end
 
-    #   context "when selecting some SDGs" do
-    #     before do
-    #       find(".filters__section.sdgs-filter button").click_on
-    #       expect(page).to have_field("#sdgs-modal")
+      context "when selecting some SDGs" do
+        before do
+          find(".filters__section.sdgs-filter button").click_link_or_button
+          expect(page).to have_css("#sdgs-modal")
 
-    #       within "#sdgs-modal" do
-    #         find('.sdg-cell[data-value="no_poverty"]').click_on
-    #         find('.sdg-cell[data-value="good_health"]').click_on
-    #         find(".reveal__footer a.button").click_on
-    #       end
-    #     end
+          within "#sdgs-modal" do
+            find('.sdg-cell[data-value="no_poverty"]').click
+            find('.sdg-cell[data-value="good_health"]').click
+            find(".reveal__footer a.button").click
+          end
+        end
 
-    #     it "lists the challenges with the selected SDGs" do
-    #       expect(page).to have_field(".card--challenge", count: 3)
-    #       expect(page).to have_content("3 CHALLENGES")
-    #     end
-    #   end
-    # end
+        it "lists the challenges with the selected SDGs" do
+          expect(page).to have_css(".card__list", count: 3)
+          expect(page).to have_content("3 challenges")
+        end
+      end
+    end
   end
 end

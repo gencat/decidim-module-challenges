@@ -43,56 +43,56 @@ describe "Filter Solutions", :slow do
       end
     end
 
-    # context "when the participatory_space DOES contain an SDGs component" do
-    #   let!(:sdgs_component) { create(:sdgs_component, participatory_space: participatory_process) }
-    #   let!(:challenges_component) { create(:challenges_component, participatory_space: participatory_process) }
-    #   let!(:problems_component) { create(:problems_component, participatory_space: participatory_process) }
+    context "when the participatory_space DOES contain an SDGs component" do
+      let!(:sdgs_component) { create(:sdgs_component, participatory_space: participatory_process) }
+      let!(:challenges_component) { create(:challenges_component, participatory_space: participatory_process) }
+      let!(:problems_component) { create(:problems_component, participatory_space: participatory_process) }
 
-    #   before do
-    #     challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
-    #     problem = create(:problem, component: problems_component, challenge:)
-    #     create_list(:solution, 2, component:, problem:, challenge:)
-    #     challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
-    #     problem = create(:problem, component: problems_component, challenge:)
-    #     create(:solution, component:, problem:, challenge:)
-    #     challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
-    #     problem = create(:problem, component: problems_component, challenge:)
-    #     create(:solution, component:, problem:, challenge:)
-    #     challenge = create(:challenge, component: challenges_component)
-    #     problem = create(:problem, component: problems_component, challenge:)
-    #     create(:solution, component:, problem:, challenge:)
-    #     visit_component
-    #   end
+      before do
+        challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
+        problem = create(:problem, component: problems_component, challenge:)
+        create_list(:solution, 2, component:, problem:, challenge:)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
+        challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
+        challenge = create(:challenge, component: challenges_component)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
+        visit_component
+      end
 
-    #   it "the filter is rendered" do
-    #     expect(page).to have_field(".filters__section.sdgs-filter")
-    #   end
+      it "the filter is rendered" do
+        expect(page).to have_css(".filters__section.sdgs-filter")
+      end
 
-    #   context "when NOT selecting any SDG" do
-    #     it "lists all the solutions" do
-    #       expect(page).to have_field(".card--solution", count: 5)
-    #       expect(page).to have_content("5 SOLUTIONS")
-    #     end
-    #   end
+      context "when NOT selecting any SDG" do
+        it "lists all the solutions" do
+          expect(page).to have_css(".card__list", count: 5)
+          expect(page).to have_content("5 solutions")
+        end
+      end
 
-    #   context "when selecting some SDGs" do
-    #     before do
-    #       find(".filters__section.sdgs-filter button").click_on
-    #       expect(page).to have_field("#sdgs-modal")
+      context "when selecting some SDGs" do
+        before do
+          find(".filters__section.sdgs-filter button").click_link_or_button
+          expect(page).to have_css("#sdgs-modal")
 
-    #       within "#sdgs-modal" do
-    #         find('.sdg-cell[data-value="no_poverty"]').click_on
-    #         find('.sdg-cell[data-value="good_health"]').click_on
-    #         find(".reveal__footer a.button").click_on
-    #       end
-    #     end
+          within "#sdgs-modal" do
+            find('.sdg-cell[data-value="no_poverty"]').click
+            find('.sdg-cell[data-value="good_health"]').click
+            find(".reveal__footer a.button").click
+          end
+        end
 
-    #     it "lists the solutions with the selected SDGs" do
-    #       expect(page).to have_field(".card--solution", count: 3)
-    #       expect(page).to have_content("3 SOLUTIONS")
-    #     end
-    #   end
-    # end
+        it "lists the solutions with the selected SDGs" do
+          expect(page).to have_css(".card__list", count: 3)
+          expect(page).to have_content("3 solutions")
+        end
+      end
+    end
   end
 
   # context "when using the browser history", :slow do

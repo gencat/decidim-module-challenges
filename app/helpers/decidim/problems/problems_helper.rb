@@ -16,7 +16,6 @@ module Decidim
           items.append(method: :with_any_technological_scope, collection: filter_global_scopes_values, label_scope: "decidim.problems.problems.filters", id: "technological_scope")
           items.append(method: :with_any_territorial_scope, collection: filter_global_scopes_values, label_scope: "decidim.problems.problems.filters", id: "territorial_scope")
         end
-        items.append(method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs") if has_sdgs?
 
         items.reject { |item| item[:collection].blank? }
       end

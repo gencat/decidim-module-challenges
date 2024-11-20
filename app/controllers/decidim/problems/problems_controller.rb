@@ -38,16 +38,13 @@ module Decidim
       end
 
       def default_filter_params
-        has_sdgs? ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filters
-      end
-
-      def default_filters
         {
           search_text_cont: "",
           with_any_state: %w(proposal execution finished),
           with_any_sectorial_scope: default_filter_scope_params,
           with_any_technological_scope: default_filter_scope_params,
           with_any_territorial_scope: default_filter_scope_params,
+          with_any_sdgs_codes: [],
           related_to: "",
         }
       end

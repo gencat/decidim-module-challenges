@@ -14,7 +14,6 @@ module Decidim
           items.append(method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.filters",
                        id: "scope")
         end
-        items.append(method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs") if has_sdgs?
 
         items.reject { |item| item[:collection].blank? }
       end

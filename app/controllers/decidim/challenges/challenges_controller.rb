@@ -38,10 +38,6 @@ module Decidim
         @challenge_scope ||= current_organization.scopes.find_by(id: @challenge.decidim_scope_id)
       end
 
-      def default_filter_params
-        has_sdgs? ? default_filters.merge({ with_any_sdgs_codes: [] }) : default_filters
-      end
-
       def challenges
         @challenges ||= reorder(paginate(search.result))
       end
@@ -50,11 +46,12 @@ module Decidim
         ::Decidim::Challenges::Challenge.where(component: current_component).published
       end
 
-      def default_filters
+      def default_filter_params
         {
           search_text_cont: "",
           with_any_state: %w(proposal execution finished),
           with_any_scope: default_filter_scope_params,
+          with_any_sdgs_codes: [],
           related_to: "",
         }
       end
