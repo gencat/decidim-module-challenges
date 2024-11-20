@@ -71,6 +71,9 @@ RSpec:
     - "(?:^|/)spec/"
     - "(?:^|/)test/"
 
+Capybara/SpecificActions:
+  Enabled: false
+
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent

@@ -184,7 +184,7 @@ describe "Filter Challenges", :slow do
 
       context "when selecting some SDGs" do
         before do
-          find(".filters__section.sdgs-filter button").click_link_or_button
+          find(".filters__section.sdgs-filter button").click
           expect(page).to have_css("#sdgs-modal")
 
           within "#sdgs-modal" do
