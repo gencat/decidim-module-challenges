@@ -10,13 +10,14 @@ module Decidim
       include Paginable
       include OrderableChallenges
       include WithSdgs
+      include WithDefaultFilters
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
       helper Decidim::Challenges::ChallengesHelper
 
-      helper_method :challenges, :has_sdgs?, :new_solution_path, :solutions_component
+      helper_method :challenges, :has_sdgs?, :new_solution_path, :solutions_component, :default_filter_scope_params
 
       def index
         @challenges = search.result
@@ -53,7 +54,7 @@ module Decidim
         {
           search_text_cont: "",
           with_any_state: %w(proposal execution finished),
-          with_any_scope: nil,
+          with_any_scope: default_filter_scope_params,
           related_to: "",
         }
       end

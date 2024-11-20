@@ -87,19 +87,19 @@ describe "Filter Problems", :slow do
     end
   end
 
-  # describe "when filtering problems by SDG" do
-  #   context "when the participatory_space does NOT contain an SDGs component" do
-  #     before do
-  #       visit_component
-  #     end
+  describe "when filtering problems by SDG" do
+    context "when the participatory_space does NOT contain an SDGs component" do
+      before do
+        visit_component
+      end
 
-  #     it "the filter is not rendered" do
-  #       within "form.new_filter" do
-  #         expect(page).to have_no_content("SDGs")
-  #       end
-  #     end
-  #   end
-  # end
+      it "the filter is not rendered" do
+        within "form.new_filter" do
+          expect(page).to have_no_content("SDGs")
+        end
+      end
+    end
+  end
 
   # context "when using the browser history", :slow do
   #   before do

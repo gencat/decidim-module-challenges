@@ -11,6 +11,7 @@ module Decidim
       include OrderableSolutions
       include FormFactory
       include WithSdgs
+      include WithDefaultFilters
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
@@ -18,7 +19,7 @@ module Decidim
       helper SolutionsHelper
       helper Decidim::Challenges::ApplicationHelper
 
-      helper_method :solutions, :form_presenter, :has_sdgs?, :has_problem?
+      helper_method :solutions, :form_presenter, :has_sdgs?, :has_problem?, :default_filter_scope_params
 
       def index
         @solutions = search.result
@@ -67,7 +68,7 @@ module Decidim
       def default_filters
         {
           search_text_cont: "",
-          with_any_territorial_scope: nil,
+          with_any_territorial_scope: default_filter_scope_params,
           with_any_sdgs_codes: [],
           related_to: "",
         }

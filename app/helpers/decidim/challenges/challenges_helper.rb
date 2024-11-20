@@ -6,11 +6,17 @@ module Decidim
     #
     module ChallengesHelper
       def filter_sections
-        filters = default_filters
+        items = []
+        items.append(method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state")
+        items.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to",
+                     type: :radio_buttons)
+        if current_participatory_space.has_subscopes?
+          items.append(method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.filters",
+                       id: "scope")
+        end
+        items.append(method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs") if has_sdgs?
 
-        filters << { method: :with_any_sdgs_codes, collection: filter_sdgs_values, label_scope: "decidim.shared.filters", id: "sdgs" } if has_sdgs?
-
-        filters.reject { |item| item[:collection].blank? }
+        items.reject { |item| item[:collection].blank? }
       end
 
       def challenge_associated_solutions(challenge)
@@ -28,15 +34,6 @@ module Decidim
       def truncate_description(description)
         translated_description = raw translated_attribute description
         decidim_sanitize(html_truncate(translated_description, length: 200))
-      end
-
-      def default_filters
-        [
-          { method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state" },
-          { method: :with_any_scope, collection: filter_custom_scopes_values, label_scope: "decidim.shared.filters", id: "scope" },
-          { method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to",
-            type: :radio_buttons },
-        ]
       end
     end
   end
