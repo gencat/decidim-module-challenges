@@ -31,10 +31,6 @@ module Decidim
           ]
         )
       end
-
-      def filter_custom_scopes_values
-        filter_scopes_values_from(Decidim::Scope.all)
-      end
     end
   end
 end
