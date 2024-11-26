@@ -2,8 +2,8 @@
 
 module Decidim
   module Problems
-    # This cell renders the Grid (:g) Challenge card
-    # for an given instance of a Challenge
+    # This cell renders the Grid (:g) Problem card
+    # for an given instance of a Problem
     class ProblemGCell < Decidim::CardGCell
       include ActiveSupport::NumberHelper
       include Decidim::Problems::ProblemsHelper

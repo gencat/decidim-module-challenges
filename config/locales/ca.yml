@@ -1025,7 +1025,7 @@ ca:
             success: Problema despublicat correctament
         problems:
           index:
-            title: Problemas
+            title: Problemes
             selected: seleccionat
           create:
             error: Hi ha hagut un error creant aquest problema

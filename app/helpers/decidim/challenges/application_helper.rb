@@ -12,15 +12,6 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t(i18n_key)
       end
 
-      def filter_sdgs_values
-        Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.challenges.challenges_helper.filter_state_values.all")),
-          Decidim::Sdgs::Sdg::SDGS.map do |sdg_code|
-            Decidim::CheckBoxesTreeHelper::TreePoint.new(sdg_code, I18n.t("#{sdg_code}.objectives.subtitle", scope: "decidim.components.sdgs"))
-          end
-        )
-      end
-
       def filter_custom_state_values
         Decidim::CheckBoxesTreeHelper::TreeNode.new(
           Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.challenges.challenges_helper.filter_state_values.all")),
