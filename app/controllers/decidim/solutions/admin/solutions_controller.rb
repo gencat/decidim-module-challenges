@@ -9,6 +9,7 @@ module Decidim
         include Decidim::ApplicationHelper
 
         helper Challenges::ApplicationHelper
+        helper Decidim::PaginateHelper
 
         helper_method :solution, :solution, :form_presenter
 

@@ -7,6 +7,7 @@ module Decidim
       #
       class ProblemsController < Decidim::Problems::Admin::ApplicationController
         helper Challenges::ApplicationHelper
+        helper Decidim::PaginateHelper
 
         helper_method :problems, :problem, :form_presenter
 

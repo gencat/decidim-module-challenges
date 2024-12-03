@@ -16,6 +16,7 @@ module Decidim
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
       helper Decidim::Challenges::ChallengesHelper
+      helper Decidim::PaginateHelper
 
       helper_method :challenges, :has_sdgs?, :new_solution_path, :solutions_component, :default_filter_scope_params
 

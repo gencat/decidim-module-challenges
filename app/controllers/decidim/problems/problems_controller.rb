@@ -17,6 +17,7 @@ module Decidim
       helper Decidim::ShowFiltersHelper
       helper ProblemsHelper
       helper Decidim::Challenges::ApplicationHelper
+      helper Decidim::PaginateHelper
 
       helper_method :problems, :has_sdgs?, :default_filter_scope_params
 

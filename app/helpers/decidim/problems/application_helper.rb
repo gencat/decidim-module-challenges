@@ -5,7 +5,6 @@ module Decidim
     # Custom helpers, scoped to the problems engine.
     #
     module ApplicationHelper
-      include PaginateHelper
     end
   end
 end
