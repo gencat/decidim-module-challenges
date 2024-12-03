@@ -10,6 +10,7 @@ module Decidim
 
         helper Challenges::ApplicationHelper
         helper Decidim::Sdgs::SdgsHelper
+        helper Decidim::PaginateHelper
 
         helper_method :challenges, :challenge, :form_presenter
 
