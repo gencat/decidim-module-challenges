@@ -6,9 +6,9 @@ module Decidim::Challenges
   describe Admin::ExportChallengeSurveys do
     subject { described_class.new(challenge, format, user) }
 
-    let(:challenge) { create :challenge }
+    let(:challenge) { create(:challenge) }
     let(:format) { "CSV" }
-    let(:user) { create :user, :admin }
+    let(:user) { create(:user, :admin) }
 
     context "when everything is ok" do
       it "exports the challenge survey" do

@@ -8,9 +8,9 @@ module Decidim
       describe ChallengesForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization, current_component: component) }
 
-        let(:component) { create :challenges_component }
+        let(:component) { create(:challenges_component) }
         let(:organization) { component.organization }
-        let(:scope) { create :scope, organization: organization }
+        let(:scope) { create(:scope, organization:) }
         let(:title) do
           {
             en: "Challenge title",
@@ -68,7 +68,7 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when default language in local_description is missing" do
@@ -78,7 +78,7 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when default language in global_description is missing" do
@@ -88,32 +88,32 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when state is missing" do
           let(:state) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when start date is missing" do
           let(:start_date) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when end date is missing" do
           let(:end_date) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when start date is bigger than end date" do
           let(:start_date) { 2.days.from_now }
           let(:end_date) { 1.day.from_now }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
       end
     end

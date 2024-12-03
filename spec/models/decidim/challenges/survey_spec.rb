@@ -8,13 +8,13 @@ module Decidim::Challenges
 
     let(:challenge) { create(:challenge) }
     let(:user) { create(:user, organization: challenge.organization) }
-    let(:survey) { build :survey, challenge: challenge, user: user }
+    let(:survey) { build(:survey, challenge:, user:) }
 
     it { is_expected.to be_valid }
 
     context "when a survey already exists for the same user and challenge" do
       before do
-        create :survey, challenge: challenge, user: user
+        create(:survey, challenge:, user:)
       end
 
       it { is_expected.not_to be_valid }

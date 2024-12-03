@@ -16,16 +16,22 @@ module Decidim
           @total = participants_query.count_participants
         end
 
+        def show
+          enforce_permission_to :show, :questionnaire_answers
+
+          @participant = participant(participants_query.participant(params[:session_token]))
+        end
+
         def edit
-          enforce_permission_to :edit, :challenge, challenge: challenge
+          enforce_permission_to(:edit, :challenge, challenge:)
 
           @form = ChallengeSurveysForm.from_model(challenge)
         end
 
         def update
-          enforce_permission_to :edit, :challenge, challenge: challenge
+          enforce_permission_to(:edit, :challenge, challenge:)
 
-          @form = ChallengeSurveysForm.from_params(params).with_context(current_organization: challenge.organization, challenge: challenge)
+          @form = ChallengeSurveysForm.from_params(params).with_context(current_organization: challenge.organization, challenge:)
 
           UpdateSurveys.call(@form, challenge) do
             on(:ok) do
@@ -41,7 +47,7 @@ module Decidim
         end
 
         def export
-          enforce_permission_to :export_surveys, :challenge, challenge: challenge
+          enforce_permission_to(:export_surveys, :challenge, challenge:)
 
           ExportChallengeSurveys.call(challenge, params[:format], current_user) do
             on(:ok) do |export_data|
@@ -63,26 +69,24 @@ module Decidim
           redirect_back(fallback_location: questionnaire_participant_answers_url(session_token))
         end
 
-        def show
-          enforce_permission_to :show, :questionnaire_answers
-
-          @participant = participant(participants_query.participant(params[:session_token]))
-        end
-
         def questionnaire_participants_url
           index_answers_challenge_surveys_path
         end
 
         def questionnaire_participant_answers_url(session_token)
-          show_answers_challenge_surveys_url(session_token: session_token)
+          show_answers_challenge_surveys_url(session_token:)
         end
 
         def questionnaire_export_response_url(session_token)
-          export_response_challenge_surveys_url(session_token: session_token, format: "pdf")
+          export_response_challenge_surveys_url(session_token:, format: "pdf")
         end
 
         def questionnaire_for
           challenge
+        end
+
+        def public_url
+          Decidim::EngineRouter.main_proxy(current_component).answer_challenge_survey_path(challenge.id)
         end
 
         private

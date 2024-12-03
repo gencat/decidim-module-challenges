@@ -1,82 +1,114 @@
-<% add_decidim_page_title(solution.title) %>
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= link_to "#{t ".solutions"} > ", solutions_path %>
-      <%= decidim_html_escape(solution.title).html_safe %>
-    </h2>
-  </div>
+<% add_decidim_page_title(translated_attribute(solution.title)) %>
 
-  <div class="card-section">
-    <div class="row column">
-      <strong><%= t ".author" %>:</strong>
-      <%= link_to_if(
-        decidim.profile_path(solution.author.nickname).present?,
-        solution.author.name,
-        decidim.profile_path(solution.author.nickname),
-        target: :blank
-      ) %>
+<div class="component__show">
+  <div class="card">
+    <div class="component__show_header">
+      <h2 class="component__show_header-title">
+        <%= decidim_html_escape(solution.title).html_safe %>
+      </h2>
     </div>
 
-    <div class="row column">
-      <strong><%= t ".title" %>:</strong> <%= solution.title %>
-    </div>
-
-    <div class="row column">
-      <strong><%= t ".description" %>:</strong> <%= solution.description %>
-    </div>
-
-    <div class="row column">
-      <strong><%= t ".created_at" %>:</strong> <%= l solution.created_at, format: :decidim_short %>
-    </div>
-
-    <div class="row column">
-      <strong><%= t ".project_status" %>:</strong> <%= t("decidim.solutions.solutions.form.project_statuses.#{solution.project_status}") %>
-    </div>
-
-    <div class="row column">
-      <strong><%= t ".coordinating_entity" %>:</strong> <%= solution.coordinating_entity %>
-    </div>
-
-    <div class="row column">
-      <strong><%= t ".challenge" %>:</strong> <%= link_to translated_attribute(solution.challenge.title), Decidim::ResourceLocatorPresenter.new(solution.challenge).path %></strong>
-    </div>
-
-    <div class="row column">
-      <strong><%= t ".project_url" %>:</strong> <%= link_to solution.project_url, "http://#{solution.project_url}", target: "_blank" %>
-    </div>
-
-    <% if solution.documents.any? %>
-      <div class="row column">
-        <strong><%= t ".documents" %>:</strong>
-          <ul id="documents">
-            <% solution.documents.each do |document| %>
-              <li>
-                <%= link_to translated_attribute(document.title), document.url %>
-                <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-              </li>
-            <% end %>
-          </ul>
-      </div>
-    <% end %>
-
-    <% if solution.photos.any? %>
-      <div class="row column">
-        <strong><%= t(".photos") %>:</strong>
-        <div id="photos" class="gallery row">
-          <% solution.photos.each do |photo| %>
-            <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
-              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
-            <% end %>
-          <% end %>
+    <div class="component__show_nav">
+      <div class="component__show_nav-author">
+        <div class="component__show_nav-circle">
+          <%= icon "award-line" %>
+        </div>
+        <div>
+          <li class="component__show_nav-author-title">
+            <strong><%= t ".author" %>:</strong>
+            <%= link_to_if(
+              decidim.profile_path(solution.author.nickname).present?,
+              solution.author.name,
+              decidim.profile_path(solution.author.nickname),
+              target: :blank
+            ) %>
+          </li>
+          <span class="component__show_nav-author-date">
+            <%= l solution.created_at, format: :decidim_short %>
+          </span>
         </div>
       </div>
+      <div class="ml-auto">
+        <%= link_to resource_locator(solution).url, class: "button button__sm button__transparent-secondary", target: :blank, data: { "external-link": false } do %>
+          <%= icon "eye-line", class: "fill-current" %>
+          <%= t ".link" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="component__show_grid">
+      <div class="component__show_grid-item">
+        <div class="card-section">
+          <div class="row column">
+            <span class="component__show-description"><%= t ".description" %></span>
+            <p class="component__show-text">
+              <%= decidim_sanitize_editor_admin translated_attribute solution.description  %>
+            </p>
+          </div>
+        </div>
+
+        <% if solution.documents.any? %>
+          <%= render partial: "documents", locals: { solution: } %>
+        <% end %>
+
+        <% if solution.photos.any? %>
+          <%= render partial: "photos", locals: { solution: } %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <span class="component__show-title"><%= t ".project_status" %></span>
+        <div class="flex items-center gap-x-2 mt-2">
+          <p class="component__show-icon-text">
+            <%= t("decidim.solutions.solutions.form.project_statuses.#{solution.project_status}") %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <span class="component__show-title"><%= t ".coordinating_entity" %></span>
+        <div class="flex items-center gap-x-2 mt-2">
+          <p class="component__show-icon-text">
+            <%= solution.coordinating_entity %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <span class="component__show-title"><%= t ".challenge" %></span>
+        <div class="flex items-center gap-x-2 mt-2">
+          <p class="component__show-icon-text">
+            <%= link_to translated_attribute(solution.challenge.title), Decidim::ResourceLocatorPresenter.new(solution.challenge).path %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <span class="component__show-title"><%= t ".project_url" %></span>
+        <div class="flex items-center gap-x-2 mt-2">
+          <p class="component__show-icon-text">
+            <%= link_to solution.project_url, "http://#{solution.project_url}", target: "_blank" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="item__edit-sticky">
+  <div class="item__edit-sticky-container">
+    <% if solution.published? %>
+    <%= link_to t("actions.unpublish", scope: "decidim.solutions.admin"), solution_publish_path(solution), method: :delete, class: "button button__sm button__secondary" %>
+    <% else %>
+      <%= link_to t("actions.publish", scope: "decidim.solutions.admin"), solution_publish_path(solution), method: :post, class: "button button__sm button__secondary" %>
     <% end %>
   </div>
 </div>
 
-<% if solution.published? %>
-  <%= link_to t("actions.unpublish", scope: "decidim.solutions.admin"), solution_publish_path(solution), method: :delete, class: "button muted" %>
-<% else %>
-  <%= link_to t("actions.publish", scope: "decidim.solutions.admin"), solution_publish_path(solution), method: :post, class: "button hollow" %>
-<% end %>

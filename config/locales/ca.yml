@@ -51,9 +51,16 @@ ca:
         tags: Paraules clau
         title: Títol
   decidim:
+    shared:
+      filters:
+        state: Estat
+        sdgs: SDGs
+        scope: Àmbit
+        related_to: Relacionat amb
     challenges:
       admin:
         actions:
+          title: Accions
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
@@ -79,6 +86,7 @@ ca:
             success: Repte esborrat correctament
           edit:
             update: Actualitza
+            title: Edita repte
           form:
             duration: Durada
             images: Imatges
@@ -89,6 +97,9 @@ ca:
           update:
             error: Hi ha hagut un problema actualitzant aquest repte
             success: Repte actualitzat correctament
+          index:
+            title: Reptes
+            selected: seleccionat
         exports:
           answers: Respostes
           export_as: "%{name} com a %{export_format}"
@@ -103,8 +114,6 @@ ca:
               state: Estat
               tags: Paraules clau
               title: Títol
-        titles:
-          challenges_list: Llistat de reptes
         surveys:
           edit:
             save: Desa
@@ -137,7 +146,6 @@ ca:
             other: "%{count} reptes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -145,11 +153,7 @@ ca:
           scope: Àmbit
           search: Cerca
           state: Estat
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
+          sdgs: SDGs
         orders:
           label: Ordenacions
           random: Aleatori
@@ -1020,6 +1024,9 @@ ca:
             error: Hi ha hagut un error despublicant aquest problema
             success: Problema despublicat correctament
         problems:
+          index:
+            title: Problemes
+            selected: seleccionat
           create:
             error: Hi ha hagut un error creant aquest problema
             success: Problema creat correctament
@@ -1028,6 +1035,7 @@ ca:
             has_solutions: No es pot esborrar aquest problema perquè té solucions associades
             success: Problema esborrat correctament
           edit:
+            title: Edita problema
             update: Actualitza
           form:
             challenge: Repte associat
@@ -1055,7 +1063,6 @@ ca:
             other: "%{count} problemes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -1066,11 +1073,6 @@ ca:
           state: Estat
           technological_scope: Àmbit tecnològic
           territorial_scope: Àmbit territorial
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: test
           random: Aleatori
@@ -1139,6 +1141,8 @@ ca:
             error: Hi ha hagut un problema despublicant aquesta solució
             success: Solució despublicada correctament
         solutions:
+          index:
+            title: Solucions
           create:
             error: Hi ha hagut un problema creant aquesta solució
             success: Solució creada correctament
@@ -1146,6 +1150,7 @@ ca:
             error: Hi ha hagut un problema esborrant aquesta solució
             success: Solució esborrada correctament
           edit:
+            title: Edita solució
             update: Actualitza
           show:
             link: Enllaç
@@ -1190,6 +1195,9 @@ ca:
             finished: Finalitzat
         index:
           new_solution: Nova solució
+          count:
+            one: "%{count} solució"
+            other: "%{count} solucions"
         new:
           action: Estàs creant una nova solució.
           back: Torna
@@ -1210,7 +1218,6 @@ ca:
             other: "%{count} solucions"
         filters:
           all: Totes
-          category: Categoria
           technical: Tècnics
           economic: Econòmics
           financial: Finançers
@@ -1219,11 +1226,6 @@ ca:
           scope: Àmbit
           search: Cerca
           territorial_scope: Àmbit territorial
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: Ordenacions
           random: Aleatori

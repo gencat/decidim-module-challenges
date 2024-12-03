@@ -9,7 +9,15 @@ function toggleSdgFilterCellSelect(cell, selected) {
   }
 }
 
-$( document ).ready(function() {
+$(document).ready(function() {
+  window.onclick = function(event) {
+    let modal = document.querySelector("#sdgs-modal");
+  
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  } 
+
   /**
     * Setup Sdgs selector
     */
@@ -62,4 +70,6 @@ $( document ).ready(function() {
     sdgs_opener.parent("form").submit()
     sdgs_opener= null
   });
+
+
 })

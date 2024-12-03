@@ -45,6 +45,10 @@ cs:
         tags: Značky
         title: Nadpis
   decidim:
+    shared:
+      filters:
+        state: State
+        sdgs: SDGs
     challenges:
       admin:
         actions:
@@ -115,7 +119,6 @@ cs:
             other: "%{count} výzvy"
         filters:
           all: Vše
-          category: Kategorie
           execution: Provedení
           finished: Dokončeno
           proposal: Návrh
@@ -123,11 +126,6 @@ cs:
           scope: Rozsah působnosti
           search: Hledat
           state: Stav
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtrovat
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         orders:
           label: test
           random: Náhodně
@@ -485,6 +483,9 @@ cs:
             error: Při rušení publikování tohoto problému došlo k chybě
             success: Zveřejnění problému bylo úspěšně zrušeno
         problems:
+          index:
+            title: Problémů
+            selected: vybraný
           create:
             error: Při vytváření této výzvy došlo k chybě
             success: Problém byl úspěšně vytvořen
@@ -493,6 +494,7 @@ cs:
             has_solutions: Tento problém nelze odstranit kvůli souvisejícím řešením
             success: Problém byl úspěšně smazán
           edit:
+            title: Upravit problém
             update: Aktualizace
           form:
             challenge: Související výzva
@@ -520,7 +522,6 @@ cs:
             other: "%{count} problémů"
         filters:
           all: Vše
-          category: Kategorie
           execution: Provedení
           finished: Dokončeno
           proposal: Návrh
@@ -531,11 +532,6 @@ cs:
           state: State
           technological_scope: Technologický rozsah
           territorial_scope: Územní rozsah
-        filters_small_view:
-          close_modal: Zavřít modální okno
-          filter: Filtrovat
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         orders:
           label: test
           random: Náhodně
@@ -603,6 +599,8 @@ cs:
             error: Při zrušení publikování tohoto řešení došlo k problému
             success: Řešení bylo správně odebráno publikování
         solutions:
+          index:
+            title: řešení
           create:
             error: Při vytváření tohoto řešení došlo k problému
             success: Řešení bylo správně vytvořeno
@@ -610,6 +608,7 @@ cs:
             error: Při mazání tohoto řešení došlo k problému
             success: Řešení bylo úspěšně odstraněno
           edit:
+            title: Upravit řešení
             update: Aktualizace
           form:
             problem: související problém
@@ -638,9 +637,12 @@ cs:
           solutions_count:
             one: "%{count} řešení"
             other: "%{count} řešení"
+        index:
+          count:
+            one: "%{count} řešení"
+            other: "%{count} řešení"
         filters:
           all: Vše
-          category: Kategorie
           technical: Technické
           economic: Ekonomické
           financial: Finanční
@@ -649,11 +651,6 @@ cs:
           scope: Rozsah působnosti
           search: Hledat
           territorial_scope: Územní rozsah působnosti
-        filters_small_view:
-          close_modal: Zavřít modální okno
-          filter: Filtrovat
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         orders:
           label: Seřadit
           random: Náhodně

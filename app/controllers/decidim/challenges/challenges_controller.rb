@@ -9,15 +9,16 @@ module Decidim
       include FilterResource
       include Paginable
       include OrderableChallenges
-      include ChallengesHelper
-      include Decidim::Sdgs::SdgsHelper
-      include Decidim::ShowFiltersHelper
+      include WithSdgs
+      include WithDefaultFilters
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
+      helper Decidim::Challenges::ChallengesHelper
+      helper Decidim::PaginateHelper
 
-      helper_method :challenges, :new_solution_path, :solutions_component
+      helper_method :challenges, :has_sdgs?, :new_solution_path, :solutions_component, :default_filter_scope_params
 
       def index
         @challenges = search.result
@@ -38,23 +39,22 @@ module Decidim
         @challenge_scope ||= current_organization.scopes.find_by(id: @challenge.decidim_scope_id)
       end
 
-      def default_filter_params
-        {
-          search_text_cont: "",
-          with_any_category: default_filter_category_params,
-          with_any_state: %w(proposal execution finished),
-          with_any_scope: default_filter_scope_params,
-          with_related_to: "",
-          with_any_sdgs_codes: [],
-        }
-      end
-
       def challenges
         @challenges ||= reorder(paginate(search.result))
       end
 
       def search_collection
         ::Decidim::Challenges::Challenge.where(component: current_component).published
+      end
+
+      def default_filter_params
+        {
+          search_text_cont: "",
+          with_any_state: %w(proposal execution finished),
+          with_any_scope: default_filter_scope_params,
+          with_any_sdgs_codes: [],
+          related_to: "",
+        }
       end
 
       def new_solution_path

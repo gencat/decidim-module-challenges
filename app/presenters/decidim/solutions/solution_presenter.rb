@@ -34,11 +34,11 @@ module Decidim
         text = decidim_html_escape(text) if html_escape
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        renderer.render(links: links, extras: extras).html_safe
+        renderer.render(links:, extras:).html_safe
       end
 
       def id_and_title(links: false, extras: true, html_escape: false)
-        "##{solution.id} - #{title(links: links, extras: extras, html_escape: html_escape)}"
+        "##{solution.id} - #{title(links:, extras:, html_escape:)}"
       end
 
       # Render the solution description
@@ -53,7 +53,7 @@ module Decidim
         text = strip_tags(sanitize_text(text)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = renderer.render(links:, extras:).html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -71,7 +71,7 @@ module Decidim
         text = strip_tags(sanitize_text(text)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = renderer.render(links:, extras:).html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -89,7 +89,7 @@ module Decidim
         text = strip_tags(sanitize_text(text)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = renderer.render(links:, extras:).html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -107,7 +107,7 @@ module Decidim
         text = strip_tags(sanitize_text(text)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = renderer.render(links:, extras:).html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -125,7 +125,7 @@ module Decidim
         text = strip_tags(sanitize_text(text)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = renderer.render(links:, extras:).html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -143,7 +143,7 @@ module Decidim
         text = strip_tags(sanitize_text(text)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = renderer.render(links:, extras:).html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text

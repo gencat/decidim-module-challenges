@@ -1,34 +1,20 @@
 <% add_decidim_page_title(t(".create")) %>
 
-<div class="row">
-  <div class="columns large-3">
-    <div class="m-bottom">
-      <%= link_to solutions_path do %>
-        <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-        <%= t(".back") %>
-      <% end %>
-
-      <div class="show-for-large">
-        <%= t(".action") %>
-      </div>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12">
+      <%= t("decidim.solutions.solutions.new.create") %>
+    </h1>
   </div>
 
-  <div class="columns large-6">
-    <h2 class="section-heading">
-      <%= t(".create") %>
-    </h2>
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form, html: { class: "form" }) do |form| %>
-          <%= render partial: "form", object: form %>
-
-          <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
+  <%= decidim_form_for(@form, html: { class: "form" }) do |form| %>
+    <div class="form__wrapper">
+      <%= render partial: "form", object: form %>
     </div>
-  </div>
-  <div class="columns large-3"></div>
-</div>
+
+    <button type="submit" class="button button__sm md:button__lg button__secondary">
+      <span><%= t("send", scope: "decidim.solutions.solutions.new") %></span>
+      <%= icon "arrow-right-line" %>
+    </button>
+  <% end %>
+<% end %>
