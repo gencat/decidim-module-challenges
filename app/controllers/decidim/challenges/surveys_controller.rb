@@ -7,9 +7,9 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
 
       def answer
-        enforce_permission_to :answer, :challenge, challenge: challenge
+        enforce_permission_to(:answer, :challenge, challenge:)
 
-        @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token: session_token)
+        @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
 
         SurveyChallenge.call(challenge, current_user, @form) do
           on(:ok) do

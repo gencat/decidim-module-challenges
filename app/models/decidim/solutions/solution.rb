@@ -6,7 +6,6 @@ module Decidim
     class Solution < Solutions::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::FilterableResource
-      include Decidim::HasCategory
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
@@ -33,7 +32,7 @@ module Decidim
         joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: Array(values).map(&:to_sym) })
       }
 
-      scope :with_any_territorial_scope_id, lambda { |*territorial_scope_id|
+      scope :with_any_territorial_scope, lambda { |*territorial_scope_id|
         if territorial_scope_id.include?("all")
           all
         else
@@ -48,7 +47,7 @@ module Decidim
       }
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:search_text_cont, :with_any_category, :with_any_sdgs_codes, :with_any_territorial_scope_id]
+        [:search_text_cont, :with_any_territorial_scope, :with_any_sdgs_codes, :related_to]
       end
 
       searchable_fields({

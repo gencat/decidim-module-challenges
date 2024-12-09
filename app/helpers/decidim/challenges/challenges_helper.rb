@@ -5,15 +5,17 @@ module Decidim
     # Custom helpers, scoped to the challenges engine.
     #
     module ChallengesHelper
-      def filter_challenges_state_values
-        Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.challenges.challenges_helper.filter_state_values.all")),
-          [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("proposal", t("decidim.challenges.challenges_helper.filter_state_values.proposal")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("execution", t("decidim.challenges.challenges_helper.filter_state_values.execution")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("finished", t("decidim.challenges.challenges_helper.filter_state_values.finished")),
-          ]
-        )
+      def filter_sections
+        items = []
+        items.append(method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state")
+        items.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to",
+                     type: :radio_buttons)
+        if current_participatory_space.has_subscopes?
+          items.append(method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.filters",
+                       id: "scope")
+        end
+
+        items.reject { |item| item[:collection].blank? }
       end
 
       def challenge_associated_solutions(challenge)

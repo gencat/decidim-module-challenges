@@ -13,7 +13,7 @@ module Decidim::Challenges
     let(:form) do
       double(
         invalid?: invalid,
-        survey_enabled: survey_enabled,
+        survey_enabled:,
       )
     end
 

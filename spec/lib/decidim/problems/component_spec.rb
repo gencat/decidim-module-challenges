@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Problems component" do
   subject { component }
 
-  let(:component) { create :problems_component }
+  let(:component) { create(:problems_component) }
 
   context "when check filters are hide in settings" do
     before do

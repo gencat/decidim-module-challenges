@@ -6,19 +6,36 @@ module Decidim
     #
     class SolutionsController < Decidim::Solutions::ApplicationController
       include Decidim::ApplicationHelper
-      include Decidim::ShowFiltersHelper
-      include Decidim::Sdgs::SdgsHelper
       include FilterResource
       include Paginable
       include OrderableSolutions
       include FormFactory
+      include WithSdgs
+      include WithDefaultFilters
 
       helper Decidim::CheckBoxesTreeHelper
-      helper Decidim::ShowFiltersHelper
       helper Decidim::Sdgs::SdgsHelper
-      helper Decidim::Solutions::ApplicationHelper
+      helper Decidim::ShowFiltersHelper
+      helper SolutionsHelper
+      helper Decidim::Challenges::ApplicationHelper
 
-      helper_method :solutions, :form_presenter
+      helper_method :solutions, :form_presenter, :has_sdgs?, :has_problem?, :default_filter_scope_params
+
+      def index
+        @solutions = search.result
+        @solutions = reorder(@solutions)
+        @solutions = paginate(@solutions)
+      end
+
+      def show
+        @solution = solution
+        if @solution.problem.present?
+          @sectorial_scope = sectorial_scope
+          @technological_scope = technological_scope
+        end
+        @sdg_index = sdg_index if @solution.problem.present? || @solution.challenge.present?
+        @challenge_scope = challenge_scope
+      end
 
       def new
         enforce_permission_to :create, :solution
@@ -42,46 +59,19 @@ module Decidim
         end
       end
 
-      def index
-        @solutions = search.result
-        @solutions = reorder(solutions)
-        @solutions = paginate(solutions)
-      end
-
-      def show
-        @solution = solution
-        if @solution.problem.present?
-          @sectorial_scope = sectorial_scope
-          @technological_scope = technological_scope
-        end
-        @sdg_index = sdg_index if @solution.problem.present? || @solution.challenge.present?
-        @challenge_scope = challenge_scope
-      end
-
       private
 
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_category: default_filter_category_params,
-          with_any_territorial_scope_id: default_filter_scope_params,
-          with_related_to: "",
+          with_any_territorial_scope: default_filter_scope_params,
           with_any_sdgs_codes: [],
+          related_to: "",
         }
       end
 
-      def default_filter_scope_params
-        return "all" unless current_component.participatory_space.scopes.any?
-
-        if current_component.participatory_space.scope
-          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
-        end
-      end
-
       def solutions
-        @solutions ||= paginate(search.result)
+        @solutions ||= reorder(paginate(search.result))
       end
 
       def solution
@@ -115,6 +105,10 @@ module Decidim
 
       def form_presenter
         @form_presenter ||= present(@form, presenter_class: Decidim::Solutions::SolutionPresenter)
+      end
+
+      def has_problem?
+        current_participatory_space.components.where(manifest_name: "problems").present? && @solution.problem.present?
       end
     end
   end

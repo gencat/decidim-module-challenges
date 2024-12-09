@@ -1,38 +1,22 @@
-<div class="field hashtags__container">
-  <%= form.text_field :title, class: "js-hashtags" %>
-</div>
+<%= form.text_field :title, class: "js-hashtags" %>
 
-<div class="field hashtags__container">
-  <%= text_editor_for_description(form) %>
-</div>
+<%= text_editor_for_description(form) %>
 
-<div class="row column">
-  <%= form.select :decidim_challenges_challenge_id, participatory_space_challenges.map{|challenge| [translated_attribute(challenge.title), challenge.id] }, include_blank: true %>
-</div>
+<%= form.select :decidim_challenges_challenge_id, participatory_space_challenges.map{|challenge| [translated_attribute(challenge.title), challenge.id] }, include_blank: true %>
 
-<div class="field hashtags__container">
-  <%= form.text_field :coordinating_entity, class: "js-hashtags" %>
-</div>
+<%= form.text_field :coordinating_entity, class: "js-hashtags" %>
 
-<div class="row column">
-  <%= form.select :project_status, [{title: t(".project_statuses.in_progress"), key: :in_progress}, {title: t('.project_statuses.finished'), key: :finished}].map{|result| [result[:title], result[:key]] }, include_blank: true %>
-</div>
+<%= form.select :project_status, [{title: t(".project_statuses.in_progress"), key: :in_progress}, {title: t('.project_statuses.finished'), key: :finished}].map{|result| [result[:title], result[:key]] }, include_blank: true %>
 
-<div class="field hashtags__container">
-  <%= form.text_field :project_url, class: "js-hashtags" %>
-</div>
+<%= form.text_field :project_url, class: "js-hashtags" %>
 
 <%= form.hidden_field :decidim_problems_problem_id, value: @form.try(:problem) ? @form.try(:problem).id : '' %>
 <%= form.hidden_field :author_id, value: current_user.id %>
 
-<fieldset class="attachments_container gallery__container documents_container">
-  <legend><%= t("attachment_legend", scope: "decidim.solutions.solutions.new") %></legend>
-  <div class="row column">
-    <%= form.attachment :documents,
-      multiple: true,
-      label: t("decidim.solutions.solutions.new.add_documents"),
-      button_label: t("decidim.solutions.solutions.new.add_documents"),
-      button_edit_label: t("decidim.solutions.solutions.new.edit_documents"),
-      help_i18n_scope: "decidim.forms.file_help.file" %>
-  </div>
-</fieldset>
+<%= form.attachment :documents,
+  multiple: true,
+  label: t("decidim.solutions.solutions.new.add_documents"),
+  button_label: t("decidim.solutions.solutions.new.add_documents"),
+  button_edit_label: t("decidim.solutions.solutions.new.edit_documents"),
+  button_class: "button button__lg button__transparent-secondary w-full",
+  help_i18n_scope: "decidim.forms.file_help.file" %>

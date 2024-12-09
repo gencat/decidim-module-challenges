@@ -2,12 +2,15 @@
 
 module Decidim
   module Problems
-    # This cell renders the Medium (:m) problem card
+    # This cell renders the Grid (:g) Problem card
     # for an given instance of a Problem
-    class ProblemMCell < Decidim::CardMCell
+    class ProblemGCell < Decidim::CardGCell
       include ActiveSupport::NumberHelper
       include Decidim::Problems::ProblemsHelper
       include Decidim::Sdgs::SdgsHelper
+      include ProblemCellsHelper
+
+      private
 
       def resource_icon
         icon "problems", class: "icon--big"

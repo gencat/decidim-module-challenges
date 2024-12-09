@@ -14,7 +14,7 @@ module Decidim
       private
 
       def card_size
-        "decidim/challenges/challenge_m"
+        "decidim/challenges/challenge_g"
       end
     end
   end

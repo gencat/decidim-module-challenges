@@ -7,12 +7,12 @@ module Decidim
     describe SolutionsForm do
       subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-      let(:organization) { create :organization }
-      let(:scope) { create :scope, organization: organization }
-      let(:current_user) { create :user, :confirmed, organization: organization }
+      let(:organization) { create(:organization) }
+      let(:scope) { create(:scope, organization:) }
+      let(:current_user) { create(:user, :confirmed, organization:) }
       let(:title) { "Títol solució" }
       let(:description) { "Descripció solució" }
-      let(:challenge) { create :challenge }
+      let(:challenge) { create(:challenge) }
       let(:project_status) { "in_progress" }
       let(:project_url) { "www.example.org" }
       let(:coordinating_entity) { "www.example.org" }
@@ -38,13 +38,13 @@ module Decidim
       context "when title is missing" do
         let(:title) { nil }
 
-        it { is_expected.to be_invalid }
+        it { is_expected.not_to be_valid }
       end
 
       context "when description is missing" do
         let(:description) { nil }
 
-        it { is_expected.to be_invalid }
+        it { is_expected.not_to be_valid }
       end
 
       context "when problem is missing but there is a challenge" do

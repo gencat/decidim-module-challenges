@@ -22,7 +22,7 @@ module Decidim
         questions = resource.challenge.questionnaire.questions
         answers = resource.challenge.questionnaire.answers.where(user: resource.user)
         questions.each_with_index.inject({}) do |serialized, (question, idx)|
-          answer = answers.find_by(question: question)
+          answer = answers.find_by(question:)
           serialized.update("#{idx + 1}. #{translated_attribute(question.body)}" => normalize_body(answer))
         end
       end
