@@ -1,543 +1,64 @@
-<%= stylesheet_pack_tag "decidim_sdgs" %>
-<div class="row mb-m">
-  <div class="columns large-7">
-    <section>
-      <h3 class="mb-sm">
-        <strong><%= t("name", scope: "decidim.components.sdgs") %></strong>
-      </h3>
-      <p><%= t("description", scope: "decidim.components.sdgs") %></p>
-    </section>
-  </div>
-  <div class="columns large-5">
-    <div id="ods-logo-container">
-      <%= image_pack_tag "media/images/sdg-wheel.png" %>
-      <p id="title"><%= t("ods_logo.title", scope: "decidim.components.sdgs") %></p>
-      <p id="subtitle"><%= t("ods_logo.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="columns">
-    <div class="row column">
-      <h4 class="mb-sm">
-        <strong><%= t("subtitle", scope: "decidim.components.sdgs") %></strong>
-      </h4>
-    </div>
-    <div id="ods-container" class="row">
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-01" class="ods">
-          <div class="text-container">
-            <p><%= t("no_poverty.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("no_poverty.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-01.svg", alt: "Logo ODS 01" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-02" class="ods">
-          <div class="text-container">
-            <p><%= t("zero_hunger.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("zero_hunger.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-02.svg", alt: "Logo ODS 02" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-03" class="ods">
-          <div class="text-container">
-            <p><%= t("good_health.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("good_health.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-03.svg", alt: "Logo ODS 03" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-04" class="ods">
-          <div class="text-container">
-            <p><%= t("quality_education.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("quality_education.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-04.svg", alt: "Logo ODS 04" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-05" class="ods">
-          <div class="text-container">
-            <p><%= t("gender_equality.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("gender_equality.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-05.svg", alt: "Logo ODS 05" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-06" class="ods">
-          <div class="text-container">
-            <p><%= t("clean_water.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("clean_water.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-06.svg", alt: "Logo ODS 06" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-07" class="ods">
-          <div class="text-container">
-            <p><%= t("clean_energy.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("clean_energy.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-07.svg", alt: "Logo ODS 07" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-08" class="ods">
-          <div class="text-container">
-            <p><%= t("decent_work.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("decent_work.logo.line2", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("decent_work.logo.line3", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-08.svg", alt: "Logo ODS 08" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-09" class="ods">
-          <div class="text-container">
-            <p><%= t("iiai.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("iiai.logo.line2", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("iiai.logo.line3", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-09.svg", alt: "Logo ODS 09" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-10" class="ods">
-          <div class="text-container stretch">
-            <p><%= t("reduced_inequalities.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("reduced_inequalities.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-10.svg", alt: "Logo ODS 10" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-11" class="ods">
-          <div class="text-container">
-            <p><%= t("sustainable_cities.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("sustainable_cities.logo.line2", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("sustainable_cities.logo.line3", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-11.svg", alt: "Logo ODS 11" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-12" class="ods">
-          <div class="text-container stretch">
-            <p><%= t("responsible_consumption.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("responsible_consumption.logo.line2", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("responsible_consumption.logo.line3", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-12.svg", alt: "Logo ODS 12" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-13" class="ods">
-          <div class="text-container stretch">
-            <p><%= t("climate_action.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("climate_action.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-13.svg", alt: "Logo ODS 13" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-14" class="ods">
-          <div class="text-container stretch">
-            <p><%= t("life_below_water.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("life_below_water.logo.line2", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-14.svg", alt: "Logo ODS 14" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-15" class="ods">
-          <div class="text-container stretch">
-            <p><%= t("life_on_land.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("life_on_land.logo.line2", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("life_on_land.logo.line3", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-15.svg", alt: "Logo ODS 15" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-16" class="ods">
-          <div class="text-container stretch">
-            <p><%= t("pjsi.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("pjsi.logo.line2", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("pjsi.logo.line3", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-16.svg", alt: "Logo ODS 16" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div id="ods-17" class="ods">
-          <div class="text-container stretch">
-            <p><%= t("partnership.logo.line1", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("partnership.logo.line2", scope: "decidim.components.sdgs") %></p>
-            <p><%= t("partnership.logo.line3", scope: "decidim.components.sdgs") %></p>
-          </div>
-          <%= image_pack_tag "media/images/ods-17.svg", alt: "Logo ODS 17" %>
-        </div>
-      </div>
-      <div class="columns large-2 medium-3 small-4">
-        <div class="ods final">
-          <%= image_pack_tag "media/images/un_emblem_square.png", alt: "Logo United Nations" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<% add_decidim_page_title(t("name", scope: "decidim.components.sdgs")) %>
 
-<div id="objective_container" class="row">
-  <div id="objective_01" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("no_poverty.objectives.title", scope: "decidim.components.sdgs") %> </p>
-      <p class="objectives_subtitle"> <%= t("no_poverty.objectives.subtitle", scope: "decidim.components.sdgs") %> </p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>1.1</strong> <%= t("no_poverty.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>1.2</strong> <%= t("no_poverty.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>1.3</strong> <%= t("no_poverty.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>1.4</strong> <%= t("no_poverty.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>1.5</strong> <%= t("no_poverty.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>1.6</strong> <%= t("no_poverty.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>1.7</strong> <%= t("no_poverty.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
+<%= append_stylesheet_pack_tag "decidim_sdgs" %>
 
-  <div id="objective_02" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"> <%= t("zero_hunger.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"> <%= t("zero_hunger.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
+  <section class="layout-main__section layout-main__heading mt-12">
+    <div class="sdgs-title">
+      <div class="text">
+        <h1 class="title-decorator mb-12"><%= t("name", scope: "decidim.components.sdgs") %></h1>
+        <p class="description"><%= t("description", scope: "decidim.components.sdgs") %></p>
+      </div>
+      <div id="ods-logo-container">
+        <%= image_pack_tag "media/images/sdg-wheel.png" %>
+        <p id="title"><%= t("ods_logo.title", scope: "decidim.components.sdgs") %></p>
+        <p id="subtitle"><%= t("ods_logo.subtitle", scope: "decidim.components.sdgs") %></p>
+      </div>
     </div>
-    <div class="objectives_text">
-      <p><strong>2.1</strong> <%= t("zero_hunger.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>2.2</strong> <%= t("zero_hunger.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>2.3</strong> <%= t("zero_hunger.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>2.4</strong> <%= t("zero_hunger.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>2.5</strong> <%= t("zero_hunger.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>2.a</strong> <%= t("zero_hunger.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>2.b</strong> <%= t("zero_hunger.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>2.c</strong> <%= t("zero_hunger.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
 
-  <div id="objective_03" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("good_health.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("good_health.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
+    <div class="row">
+      <div class="columns">
+        <div class="row column">
+          <h4 class="mb-sm">
+            <h3 class="h3"><%= t("subtitle", scope: "decidim.components.sdgs") %></h3>
+          </h4>
+        </div>
+      </div>
     </div>
-    <div class="objectives_text">
-      <p><strong>3.1</strong> <%= t("good_health.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.2</strong> <%= t("good_health.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.3</strong> <%= t("good_health.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.4</strong> <%= t("good_health.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.5</strong> <%= t("good_health.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.6</strong> <%= t("good_health.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.7</strong> <%= t("good_health.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.8</strong> <%= t("good_health.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.9</strong> <%= t("good_health.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.a</strong> <%= t("good_health.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.b</strong> <%= t("good_health.objectives.objective11", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.c</strong> <%= t("good_health.objectives.objective12", scope: "decidim.components.sdgs") %></p>
-      <p><strong>3.d</strong> <%= t("good_health.objectives.objective13", scope: "decidim.components.sdgs") %></p>
+    
+    <div id="ods-container">
+      <%= render partial: "ods" %>
     </div>
-  </div>
+    
+    <div id="objective-container">
+      <%= render partial: "objectives" %>
+    </div>
+  </section>
+<% end %>
 
-  <div id="objective_04" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("quality_education.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("quality_education.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>4.1</strong> <%= t("quality_education.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.2</strong> <%= t("quality_education.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.3</strong> <%= t("quality_education.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.4</strong> <%= t("quality_education.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.5</strong> <%= t("quality_education.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.6</strong> <%= t("quality_education.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.7</strong> <%= t("quality_education.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.a</strong> <%= t("quality_education.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.b</strong> <%= t("quality_education.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>4.c</strong> <%= t("quality_education.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_05" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("gender_equality.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("gender_equality.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>5.1</strong> <%= t("gender_equality.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.2</strong> <%= t("gender_equality.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.3</strong> <%= t("gender_equality.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.4</strong> <%= t("gender_equality.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.5</strong> <%= t("gender_equality.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.6</strong> <%= t("gender_equality.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.a</strong> <%= t("gender_equality.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.b</strong> <%= t("gender_equality.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>5.c</strong> <%= t("gender_equality.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_06" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("clean_water.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("clean_water.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>6.1</strong> <%= t("clean_water.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>6.2</strong> <%= t("clean_water.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>6.3</strong> <%= t("clean_water.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>6.4</strong> <%= t("clean_water.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>6.5</strong> <%= t("clean_water.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>6.6</strong> <%= t("clean_water.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>6.a</strong> <%= t("clean_water.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>6.b</strong> <%= t("clean_water.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_07" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("clean_energy.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("clean_energy.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>7.1</strong> <%= t("clean_energy.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>7.2</strong> <%= t("clean_energy.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>7.3</strong> <%= t("clean_energy.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>7.a</strong> <%= t("clean_energy.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>7.b</strong> <%= t("clean_energy.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_08" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("decent_work.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("decent_work.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>8.1</strong> <%= t("decent_work.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.2</strong> <%= t("decent_work.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.3</strong> <%= t("decent_work.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.4</strong> <%= t("decent_work.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.5</strong> <%= t("decent_work.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.6</strong> <%= t("decent_work.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.7</strong> <%= t("decent_work.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.8</strong> <%= t("decent_work.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.9</strong> <%= t("decent_work.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.10</strong> <%= t("decent_work.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.a</strong> <%= t("decent_work.objectives.objective11", scope: "decidim.components.sdgs") %></p>
-      <p><strong>8.b</strong> <%= t("decent_work.objectives.objective12", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_09" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("iiai.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("iiai.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>9.1</strong> <%= t("iiai.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>9.2</strong> <%= t("iiai.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>9.3</strong> <%= t("iiai.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>9.4</strong> <%= t("iiai.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>9.5</strong> <%= t("iiai.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>9.a</strong> <%= t("iiai.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>9.b</strong> <%= t("iiai.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>9.c</strong> <%= t("iiai.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_10" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("reduced_inequalities.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("reduced_inequalities.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>10.1</strong> <%= t("reduced_inequalities.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.2</strong> <%= t("reduced_inequalities.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.3</strong> <%= t("reduced_inequalities.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.4</strong> <%= t("reduced_inequalities.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.5</strong> <%= t("reduced_inequalities.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.6</strong> <%= t("reduced_inequalities.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.7</strong> <%= t("reduced_inequalities.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.a</strong> <%= t("reduced_inequalities.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.b</strong> <%= t("reduced_inequalities.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>10.c</strong> <%= t("reduced_inequalities.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_11" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("sustainable_cities.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("sustainable_cities.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>11.1</strong> <%= t("sustainable_cities.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.2</strong> <%= t("sustainable_cities.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.3</strong> <%= t("sustainable_cities.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.4</strong> <%= t("sustainable_cities.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.5</strong> <%= t("sustainable_cities.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.6</strong> <%= t("sustainable_cities.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.7</strong> <%= t("sustainable_cities.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.a</strong> <%= t("sustainable_cities.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.b</strong> <%= t("sustainable_cities.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>11.c</strong> <%= t("sustainable_cities.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_12" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("responsible_consumption.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("responsible_consumption.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>12.1</strong> <%= t("responsible_consumption.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.2</strong> <%= t("responsible_consumption.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.3</strong> <%= t("responsible_consumption.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.4</strong> <%= t("responsible_consumption.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.5</strong> <%= t("responsible_consumption.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.6</strong> <%= t("responsible_consumption.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.7</strong> <%= t("responsible_consumption.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.8</strong> <%= t("responsible_consumption.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.a</strong> <%= t("responsible_consumption.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.b</strong> <%= t("responsible_consumption.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-      <p><strong>12.c</strong> <%= t("responsible_consumption.objectives.objective11", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_13" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("climate_action.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("climate_action.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>13.1</strong> <%= t("climate_action.objectives.objective1", scope: "decidim.components.sdgs") %><p>
-      <p><strong>13.2</strong> <%= t("climate_action.objectives.objective2", scope: "decidim.components.sdgs") %><p>
-      <p><strong>13.3</strong> <%= t("climate_action.objectives.objective3", scope: "decidim.components.sdgs") %><p>
-      <p><strong>13.a</strong> <%= t("climate_action.objectives.objective4", scope: "decidim.components.sdgs") %><p>
-      <p><strong>13.b</strong> <%= t("climate_action.objectives.objective5", scope: "decidim.components.sdgs") %><p>
-    </div>
-  </div>
-
-  <div id="objective_14" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("life_below_water.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("life_below_water.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>14.1</strong> <%= t("life_below_water.objectives.objective1", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.2</strong> <%= t("life_below_water.objectives.objective2", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.3</strong> <%= t("life_below_water.objectives.objective3", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.4</strong> <%= t("life_below_water.objectives.objective4", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.5</strong> <%= t("life_below_water.objectives.objective5", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.6</strong> <%= t("life_below_water.objectives.objective6", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.7</strong> <%= t("life_below_water.objectives.objective7", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.a</strong> <%= t("life_below_water.objectives.objective8", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.b</strong> <%= t("life_below_water.objectives.objective9", scope: "decidim.components.sdgs") %><p>
-      <p><strong>14.c</strong> <%= t("life_below_water.objectives.objective10", scope: "decidim.components.sdgs") %><p>
-    </div>
-  </div>
-
-  <div id="objective_15" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("life_on_land.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("life_on_land.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>15.1</strong> <%= t("life_on_land.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.2</strong> <%= t("life_on_land.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.3</strong> <%= t("life_on_land.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.4</strong> <%= t("life_on_land.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.5</strong> <%= t("life_on_land.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.6</strong> <%= t("life_on_land.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.7</strong> <%= t("life_on_land.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.8</strong> <%= t("life_on_land.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.9</strong> <%= t("life_on_land.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.a</strong> <%= t("life_on_land.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.b</strong> <%= t("life_on_land.objectives.objective11", scope: "decidim.components.sdgs") %></p>
-      <p><strong>15.c</strong> <%= t("life_on_land.objectives.objective12", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_16" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("pjsi.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("pjsi.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>16.1</strong> <%= t("pjsi.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.2</strong> <%= t("pjsi.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.3</strong> <%= t("pjsi.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.4</strong> <%= t("pjsi.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.5</strong> <%= t("pjsi.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.6</strong> <%= t("pjsi.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.7</strong> <%= t("pjsi.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.8</strong> <%= t("pjsi.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.9</strong> <%= t("pjsi.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.10</strong> <%= t("pjsi.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.a</strong> <%= t("pjsi.objectives.objective11", scope: "decidim.components.sdgs") %></p>
-      <p><strong>16.b</strong> <%= t("pjsi.objectives.objective12", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-
-  <div id="objective_17" class="hide">
-    <div class="objectives_container">
-      <p class="objectives_title"><%= t("partnership.objectives.title", scope: "decidim.components.sdgs") %></p>
-      <p class="objectives_subtitle"><%= t("partnership.objectives.subtitle", scope: "decidim.components.sdgs") %></p>
-    </div>
-    <div class="objectives_text">
-      <p><strong>17.1</strong> <%= t("partnership.objectives.objective1", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.2</strong> <%= t("partnership.objectives.objective2", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.3</strong> <%= t("partnership.objectives.objective3", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.4</strong> <%= t("partnership.objectives.objective4", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.5</strong> <%= t("partnership.objectives.objective5", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.6</strong> <%= t("partnership.objectives.objective6", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.7</strong> <%= t("partnership.objectives.objective7", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.8</strong> <%= t("partnership.objectives.objective8", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.9</strong> <%= t("partnership.objectives.objective9", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.10</strong> <%= t("partnership.objectives.objective10", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.11</strong> <%= t("partnership.objectives.objective11", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.12</strong> <%= t("partnership.objectives.objective12", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.13</strong> <%= t("partnership.objectives.objective13", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.14</strong> <%= t("partnership.objectives.objective14", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.15</strong> <%= t("partnership.objectives.objective15", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.16</strong> <%= t("partnership.objectives.objective16", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.17</strong> <%= t("partnership.objectives.objective17", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.18</strong> <%= t("partnership.objectives.objective18", scope: "decidim.components.sdgs") %></p>
-      <p><strong>17.19</strong> <%= t("partnership.objectives.objective19", scope: "decidim.components.sdgs") %></p>
-    </div>
-  </div>
-</div>
 <script>
   document.querySelector("#ods-container").addEventListener('click', function(event) {
-      event.preventDefault();
+    event.preventDefault();
 
-      var node = event.target;
-      while(!node.classList.contains("ods")) {
-          node = node.parentNode;
-      }
+    let node = event.target;
+    while(!node.classList.contains("ods")) {
+      node = node.parentNode;
+    }
 
-      if (node) {
-          var id = node.id.split('ods-')[1];
+    if (node) {
+      let id = node.id.split('ods-')[1];
+      let objectiveContainer = document.querySelector("#objective-container");
+      console.log(objectiveContainer)
 
-          var objectiveContainer = document.querySelector("#objective_container");
-          Array.from(objectiveContainer.children).forEach(function (e) {
-              if (!e.classList.contains('hide')) {
-                  e.classList.add('hide');
-              }
+      Array.from(objectiveContainer.children).forEach(function (e) {
+        if (!e.classList.contains('hide')) {
+          e.classList.add('hide');
+        }
 
-              if (e.id.includes(id)) {
-                  e.classList.remove('hide');
-              }
-          });
-      }
+        if (e.id.includes(id)) {
+          e.classList.remove('hide');
+        }
+      });
+    }
   });
 </script>

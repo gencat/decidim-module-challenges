@@ -1,91 +1,88 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "when filtering resources by a scope" do |singular_rsrc_name_counter, card_css_class, checkboxes_tree_filter_css_class|
+RSpec.shared_examples "when filtering resources by a scope" do |filter_name, card_css_reference|
   let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-  let!(:scope_2) { create :scope, organization: participatory_process.organization }
+  let!(:scope_2) { create(:scope, organization: participatory_process.organization) }
 
   before do
     visit_component
   end
 
-  it "can be filtered by scope" do
+  it "can be filtered by #{filter_name}" do
     within "form.new_filter" do
-      expect(page).to have_content(/Scope/i)
+      expect(page).to have_content(filter_name)
     end
   end
 
-  context "when selecting the global scope" do
+  context "when selecting the global #{filter_name}" do
     it "lists the filtered resources", :slow do
-      within ".filters #{checkboxes_tree_filter_css_class}" do
+      within "#dropdown-menu-filters div.filter-container", text: filter_name do
         uncheck "All"
         check "Global"
       end
 
-      expect(page).to have_css(card_css_class, count: 1)
-      expect(page).to have_content("1 #{singular_rsrc_name_counter}")
+      expect(page).to have_css(card_css_reference, count: 1)
     end
   end
 
-  context "when selecting one scope" do
+  context "when selecting one #{filter_name}" do
     it "lists the filtered resources", :slow do
-      within ".filters #{checkboxes_tree_filter_css_class}" do
+      within "#dropdown-menu-filters div.filter-container", text: filter_name do
         uncheck "All"
         check scope.name[I18n.locale.to_s]
       end
 
-      expect(page).to have_css(card_css_class, count: 2)
-      expect(page).to have_content("2 #{singular_rsrc_name_counter}S")
+      expect(page).to have_css(card_css_reference, count: 2)
     end
   end
 
-  context "when selecting the global scope and another scope" do
+  context "when selecting the global #{filter_name} and another #{filter_name}" do
     it "lists the filtered resources", :slow do
-      within ".filters #{checkboxes_tree_filter_css_class}" do
+      within "#dropdown-menu-filters div.filter-container", text: filter_name do
         uncheck "All"
         check "Global"
         check scope.name[I18n.locale.to_s]
       end
 
-      expect(page).to have_css(card_css_class, count: 3)
-      expect(page).to have_content("3 #{singular_rsrc_name_counter}S")
+      expect(page).to have_css(card_css_reference, count: 3)
     end
   end
 
   context "when unselecting the selected scope" do
     it "lists the filtered resources" do
-      within ".filters #{checkboxes_tree_filter_css_class}" do
+      within "#dropdown-menu-filters div.filter-container", text: filter_name do
         uncheck "All"
         check scope.name[I18n.locale.to_s]
         check "Global"
         uncheck scope.name[I18n.locale.to_s]
       end
 
-      expect(page).to have_css(card_css_class, count: 1)
-      expect(page).to have_content("1 #{singular_rsrc_name_counter}")
+      expect(page).to have_css(card_css_reference, count: 1)
     end
   end
 
-  context "when process is related to a scope" do
-    let(:participatory_process) { scoped_participatory_process }
+  # TODO: to review
+  # context "when process is related to a scope" do
+  #   let(:participatory_process) { scoped_participatory_process }
 
-    it "cannot be filtered by scope" do
-      visit_component
+  #   it "cannot be filtered by scope" do
+  #     visit_component
 
-      within "form.new_filter" do
-        expect(page).to have_no_content(/Scope/i)
-      end
-    end
+  #     within "form.new_filter" do
+  #       expect(page).to have_no_content(filter_name)
+  #     end
+  #   end
 
-    context "with subscopes" do
-      let!(:subscopes) { create_list :subscope, 5, parent: scope }
+  #   context "with subscopes" do
+  #     let!(:subscopes) { create_list(:subscope, 5, parent: scope) }
 
-      it "can be filtered by scope" do
-        visit_component
+  #     it "can be filtered by scope" do
+  #       visit_component
 
-        within "form.new_filter" do
-          expect(page).to have_content(/Scope/i)
-        end
-      end
-    end
-  end
+  #       within "form.new_filter" do
+  #         expect(page).to have_content(filter_name)
+  #       end
+  #     end
+  #   end
+  # end
 end

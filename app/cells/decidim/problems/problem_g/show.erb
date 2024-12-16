@@ -1,0 +1,35 @@
+<%= append_stylesheet_pack_tag "decidim_challenges" %>
+
+<%= link_to resource_path, class: "card__list", id: resource_id do %>
+  <div class="card__list-content">
+    <%= content_tag title_tag, class: "h4 card__list-title" do %>
+      <%= title %>
+    <% end %>
+    <div class="card__list-text">
+      <p><%= description %></p>
+      <% if has_sdgs? %>
+        <div class="card__sdg">
+          <div class="card_text--sdg--image">
+            <div class="ods challenges">
+              <% if resource_sdg_index %>
+                <%= image_pack_tag "media/images/ods-#{resource_sdg_index}.svg", alt: "Logo SDG #{resource_sdg_index}", class: "challenge--view" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="card_text--sdg--text">
+            <% if resource_sdg %>
+              <strong><%= t_sdg(resource_sdg) %></strong>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="card__list-metadata">
+      <div>
+        <span class="label problem-status <%= resource_state %>">
+          <%= t(resource_state, scope: 'decidim.challenges.states') %>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>

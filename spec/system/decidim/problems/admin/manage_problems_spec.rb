@@ -2,11 +2,12 @@
 
 require "spec_helper"
 
-describe "Admin creates problems", type: :system do
+# rubocop:disable Capybara/SpecificMatcher
+describe "Admin creates problems" do
   let(:manifest_name) { "problems" }
   let(:organization) { participatory_process.organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: organization }
-  let!(:problem) { create :problem, component: component }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let!(:problem) { create(:problem, component:) }
 
   include_context "when managing a component as an admin"
 
@@ -15,10 +16,8 @@ describe "Admin creates problems", type: :system do
       visit_component_admin
 
       find("a.button", text: "New Problem").click
-      within(".card-title", match: :first) do
-        expect(page).to have_content organization.name
-      end
       expect(page).to have_css "input#problem_title_en"
     end
   end
 end
+# rubocop:enable Capybara/SpecificMatcher

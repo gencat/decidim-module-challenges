@@ -13,7 +13,7 @@ module Decidim
       let(:technological_scope) { create(:scope, organization: model.participatory_space.organization) }
 
       before do
-        model.update(sectorial_scope: sectorial_scope, technological_scope: technological_scope)
+        model.update(sectorial_scope:, technological_scope:)
       end
 
       describe "query" do

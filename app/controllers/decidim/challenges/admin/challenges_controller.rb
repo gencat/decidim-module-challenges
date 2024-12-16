@@ -8,7 +8,9 @@ module Decidim
       class ChallengesController < Decidim::Challenges::Admin::ApplicationController
         include Decidim::ApplicationHelper
 
+        helper Challenges::ApplicationHelper
         helper Decidim::Sdgs::SdgsHelper
+        helper Decidim::PaginateHelper
 
         helper_method :challenges, :challenge, :form_presenter
 
@@ -20,6 +22,11 @@ module Decidim
         def new
           enforce_permission_to :create, :challenge
           @form = form(Decidim::Challenges::Admin::ChallengesForm).instance
+        end
+
+        def edit
+          enforce_permission_to(:edit, :challenge, challenge:)
+          @form = form(Decidim::Challenges::Admin::ChallengesForm).from_model(challenge)
         end
 
         def create
@@ -42,13 +49,8 @@ module Decidim
           end
         end
 
-        def edit
-          enforce_permission_to :edit, :challenge, challenge: challenge
-          @form = form(Decidim::Challenges::Admin::ChallengesForm).from_model(challenge)
-        end
-
         def update
-          enforce_permission_to :edit, :challenge, challenge: challenge
+          enforce_permission_to(:edit, :challenge, challenge:)
           @form = form(Decidim::Challenges::Admin::ChallengesForm).from_params(params)
 
           Decidim::Challenges::Admin::UpdateChallenge.call(@form, challenge) do
@@ -65,7 +67,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :challenge, challenge: challenge
+          enforce_permission_to(:destroy, :challenge, challenge:)
 
           Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
             on(:ok) do

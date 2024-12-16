@@ -2,23 +2,22 @@
 
 require "spec_helper"
 
-describe "Filter Challenges", :slow, type: :system do
+describe "Filter Challenges", :slow do
   include_context "with a component"
   let(:manifest_name) { "challenges" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   describe "when filtering challenges by SCOPE" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-    let!(:scope_2) { create :scope, organization: participatory_process.organization }
+    let!(:scope_2) { create(:scope, organization: participatory_process.organization) }
 
     before do
-      create_list(:challenge, 2, component: component, scope: scope)
-      create(:challenge, component: component, scope: scope_2)
-      create(:challenge, component: component, scope: nil)
+      create_list(:challenge, 2, component:, scope:)
+      create(:challenge, component:, scope: scope_2)
+      create(:challenge, component:, scope: nil)
       visit_component
     end
 
@@ -30,52 +29,52 @@ describe "Filter Challenges", :slow, type: :system do
 
     context "when selecting the global scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check "Global"
         end
 
-        expect(page).to have_css(".card--challenge", count: 1)
-        expect(page).to have_content("1 CHALLENGE")
+        expect(page).to have_css(".card__list", count: 1)
+        expect(page).to have_content("1 challenge")
       end
     end
 
     context "when selecting one scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--challenge", count: 2)
-        expect(page).to have_content("2 CHALLENGES")
+        expect(page).to have_css(".card__list", count: 2)
+        expect(page).to have_content("2 challenges")
       end
     end
 
     context "when selecting the global scope and another scope" do
       it "lists the filtered challenges", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check "Global"
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--challenge", count: 3)
-        expect(page).to have_content("3 CHALLENGES")
+        expect(page).to have_css(".card__list", count: 3)
+        expect(page).to have_content("3 challenges")
       end
     end
 
     context "when unselecting the selected scope" do
       it "lists the filtered challenges" do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
           check "Global"
           uncheck scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--challenge", count: 1)
-        expect(page).to have_content("1 CHALLENGE")
+        expect(page).to have_css(".card__list", count: 1)
+        expect(page).to have_content("1 challenge")
       end
     end
 
@@ -91,7 +90,7 @@ describe "Filter Challenges", :slow, type: :system do
       end
 
       context "with subscopes" do
-        let!(:subscopes) { create_list :subscope, 5, parent: scope }
+        let!(:subscopes) { create_list(:subscope, 5, parent: scope) }
 
         it "can be filtered by scope" do
           visit_component
@@ -114,38 +113,38 @@ describe "Filter Challenges", :slow, type: :system do
     end
 
     it "lists proposal challenges" do
-      create(:challenge, :proposal, component: component, scope: scope)
+      create(:challenge, :proposal, component:, scope:)
       visit_component
 
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "State" do
         check "All"
         uncheck "All"
         check "Proposal"
       end
 
-      expect(page).to have_css(".card--challenge", count: 1)
-      expect(page).to have_content("1 CHALLENGE")
+      expect(page).to have_css(".card__list", count: 1)
+      expect(page).to have_content("1 challenge")
 
-      within ".card--challenge" do
-        expect(page).to have_content("PROPOSAL")
+      within ".card__list" do
+        expect(page).to have_content("Proposal")
       end
     end
 
     it "lists the filtered challenges" do
-      create(:challenge, :execution, component: component, scope: scope)
+      create(:challenge, :execution, component:, scope:)
       visit_component
 
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "State" do
         check "All"
         uncheck "All"
         check "Execution"
       end
 
-      expect(page).to have_css(".card--challenge", count: 1)
-      expect(page).to have_content("1 CHALLENGE")
+      expect(page).to have_css(".card__list", count: 1)
+      expect(page).to have_content("1 challenge")
 
-      within ".card--challenge" do
-        expect(page).to have_content("EXECUTION")
+      within ".card__list" do
+        expect(page).to have_content("Execution")
       end
     end
   end
@@ -157,7 +156,7 @@ describe "Filter Challenges", :slow, type: :system do
       end
 
       it "the filter is not rendered" do
-        expect(page).not_to have_css(".filters__section.sdgs-filter")
+        expect(page).to have_no_css(".filters__section.sdgs-filter")
       end
     end
 
@@ -165,10 +164,10 @@ describe "Filter Challenges", :slow, type: :system do
       let!(:sdgs_component) { create(:component, participatory_space: participatory_process, manifest_name: "sdgs") }
 
       before do
-        create_list(:challenge, 2, component: component, sdg_code: :no_poverty)
-        create(:challenge, component: component, sdg_code: :zero_hunger)
-        create(:challenge, component: component, sdg_code: :good_health)
-        create(:challenge, component: component, sdg_code: nil)
+        create_list(:challenge, 2, component:, sdg_code: :no_poverty)
+        create(:challenge, component:, sdg_code: :zero_hunger)
+        create(:challenge, component:, sdg_code: :good_health)
+        create(:challenge, component:, sdg_code: nil)
         visit_component
       end
 
@@ -178,8 +177,8 @@ describe "Filter Challenges", :slow, type: :system do
 
       context "when NOT selecting any SDG" do
         it "lists all the challenges" do
-          expect(page).to have_css(".card--challenge", count: 5)
-          expect(page).to have_content("5 CHALLENGES")
+          expect(page).to have_css(".card__list", count: 5)
+          expect(page).to have_content("5 challenges")
         end
       end
 
@@ -196,43 +195,10 @@ describe "Filter Challenges", :slow, type: :system do
         end
 
         it "lists the challenges with the selected SDGs" do
-          expect(page).to have_css(".card--challenge", count: 3)
-          expect(page).to have_content("3 CHALLENGES")
+          expect(page).to have_css(".card__list", count: 3)
+          expect(page).to have_content("3 challenges")
         end
       end
-    end
-  end
-
-  context "when filtering challenges by CATEGORY" do
-    let!(:challenge) { create(:challenge, component: component, category: category) }
-
-    before do
-      login_as user, scope: :user
-      visit_component
-    end
-
-    it "can be filtered by category" do
-      within ".filters .with_any_category_check_boxes_tree_filter" do
-        uncheck "All"
-        check category.name[I18n.locale.to_s]
-      end
-
-      expect(page).to have_css(".card--challenge", count: 1)
-    end
-
-    it "works with 'back to list' link" do
-      within ".filters .with_any_category_check_boxes_tree_filter" do
-        uncheck "All"
-        check category.name[I18n.locale.to_s]
-      end
-
-      expect(page).to have_css(".card--challenge", count: 1)
-
-      page.find(".card--challenge .card__link").click
-
-      click_link "Return to list"
-
-      expect(page).to have_css(".card--challenge", count: 1)
     end
   end
 end

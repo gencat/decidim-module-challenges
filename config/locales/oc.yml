@@ -51,9 +51,14 @@ oc:
         tags: Paraules clau
         title: Títol
   decidim:
+    shared:
+      filters:
+        state: Estat
+        sdgs: SDGs
     challenges:
       admin:
         actions:
+          title: Accions
           configure: Configura
           confirm_destroy: Estàs segur que vols destruir aquest %{name}?
           destroy: Esborra
@@ -79,6 +84,7 @@ oc:
             success: Repte esborrat correctament
           edit:
             update: Actualitza
+            title: Edita repte
           form:
             duration: Durada
             images: Imatges
@@ -89,6 +95,8 @@ oc:
           update:
             error: Hi ha hagut un problema actualitzant aquest repte
             success: Repte actualitzat correctament
+          index:
+            title: Reptes
         exports:
           answers: Respostes
           export_as: "%{name} com a %{export_format}"
@@ -103,8 +111,6 @@ oc:
               state: Estat
               tags: Paraules clau
               title: Títol
-        titles:
-          challenges_list: Llistat de reptes
         surveys:
           edit:
             save: Desa
@@ -137,7 +143,6 @@ oc:
             other: "%{count} reptes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -145,11 +150,6 @@ oc:
           scope: Àmbit
           search: Cerca
           state: Estat
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: Ordenacions
           random: Aleatori
@@ -1055,7 +1055,6 @@ oc:
             other: "%{count} problemes"
         filters:
           all: Totes
-          category: Categoria
           execution: En execució
           finished: Acabada
           proposal: Proposta
@@ -1066,11 +1065,6 @@ oc:
           state: Estat
           technological_scope: Àmbit tecnològic
           territorial_scope: Àmbit territorial
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: test
           random: Aleatori
@@ -1209,7 +1203,6 @@ oc:
             other: "%{count} solucions"
         filters:
           all: Totes
-          category: Categoria
           technical: Tècnics
           economic: Econòmics
           financial: Finançers
@@ -1218,11 +1211,6 @@ oc:
           scope: Àmbit
           search: Cerca
           territorial_scope: Àmbit territorial
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         orders:
           label: Ordenacions
           random: Aleatori

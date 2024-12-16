@@ -31,7 +31,7 @@ module Decidim
         self.title = translated_attribute(model.title)
         self.description = translated_attribute(model.description)
 
-        sefl.documents = model.attachments
+        self.documents = model.attachments
         return unless model.categorization
       end
 

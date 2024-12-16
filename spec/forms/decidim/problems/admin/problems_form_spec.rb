@@ -8,8 +8,8 @@ module Decidim
       describe ProblemsForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-        let(:organization) { create :organization }
-        let(:scope) { create :scope, organization: organization }
+        let(:organization) { create(:organization) }
+        let(:scope) { create(:scope, organization:) }
         let(:title) do
           {
             en: "Problem title",
@@ -24,7 +24,7 @@ module Decidim
             ca: "Descripció problema",
           }
         end
-        let(:challenge) { create :challenge }
+        let(:challenge) { create(:challenge) }
         let(:tags) { "tag1, tag2, tag3" }
         let(:causes) { "causes" }
         let(:groups_affected) { "groups affected" }
@@ -61,7 +61,7 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when default language in description is missing" do
@@ -71,38 +71,38 @@ module Decidim
             }
           end
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when challenge is missing" do
           let(:challenge) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when state is missing" do
           let(:state) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when start date is missing" do
           let(:start_date) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when end date is missing" do
           let(:end_date) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when start date is bigger than end date" do
           let(:start_date) { 2.days.from_now }
           let(:end_date) { 1.day.from_now }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
       end
     end

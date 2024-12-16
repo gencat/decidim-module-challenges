@@ -8,6 +8,9 @@ module Decidim
       class SolutionsController < Decidim::Solutions::Admin::ApplicationController
         include Decidim::ApplicationHelper
 
+        helper Challenges::ApplicationHelper
+        helper Decidim::PaginateHelper
+
         helper_method :solution, :solution, :form_presenter
 
         def index
@@ -15,9 +18,19 @@ module Decidim
           @solutions = solutions
         end
 
+        def show
+          enforce_permission_to :show, :solution
+          @solution = Decidim::Solutions::Solution.find(params[:id])
+        end
+
         def new
           enforce_permission_to :create, :solution
           @form = form(Decidim::Solutions::Admin::SolutionsForm).instance
+        end
+
+        def edit
+          enforce_permission_to(:edit, :solution, solution:)
+          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_model(solution)
         end
 
         def create
@@ -37,18 +50,8 @@ module Decidim
           end
         end
 
-        def show
-          enforce_permission_to :show, :solution
-          @solution = Decidim::Solutions::Solution.find(params[:id])
-        end
-
-        def edit
-          enforce_permission_to :edit, :solution, solution: solution
-          @form = form(Decidim::Solutions::Admin::SolutionsForm).from_model(solution)
-        end
-
         def update
-          enforce_permission_to :edit, :solution, solution: solution
+          enforce_permission_to(:edit, :solution, solution:)
           @form = form(Decidim::Solutions::Admin::SolutionsForm).from_params(params.merge({ author_id: current_user.id }))
 
           Decidim::Solutions::Admin::UpdateSolution.call(@form, solution) do
@@ -65,7 +68,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :solution, solution: solution
+          enforce_permission_to(:destroy, :solution, solution:)
 
           Decidim::Solutions::Admin::DestroySolution.call(solution, current_user) do
             on(:ok) do

@@ -1,0 +1,70 @@
+<div class="rounded p-4 bg-background mb-4 divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">
+  <div class="text-gray-2 space-y-1.5">
+    <div class="text-sm flex flex-col items-center gap-1">
+      <p class="uppercase text-xs"><%= t("status", scope: "activemodel.attributes.problem") %></p>
+      <p class="uppercase mb-4"><%= t(@problem.state, scope: "decidim.problems.states") %></p>
+    </div>
+
+    <% if @challenge_scope.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("scope", scope: "activemodel.attributes.problem") %></p>
+        <p class="uppercase mb-4"><%= translated_attribute(@challenge_scope.name) %></p>
+      </div>
+    <% end %>
+
+    <% if @problem.challenge.coordinating_entities.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></p>
+        <p class="uppercase mb-4"><%= present(@problem).challenge.coordinating_entities %></p>
+      </div>
+    <% end %>
+
+    <% if @problem.causes.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("causes", scope: "activemodel.attributes.problem") %></p>
+        <p class="uppercase mb-4"><%= present(@problem).causes %></p>
+      </div>
+    <% end %>
+
+    <% if @problem.groups_affected.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("groups_affected", scope: "activemodel.attributes.problem") %></p>
+        <p class="uppercase mb-4"><%= present(@problem).groups_affected %></p>
+      </div>
+    <% end %>
+
+    <% if @problem.decidim_sectorial_scope_id.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></p>
+        <p class="uppercase mb-4"><%= translated_attribute current_organization.scopes.find_by(id: @problem.decidim_sectorial_scope_id).name  %></p>
+      </div>
+    <% end %>
+
+    <% if @problem.decidim_technological_scope_id.present? %>
+      <div class="text-sm flex flex-col items-center gap-1">
+        <p class="uppercase text-xs"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></p>
+        <p class="uppercase mb-4"><%= translated_attribute current_organization.scopes.find_by(id: @problem.decidim_technological_scope_id).name  %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @problem.challenge.sdg_code %>
+    <div class="text-sm flex flex-col items-center gap-1">
+      <p class="uppercase text-xs text-center"><%= t("sdg", scope: "activemodel.attributes.problem") %></p>
+      <div class="ods challenges flex items-center">
+        <div class="text-container show">
+          <p><%= t(@problem.challenge.sdg_code + ".logo.line1", scope: "decidim.components.sdgs") %></p>
+          <p><%= t(@problem.challenge.sdg_code + ".logo.line2", scope: "decidim.components.sdgs") %></p>
+        </div>
+        <% sdg_code = (1 + Decidim::Sdgs::Sdg.index_from_code(@problem.challenge.sdg_code.to_sym)).to_s.rjust(2, "0") %>
+        <%= image_pack_tag "media/images/ods-#{sdg_code}.svg", alt: "Logo ODS #{sdg_code}", class: "problem--view" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<section class="layout-aside__section actions__secondary">
+  <%= resource_reference(current_participatory_space) %>
+  <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: false } %>
+  <%= cell "decidim/share_button", nil %>
+</section>

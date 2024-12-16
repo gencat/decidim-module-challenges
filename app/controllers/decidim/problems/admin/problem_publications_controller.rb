@@ -7,7 +7,7 @@ module Decidim
       #
       class ProblemPublicationsController < Decidim::Problems::Admin::ApplicationController
         def create
-          enforce_permission_to :publish, :problem, problem: problem
+          enforce_permission_to(:publish, :problem, problem:)
 
           Decidim::Problems::Admin::PublishProblem.call(problem, current_user) do
             on(:ok) do
@@ -23,7 +23,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :publish, :problem, problem: problem
+          enforce_permission_to(:publish, :problem, problem:)
 
           Decidim::Problems::Admin::UnpublishProblem.call(problem, current_user) do
             on(:ok) do

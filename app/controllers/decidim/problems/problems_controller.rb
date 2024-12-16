@@ -9,15 +9,17 @@ module Decidim
       include FilterResource
       include Paginable
       include OrderableProblems
-      include ProblemsHelper
-      include Decidim::Sdgs::SdgsHelper
-      include Decidim::ShowFiltersHelper
+      include WithSdgs
+      include WithDefaultFilters
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
       helper Decidim::ShowFiltersHelper
+      helper ProblemsHelper
+      helper Decidim::Challenges::ApplicationHelper
+      helper Decidim::PaginateHelper
 
-      helper_method :problems
+      helper_method :problems, :has_sdgs?, :default_filter_scope_params
 
       def index
         @problems = search.result
@@ -39,24 +41,13 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_category: default_filter_category_params,
           with_any_state: %w(proposal execution finished),
-          with_any_sectorial_scope_id: default_filter_scope_params,
-          with_any_technological_scope_id: default_filter_scope_params,
-          with_any_territorial_scope_id: default_filter_scope_params,
-          with_related_to: "",
+          with_any_sectorial_scope: default_filter_scope_params,
+          with_any_technological_scope: default_filter_scope_params,
+          with_any_territorial_scope: default_filter_scope_params,
           with_any_sdgs_codes: [],
+          related_to: "",
         }
-      end
-
-      def default_filter_scope_params
-        return "all" unless current_component.participatory_space.scopes.any?
-
-        if current_component.participatory_space.scope
-          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
-        end
       end
 
       def problems

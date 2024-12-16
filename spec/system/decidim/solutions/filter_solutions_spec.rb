@@ -3,34 +3,33 @@
 require "spec_helper"
 require_relative "../filter_resources_by_scope_examples"
 
-describe "Filter Solutions", :slow, type: :system do
+describe "Filter Solutions", :slow do
   include_context "with a component"
   let(:manifest_name) { "solutions" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   describe "when filtering solutions by challenge's territorial scopes" do
     before do
       challenges_component = create(:challenges_component, participatory_space: participatory_process)
       problems_component = create(:problems_component, participatory_space: participatory_process)
 
-      challenge = create(:challenge, component: challenges_component, scope: scope)
-      problem = create(:problem, component: problems_component, challenge: challenge)
-      create_list(:solution, 2, component: component, problem: problem)
+      challenge = create(:challenge, component: challenges_component, scope:)
+      problem = create(:problem, component: problems_component, challenge:)
+      create_list(:solution, 2, component:, problem:)
 
       challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
       problem_2 = create(:problem, component: problems_component, challenge: challenge_2)
-      create(:solution, component: component, problem: problem_2)
+      create(:solution, component:, problem: problem_2)
 
       challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
       problem_no_scope = create(:problem, component: problems_component, challenge: challenge_no_scope)
-      create(:solution, component: component, problem: problem_no_scope)
+      create(:solution, component:, problem: problem_no_scope)
     end
 
-    include_examples "when filtering resources by a scope", "SOLUTION", ".card--solution", ".with_any_territorial_scope_id_check_boxes_tree_filter"
+    include_examples "when filtering resources by a scope", "Territorial scope", ".card__list"
   end
 
   describe "when filtering solutions by SDG" do
@@ -40,7 +39,7 @@ describe "Filter Solutions", :slow, type: :system do
       end
 
       it "the filter is not rendered" do
-        expect(page).not_to have_css(".filters__section.sdgs-filter")
+        expect(page).to have_no_css(".filters__section.sdgs-filter")
       end
     end
 
@@ -51,17 +50,17 @@ describe "Filter Solutions", :slow, type: :system do
 
       before do
         challenge = create(:challenge, component: challenges_component, sdg_code: :no_poverty)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create_list(:solution, 2, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create_list(:solution, 2, component:, problem:, challenge:)
         challenge = create(:challenge, component: challenges_component, sdg_code: :zero_hunger)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
         challenge = create(:challenge, component: challenges_component, sdg_code: :good_health)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
         challenge = create(:challenge, component: challenges_component)
-        problem = create(:problem, component: problems_component, challenge: challenge)
-        create(:solution, component: component, problem: problem, challenge: challenge)
+        problem = create(:problem, component: problems_component, challenge:)
+        create(:solution, component:, problem:, challenge:)
         visit_component
       end
 
@@ -71,8 +70,8 @@ describe "Filter Solutions", :slow, type: :system do
 
       context "when NOT selecting any SDG" do
         it "lists all the solutions" do
-          expect(page).to have_css(".card--solution", count: 5)
-          expect(page).to have_content("5 SOLUTIONS")
+          expect(page).to have_css(".card__list", count: 5)
+          expect(page).to have_content("5 solutions")
         end
       end
 
@@ -89,49 +88,12 @@ describe "Filter Solutions", :slow, type: :system do
         end
 
         it "lists the solutions with the selected SDGs" do
-          expect(page).to have_css(".card--solution", count: 3)
-          expect(page).to have_content("3 SOLUTIONS")
+          expect(page).to have_css(".card__list", count: 3)
+          expect(page).to have_content("3 solutions")
         end
       end
     end
   end
-
-  # context "when filtering solutions by CATEGORY", :slow do
-  #   context "when the user is logged in" do
-  #     let!(:category2) { create :category, participatory_space: participatory_process }
-  #     let!(:category3) { create :category, participatory_space: participatory_process }
-  #     let!(:solution1) { create(:solution, component: component, category: category) }
-  #     let!(:solution2) { create(:solution, component: component, category: category2) }
-  #     let!(:solution3) { create(:solution, component: component, category: category3) }
-
-  #     before do
-  #       login_as user, scope: :user
-  #     end
-
-  #     it "can be filtered by a category" do
-  #       visit_component
-
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
-  #       end
-
-  #       expect(page).to have_css(".card--solution", count: 1)
-  #     end
-
-  #     it "can be filtered by two categories" do
-  #       visit_component
-
-  #       within ".filters .category_id_check_boxes_tree_filter" do
-  #         uncheck "All"
-  #         check category.name[I18n.locale.to_s]
-  #         check category2.name[I18n.locale.to_s]
-  #       end
-
-  #       expect(page).to have_css(".card--solution", count: 2)
-  #     end
-  #   end
-  # end
 
   # context "when using the browser history", :slow do
   #   before do
@@ -148,11 +110,11 @@ describe "Filter Solutions", :slow, type: :system do
   #       check "Rejected"
   #     end
 
-  #     expect(page).to have_css(".card.card--solution", count: 8)
+  #     expect(page).to have_field(".card.card--solution", count: 8)
 
   #     page.go_back
 
-  #     expect(page).to have_css(".card.card--solution", count: 6)
+  #     expect(page).to have_field(".card.card--solution", count: 6)
   #   end
 
   #   it "recover filters from previous pages" do
@@ -172,19 +134,19 @@ describe "Filter Solutions", :slow, type: :system do
   #       check "Accepted"
   #     end
 
-  #     expect(page).to have_css(".card.card--solution", count: 2)
+  #     expect(page).to have_field(".card.card--solution", count: 2)
 
   #     page.go_back
 
-  #     expect(page).to have_css(".card.card--solution", count: 6)
+  #     expect(page).to have_field(".card.card--solution", count: 6)
 
   #     page.go_back
 
-  #     expect(page).to have_css(".card.card--solution", count: 8)
+  #     expect(page).to have_field(".card.card--solution", count: 8)
 
   #     page.go_forward
 
-  #     expect(page).to have_css(".card.card--solution", count: 6)
+  #     expect(page).to have_field(".card.card--solution", count: 6)
   #   end
   # end
 end

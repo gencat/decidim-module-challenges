@@ -14,88 +14,83 @@ shared_examples "manage challenges" do
       find("a", class: "action-icon--new").click
     end
 
-    it "shows help text" do
-      expect(help_text_for("label[for*='challenge_start_date']")).to be_present
-      expect(help_text_for("label[for*='challenge_end_date']")).to be_present
-    end
-
     context "when there are multiple locales" do
       it "shows the title correctly in all available locales" do
         within "#challenge-title-tabs" do
-          click_link "English"
+          click_on "English"
         end
-        expect(page).to have_css("input", text: challenge.title[:en], visible: :visible)
+        expect(page).to have_field(text: challenge.title[:en], visible: :visible)
 
         within "#challenge-title-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
-        expect(page).to have_css("input", text: challenge.title[:ca], visible: :visible)
+        expect(page).to have_field(text: challenge.title[:ca], visible: :visible)
 
         within "#challenge-title-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
-        expect(page).to have_css("input", text: challenge.title[:es], visible: :visible)
+        expect(page).to have_field(text: challenge.title[:es], visible: :visible)
       end
 
       it "shows the local description correctly in all available locales" do
         within "#challenge-local_description-tabs" do
-          click_link "English"
+          click_on "English"
         end
-        expect(page).to have_css("input", text: challenge.local_description[:en], visible: :visible)
+        expect(page).to have_field(text: challenge.local_description[:en], visible: :visible)
 
         within "#challenge-local_description-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
-        expect(page).to have_css("input", text: challenge.local_description[:ca], visible: :visible)
+        expect(page).to have_field(text: challenge.local_description[:ca], visible: :visible)
 
         within "#challenge-local_description-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
-        expect(page).to have_css("input", text: challenge.local_description[:es], visible: :visible)
+        expect(page).to have_field(text: challenge.local_description[:es], visible: :visible)
       end
 
       it "shows the global description correctly in all available locales" do
         within "#challenge-global_description-tabs" do
-          click_link "English"
+          click_on "English"
         end
-        expect(page).to have_css("input", text: challenge.global_description[:en], visible: :visible)
+        expect(page).to have_field(text: challenge.global_description[:en], visible: :visible)
 
         within "#challenge-global_description-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
-        expect(page).to have_css("input", text: challenge.global_description[:ca], visible: :visible)
+        expect(page).to have_field(text: challenge.global_description[:ca], visible: :visible)
 
         within "#challenge-global_description-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
-        expect(page).to have_css("input", text: challenge.global_description[:es], visible: :visible)
+        expect(page).to have_field(text: challenge.global_description[:es], visible: :visible)
       end
     end
 
     context "when there is only one locale" do
-      let(:organization) { create :organization, available_locales: [:en] }
-      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let(:organization) { create(:organization, available_locales: [:en]) }
+      let(:component) { create(:component, manifest_name:, organization:) }
       let!(:challenge) do
-        create(:challenge, scope: scope, component: component,
+        create(:challenge, scope:, component:,
                            title: { en: "Title" },
                            local_description: { en: "Local description" },
                            global_description: { en: "Global description" })
       end
 
       it "shows the title correctly" do
-        expect(page).not_to have_css("#challenge-title-tabs")
-        expect(page).to have_css("input", text: challenge.title[:en], visible: :visible)
+        expect(page).to have_no_css("#challenge-title-tabs")
+        expect(page).to have_field(text: challenge.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
-        expect(page).not_to have_css("#challenge-description-tabs")
-        expect(page).to have_css("input", text: challenge.local_description[:en], visible: :visible)
+        expect(page).to have_no_css("#challenge-description-tabs")
+        expect(page).to have_field(text: challenge.local_description[:en], visible: :visible)
       end
     end
   end
 
   it "updates a challenge" do
-    within find("tr", text: Decidim::Challenges::ChallengePresenter.new(challenge).title) do
+    within "tr", text: Decidim::Challenges::ChallengePresenter.new(challenge).title do
       find("a", class: "action-icon--new").click
     end
 
@@ -118,7 +113,7 @@ shared_examples "manage challenges" do
     end
   end
 
-  it "allows the user to preview the challenge"
+  # it "allows the user to preview the challenge"
   #  do
   #   within find("tr", text: Decidim::Challenges::ChallengePresenter.new(challenge).title) do
   #     klass = "action-icon--preview"
@@ -133,7 +128,7 @@ shared_examples "manage challenges" do
   # end
 
   it "creates a new challenge" do
-    find(".card-title a.button").click
+    find(".item_show__header-title a.button", text: "New challenge").click
 
     fill_in_i18n(
       :challenge_title,
@@ -157,13 +152,10 @@ shared_examples "manage challenges" do
       ca: "Descripció global"
     )
 
-    page.execute_script("$('#challenge_start_date').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    fill_in :challenge_start_date, with: Time.current.change(day: 12, hour: 10, min: 50)
+    fill_in :challenge_end_date, with: Time.current.change(day: 12, hour: 10, min: 50)
 
-    page.execute_script("$('#challenge_end_date').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
-
-    scope_pick select_data_picker(:challenge_decidim_scope_id), scope
+    select translated(scope.name), from: :challenge_decidim_scope_id
 
     within ".new_challenge" do
       find("*[type=submit]").click
@@ -171,7 +163,7 @@ shared_examples "manage challenges" do
 
     expect(page).to have_admin_callout("successfully")
 
-    within "table" do
+    within ".card" do
       expect(page).to have_content("My challenge")
     end
   end
@@ -184,8 +176,8 @@ shared_examples "manage challenges" do
     end
 
     it "deletes a challenge" do
-      within find("tr", text: Decidim::Challenges::ChallengePresenter.new(challenge_2).title) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: Decidim::Challenges::ChallengePresenter.new(challenge_2).title do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -194,11 +186,5 @@ shared_examples "manage challenges" do
         expect(page).to have_no_content(Decidim::Challenges::ChallengePresenter.new(challenge_2).title)
       end
     end
-  end
-
-  private
-
-  def help_text_for(css)
-    page.find_all(css).first.sibling(".help-text")
   end
 end

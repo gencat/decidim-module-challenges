@@ -3,6 +3,12 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.5.0 (MINOR)
+- Upgrade module's Ruby to 3.1.1
+- Increase minimum Decidim version to 0.28
+- Rework views
+- Remove categories, as they were not being used
+
 ## Version 0.4.2 (MINOR)
 - Show create solution button in challenge, show only if there is a solution component. 
 

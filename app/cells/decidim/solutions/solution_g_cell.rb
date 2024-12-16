@@ -2,9 +2,9 @@
 
 module Decidim
   module Solutions
-    # This cell renders the Medium (:m) Solution card
+    # This cell renders the Grid (:g) Solution card
     # for an given instance of a Solution
-    class SolutionMCell < Decidim::CardMCell
+    class SolutionGCell < Decidim::CardGCell
       include ActiveSupport::NumberHelper
       include Decidim::Sdgs::SdgsHelper
 
@@ -45,6 +45,10 @@ module Decidim
 
       def resource_title
         translated_attribute model.title
+      end
+
+      def resource_id
+        model.id
       end
 
       def problem_path
