@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.5.1 (MINOR)
+- Fix name of data serializer for surveys
+
 ## Version 0.5.0 (MINOR)
 - Upgrade module's Ruby to 3.1.1
 - Increase minimum Decidim version to 0.28
