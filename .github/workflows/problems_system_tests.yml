@@ -56,8 +56,11 @@ jobs:
         with:
           chrome-version: 119.0.6045.105
 
+      - name: Install ImageMagick
+        run: sudo apt install imagemagick
+
       - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
