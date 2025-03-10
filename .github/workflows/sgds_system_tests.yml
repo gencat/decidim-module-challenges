@@ -56,7 +56,7 @@ jobs:
         with:
           chrome-version: 119.0.6045.105
       
-      - name: Install Imagemagick
+      - name: Install ImageMagick
         run: sudo apt install imagemagick
 
       - name: Recover Ruby dependency cache
