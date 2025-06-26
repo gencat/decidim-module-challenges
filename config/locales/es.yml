@@ -1140,6 +1140,8 @@ es:
           publish: Publicar
           unpublish: Despublicar
           view: Ver solución
+        exports:
+          solutions: "Soluciones"
         solution_publications:
           create:
             error: Ha habido un problema publicando esta solución

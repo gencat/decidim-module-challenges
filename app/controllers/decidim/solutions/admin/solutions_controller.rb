@@ -7,6 +7,7 @@ module Decidim
       #
       class SolutionsController < Decidim::Solutions::Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::Filterable
 
         helper Challenges::ApplicationHelper
         helper Decidim::PaginateHelper
@@ -15,7 +16,8 @@ module Decidim
 
         def index
           enforce_permission_to :read, :solutions
-          @solutions = solutions
+          #@solutions = solutions
+          @solutions = filtered_collection
         end
 
         def show
@@ -100,6 +102,15 @@ module Decidim
         def form_presenter
           @form_presenter ||= present(@form, presenter_class: Decidim::Solutions::SolutionPresenter)
         end
+
+        def base_query
+          collection.order(created_at: :desc)
+        end
+
+        def filters
+          [:state_eq, :created_at_gteq, :created_at_lteq]
+        end
+      end
       end
     end
   end
