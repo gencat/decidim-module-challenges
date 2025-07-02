@@ -1135,6 +1135,17 @@ en:
           publish: Publish
           unpublish: Unpublish
           view: View solution
+        exports:
+          solutions: "Solutions"
+          export:
+            author: "Author"
+            title: "Title"
+            description: "Description"
+            status: "Status"
+            challenge: "Associated challenge"
+            url: "Link"
+            created_at: "Creation date"
+            published_at: "Published"
         solution_publications:
           create:
             error: There's been a problem publising this solution
