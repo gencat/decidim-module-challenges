@@ -9,26 +9,19 @@ module Decidim
       include HtmlToPlainText
       include ActionView::Helpers::SanitizeHelper
 
-      def initialize(solution)
-        @solution = solution
-      end
-
       def serialize
         {
-          title_label => @solution.title[I18n.locale.to_s],
+          title_label => resource.title[I18n.locale.to_s],
           description_label => sanitized_description,
-          status_label => @solution&.project_status,
+          status_label => resource&.project_status,
           challenge_label => translated_challenge_title,
-          url_label => @solution&.project_url,
-          created_at_label => @solution.created_at,
-          published_at_label => @solution&.published_at,
+          url_label => resource&.project_url,
+          created_at_label => resource.created_at,
+          published_at_label => resource&.published_at,
         }
       end
 
       private
-
-      attr_reader :solution
-      alias resource solution
 
       def sanitize(text)
         ActionController::Base.helpers.strip_tags(text)
@@ -63,11 +56,11 @@ module Decidim
       end
 
       def translated_challenge_title
-        @solution&.challenge&.title.present? ? @solution&.challenge&.title&.[](I18n.locale.to_s) : ""
+        resource&.challenge&.title.present? ? resource&.challenge&.title&.[](I18n.locale.to_s) : ""
       end
 
       def sanitized_description
-        sanitize(@solution.description[I18n.locale.to_s])
+        sanitize(resource.description[I18n.locale.to_s])
       end
     end
   end
