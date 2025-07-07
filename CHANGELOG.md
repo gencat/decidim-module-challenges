@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.6.0 (MINOR)
+- Add CSV exporter for solutions component
+
 ## Version 0.5.1 (MINOR)
 - Fix name of data serializer for surveys
 
