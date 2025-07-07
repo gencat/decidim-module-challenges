@@ -172,7 +172,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-challenges (0.5.1)
+    decidim-challenges (0.6.0)
       decidim-core (~> 0.27)
 
 GEM
@@ -652,8 +652,8 @@ GEM
       parser (>= 3.2.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
-    rubocop-factory_bot (2.25.1)
-      rubocop (~> 1.41)
+    rubocop-factory_bot (2.24.0)
+      rubocop (~> 1.33)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
       rubocop (>= 0.82.0)
@@ -784,7 +784,7 @@ DEPENDENCIES
   puma (>= 4.3)
   rspec-rails (~> 6.0.4)
   rubocop
-  rubocop-factory_bot (= 2.25.1)
+  rubocop-factory_bot (~> 2.24.0)
   rubocop-rails
   rubocop-rspec (= 2.26.1)
   spring

@@ -7,6 +7,7 @@
         <span id="js-selected-solutions-count" class="component-counter component-counter--inline" title="<%= t("decidim.solutions.admin.titles.solutions_list") %>"></span>
       </div>
       <div class="flex items-center gap-x-4">
+        <%= export_dropdowns(query) %>
         <% if allowed_to? :create, :solution %>
             <%= link_to t("actions.new_solution", scope: "decidim.solutions.admin"),
             new_solution_path,

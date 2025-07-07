@@ -1133,6 +1133,17 @@ ca:
           publish: Publicar
           unpublish: Despublicar
           view: Veure solució
+        exports:
+          solutions: "Solucions"
+          export:
+            author: "Autor"
+            title: "Títol"
+            description: "Descripció"
+            status: "Estat"
+            challenge: "Repte associat"
+            url: "Enllaç"
+            created_at: "Data de creació"
+            published_at: "Publicada"
         solution_publications:
           create:
             error: Hi ha hagut un problema publicant aquesta solució

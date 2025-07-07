@@ -7,6 +7,7 @@ module Decidim
       #
       class SolutionsController < Decidim::Solutions::Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::Filterable
 
         helper Challenges::ApplicationHelper
         helper Decidim::PaginateHelper
@@ -99,6 +100,10 @@ module Decidim
 
         def form_presenter
           @form_presenter ||= present(@form, presenter_class: Decidim::Solutions::SolutionPresenter)
+        end
+
+        def base_query
+          collection.order(created_at: :desc)
         end
       end
     end

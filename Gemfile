@@ -20,7 +20,7 @@ group :development, :test do
   gem "rubocop-rails"
   # Set versions because Property AutoCorrect errors.
   gem "rspec-rails", "~> 6.0.4"
-  gem "rubocop-factory_bot", "2.25.1"
+  gem "rubocop-factory_bot", "~> 2.24.0"
   gem "rubocop-rspec", "2.26.1"
 end
 
