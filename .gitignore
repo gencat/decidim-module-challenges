@@ -20,3 +20,15 @@ spec/decidim_dummy_app
 development_app
 
 .byebug_history
+
+# default development application
+development_app
+.rbenv-vars
+.vscode
+.byebug_history
+*.gem
+npm_debug.log
+.rubocop-*
+
+# Ignore node modules
+/node_modules

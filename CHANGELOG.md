@@ -3,6 +3,10 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.7.0 (MINOR)
+- Upgrade to Decidim 0.29.4
+- Set Ruby version to 3.2.6
+
 ## Version 0.6.0 (MINOR)
 - Add CSV exporter for solutions component
 
