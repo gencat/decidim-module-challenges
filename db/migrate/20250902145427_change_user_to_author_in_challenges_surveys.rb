@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeUserToAuthorInChallengesSurveys < ActiveRecord::Migration[6.1]
   class ChallengeSurvey < ApplicationRecord
     self.table_name = "decidim_challenges_surveys"
