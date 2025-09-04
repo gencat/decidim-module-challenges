@@ -21,7 +21,7 @@ module Decidim
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         return broadcast(:invalid) unless can_answer_survey?
-        return broadcast(:invalid_form) unless survey_form.valid?
+        return broadcast(:invalid_form) if survey_form && !survey_form.valid?
 
         challenge.with_lock do
           answer_questionnaire
@@ -61,6 +61,8 @@ module Decidim
       end
 
       def can_answer_survey?
+        return if Decidim::Challenges::Survey.exists?(challenge:, author: user)
+        
         Decidim::Challenges::Survey.where(
           decidim_author_id: user.id,
           decidim_author_type: user.class.name,
