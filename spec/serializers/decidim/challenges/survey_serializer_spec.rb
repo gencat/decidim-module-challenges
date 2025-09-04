@@ -5,7 +5,8 @@ require "spec_helper"
 module Decidim::Challenges
   describe SurveySerializer do
     describe "#serialize" do
-      let!(:survey) { create(:survey) }
+      let!(:user) { create(:user) }
+      let!(:survey) { create(:survey, author: user) }
 
       subject { described_class.new(survey) }
 
@@ -14,12 +15,12 @@ module Decidim::Challenges
           expect(subject.serialize).to include(id: survey.id)
         end
 
-        it "includes the user" do
+        it "includes the author" do
           expect(subject.serialize[:user]).to(
-            include(name: survey.user.name)
+            include(name: survey.author.name)
           )
           expect(subject.serialize[:user]).to(
-            include(email: survey.user.email)
+            include(email: survey.author.email)
           )
         end
       end
@@ -28,7 +29,7 @@ module Decidim::Challenges
         let(:challenge) { create(:challenge, :with_survey_enabled) }
         let(:serialized) { subject.serialize }
         let!(:user) { create(:user, organization: challenge.organization) }
-        let!(:survey) { create(:survey, challenge:, user:) }
+        let!(:survey) { create(:survey, challenge:, author: user) }
 
         let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: challenge.questionnaire) }
         let!(:answers) do
@@ -58,7 +59,8 @@ module Decidim::Challenges
           create(:answer_choice, answer: singlechoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
         end
 
-        subject { described_class.new(survey) }
+        # subject { described_class.new(survey) }
+        let(:serialized) { described_class.new(survey).serialize }
 
         it "includes the answer for each question" do
           expect(serialized[:survey_form_answers]).to include(
