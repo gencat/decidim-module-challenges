@@ -15,7 +15,7 @@ module Decidim::Solutions
         description: { "en" => "<p>Description EN</p>", "es" => "<p>Descripción ES</p>" },
         project_status: "open",
         project_url: "https://example.com",
-        challenge: challenge,
+        challenge:,
         created_at: Time.zone.parse("2025-09-04 12:00:00"),
         published_at: Time.zone.parse("2025-09-05 15:00:00")
       )
@@ -25,8 +25,9 @@ module Decidim::Solutions
 
     describe "#serialize" do
       context "when serializing a solution in English locale" do
-        before { I18n.locale = :en }
-        let(:serialized) { subject.serialize }
+        let(:serialized) do
+          I18n.with_locale(:en) { subject.serialize }
+        end
 
         it "includes the title" do
           expect(serialized[subject.send(:title_label)]).to eq("Solution EN")
@@ -58,22 +59,21 @@ module Decidim::Solutions
       end
 
       context "when serializing a solution in Spanish locale" do
-        before { I18n.locale = :es }
-        let(:serialized) { subject.serialize }
-
         it "serializes title, description, and challenge title in Spanish" do
-          expect(serialized[subject.send(:title_label)]).to eq("Solución ES")
-          expect(serialized[subject.send(:description_label)]).to eq("Descripción ES")
-          expect(serialized[subject.send(:challenge_label)]).to eq("Título del reto ES")
+          I18n.with_locale(:es) do
+            serialized = subject.serialize
+            expect(serialized[subject.send(:title_label)]).to eq("Solución ES")
+            expect(serialized[subject.send(:description_label)]).to eq("Descripción ES")
+            expect(serialized[subject.send(:challenge_label)]).to eq("Título del reto ES")
+          end
         end
       end
 
       context "when the solution has no challenge" do
-        before do
-          solution.update(challenge: nil)
-          I18n.locale = :en
+        before { solution.update(challenge: nil) }
+        let(:serialized) do
+          I18n.with_locale(:en) { subject.serialize }
         end
-        let(:serialized) { subject.serialize }
 
         it "returns an empty string for the challenge title" do
           expect(serialized[subject.send(:challenge_label)]).to eq("")
@@ -84,16 +84,19 @@ module Decidim::Solutions
     describe "#localized" do
       context "when the value is a hash" do
         it "returns the value for the current locale" do
-          I18n.locale = :en
-          expect(subject.send(:localized, { "en" => "Hello", "es" => "Hola" })).to eq("Hello")
+          I18n.with_locale(:en) do
+            expect(subject.send(:localized, { "en" => "Hello", "es" => "Hola" })).to eq("Hello")
+          end
 
-          I18n.locale = :es
-          expect(subject.send(:localized, { "en" => "Hello", "es" => "Hola" })).to eq("Hola")
+          I18n.with_locale(:es) do
+            expect(subject.send(:localized, { "en" => "Hello", "es" => "Hola" })).to eq("Hola")
+          end
         end
 
         it "returns an empty string if the current locale is not present in the hash" do
-          I18n.locale = :en
-          expect(subject.send(:localized, { "es" => "Hola" })).to eq("")
+          I18n.with_locale(:en) do
+            expect(subject.send(:localized, { "es" => "Hola" })).to eq("")
+          end
         end
       end
 
