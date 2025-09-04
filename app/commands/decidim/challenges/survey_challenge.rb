@@ -57,12 +57,13 @@ module Decidim
 
       def questionnaire?
         return false unless survey_form
+
         survey_form.model_name.human == "Questionnaire"
       end
 
       def can_answer_survey?
         return if Decidim::Challenges::Survey.exists?(challenge:, author: user)
-        
+
         Decidim::Challenges::Survey.where(
           decidim_author_id: user.id,
           decidim_author_type: user.class.name,
