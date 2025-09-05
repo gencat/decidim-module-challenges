@@ -59,6 +59,11 @@ jobs:
       - name: Install ImageMagick
         run: sudo apt install imagemagick
 
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends wkhtmltopdf
+
       - name: Recover Ruby dependency cache
         uses: actions/cache@v3
         with:

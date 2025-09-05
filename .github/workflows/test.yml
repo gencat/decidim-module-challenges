@@ -52,6 +52,14 @@ jobs:
         shell: "bash"
         run: sudo apt remove google-chrome-stable
 
+      - name: Install ImageMagick
+        run: sudo apt install imagemagick
+
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends wkhtmltopdf
+
       - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 119.0.6045.105
