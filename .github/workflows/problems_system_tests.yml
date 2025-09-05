@@ -82,10 +82,10 @@ jobs:
 
       - name: Generate test_app
         run: |
-          bundle exec rake decidim:generate_external_test_app
+          DISABLE_SPRING=1 bundle exec rake decidim:generate_external_test_app
           cd spec/decidim_dummy_app/
-          bundle exec rails decidim_challenges:install:migrations
-          RAILS_ENV=test bundle exec rails db:migrate
+          DISABLE_SPRING=1 bundle exec rails decidim_challenges:install:migrations
+          DISABLE_SPRING=1 RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
         uses: nick-invision/retry@v2
@@ -93,4 +93,4 @@ jobs:
           timeout_minutes: 30
           max_attempts: 3
           retry_on: error
-          command: bundle exec rspec --backtrace spec/system/decidim/problems
+          command: DISABLE_SPRING=1 bundle exec rspec --backtrace spec/system/decidim/challenges
