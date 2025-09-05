@@ -25,7 +25,7 @@ module Decidim
       has_many :surveys, class_name: "Decidim::Challenges::Survey", foreign_key: "decidim_challenge_id", dependent: :destroy
 
       VALID_STATES = [:proposal, :execution, :finished].freeze
-      enum state: VALID_STATES
+      enum :state, VALID_STATES
 
       has_many :problems,
                class_name: "Decidim::Problems::Problem",

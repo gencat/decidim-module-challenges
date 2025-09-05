@@ -16,10 +16,10 @@ gem "uglifier", "~> 4.1"
 group :development, :test do
   gem "byebug", ">= 11.1.3"
   gem "decidim-dev", DECIDIM_VERSION
-  gem "rubocop"
-  gem "rubocop-rails"
   gem "rspec-rails", "~> 6.0.4"
+  gem "rubocop"
   gem "rubocop-factory_bot", "~> 2.26"
+  gem "rubocop-rails"
 end
 
 group :development do

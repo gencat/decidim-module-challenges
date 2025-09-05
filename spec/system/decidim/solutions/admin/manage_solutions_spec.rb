@@ -2,7 +2,6 @@
 
 require "spec_helper"
 
-# rubocop:disable Capybara/SpecificMatcher
 describe "Admin creates solutions" do
   let(:manifest_name) { "solutions" }
   let(:organization) { participatory_process.organization }
@@ -20,4 +19,3 @@ describe "Admin creates solutions" do
     end
   end
 end
-# rubocop:enable Capybara/SpecificMatcher

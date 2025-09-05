@@ -16,7 +16,7 @@ module Decidim
       include Decidim::Randomable
 
       VALID_STATES = [:proposal, :execution, :finished].freeze
-      enum state: VALID_STATES
+      enum :state, VALID_STATES
 
       component_manifest_name "problems"
 
