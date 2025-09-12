@@ -11,7 +11,7 @@ module Decidim
 
       def serialize
         {
-          title_label => resource.title[I18n.locale.to_s],
+          title_label => localized(resource.title),
           description_label => sanitized_description,
           status_label => resource&.project_status,
           challenge_label => translated_challenge_title,
@@ -22,6 +22,14 @@ module Decidim
       end
 
       private
+
+      def localized(value)
+        if value.is_a?(Hash)
+          value[I18n.locale.to_s] || ""
+        else
+          value.to_s
+        end
+      end
 
       def sanitize(text)
         ActionController::Base.helpers.strip_tags(text)
@@ -60,7 +68,7 @@ module Decidim
       end
 
       def sanitized_description
-        sanitize(resource.description[I18n.locale.to_s])
+        sanitize(localized(resource.description))
       end
     end
   end
