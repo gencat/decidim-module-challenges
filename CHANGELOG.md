@@ -3,8 +3,11 @@ Following Semantic Versioning 2.
 
 ## next version:
 
-## Version 0.6.1 (MINOR)
-- Add migration to solve fix in challenges_surveys
+## Version 0.6.2 (PATCH)
+- Add migration to solve bug in surveys
+
+## Version 0.6.1 (PATCH)
+- Fix in exporting solutions
 
 ## Version 0.6.0 (MINOR)
 - Add CSV exporter for solutions component
