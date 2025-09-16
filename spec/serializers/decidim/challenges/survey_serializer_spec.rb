@@ -59,8 +59,8 @@ module Decidim::Challenges
           create(:answer_choice, answer: singlechoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
         end
 
-        # subject { described_class.new(survey) }
-        let(:serialized) { described_class.new(survey).serialize }
+        subject { described_class.new(survey) }
+        let(:serialized) { subject.serialize }
 
         it "includes the answer for each question" do
           expect(serialized[:survey_form_answers]).to include(
