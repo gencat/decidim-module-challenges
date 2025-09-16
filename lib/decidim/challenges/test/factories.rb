@@ -54,6 +54,6 @@ FactoryBot.define do
 
   factory :survey, class: "Decidim::Challenges::Survey" do
     challenge
-    user
+    author factory: [:user]
   end
 end

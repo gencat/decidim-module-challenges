@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.6.2 (PATCH)
+- Add migration to solve bug in surveys
+
 ## Version 0.6.1 (PATCH)
 - Fix in exporting solutions
 
