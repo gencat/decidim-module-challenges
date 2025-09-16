@@ -7,7 +7,7 @@ module Decidim
       include Decidim::DownloadYourData
 
       belongs_to :challenge, foreign_key: "decidim_challenge_id", class_name: "Decidim::Challenges::Challenge"
-      belongs_to :author, foreign_key: "decidim_author_id"
+      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
 
       validates :decidim_author_id, uniqueness: { scope: :decidim_challenge_id }
 

@@ -16,10 +16,10 @@ module Decidim::Challenges
         end
 
         it "includes the author" do
-          expect(subject.serialize[:user]).to(
+          expect(subject.serialize[:author]).to(
             include(name: survey.author.name)
           )
-          expect(subject.serialize[:user]).to(
+          expect(subject.serialize[:author]).to(
             include(email: survey.author.email)
           )
         end
