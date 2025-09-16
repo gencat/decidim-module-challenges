@@ -54,8 +54,6 @@ jobs:
 
       - name: Install ImageMagick
         run: sudo apt install imagemagick
-      - name: Install wkhtmltopdf
-        run: sudo apt install wkhtmltopdf
 
       - uses: browser-actions/setup-chrome@v1
         with:
