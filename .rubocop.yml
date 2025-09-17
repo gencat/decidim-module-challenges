@@ -71,9 +71,6 @@ RSpec:
     - "(?:^|/)spec/"
     - "(?:^|/)test/"
 
-Capybara/SpecificActions:
-  Enabled: false
-
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent
@@ -247,7 +244,7 @@ Style/BlockDelimiters:
     - let!
     - subject
     - watch
-  IgnoredMethods:
+  AllowedMethods:
     # Methods that can be either procedural or functional and cannot be
     # categorised from their usage alone, e.g.
     #
