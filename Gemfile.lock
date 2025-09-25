@@ -714,7 +714,7 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.52.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rspec (3.0.5)
+    rubocop-rspec (3.4.0)
       rubocop (~> 1.61)
     rubocop-rspec_rails (2.30.0)
       rubocop (~> 1.61)
@@ -830,16 +830,13 @@ DEPENDENCIES
   letter_opener_web
   listen
   puma (>= 4.3)
-  rspec-rails (~> 6.1.5)
   rubocop
-  rubocop-factory_bot (~> 2.26.1)
   rubocop-rails
-  rubocop-rspec (~> 3.0.0)
   uglifier (~> 4.2)
   web-console (~> 3.7)
 
 RUBY VERSION
-   ruby 3.2.9p265
+   ruby 3.2.2p265
 
 BUNDLED WITH
    2.7.2

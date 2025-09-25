@@ -151,9 +151,8 @@ shared_examples "manage challenges" do
       es: "Descripción global",
       ca: "Descripció global"
     )
-
-    fill_in :challenge_start_date, with: Time.current.change(day: 12, hour: 10, min: 50)
-    fill_in :challenge_end_date, with: Time.current.change(day: 12, hour: 10, min: 50)
+    find("#challenge_start_date", visible: :all).set(Time.current.change(day: 12, hour: 10, min: 50))
+    find("#challenge_end_date", visible: :all).set(Time.current.change(day: 12, hour: 10, min: 50))
 
     select translated(scope.name), from: :challenge_decidim_scope_id
 
