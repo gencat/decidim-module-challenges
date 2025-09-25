@@ -55,7 +55,7 @@ jobs:
       - name: Install ImageMagick
         run: sudo apt install imagemagick
 
-      - uses: browser-actions/setup-chrome@v3
+      - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 119.0.6045.105
 
