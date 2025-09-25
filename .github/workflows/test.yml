@@ -66,7 +66,7 @@ jobs:
             ${{ runner.OS }}-rubydeps-
             ${{ runner.OS }}-
 
-      - name: Set bundle local config configvendor/bundle path
+      - name: Set bundle local config config vendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
 
       - name: Install Ruby deps
@@ -76,6 +76,9 @@ jobs:
           max_attempts: 3
           retry_on: error
           command: bundle install --jobs 4 --retry 3 
+
+      - name: Disable Spring
+        run: echo "DISABLE_SPRING=1" >> $GITHUB_ENV
 
       - name: Generate test_app
         run: |
