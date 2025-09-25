@@ -28,7 +28,5 @@ group :development do
   gem "faker"
   gem "letter_opener_web"
   gem "listen"
-  gem "spring"
-  gem "spring-watcher-listen"
   gem "web-console", "~> 3.7"
 end
