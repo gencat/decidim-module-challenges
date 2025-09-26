@@ -14,7 +14,7 @@
     <% if has_problem? %>
       <h3 class="h4">
         <span class="title"><%= t("problem", scope: "activemodel.attributes.solution") %></span>:
-        <%= link_to translated_attribute(@solution.problem.title), Decidim::ResourceLocatorPresenter.new(@solution.problem).path %><br />
+        <%= link_to translated_attribute(@solution.problem.title), Decidim::ResourceLocatorPresenter.new(@solution.problem).path %><br>
         <span class="title"><%= t("challenge", scope: "activemodel.attributes.problem") %></span>:
         <%= link_to translated_attribute(@solution.problem.challenge.title), Decidim::ResourceLocatorPresenter.new(@solution.problem.challenge).path %></strong>
       </h3>

@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.1.1
+  RUBY_VERSION: 3.2.9
 
 jobs:
   test-report:
@@ -32,7 +32,7 @@ jobs:
       DATABASE_HOST: localhost
 
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
@@ -66,16 +66,19 @@ jobs:
             ${{ runner.OS }}-rubydeps-
             ${{ runner.OS }}-
 
-      - name: Set bundle local config configvendor/bundle path
+      - name: Set bundle local config config vendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
 
       - name: Install Ruby deps
-        uses: nick-invision/retry@v2
+        uses: nick-invision/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
           command: bundle install --jobs 4 --retry 3 
+
+      - name: Disable Spring
+        run: echo "DISABLE_SPRING=1" >> $GITHUB_ENV
 
       - name: Generate test_app
         run: |
@@ -85,7 +88,7 @@ jobs:
           RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
-        uses: nick-invision/retry@v2
+        uses: nick-invision/retry@v3
         with:
           timeout_minutes: 30
           max_attempts: 3
