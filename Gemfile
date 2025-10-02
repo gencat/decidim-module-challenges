@@ -11,6 +11,7 @@ gem "decidim-challenges", path: "."
 
 gem "bootsnap"
 gem "puma", ">= 4.3"
+gem "wkhtmltopdf-binary"
 gem "uglifier", "~> 4.2"
 
 group :development, :test do

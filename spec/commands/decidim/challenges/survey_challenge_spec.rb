@@ -53,15 +53,17 @@ module Decidim::Challenges
         it "creates a survey for the challenge and the user" do
           expect { subject.call }.to change(Survey, :count).by(1)
           last_survey = Survey.last
-          expect(last_survey.user).to eq(user)
+          expect(last_survey.author).to eq(user)
           expect(last_survey.challenge).to eq(challenge)
         end
       end
     end
 
     context "when the user has already answered survey" do
+      let(:survey_form) { nil }
+
       before do
-        create(:survey, challenge:, user:)
+        create(:survey, challenge:, author: user)
       end
 
       it "broadcasts invalid" do

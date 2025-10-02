@@ -51,7 +51,7 @@ describe "Challenge surveys" do
 
   context "when challenge surveys are enabled" do
     before do
-      create(:survey, challenge:, user:)
+      create(:survey, challenge:, author: user)
     end
 
     context "and the user is not logged in" do
