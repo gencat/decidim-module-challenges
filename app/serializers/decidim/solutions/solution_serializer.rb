@@ -16,6 +16,8 @@ module Decidim
           status_label => resource&.project_status,
           challenge_label => translated_challenge_title,
           url_label => resource&.project_url,
+          author_name_label => resource.author.name,
+          author_email_label => resource.author.email,
           created_at_label => resource.created_at,
           published_at_label => resource&.published_at,
         }
@@ -61,6 +63,14 @@ module Decidim
 
       def published_at_label
         I18n.t("export.published_at", scope: "decidim.solutions.admin.exports").to_s
+      end
+
+      def author_name_label
+        I18n.t("export.author_name", scope: "decidim.solutions.admin.exports").to_s
+      end
+
+      def author_email_label
+        I18n.t("export.author_email", scope: "decidim.solutions.admin.exports").to_s
       end
 
       def translated_challenge_title

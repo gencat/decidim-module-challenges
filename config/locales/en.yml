@@ -1138,7 +1138,8 @@ en:
         exports:
           solutions: "Solutions"
           export:
-            author: "Author"
+            author_name: "Author name"
+            author_email: "Author email"
             title: "Title"
             description: "Description"
             status: "Status"
