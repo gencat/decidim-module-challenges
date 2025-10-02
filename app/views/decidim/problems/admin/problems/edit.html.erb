@@ -11,7 +11,7 @@
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
-      
+
           <% if problem.published? %>
             <%= link_to t("actions.unpublish", scope: "decidim.problems.admin"), problem_publish_path(problem), method: :delete, class: "button button__sm button__secondary" %>
           <% else %>

@@ -56,7 +56,7 @@
       <%= form.hidden_field :decidim_challenges_challenge_id, value: @form.try(:challenge) ? @form.try(:challenge).id : '' %>
     <% else %>
       <%= form.hidden_field :decidim_problems_problem_id, value: @form.try(:problem) ? @form.try(:problem).id : '' %>
-      <div class="card-section"">
+      <div class="card-section">
         <div class="row column">
           <%= form.select :decidim_challenges_challenge_id,
                             @form.select_challenge_collection,

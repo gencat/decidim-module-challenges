@@ -3,8 +3,12 @@ Following Semantic Versioning 2.
 
 ## next version:
 
-## Version 0.6.2 (PATCH)
+## Version 0.7.1 (PATCH)
 - Add migration to solve bug in surveys
+
+## Version 0.7.0 (MINOR)
+- Upgrade module's Ruby to 3.2.9
+- Increase minimum Decidim version to 0.29
 
 ## Version 0.6.1 (PATCH)
 - Fix in exporting solutions
