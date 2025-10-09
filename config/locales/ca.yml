@@ -1136,7 +1136,8 @@ ca:
         exports:
           solutions: "Solucions"
           export:
-            author: "Autor"
+            author_name: "Nom autor"
+            author_email: "Email autor"
             title: "Títol"
             description: "Descripció"
             status: "Estat"

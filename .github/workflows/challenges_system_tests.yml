@@ -53,7 +53,7 @@ jobs:
         run: sudo apt remove google-chrome-stable
 
       - name: Install packages
-        run: sudo apt install imagemagick wkhtmltopdf
+        run: sudo apt update && sudo apt install imagemagick wkhtmltopdf
 
       - uses: browser-actions/setup-chrome@v1
         with:

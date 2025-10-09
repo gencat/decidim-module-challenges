@@ -56,6 +56,14 @@ module Decidim::Solutions
         it "includes the published_at timestamp" do
           expect(serialized[subject.send(:published_at_label)]).to eq(solution.published_at)
         end
+
+        it "includes the author name" do
+          expect(serialized[subject.send(:author_name_label)]).to eq(solution.author.name)
+        end
+
+        it "includes the author email" do
+          expect(serialized[subject.send(:author_email_label)]).to eq(solution.author.email)
+        end
       end
 
       context "when serializing a solution in Spanish locale" do
