@@ -3,8 +3,11 @@ Following Semantic Versioning 2.
 
 ## next version:
 
-## Version 0.7.1 (PATCH)
+## Version 0.7.2 (PATCH)
 - Add migration to solve bug in surveys
+
+## Version 0.7.1 (PATCH)
+- Add author name and email in exporting solutions
 
 ## Version 0.7.0 (MINOR)
 - Upgrade module's Ruby to 3.2.9
