@@ -14,7 +14,7 @@
             <p class="uppercase mb-4"><%= t(@solution.challenge.state, scope: "decidim.challenges.states") %></p>
           <% else %>
             <p class="uppercase mb-4"><%= t(@solution.project_status, scope: "decidim.solutions.solutions.form.project_statuses") %></p>
-          <% end %>  
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -77,7 +77,7 @@
       </div>
     <% end %>
   </div>
-  
+
   <% if has_problem? %>
     <% if @solution.problem.challenge.sdg_code %>
       <div class="text-sm flex flex-col items-center gap-1">

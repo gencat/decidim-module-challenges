@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["199462+tramuntanal@users.noreply.github.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim-module-challenges"
-  s.required_ruby_version = ">= 3.1.1"
+  s.required_ruby_version = ">= 3.2.9"
 
   s.name = "decidim-challenges"
   s.summary = "A decidim challenges module"
@@ -20,7 +20,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::Challenges.decidim_version
 
-  s.add_development_dependency "decidim", Decidim::Challenges.decidim_version
-  s.add_development_dependency "decidim-dev", Decidim::Challenges.decidim_version
   s.metadata["rubygems_mfa_required"] = "true"
 end

@@ -15,7 +15,7 @@
           idx+= 1
           idx_str= idx.to_s.rjust(2, "0") %>
           <div class="sdg-cell" data-value="<%= sdg_code %>">
-          <%= image_pack_tag "media/images/ods-#{idx_str}.svg", alt: "Logo SDG #{idx_str}"%>
+          <%= image_pack_tag "media/images/ods-#{idx_str}.svg", alt: "Logo SDG #{idx_str}" %>
             <div class="text">
               <p><%= "#{idx_str}. #{t_sdg(sdg_code)}" %></p>
             </div>
@@ -28,8 +28,5 @@
         <a class="button button__sm md:button__lg button__secondary" data-close="" role="button"><%= t(".close") %></a>
       </div>
     </div>
-  
   </div>
 </div>
-
-

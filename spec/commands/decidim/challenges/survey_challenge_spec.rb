@@ -23,7 +23,7 @@ module Decidim::Challenges
     let!(:questionnaire) { create(:questionnaire) }
     let!(:question) { create(:questionnaire_question, questionnaire:) }
     let(:session_token) { "some-token" }
-    let(:survey_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token:) }
+    let(:survey_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token:, current_user: user) }
 
     context "when everything is ok" do
       context "and the survey form is invalid" do

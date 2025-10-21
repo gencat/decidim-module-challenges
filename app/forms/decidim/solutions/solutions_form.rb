@@ -32,7 +32,7 @@ module Decidim
         self.description = translated_attribute(model.description)
 
         self.documents = model.attachments
-        return unless model.categorization
+        nil unless model.categorization
       end
 
       # Finds the Challenge from the given decidim_challenges_challenge_id

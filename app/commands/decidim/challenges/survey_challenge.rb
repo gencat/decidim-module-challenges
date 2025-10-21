@@ -41,7 +41,7 @@ module Decidim
       def answer_questionnaire
         return unless questionnaire?
 
-        Decidim::Forms::AnswerQuestionnaire.call(survey_form, user, challenge.questionnaire) do
+        Decidim::Forms::AnswerQuestionnaire.call(survey_form, challenge.questionnaire) do
           on(:invalid) do
             raise ActiveRecord::Rollback
           end
