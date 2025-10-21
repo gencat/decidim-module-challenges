@@ -60,8 +60,6 @@ module Decidim
       end
 
       def can_answer_survey?
-        Decidim::Challenges::Survey.where(decidim_author_id: user, decidim_challenge_id: challenge).none?
-
         Decidim::Challenges::Survey.where(
           decidim_author_id: user.id,
           decidim_challenge_id: challenge.id
