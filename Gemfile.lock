@@ -812,7 +812,6 @@ GEM
       ostruct
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.10)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.3)
@@ -841,7 +840,6 @@ DEPENDENCIES
   rubocop-rails
   uglifier (~> 4.2)
   web-console (~> 3.7)
-  wkhtmltopdf-binary
 
 RUBY VERSION
    ruby 3.2.9p265
