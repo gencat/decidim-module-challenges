@@ -69,7 +69,7 @@ jobs:
             ${{ runner.OS }}-rubydeps-
             ${{ runner.OS }}-
 
-      - name: Set bundle local config configvendor/bundle path
+      - name: Set bundle local config config vendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
 
       - name: Install Ruby deps
