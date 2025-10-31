@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-meetings version.
   module Challenges
     def self.version
-      "0.6.2"
+      "0.6.3"
     end
 
     def self.decidim_version
