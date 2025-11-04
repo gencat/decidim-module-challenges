@@ -6,7 +6,9 @@ module Decidim
     # for an given instance of a Solution
     class SolutionGCell < Decidim::CardGCell
       include ActiveSupport::NumberHelper
+      include Decidim::Solutions::SolutionsHelper
       include Decidim::Sdgs::SdgsHelper
+      include Decidim::Solutions::SolutionCellsHelper
 
       private
 
