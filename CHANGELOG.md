@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.6.3 (PATCH)
+- Fix when a solution not has sdgs 
+
 ## Version 0.6.2 (PATCH)
 - Add author in exporting solutions for 0.28
 
