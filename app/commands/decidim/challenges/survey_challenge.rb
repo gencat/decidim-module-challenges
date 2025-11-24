@@ -51,7 +51,7 @@ module Decidim
       def create_survey
         @survey = Decidim::Challenges::Survey.create!(
           challenge:,
-          user:
+          author: user
         )
       end
 
@@ -60,7 +60,10 @@ module Decidim
       end
 
       def can_answer_survey?
-        Decidim::Challenges::Survey.where(decidim_user_id: user, decidim_challenge_id: challenge).none?
+        Decidim::Challenges::Survey.where(
+          decidim_author_id: user.id,
+          decidim_challenge_id: challenge.id
+        ).none?
       end
     end
   end

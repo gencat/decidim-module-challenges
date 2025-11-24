@@ -8,9 +8,9 @@ module Decidim
       def serialize
         {
           id: resource.id,
-          user: {
-            name: resource.user.name,
-            email: resource.user.email,
+          author: {
+            name: resource.author.name,
+            email: resource.author.email,
           },
           survey_form_answers: serialize_answers,
         }
@@ -20,7 +20,7 @@ module Decidim
 
       def serialize_answers
         questions = resource.challenge.questionnaire.questions
-        answers = resource.challenge.questionnaire.answers.where(user: resource.user)
+        answers = resource.challenge.questionnaire.answers.where(user: resource.author)
         questions.each_with_index.inject({}) do |serialized, (question, idx)|
           answer = answers.find_by(question:)
           serialized.update("#{idx + 1}. #{translated_attribute(question.body)}" => normalize_body(answer))
