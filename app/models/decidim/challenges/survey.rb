@@ -7,9 +7,12 @@ module Decidim
       include Decidim::DownloadYourData
 
       belongs_to :challenge, foreign_key: "decidim_challenge_id", class_name: "Decidim::Challenges::Challenge"
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
+      belongs_to :author,
+                 polymorphic: true,
+                 foreign_key: "decidim_author_id",
+                 foreign_type: "decidim_author_type"
 
-      validates :decidim_author_id, uniqueness: { scope: :decidim_challenge_id }
+      validates :decidim_author_id, uniqueness: { scope: [:decidim_challenge_id, :decidim_author_type] }
 
       def self.export_serializer
         Decidim::Challenges::DownloadYourDataSurveySerializer
