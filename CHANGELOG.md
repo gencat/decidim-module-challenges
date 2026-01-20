@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.7.4 (PATCH)
+- Add author_type as Decidim requires Surveys to have that column.
+
 ## Version 0.7.3 (PATCH)
 - Add migration to solve bug in surveys
 
