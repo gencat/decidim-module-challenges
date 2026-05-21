@@ -3,6 +3,10 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.8.0 (MINOR)
+- Increase minimum Decidim version to 0.30
+- Upgrade module's Ruby to 3.3.4
+
 ## Version 0.7.4 (PATCH)
 - Add author_type as Decidim requires Surveys to have that column.
 
