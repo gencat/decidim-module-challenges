@@ -45,14 +45,12 @@ describe Decidim::Problems::Admin::ProblemsController do
         proposing_entities:,
       },
       component_id: component,
-      scope:,
       participatory_process_slug: component.participatory_space.slug,
     }
   end
   let(:current_user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "problems", organization:) }
-  let(:scope) { create(:scope, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -114,7 +112,6 @@ describe Decidim::Problems::Admin::ProblemsController do
             proposing_entities:,
           },
           component:,
-          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -139,7 +136,6 @@ describe Decidim::Problems::Admin::ProblemsController do
             },
           },
           component:,
-          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -159,7 +155,6 @@ describe Decidim::Problems::Admin::ProblemsController do
       {
         id: problem.id,
         component:,
-        scope:,
         participatory_process_slug: component.participatory_space.slug,
       }
     end

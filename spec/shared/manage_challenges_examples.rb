@@ -71,7 +71,7 @@ shared_examples "manage challenges" do
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:component) { create(:component, manifest_name:, organization:) }
       let!(:challenge) do
-        create(:challenge, scope:, component:,
+        create(:challenge, component:,
                            title: { en: "Title" },
                            local_description: { en: "Local description" },
                            global_description: { en: "Global description" })
@@ -153,8 +153,6 @@ shared_examples "manage challenges" do
     )
     find("#challenge_start_date", visible: :all).set(Time.current.change(day: 12, hour: 10, min: 50))
     find("#challenge_end_date", visible: :all).set(Time.current.change(day: 12, hour: 10, min: 50))
-
-    select translated(scope.name), from: :challenge_decidim_scope_id
 
     within ".new_challenge" do
       find("*[type=submit]").click

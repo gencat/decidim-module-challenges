@@ -3,7 +3,6 @@
 module Decidim
   module Challenges
     class ChallengeType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TraceableInterface
       implements Decidim::Core::TimestampsInterface

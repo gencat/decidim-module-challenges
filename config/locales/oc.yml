@@ -8,7 +8,6 @@ oc:
         end_date: Data finalització
         global_description: Descripció del repte a escala global
         local_description: Descripció del repte al territori
-        scope: Territori
         sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
@@ -20,13 +19,10 @@ oc:
         challenge: Repte
         groups_affected: Col·lectius afectats
         collaborating_entities: Entitat colaboradora
-        decidim_sectorial_scope_id: Àmbit sectorial
-        decidim_technological_scope_id: Àmbit tecnològic
         description: Descripció
         end_date: Data finalització
         prop_entity: Entitat proposant
         published: Publicat
-        scope: Territori
         sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
@@ -47,7 +43,6 @@ oc:
         published: Publicat
         requirements: Requeriments
         sdg: Objectius de Desenvolupament Sostenible
-        scope: Territori
         tags: Paraules clau
         title: Títol
   decidim:
@@ -147,7 +142,6 @@ oc:
           finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
-          scope: Àmbit
           search: Cerca
           state: Estat
         orders:
@@ -1059,12 +1053,8 @@ oc:
           finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
-          scope: Àmbit
           search: Cerca
-          sectorial_scope: Àmbit sectorial
           state: Estat
-          technological_scope: Àmbit tecnològic
-          territorial_scope: Àmbit territorial
         orders:
           label: test
           random: Aleatori
@@ -1208,9 +1198,7 @@ oc:
           financial: Finançers
           related_to: Relacionada amb
           requirement: Requeriment
-          scope: Àmbit
           search: Cerca
-          territorial_scope: Àmbit territorial
         orders:
           label: Ordenacions
           random: Aleatori

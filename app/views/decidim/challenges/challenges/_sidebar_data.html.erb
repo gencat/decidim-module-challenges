@@ -17,13 +17,6 @@
       <p class="uppercase mb-4"><%= t(@challenge.state, scope: "decidim.challenges.states") %></p>
     </div>
 
-    <% if @challenge_scope.present? %>
-      <div class="text-sm flex flex-col items-center gap-1">
-        <p class="uppercase text-xs"><%= t("scope", scope: "activemodel.attributes.challenge") %></p>
-        <p class="uppercase mb-4"><%= translated_attribute(@challenge_scope.name) %></p>
-      </div>
-    <% end %>
-
     <% if @challenge.coordinating_entities.present? %>
       <div class="text-sm flex flex-col items-center gap-1">
         <p class="uppercase text-xs"><%= t("coordinating_entities", scope: "activemodel.attributes.challenge") %></p>

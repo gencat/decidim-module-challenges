@@ -8,7 +8,6 @@ cs:
         end_date: Datum ukončení
         global_description: Popis globálních výzev
         local_description: Popis místních výzev
-        scope: Území
         sdg: Cíle udržitelného rozvoje
         start_date: Datum zahájení
         status: Stav
@@ -19,8 +18,6 @@ cs:
         challenge: Výzva
         groups_affected: Dotčené skupiny
         col_entity: Spolupracující subjekt
-        decidim_sectorial_scope_id: Působnost v odvětví
-        decidim_technological_scope_id: Technologická působnost
         description: Popis
         end_date: datum ukončení
         groups_affected: Dotčené komunity
@@ -41,7 +38,6 @@ cs:
         published: Publikováno
         requirements: Požadavky
         sdg: Cíle udržitelného rozvoje
-        scope: Území
         tags: Značky
         title: Nadpis
   decidim:
@@ -123,7 +119,6 @@ cs:
           finished: Dokončeno
           proposal: Návrh
           related_to: Souvisí s
-          scope: Rozsah působnosti
           search: Hledat
           state: Stav
         orders:
@@ -526,12 +521,8 @@ cs:
           finished: Dokončeno
           proposal: Návrh
           related_to: Souvisí s
-          scope: Rozsah působnosti
           search: Hledat
-          sectorial_scope: Rozsah působnosti v odvětví
           state: State
-          technological_scope: Technologický rozsah
-          territorial_scope: Územní rozsah
         orders:
           label: test
           random: Náhodně
@@ -648,9 +639,7 @@ cs:
           financial: Finanční
           related_to: Související s
           requirement: Požadavek
-          scope: Rozsah působnosti
           search: Hledat
-          territorial_scope: Územní rozsah působnosti
         orders:
           label: Seřadit
           random: Náhodně

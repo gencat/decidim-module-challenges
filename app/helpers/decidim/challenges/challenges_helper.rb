@@ -10,10 +10,6 @@ module Decidim
         items.append(method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state")
         items.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to",
                      type: :radio_buttons)
-        if current_participatory_space.has_subscopes?
-          items.append(method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.filters",
-                       id: "scope")
-        end
 
         items.reject { |item| item[:collection].blank? }
       end

@@ -11,7 +11,6 @@ module Decidim
       include OrderableSolutions
       include FormFactory
       include WithSdgs
-      include WithDefaultFilters
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
@@ -19,7 +18,7 @@ module Decidim
       helper SolutionsHelper
       helper Decidim::Challenges::ApplicationHelper
 
-      helper_method :solutions, :form_presenter, :has_sdgs?, :has_problem?, :default_filter_scope_params
+      helper_method :solutions, :form_presenter, :has_sdgs?, :has_problem?
 
       def index
         @solutions = search.result
@@ -29,12 +28,7 @@ module Decidim
 
       def show
         @solution = solution
-        if @solution.problem.present?
-          @sectorial_scope = sectorial_scope
-          @technological_scope = technological_scope
-        end
         @sdg_index = sdg_index if @solution.problem.present? || @solution.challenge.present?
-        @challenge_scope = challenge_scope
       end
 
       def new
@@ -64,7 +58,6 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_territorial_scope: default_filter_scope_params,
           with_any_sdgs_codes: [],
           related_to: "",
         }
@@ -81,22 +74,6 @@ module Decidim
       def sdg_index
         challenge = @solution.problem ? @solution.problem.challenge : @solution.challenge
         @sdg_index ||= challenge.sdg_code ? (1 + Decidim::Sdgs::Sdg.index_from_code(challenge.sdg_code.to_sym)).to_s.rjust(2, "0") : nil
-      end
-
-      def challenge_scope
-        @challenge_scope ||= if @solution.problem.present?
-                               current_organization.scopes.find_by(id: @solution.problem.challenge.decidim_scope_id)
-                             else
-                               current_organization.scopes.find_by(id: @solution.challenge&.decidim_scope_id)
-                             end
-      end
-
-      def sectorial_scope
-        @sectorial_scope ||= current_organization.scopes.find_by(id: @solution.problem.decidim_sectorial_scope_id)
-      end
-
-      def technological_scope
-        @technological_scope ||= current_organization.scopes.find_by(id: @solution.problem.decidim_technological_scope_id)
       end
 
       def search_collection

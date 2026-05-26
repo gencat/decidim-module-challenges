@@ -1,44 +1,15 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "../filter_resources_by_scope_examples"
 
 describe "Filter Problems", :slow do
   include_context "with a component"
   let(:manifest_name) { "problems" }
 
-  let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   # describe "when filtering problems by challenge" do
   pending "finds the problems associated with the given challenge"
-  # end
-
-  describe "when filtering problems by sectorial and technological scopes" do
-    before do
-      create_list(:problem, 2, component:, sectorial_scope: scope, technological_scope: scope)
-      create(:problem, component:, sectorial_scope: scope_2, technological_scope: scope_2)
-      create(:problem, component:, sectorial_scope: nil, technological_scope: nil)
-    end
-
-    include_examples "when filtering resources by a scope", "Sectorial scope", ".card__list"
-    include_examples "when filtering resources by a scope", "Technological scope", ".card__list"
-  end
-
-  # TODO: not show in screen
-  # describe "when filtering problems by challenge's territorial scopes" do
-  #   before do
-  #     challenges_component = create(:challenges_component, participatory_space: participatory_process)
-  #     challenge = create(:challenge, component: challenges_component, scope:)
-  #     create_list(:problem, 2, component:, challenge:)
-  #     challenge_2 = create(:challenge, component: challenges_component, scope: scope_2)
-  #     create(:problem, component:, challenge: challenge_2)
-  #     challenge_no_scope = create(:challenge, component: challenges_component, scope: nil)
-  #     create(:problem, component:, challenge: challenge_no_scope)
-  #   end
-
-  #   include_examples "when filtering resources by a scope", "Territorial scope" ".card__list"
   # end
 
   describe "when filtering problems by STATE" do
