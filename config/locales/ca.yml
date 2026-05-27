@@ -112,6 +112,7 @@ ca:
           edit:
             save: Desa
           form:
+            manage_questions: Gestiona les preguntes
             edit: Edita enquesta
             title: Enquesta
           index:

@@ -7,7 +7,8 @@ module Decidim
     module SolutionsHelper
       def filter_sections
         items = []
-        items.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label: t("related_to", scope: "decidim.solutions.solutions.filters"),
+        items.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge),
+                     label: t("related_to", scope: "decidim.solutions.solutions.filters"),
                      id: "related_to", type: :radio_buttons)
 
         items.reject { |item| item[:collection].blank? }

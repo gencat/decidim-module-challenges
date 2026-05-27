@@ -59,7 +59,7 @@ shared_examples_for "manage questionnaires" do
     it "cannot modify questionnaire questions" do
       visit questionnaire_edit_path
       click_on("Survey")
-      click_on("Edit survey")
+      click_on("Manage questions")
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
@@ -111,7 +111,7 @@ shared_examples_for "manage questionnaires" do
   def visit_questionnaire_edit_path_and_expand_all
     visit questionnaire_edit_path
     click_on("Survey")
-    click_on("Edit survey")
+    click_on("Manage questions")
     expand_all_questions
   end
 end

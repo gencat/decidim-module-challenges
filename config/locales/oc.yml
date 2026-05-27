@@ -111,6 +111,7 @@ oc:
             save: Desa
           form:
             edit: Edita enquesta
+            manage_questions: Gestiona las preguntas
             title: Enquesta
           index:
             title: "%{total} respostes totals"

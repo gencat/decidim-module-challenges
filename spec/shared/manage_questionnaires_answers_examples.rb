@@ -28,9 +28,9 @@ shared_examples_for "manage questionnaire answers" do
     let!(:answer_3) { create(:answer, questionnaire:, question: second) }
 
     it "shows the answer admin link" do
-      click_on "Manage questions"
       visit questionnaire_edit_path
       click_on("Survey")
+      click_on "Manage questions"
       expect(page).to have_content("Show responses")
     end
 

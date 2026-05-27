@@ -95,6 +95,10 @@ module Decidim
           @challenge ||= Challenge.where(component: current_component).find(params[:challenge_id])
         end
 
+        def current_idx
+          participant_ids.index(params[:session_token])
+        end
+
         def participants_query
           Decidim::Forms::QuestionnaireParticipants.new(questionnaire)
         end

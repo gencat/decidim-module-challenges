@@ -112,6 +112,7 @@ es:
             save: Guarda
           form:
             edit: Editar encuesta
+            manage_questions: Gestionar preguntas
             title: Encuesta
           index:
             title: "%{total} respuestas totales"

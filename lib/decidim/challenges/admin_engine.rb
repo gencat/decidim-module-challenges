@@ -17,7 +17,12 @@ module Decidim
           resource :publish, controller: "challenge_publications", only: [:create, :destroy]
 
           resource :surveys, only: [:edit, :update] do
-            resource :form, only: [:edit, :update], controller: "survey_form"
+            resource :form, only: [:edit, :update], controller: "survey_form" do
+              member do
+                get :edit_questions
+                patch :update_questions
+              end
+            end
             collection do
               get :index_answers, action: :index
               get :show_answers, action: :show
