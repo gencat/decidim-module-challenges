@@ -34,6 +34,7 @@ describe "Admin manages challenge survey" do
 
     it "show preview survey" do
       visit edit_challenge_surveys_form_path
+      click_on("Survey")
       expect(page).to have_content("Preview")
     end
 

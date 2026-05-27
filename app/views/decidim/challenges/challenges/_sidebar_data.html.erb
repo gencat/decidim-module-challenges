@@ -32,7 +32,7 @@
     <% end %>
   </div>
 
-  <% if has_sdgs? %>
+  <% if has_sdgs? && @sdg.present? %>
     <div class="text-sm flex flex-col items-center gap-1">
       <p class="uppercase text-xs text-center"><%= t("sdg", scope: "activemodel.attributes.challenge") %></p>
       <div class="ods challenges flex items-center">
@@ -48,6 +48,6 @@
 
 <section class="layout-aside__section actions__secondary">
   <%= resource_reference(current_participatory_space) %>
-  <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: false } %>
-  <%= cell "decidim/share_button", nil %>
+  <%= cell("decidim/follow_button", @challenge, button_classes: "button button__sm button__transparent-secondary") %>
+  <%= cell("decidim/share_widget", @challenge) %>
 </section>

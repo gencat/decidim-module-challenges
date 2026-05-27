@@ -36,6 +36,11 @@ module Decidim
         [:search_text_cont, :with_any_sdgs_codes, :related_to]
       end
 
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(author_id beneficiaries coordinating_entity created_at decidim_challenges_challenge_id decidim_component_id decidim_problems_problem_id
+           description financing_type id indicators objectives project_status project_url published_at requirements tags title updated_at)
+      end
+
       searchable_fields({
                           participatory_space: :itself,
                           A: :title,

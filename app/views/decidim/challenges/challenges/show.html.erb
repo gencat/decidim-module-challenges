@@ -9,8 +9,6 @@
   </section>
 
   <section class="layout-main__section content-block__description">
-    <%= render partial: "decidim/shared/share_modal" %>
-
     <h3 class="h4"><%= t("local_description", scope: "activemodel.attributes.challenge") %></h3>
     <div class="rich-text-display">
       <p><%= present(@challenge).local_description %></p>
