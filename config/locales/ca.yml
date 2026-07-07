@@ -46,6 +46,18 @@ ca:
         tags: Paraules clau
         title: Títol
   decidim:
+    open_data:
+      help:
+        solutions:
+          title: El títol de la solució
+          description: La descripció de la solució
+          status: L'estat actual del projecte de la solució
+          challenge: El títol del repte al qual pertany aquesta solució
+          url: L'enllaç extern relacionat amb el projecte de la solució
+          author_name: El nom de la persona participant autora d'aquesta solució
+          author_email: El correu electrònic de la persona participant autora d'aquesta solució
+          created_at: La data en què es va crear aquesta solució
+          published_at: La data en què es va publicar aquesta solució
     shared:
       filters:
         state: Estat

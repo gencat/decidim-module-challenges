@@ -46,6 +46,18 @@ es:
         tags: Palabras clave
         title: Titulo
   decidim:
+    open_data:
+      help:
+        solutions:
+          title: El título de la solución
+          description: La descripción de la solución
+          status: El estado actual del proyecto de la solución
+          challenge: El título del reto al que pertenece esta solución
+          url: El enlace externo relacionado con el proyecto de la solución
+          author_name: El nombre de la persona participante autora de esta solución
+          author_email: El correo electrónico de la persona participante autora de esta solución
+          created_at: La fecha en la que se creó esta solución
+          published_at: La fecha en la que se publicó esta solución
     shared:
       filters:
         state: Estado

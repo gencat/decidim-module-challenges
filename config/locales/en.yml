@@ -46,6 +46,18 @@ en:
         tags: Keywords
         title: Title
   decidim:
+    open_data:
+      help:
+        solutions:
+          title: The title of the solution
+          description: The description of the solution
+          status: The current status of the solution's project
+          challenge: The title of the challenge this solution belongs to
+          url: The external URL related to the solution's project
+          author_name: The name of the participant who authored this solution
+          author_email: The email of the participant who authored this solution
+          created_at: The date when this solution was created
+          published_at: The date when this solution was published
     shared:
       filters:
         state: State
