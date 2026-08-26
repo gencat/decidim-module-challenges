@@ -32,22 +32,13 @@ module Decidim
         joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: Array(values).map(&:to_sym) })
       }
 
-      scope :with_any_territorial_scope, lambda { |*territorial_scope_id|
-        if territorial_scope_id.include?("all")
-          all
-        else
-          clean_scope_ids = territorial_scope_id
-
-          conditions = []
-          conditions << "decidim_challenges_challenges.decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
-          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
-
-          includes(problem: { challenge: :scope }).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
-        end
-      }
-
       def self.ransackable_scopes(_auth_object = nil)
-        [:search_text_cont, :with_any_territorial_scope, :with_any_sdgs_codes, :related_to]
+        [:search_text_cont, :with_any_sdgs_codes, :related_to]
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(author_id beneficiaries coordinating_entity created_at decidim_challenges_challenge_id decidim_component_id decidim_problems_problem_id
+           description financing_type id indicators objectives project_status project_url published_at requirements tags title updated_at)
       end
 
       searchable_fields({

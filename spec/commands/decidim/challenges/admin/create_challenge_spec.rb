@@ -12,7 +12,6 @@ module Decidim
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "challenges") }
-        let(:scope) { create(:scope, organization:) }
         let(:sdg_code) { "clean_water" }
         let(:tags) { "tag1, tag2, tag3" }
         let(:state) { 2 }
@@ -29,7 +28,6 @@ module Decidim
             local_description: { en: "local desc" },
             global_description: { en: "global desc" },
             tags:,
-            scope:,
             sdg_code:,
             state:,
             start_date:,
@@ -57,11 +55,6 @@ module Decidim
 
           it "creates the challenge" do
             expect { subject.call }.to change(Challenge, :count).by(1)
-          end
-
-          it "sets the scope" do
-            subject.call
-            expect(challenge.scope).to eq scope
           end
 
           it "sets sdg_code" do

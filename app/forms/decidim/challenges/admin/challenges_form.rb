@@ -19,7 +19,6 @@ module Decidim
         translatable_attribute :global_description, String
 
         attribute :decidim_component_id, Integer
-        attribute :decidim_scope_id, Integer
         attribute :tags, String
         attribute :sdg_code, String
         attribute :state, Integer
@@ -32,7 +31,6 @@ module Decidim
         attribute :remove_card_image, Boolean, default: false
 
         validates :title, :local_description, :global_description, translatable_presence: true
-        validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validate :valid_state
 
         validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
@@ -54,13 +52,6 @@ module Decidim
           Decidim::Sdgs::Sdg::SDGS.map do |sdg_code|
             [I18n.t("#{sdg_code}.objectives.subtitle", scope: "decidim.components.sdgs"), sdg_code]
           end
-        end
-
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= current_organization.scopes.find_by(id: decidim_scope_id)
         end
 
         def map_model(model); end

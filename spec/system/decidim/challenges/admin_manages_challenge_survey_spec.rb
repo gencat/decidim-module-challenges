@@ -27,32 +27,31 @@ describe "Admin manages challenge survey" do
 
     let!(:question) { create(:questionnaire_question, questionnaire:) }
 
-    it "show edit survey button" do
+    it "show manage questions button" do
       click_on("Survey")
-      expect(page).to have_content("Edit survey")
+      expect(page).to have_content("Manage questions")
     end
 
     it "show preview survey" do
-      visit edit_challenge_surveys_form_path
+      visit questionnaire_edit_path
+      click_on("Survey")
       expect(page).to have_content("Preview")
     end
 
     context "when the survey has answers" do
       before do
-        visit questionnaire_edit_path
-        click_on("Survey")
-        visit edit_challenge_surveys_form_path
+        visit manage_questions_path
       end
 
       let!(:answer) { create(:answer, question:, questionnaire:) }
 
       it "allows editing questions" do
         click_on "Expand all"
-        expect(page).to have_css("#questionnaire_questions_#{question.id}_body_en")
-        expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
+        expect(page).to have_css("#questions_questions_#{question.id}_body_en")
+        expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
-      it "deletes answers after editing" do
+      it "allows editing questions with existing answers" do
         click_on "Expand all"
         within "form.edit_questionnaire" do
           within "#accordion-questionnaire_question_#{question.id}-field" do
@@ -62,13 +61,16 @@ describe "Admin manages challenge survey" do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(questionnaire.answers).to be_empty
       end
     end
   end
 
   def questionnaire_edit_path
     manage_component_path(component)
+  end
+
+  def manage_questions_path
+    Decidim::EngineRouter.admin_proxy(component).edit_questions_challenge_surveys_form_path(challenge.id)
   end
 
   def edit_challenge_surveys_form_path

@@ -8,7 +8,6 @@ oc:
         end_date: Data finalització
         global_description: Descripció del repte a escala global
         local_description: Descripció del repte al territori
-        scope: Territori
         sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
@@ -20,13 +19,10 @@ oc:
         challenge: Repte
         groups_affected: Col·lectius afectats
         collaborating_entities: Entitat colaboradora
-        decidim_sectorial_scope_id: Àmbit sectorial
-        decidim_technological_scope_id: Àmbit tecnològic
         description: Descripció
         end_date: Data finalització
         prop_entity: Entitat proposant
         published: Publicat
-        scope: Territori
         sdg: Objectius de Desenvolupament Sostenible
         start_date: Data d'inici
         status: Estat
@@ -47,10 +43,21 @@ oc:
         published: Publicat
         requirements: Requeriments
         sdg: Objectius de Desenvolupament Sostenible
-        scope: Territori
         tags: Paraules clau
         title: Títol
   decidim:
+    open_data:
+      help:
+        solutions:
+          title: El títol de la solució
+          description: La descripció de la solució
+          status: L'estat actual del projecte de la solució
+          challenge: El títol del repte al qual pertany aquesta solució
+          url: L'enllaç extern relacionat amb el projecte de la solució
+          author_name: El nom de la persona participant autora d'aquesta solució
+          author_email: El correu electrònic de la persona participant autora d'aquesta solució
+          created_at: La data en què es va crear aquesta solució
+          published_at: La data en què es va publicar aquesta solució
     shared:
       filters:
         state: Estat
@@ -116,6 +123,7 @@ oc:
             save: Desa
           form:
             edit: Edita enquesta
+            manage_questions: Gestiona las preguntas
             title: Enquesta
           index:
             title: "%{total} respostes totals"
@@ -147,7 +155,6 @@ oc:
           finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
-          scope: Àmbit
           search: Cerca
           state: Estat
         orders:
@@ -1059,12 +1066,8 @@ oc:
           finished: Acabada
           proposal: Proposta
           related_to: Relacionat amb
-          scope: Àmbit
           search: Cerca
-          sectorial_scope: Àmbit sectorial
           state: Estat
-          technological_scope: Àmbit tecnològic
-          territorial_scope: Àmbit territorial
         orders:
           label: test
           random: Aleatori
@@ -1208,9 +1211,7 @@ oc:
           financial: Finançers
           related_to: Relacionada amb
           requirement: Requeriment
-          scope: Àmbit
           search: Cerca
-          territorial_scope: Àmbit territorial
         orders:
           label: Ordenacions
           random: Aleatori

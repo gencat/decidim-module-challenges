@@ -9,7 +9,6 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create(:organization) }
-        let(:scope) { create(:scope, organization:) }
         let(:current_user) { create(:user, :confirmed, organization:) }
         let(:title) do
           {
@@ -76,7 +75,6 @@ module Decidim
             "beneficiaries" => beneficiaries,
             "financing_type" => financing_type,
             "requirements" => requirements,
-            "scope" => scope,
           }
         end
 

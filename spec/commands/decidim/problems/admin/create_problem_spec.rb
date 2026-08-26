@@ -13,8 +13,6 @@ module Decidim
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "problems") }
         let(:challenge) { create(:challenge) }
-        let(:sectorial_scope) { create(:scope, organization:) }
-        let(:technological_scope) { create(:scope, organization:) }
         let(:tags) { "tag1, tag2, tag3" }
         let(:causes) { "causes" }
         let(:groups_affected) { "groups affected" }
@@ -30,8 +28,6 @@ module Decidim
             title: { en: "Problem title" },
             description: { en: "Problem desc" },
             decidim_challenges_challenge_id: challenge.id,
-            decidim_sectorial_scope_id: sectorial_scope.id,
-            decidim_technological_scope_id: technological_scope.id,
             tags:,
             causes:,
             groups_affected:,
@@ -60,16 +56,6 @@ module Decidim
 
           it "creates the problem" do
             expect { subject.call }.to change(Problem, :count).by(1)
-          end
-
-          it "sets the sectorial scope" do
-            subject.call
-            expect(problem.decidim_sectorial_scope_id).to eq sectorial_scope.id
-          end
-
-          it "sets the technological scope" do
-            subject.call
-            expect(problem.decidim_technological_scope_id).to eq technological_scope.id
           end
 
           it "sets the challenge" do

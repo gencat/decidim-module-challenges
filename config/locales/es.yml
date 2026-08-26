@@ -8,7 +8,6 @@ es:
         end_date: Fecha finalización
         global_description: Descripción del reto a escala global
         local_description: Descripción del reto en el territorio
-        scope: Territorio
         sdg: Objectivos de Desarrollo Sostenible
         start_date: Fecha inicio
         status: Estado
@@ -20,8 +19,6 @@ es:
         challenge: Reto
         groups_affected: Colectivos afectados
         col_entity: Entidad colaboradora
-        decidim_sectorial_scope_id: Ámbito sectorial
-        decidim_technological_scope_id: Ámbito tecnológico
         description: Descripción
         end_date: Fecha finalización
         prop_entity: Entidad proponente
@@ -46,10 +43,21 @@ es:
         published: Publicado
         requirements: Requerimientos
         sdg: Objectivos de Desarrollo Sostenible
-        scope: Territorio
         tags: Palabras clave
         title: Titulo
   decidim:
+    open_data:
+      help:
+        solutions:
+          title: El título de la solución
+          description: La descripción de la solución
+          status: El estado actual del proyecto de la solución
+          challenge: El título del reto al que pertenece esta solución
+          url: El enlace externo relacionado con el proyecto de la solución
+          author_name: El nombre de la persona participante autora de esta solución
+          author_email: El correo electrónico de la persona participante autora de esta solución
+          created_at: La fecha en la que se creó esta solución
+          published_at: La fecha en la que se publicó esta solución
     shared:
       filters:
         state: Estado
@@ -116,6 +124,7 @@ es:
             save: Guarda
           form:
             edit: Editar encuesta
+            manage_questions: Gestionar preguntas
             title: Encuesta
           index:
             title: "%{total} respuestas totales"
@@ -147,7 +156,6 @@ es:
           finished: Acabada
           proposal: Propuesta
           related_to: Relacionado con
-          scope: Ámbito
           search: Búsqueda
           state: Estado
         orders:
@@ -1074,12 +1082,8 @@ es:
           finished: Acabada
           proposal: Propuesta
           related_to: Relacionado con
-          scope: Ambito
           search: Búsqueda
-          sectorial_scope: Ámbito sectorial
           state: Estado
-          technological_scope: Ámbito tecnológico
-          territorial_scope: Ámbito territorial
         orders:
           label: test
           random: Aleatorio
@@ -1241,9 +1245,7 @@ es:
           financial: Financieros
           related_to: Relacionada con
           requirement: Requisito
-          scope: Ámbito
           search: Búsqueda
-          territorial_scope: Ámbito territorial
         orders:
           label: Ordenaciones
           random: Aleatorio

@@ -7,13 +7,9 @@ module Decidim
     module ChallengesHelper
       def filter_sections
         items = []
-        items.append(method: :with_any_state, collection: filter_custom_state_values, label_scope: "decidim.shared.filters", id: "state")
-        items.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge), label_scope: "decidim.shared.filters", id: "related_to",
-                     type: :radio_buttons)
-        if current_participatory_space.has_subscopes?
-          items.append(method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.filters",
-                       id: "scope")
-        end
+        items.append(method: :with_any_state, collection: filter_custom_state_values, label: t("state", scope: "decidim.challenges.challenges.filters"), id: "state")
+        items.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Challenges::Challenge),
+                     label: t("related_to", scope: "decidim.challenges.challenges.filters"), id: "related_to", type: :radio_buttons)
 
         items.reject { |item| item[:collection].blank? }
       end

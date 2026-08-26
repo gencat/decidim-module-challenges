@@ -41,8 +41,6 @@ module Decidim
             description: parsed_description,
             component: form.current_component,
             decidim_challenges_challenge_id: form.decidim_challenges_challenge_id,
-            decidim_sectorial_scope_id: form.decidim_sectorial_scope_id,
-            decidim_technological_scope_id: form.decidim_technological_scope_id,
             tags: form.tags,
             causes: form.causes,
             groups_affected: form.groups_affected,

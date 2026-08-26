@@ -22,14 +22,6 @@
       </div>
 
       <div class="row column">
-        <%= scopes_select_field form, :decidim_sectorial_scope_id, root: nil %>
-      </div>
-
-      <div class="row column">
-        <%= scopes_select_field form, :decidim_technological_scope_id, root: nil %>
-      </div>
-
-      <div class="row column">
         <%= form.select :state,
                         @form.select_states_collection,
                         selected: [I18n.t(@form.try(:state), scope: 'decidim.problems.states'), Decidim::Problems::Problem::states[@form.try(:state)]],

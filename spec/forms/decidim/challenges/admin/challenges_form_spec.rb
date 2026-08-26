@@ -10,7 +10,6 @@ module Decidim
 
         let(:component) { create(:challenges_component) }
         let(:organization) { component.organization }
-        let(:scope) { create(:scope, organization:) }
         let(:title) do
           {
             en: "Challenge title",
@@ -52,7 +51,6 @@ module Decidim
             "end_date" => end_date,
             "collaborating_entities" => collaborating_entities,
             "coordinating_entities" => coordinating_entities,
-            "scope" => scope,
             "card_image" => card_image,
           }
         end

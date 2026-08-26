@@ -56,7 +56,7 @@ shared_examples "manage solutions" do
       let(:challenge) { create(:challenge) }
       let(:problem) { create(:problem, challenge:) }
       let!(:solution) do
-        create(:solution, scope:, component:, problem:,
+        create(:solution, component:, problem:,
                           title: { en: "Solution title" },
                           description: { en: "Solution description" })
       end
@@ -130,8 +130,6 @@ shared_examples "manage solutions" do
     )
 
     page.find_by_id("solution_decidim_problems_problem_id").value(problem.id)
-
-    scope_pick select_data_picker(:solution_decidim_scope_id), scope
 
     within ".new_solution" do
       find("*[type=submit]").click_on

@@ -74,7 +74,8 @@ module Decidim
       end
 
       def translated_challenge_title
-        resource&.challenge&.title.present? ? resource&.challenge&.title&.[](I18n.locale.to_s) : ""
+        title = resource&.challenge&.title
+        title.present? ? title[I18n.locale.to_s] : ""
       end
 
       def sanitized_description

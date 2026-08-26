@@ -8,7 +8,6 @@ en:
         end_date: End date
         global_description: Global challenge's description
         local_description: Local challenge's description
-        scope: Territory
         sdg: Sustainable Development Goals
         start_date: Start date
         status: State
@@ -20,8 +19,6 @@ en:
         challenge: Challenge
         collaborating_entities: Collaborating entity
         groups_affected: Groups affected
-        decidim_sectorial_scope_id: Sectorial scope
-        decidim_technological_scope_id: Technological scope
         description: Description
         end_date: End date
         prop_entity: Proposing entity
@@ -46,15 +43,25 @@ en:
         published: Published
         requirements: Requeriments
         sdg: Sustainable Development Goals
-        scope: Territory
         tags: Keywords
         title: Title
   decidim:
+    open_data:
+      help:
+        solutions:
+          title: The title of the solution
+          description: The description of the solution
+          status: The current status of the solution's project
+          challenge: The title of the challenge this solution belongs to
+          url: The external URL related to the solution's project
+          author_name: The name of the participant who authored this solution
+          author_email: The email of the participant who authored this solution
+          created_at: The date when this solution was created
+          published_at: The date when this solution was published
     shared:
       filters:
         state: State
         sdgs: SDGs
-        scope: Scope
         related_to: Related to
     challenges:
       admin:
@@ -118,6 +125,7 @@ en:
             save: Save
           form:
             edit: Edit survey
+            manage_questions: Manage questions
             title: Survey
           index:
             title: "%{total} total answers"
@@ -153,7 +161,6 @@ en:
           finished: Finished
           proposal: Proposal
           related_to: Related to
-          scope: Scope
           search: Search
           state: State
         orders:
@@ -1069,12 +1076,8 @@ en:
           finished: Finished
           proposal: Proposal
           related_to: Related to
-          scope: Scope
           search: Search
-          sectorial_scope: Sectorial scope
           state: State
-          technological_scope: Technological scope
-          territorial_scope: Territorial scope
         orders:
           label: test
           random: Random
@@ -1236,9 +1239,7 @@ en:
           financial: Financial
           related_to: Related to
           requirement: Requirement
-          scope: Scope
           search: Search
-          territorial_scope: Territorial scope
         orders:
           label: Sorts
           random: Random

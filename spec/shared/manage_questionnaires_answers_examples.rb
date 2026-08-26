@@ -18,7 +18,6 @@ shared_examples_for "manage questionnaire answers" do
     it "do not answer admin link" do
       visit questionnaire_edit_path
       click_on("Survey")
-      click_on("Edit survey")
       expect(page).to have_content("No answers yet")
     end
   end
@@ -31,7 +30,7 @@ shared_examples_for "manage questionnaire answers" do
     it "shows the answer admin link" do
       visit questionnaire_edit_path
       click_on("Survey")
-      click_on("Edit survey")
+      click_on "Manage questions"
       expect(page).to have_content("Show responses")
     end
 
@@ -39,7 +38,7 @@ shared_examples_for "manage questionnaire answers" do
       before do
         visit questionnaire_edit_path
         click_on("Survey")
-        click_on("Edit survey")
+        click_on "Manage questions"
         click_on "Show responses"
       end
 
@@ -83,7 +82,7 @@ shared_examples_for "manage questionnaire answers" do
       before do
         visit questionnaire_edit_path
         click_on("Survey")
-        click_on("Edit survey")
+        click_on "Manage questions"
         click_on "Show responses"
       end
 

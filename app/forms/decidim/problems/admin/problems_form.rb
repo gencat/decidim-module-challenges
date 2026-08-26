@@ -16,8 +16,6 @@ module Decidim
         translatable_attribute :description, String
 
         attribute :decidim_challenges_challenge_id, Integer
-        attribute :decidim_sectorial_scope_id, Integer
-        attribute :decidim_technological_scope_id, Integer
         attribute :tags, String
         attribute :causes, String
         attribute :groups_affected, String
@@ -28,8 +26,6 @@ module Decidim
         attribute :collaborating_entities, String
 
         validates :title, :description, translatable_presence: true
-        validates :sectorial_scope, presence: true, if: ->(form) { form.decidim_sectorial_scope_id.present? }
-        validates :technological_scope, presence: true, if: ->(form) { form.decidim_technological_scope_id.present? }
         validate :valid_state
         validates :decidim_challenges_challenge_id, presence: true
 
@@ -52,20 +48,6 @@ module Decidim
           Decidim::Challenges::Challenge.where(component: challenge_component).map do |ch|
             [translated_attribute(ch.title), ch.id]
           end
-        end
-
-        # Finds the Sectorial Scope from the given decidim_sectorial_scope_id
-        #
-        # Returns a Decidim::Scope
-        def sectorial_scope
-          @sectorial_scope ||= current_organization.scopes.find_by(id: decidim_sectorial_scope_id)
-        end
-
-        # Finds the Technological Scope from the given decidim_technological_scope_id
-        #
-        # Returns a Decidim::Scope
-        def technological_scope
-          @technological_scope ||= current_organization.scopes.find_by(id: decidim_technological_scope_id)
         end
 
         # Finds the Challenge from the given decidim_challenges_challenge_id

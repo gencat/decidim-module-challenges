@@ -56,7 +56,6 @@ module Decidim
             component: form.current_component,
             tags: form.tags,
             sdg_code: form.sdg_code,
-            scope: form.scope,
             state: form.state,
             start_date: form.start_date,
             end_date: form.end_date,

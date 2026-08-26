@@ -67,14 +67,14 @@
             <% end %>
             </td>
             <td>
-            <% if solution.author.admin? %>
+            <% if solution&.author&.admin? %>
               <%= t("index.official", scope: "decidim.solutions") %>
             <% else %>
-              <%= solution.author.name %>
+              <%= solution&.author&.name %>
             <% end %>
             </td>
             <td class="table-list__actions">
-              <% if solution.author.admin? %>
+              <% if solution&.author&.admin? %>
                 <% if allowed_to? :edit, :solution %>
                   <%= icon_link_to "pencil-line", edit_solution_path(solution), t("actions.configure", scope: "decidim.solutions.admin"), class: "action-icon--new" %>
                 <% end %>

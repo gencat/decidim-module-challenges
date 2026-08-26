@@ -53,14 +53,12 @@ describe Decidim::Solutions::Admin::SolutionsController do
         requirements:,
       },
       component_id: component,
-      scope:,
       participatory_process_slug: component.participatory_space.slug,
     }
   end
   let(:current_user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "solutions", organization:) }
-  let(:scope) { create(:scope, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -121,7 +119,6 @@ describe Decidim::Solutions::Admin::SolutionsController do
             requirements:,
           },
           component_id: component,
-          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -160,7 +157,6 @@ describe Decidim::Solutions::Admin::SolutionsController do
             requirements:,
           },
           component:,
-          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -195,7 +191,6 @@ describe Decidim::Solutions::Admin::SolutionsController do
             requirements:,
           },
           component:,
-          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -220,7 +215,6 @@ describe Decidim::Solutions::Admin::SolutionsController do
             },
           },
           component:,
-          scope:,
           participatory_process_slug: component.participatory_space.slug,
         }
       end
@@ -240,7 +234,6 @@ describe Decidim::Solutions::Admin::SolutionsController do
       {
         id: solution.id,
         component:,
-        scope:,
         participatory_process_slug: component.participatory_space.slug,
       }
     end

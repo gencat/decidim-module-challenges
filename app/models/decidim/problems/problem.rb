@@ -6,7 +6,6 @@ module Decidim
     class Problem < Decidim::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::FilterableResource
-      include Decidim::ScopableResource
       include Decidim::Loggable
       include Decidim::Publicable
       include Decidim::Resourceable
@@ -22,14 +21,6 @@ module Decidim
 
       belongs_to :challenge, foreign_key: "decidim_challenges_challenge_id", class_name: "Decidim::Challenges::Challenge"
 
-      belongs_to :sectorial_scope,
-                 foreign_key: "decidim_sectorial_scope_id",
-                 class_name: "Decidim::Scope",
-                 optional: true
-      belongs_to :technological_scope,
-                 foreign_key: "decidim_technological_scope_id",
-                 class_name: "Decidim::Scope",
-                 optional: true
       has_many :solutions,
                class_name: "Decidim::Solutions::Solution",
                foreign_key: "decidim_problems_problem_id", dependent: :restrict_with_exception
@@ -51,55 +42,11 @@ module Decidim
         joins(:challenge).where("decidim_challenges_challenges" => { sdg_code: Array(values).map(&:to_sym) })
       }
 
-      scope :with_any_sectorial_scope, lambda { |*sectorial_scope_id|
-        if sectorial_scope_id.include?("all")
-          all
-        else
-          clean_scope_ids = sectorial_scope_id
-
-          conditions = []
-          conditions << "#{model_name.plural}.decidim_sectorial_scope_id IS NULL" if clean_scope_ids.delete("global")
-          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
-
-          includes(:sectorial_scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
-        end
-      }
-
-      scope :with_any_technological_scope, lambda { |*technological_scope_id|
-        if technological_scope_id.include?("all")
-          all
-        else
-          clean_scope_ids = technological_scope_id
-
-          conditions = []
-          conditions << "#{model_name.plural}.decidim_technological_scope_id IS NULL" if clean_scope_ids.delete("global")
-          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
-
-          includes(:technological_scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
-        end
-      }
-
-      scope :with_any_territorial_scope, lambda { |*territorial_scope_id|
-        if territorial_scope_id.include?("all")
-          all
-        else
-          clean_scope_ids = territorial_scope_id
-
-          conditions = []
-          conditions << "decidim_challenges_challenges.decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
-          conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
-
-          includes(challenge: :scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
-        end
-      }
-
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :search_text_cont, :with_any_sdgs_codes,
-         :with_any_sectorial_scope, :with_any_technological_scope, :with_any_territorial_scope, :related_to]
+        [:with_any_state, :search_text_cont, :with_any_sdgs_codes, :related_to]
       end
 
       searchable_fields({
-                          scope_id: "decidim_sectorial_scope_id",
                           participatory_space: :itself,
                           A: :title,
                           B: :description,

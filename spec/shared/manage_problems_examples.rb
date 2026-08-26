@@ -59,7 +59,7 @@ shared_examples "manage problems" do
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:component) { create(:component, manifest_name:, organization:) }
       let!(:problem) do
-        create(:problem, scope:, component:,
+        create(:problem, component:,
                          title: { en: "Problem title" },
                          description: { en: "Problem description" })
       end
@@ -137,8 +137,6 @@ shared_examples "manage problems" do
 
     page.execute_script("$('#problem_end_date').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click_on
-
-    scope_pick select_data_picker(:problem_decidim_scope_id), scope
 
     within ".new_problem" do
       find("*[type=submit]").click_on

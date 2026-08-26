@@ -19,13 +19,6 @@
       <% end %>
     </div>
 
-    <% if @challenge_scope.present? %>
-      <div class="text-sm flex flex-col items-center gap-1">
-        <p class="uppercase text-xs"><%= t("scope", scope: "activemodel.attributes.solution") %></p>
-        <p class="uppercase mb-4"><%= translated_attribute(@challenge_scope.name) %></p>
-      </div>
-    <% end %>
-
     <% if has_problem? %>
       <% if @solution.problem.proposing_entities.present? %>
         <div class="text-sm flex flex-col items-center gap-1">
@@ -63,19 +56,6 @@
       </div>
     <% end %>
 
-    <% if @sectorial_scope.present? %>
-      <div class="text-sm flex flex-col items-center gap-1">
-        <p class="uppercase text-xs"><%= t("decidim_sectorial_scope_id", scope: "activemodel.attributes.problem") %></p>
-        <p class="uppercase mb-4"><%= translated_attribute(@sectorial_scope.name) %></p>
-      </div>
-    <% end %>
-
-    <% if @technological_scope.present? %>
-      <div class="text-sm flex flex-col items-center gap-1">
-        <p class="uppercase text-xs"><%= t("decidim_technological_scope_id", scope: "activemodel.attributes.problem") %></p>
-        <p class="uppercase mb-4"><%= translated_attribute(@technological_scope.name) %></p>
-      </div>
-    <% end %>
   </div>
 
   <% if has_problem? %>
@@ -109,6 +89,6 @@
 
 <section class="layout-aside__section actions__secondary">
   <%= resource_reference(current_participatory_space) %>
-  <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: false } %>
-  <%= cell "decidim/share_button", nil %>
+  <%= cell("decidim/follow_button", @solution, button_classes: "button button__sm button__transparent-secondary") %>
+  <%= cell("decidim/share_widget", @solution) %>
 </section>

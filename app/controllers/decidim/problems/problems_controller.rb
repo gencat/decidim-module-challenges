@@ -10,7 +10,6 @@ module Decidim
       include Paginable
       include OrderableProblems
       include WithSdgs
-      include WithDefaultFilters
 
       helper Decidim::CheckBoxesTreeHelper
       helper Decidim::Sdgs::SdgsHelper
@@ -19,7 +18,7 @@ module Decidim
       helper Decidim::Challenges::ApplicationHelper
       helper Decidim::PaginateHelper
 
-      helper_method :problems, :has_sdgs?, :default_filter_scope_params
+      helper_method :problems, :has_sdgs?
 
       def index
         @problems = search.result
@@ -29,22 +28,14 @@ module Decidim
 
       def show
         @problem = Decidim::Problems::Problem.find(params[:id])
-        @challenge_scope = challenge_scope
       end
 
       private
-
-      def challenge_scope
-        @challenge_scope ||= current_organization.scopes.find_by(id: @problem.challenge.decidim_scope_id)
-      end
 
       def default_filter_params
         {
           search_text_cont: "",
           with_any_state: %w(proposal execution finished),
-          with_any_sectorial_scope: default_filter_scope_params,
-          with_any_technological_scope: default_filter_scope_params,
-          with_any_territorial_scope: default_filter_scope_params,
           with_any_sdgs_codes: [],
           related_to: "",
         }

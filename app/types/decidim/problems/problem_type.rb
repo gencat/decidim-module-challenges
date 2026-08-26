@@ -13,8 +13,6 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "The title of this problem (same as the component name).", null: false
       field :description, Decidim::Core::TranslatedFieldType, "The description of this problem.", null: true
       field :challenge, Decidim::Challenges::ChallengeType, "The related Challenge", null: true
-      field :sectorial_scope, Decidim::Core::ScopeApiType, "The object's sectorial scope", null: true
-      field :technological_scope, Decidim::Core::ScopeApiType, "The object's technological scope", null: true
       field :tags, Decidim::Core::TranslatedFieldType, "The tags of this problem.", null: true
       field :state, GraphQL::Types::String, "The state for this problem.", null: true
       field :start_date, Decidim::Core::DateType, "The start date", null: true

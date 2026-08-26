@@ -11,8 +11,6 @@ module Decidim
 
       let(:model) { create(:challenge) }
 
-      include_examples "scopable interface"
-
       describe "id" do
         let(:query) { "{ id }" }
 

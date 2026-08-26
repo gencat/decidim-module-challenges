@@ -32,6 +32,10 @@ module Decidim
           edit_challenge_surveys_path(challenge_id: challenge.id)
         end
 
+        def edit_questions_template
+          "decidim/challenges/admin/survey_form/edit_questions"
+        end
+
         private
 
         def challenge
