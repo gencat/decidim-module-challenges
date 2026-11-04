@@ -32,7 +32,7 @@ module Decidim
           current_user:,
           current_organization: organization,
           current_component:,
-          add_documents: uploaded_files,
+          add_attachments: uploaded_files,
         )
       end
       let(:invalid) { false }
