@@ -3,7 +3,11 @@ Following Semantic Versioning 2.
 
 ## next version:
 
-## Version 0.8.0 (MAJOR)
+## Version 0.9.0 (MINOR)
+- Increase minimum Decidim version to 0.31
+- Upgrade module's Node to 22.23.4
+
+## Version 0.8.0 (MINOR)
 - [**BREAKING CHANGES**] Remove scopes from challenges, problems and solutions
 - Increase minimum Decidim version to 0.30
 - Upgrade module's Ruby to 3.3.4
