@@ -12,7 +12,7 @@ FactoryBot.define do
   factory :problem, traits: [:proposal, :execution, :finished], class: "Decidim::Problems::Problem" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    tags { Decidim::Faker::Localized.localized { [1..5].collect { generate(:name) }.join(", ") } }
+    tags { Array.new(3) { generate(:name) }.join(", ") }
     state { "execution" }
     causes { "causes" }
     groups_affected { "groups affected" }
