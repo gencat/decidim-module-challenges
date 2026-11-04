@@ -12,41 +12,17 @@ module Decidim
 
       private
 
-      def resource_icon
-        icon "problems", class: "icon--big"
-      end
-
       def show
         render
       end
 
-      def problem_path
-        resource_locator(model).path
-      end
-
-      def challenge_path
-        resource_locator(model.challenge).path
-      end
-
-      def resource_title
-        translated_attribute model.title
-      end
-
-      def resource_description
+      def description
         text = translated_attribute(model.description)
         decidim_sanitize(html_truncate(text, length: 100))
       end
 
       def resource_state
         model.state
-      end
-
-      def problem
-        model
-      end
-
-      def resource_challenge_title
-        translated_attribute model.challenge.title
       end
 
       def resource_sdg
