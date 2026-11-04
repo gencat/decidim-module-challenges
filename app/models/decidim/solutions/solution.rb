@@ -14,7 +14,6 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::Randomable
       include Decidim::HasAttachments
-      include Decidim::Publicable
 
       component_manifest_name "solutions"
 
