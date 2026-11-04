@@ -5,11 +5,11 @@ module Decidim
     module Admin
       # This controller allows an admin to manage surveys from a challenge
       class SurveysController < Admin::ApplicationController
-        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireResponses
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
 
         def index
-          enforce_permission_to :index, :questionnaire_answers
+          enforce_permission_to :index, :questionnaire_responses
 
           @query = paginate(collection)
           @participants = participants(@query)
@@ -17,7 +17,7 @@ module Decidim
         end
 
         def show
-          enforce_permission_to :show, :questionnaire_answers
+          enforce_permission_to :show, :questionnaire_responses
 
           @participant = participant(participants_query.participant(params[:session_token]))
         end
@@ -57,23 +57,23 @@ module Decidim
         end
 
         def export_response
-          enforce_permission_to :export_answers, :questionnaire
+          enforce_permission_to :export_response, :questionnaire_responses
 
           session_token = params[:session_token]
-          answers = Decidim::Forms::QuestionnaireUserAnswers.for(questionnaire)
+          responses = Decidim::Forms::QuestionnaireUserResponses.for(questionnaire)
           title = t("export_response.title", scope: i18n_scope, token: session_token)
-          Decidim::Forms::ExportQuestionnaireAnswersJob.perform_later(current_user, title, answers.select { |a| a.first.session_token == session_token })
+          Decidim::Forms::ExportQuestionnaireResponsesJob.perform_later(current_user, title, responses.select { |a| a.first.session_token == session_token })
 
           flash[:notice] = t("decidim.admin.exports.notice")
 
-          redirect_back(fallback_location: questionnaire_participant_answers_url(session_token))
+          redirect_back(fallback_location: questionnaire_participant_responses_url(session_token))
         end
 
         def questionnaire_participants_url
           index_answers_challenge_surveys_path
         end
 
-        def questionnaire_participant_answers_url(session_token)
+        def questionnaire_participant_responses_url(session_token)
           show_answers_challenge_surveys_url(session_token:)
         end
 
