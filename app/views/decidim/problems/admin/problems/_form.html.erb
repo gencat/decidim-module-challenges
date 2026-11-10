@@ -1,38 +1,37 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section">
-      <div class="row column hashtags__container">
-        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.translated :editor, :description %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :tags %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :causes %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :groups_affected %>
       </div>
 
       <div class="row column">
         <%= form.select :state,
                         @form.select_states_collection,
-                        selected: [I18n.t(@form.try(:state), scope: 'decidim.problems.states'), Decidim::Problems::Problem::states[@form.try(:state)]],
                         label: t("models.problem.fields.state", scope: "decidim.problems.admin") %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :proposing_entities %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :collaborating_entities %>
       </div>
     </div>

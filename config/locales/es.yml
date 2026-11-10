@@ -45,6 +45,17 @@ es:
         sdg: Objectivos de Desarrollo Sostenible
         tags: Palabras clave
         title: Titulo
+  activerecord:
+    models:
+      decidim/challenges/challenge:
+        one: Reto
+        other: Retos
+      decidim/problems/problem:
+        one: Problema
+        other: Problemas
+      decidim/solutions/solution:
+        one: Solución
+        other: Soluciones
   decidim:
     open_data:
       help:
@@ -1231,6 +1242,7 @@ es:
           edit_documents: Edita documentos
         create:
           success: La solución se ha creado correctamente y será revisada por un administrador.
+          error: Se ha producido un error al crear esta solución.
         solutions:
           empty: No se han podido encontrar soluciones
           empty_filters: No se han podido encontrar soluciones

@@ -26,7 +26,7 @@ module Decidim
           "project_status" => project_status,
           "project_url" => project_url,
           "coordinating_entity" => coordinating_entity,
-          "add_documents" => uploaded_files,
+          "add_attachments" => uploaded_files,
         }
       end
 

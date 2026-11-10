@@ -14,7 +14,6 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::Randomable
       include Decidim::HasAttachments
-      include Decidim::Publicable
 
       component_manifest_name "solutions"
 
@@ -54,6 +53,10 @@ module Decidim
 
       def published?
         published_at.present?
+      end
+
+      def presenter
+        Decidim::Solutions::SolutionPresenter.new(self)
       end
     end
   end

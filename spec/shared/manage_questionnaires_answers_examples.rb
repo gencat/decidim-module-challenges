@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples_for "manage questionnaire answers" do
-  let(:first_type) { "short_answer" }
+  let(:first_type) { "short_response" }
   let!(:first) do
     create(:questionnaire_question, questionnaire:, position: 1, question_type: first_type)
   end
@@ -18,20 +18,20 @@ shared_examples_for "manage questionnaire answers" do
     it "do not answer admin link" do
       visit questionnaire_edit_path
       click_on("Survey")
-      expect(page).to have_content("No answers yet")
+      expect(page).to have_content("No responses yet")
     end
   end
 
   context "when there are answers" do
-    let!(:answer_1) { create(:answer, questionnaire:, question: first) }
-    let!(:answer_2) { create(:answer, body: "second answer", questionnaire:, question: first) }
-    let!(:answer_3) { create(:answer, questionnaire:, question: second) }
+    let!(:answer_1) { create(:response, questionnaire:, question: first) }
+    let!(:answer_2) { create(:response, body: "second answer", questionnaire:, question: first) }
+    let!(:answer_3) { create(:response, questionnaire:, question: second) }
 
     it "shows the answer admin link" do
       visit questionnaire_edit_path
       click_on("Survey")
       click_on "Manage questions"
-      expect(page).to have_content("Show responses")
+      expect(page).to have_link("Responses")
     end
 
     context "and managing answers page" do
@@ -39,7 +39,7 @@ shared_examples_for "manage questionnaire answers" do
         visit questionnaire_edit_path
         click_on("Survey")
         click_on "Manage questions"
-        click_on "Show responses"
+        click_on "Responses"
       end
 
       it "shows the anwers page" do
@@ -54,7 +54,7 @@ shared_examples_for "manage questionnaire answers" do
       end
 
       it "has a detail link" do
-        expect(page).to have_link("Show answers")
+        expect(page).to have_link("Show responses")
       end
 
       it "has an export link" do
@@ -64,7 +64,7 @@ shared_examples_for "manage questionnaire answers" do
       end
 
       context "when no short answer exist" do
-        let(:first_type) { "long_answer" }
+        let(:first_type) { "long_response" }
 
         it "shows session token" do
           expect(page).to have_no_content(answer_1.body)
@@ -77,13 +77,13 @@ shared_examples_for "manage questionnaire answers" do
     end
 
     context "and managing individual answer page" do
-      let!(:answer_11) { create(:answer, questionnaire:, body: "", user: answer_1.user, question: second) }
+      let!(:answer_11) { create(:response, questionnaire:, body: "", user: answer_1.user, question: second) }
 
       before do
         visit questionnaire_edit_path
         click_on("Survey")
         click_on "Manage questions"
-        click_on "Show responses"
+        click_on "Responses"
       end
 
       it "shows all the questions and responses" do

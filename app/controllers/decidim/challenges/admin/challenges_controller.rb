@@ -39,7 +39,7 @@ module Decidim
               # maybe used together?
               # Rails.application.routes.mounted_helpers
               # ResourceLocatorPresenter.new(resource).edit
-              redirect_to challenges_path(assembly_slug: -1, component_id: -1)
+              redirect_to challenges_path
             end
 
             on(:invalid) do
@@ -56,7 +56,7 @@ module Decidim
           Decidim::Challenges::Admin::UpdateChallenge.call(@form, challenge) do
             on(:ok) do |_challenge|
               flash[:notice] = t("challenges.update.success", scope: "decidim.challenges.admin")
-              redirect_to challenges_path(assembly_slug: -1, component_id: -1)
+              redirect_to challenges_path
             end
 
             on(:invalid) do
@@ -72,7 +72,7 @@ module Decidim
           Decidim::Challenges::Admin::DestroyChallenge.call(challenge, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("challenges.destroy.success", scope: "decidim.challenges.admin")
-              redirect_to challenges_path(assembly_slug: -1, component_id: -1)
+              redirect_to challenges_path
             end
 
             on(:has_problems) do

@@ -54,7 +54,9 @@ module Decidim
           end
         end
 
-        def map_model(model); end
+        def map_model(model)
+          self.state = Decidim::Challenges::Challenge.states[model.state]
+        end
 
         private
 

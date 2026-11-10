@@ -25,35 +25,34 @@ module Decidim
 
       # Render the solution title
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # html_escape - should escape the HTML special characters?
       #
       # Returns a String.
-      def title(links: false, extras: true, html_escape: false)
+      def title(html_escape: false)
         text = translated_attribute(solution.title)
         text = decidim_html_escape(text) if html_escape
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        renderer.render.html_safe
       end
 
-      def id_and_title(links: false, extras: true, html_escape: false)
-        "##{solution.id} - #{title(links:, extras:, html_escape:)}"
+      def id_and_title(html_escape: false)
+        "##{solution.id} - #{title(html_escape:)}"
       end
 
       # Render the solution description
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # links - should render URLs as links?
+      # strip_tags - should remove the HTML tags?
       #
       # Returns a String.
-      def description(links: false, extras: true, strip_tags: false)
+      def description(links: false, strip_tags: false)
         text = translated_attribute(solution.description)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        text = renderer.render.html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -61,17 +60,17 @@ module Decidim
 
       # Render the solution indicators
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # links - should render URLs as links?
+      # strip_tags - should remove the HTML tags?
       #
       # Returns a String.
-      def indicators(links: false, extras: true, strip_tags: false)
+      def indicators(links: false, strip_tags: false)
         text = translated_attribute(solution.indicators)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        text = renderer.render.html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -79,17 +78,17 @@ module Decidim
 
       # Render the solution beneficiaries
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # links - should render URLs as links?
+      # strip_tags - should remove the HTML tags?
       #
       # Returns a String.
-      def beneficiaries(links: false, extras: true, strip_tags: false)
+      def beneficiaries(links: false, strip_tags: false)
         text = translated_attribute(solution.beneficiaries)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        text = renderer.render.html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -97,17 +96,17 @@ module Decidim
 
       # Render the solution requirements
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # links - should render URLs as links?
+      # strip_tags - should remove the HTML tags?
       #
       # Returns a String.
-      def requirements(links: false, extras: true, strip_tags: false)
+      def requirements(links: false, strip_tags: false)
         text = translated_attribute(solution.requirements)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        text = renderer.render.html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -115,17 +114,17 @@ module Decidim
 
       # Render the solution financing_type
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # links - should render URLs as links?
+      # strip_tags - should remove the HTML tags?
       #
       # Returns a String.
-      def financing_type(links: false, extras: true, strip_tags: false)
+      def financing_type(links: false, strip_tags: false)
         text = translated_attribute(solution.financing_type)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        text = renderer.render.html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
@@ -133,17 +132,17 @@ module Decidim
 
       # Render the solution objectives
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # links - should render URLs as links?
+      # strip_tags - should remove the HTML tags?
       #
       # Returns a String.
-      def objectives(links: false, extras: true, strip_tags: false)
+      def objectives(links: false, strip_tags: false)
         text = translated_attribute(solution.objectives)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        text = renderer.render.html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text

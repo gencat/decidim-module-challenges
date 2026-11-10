@@ -45,6 +45,17 @@ ca:
         sdg: Objectius de Desenvolupament Sostenible
         tags: Paraules clau
         title: Títol
+  activerecord:
+    models:
+      decidim/challenges/challenge:
+        one: Repte
+        other: Reptes
+      decidim/problems/problem:
+        one: Problema
+        other: Problemes
+      decidim/solutions/solution:
+        one: Solució
+        other: Solucions
   decidim:
     open_data:
       help:

@@ -2,9 +2,7 @@
 
 module Decidim
   module Problems
-    class ProblemsType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class ProblemsType < Decidim::Core::ComponentType
       graphql_name "Problems"
       description "A problems component of a participatory space."
 

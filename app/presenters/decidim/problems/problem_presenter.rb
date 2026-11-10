@@ -25,35 +25,34 @@ module Decidim
 
       # Render the problem title
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # html_escape - should escape the HTML special characters?
       #
       # Returns a String.
-      def title(links: false, extras: true, html_escape: false)
+      def title(html_escape: false)
         text = translated_attribute(problem.title)
         text = decidim_html_escape(text) if html_escape
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        renderer.render.html_safe
       end
 
-      def id_and_title(links: false, extras: true, html_escape: false)
-        "##{problem.id} - #{title(links:, extras:, html_escape:)}"
+      def id_and_title(html_escape: false)
+        "##{problem.id} - #{title(html_escape:)}"
       end
 
       # Render the problem description
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
+      # links - should render URLs as links?
+      # strip_tags - should remove the HTML tags?
       #
       # Returns a String.
-      def description(links: false, extras: true, strip_tags: false)
+      def description(links: false, strip_tags: false)
         text = translated_attribute(problem.description)
 
         text = strip_tags(sanitize_text(text)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links:, extras:).html_safe
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(text)
+        text = renderer.render.html_safe
 
         text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
         text
