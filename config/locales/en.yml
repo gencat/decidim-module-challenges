@@ -45,6 +45,17 @@ en:
         sdg: Sustainable Development Goals
         tags: Keywords
         title: Title
+  activerecord:
+    models:
+      decidim/challenges/challenge:
+        one: Challenge
+        other: Challenges
+      decidim/problems/problem:
+        one: Problem
+        other: Problems
+      decidim/solutions/solution:
+        one: Solution
+        other: Solutions
   decidim:
     open_data:
       help:

@@ -45,6 +45,17 @@ es:
         sdg: Objectivos de Desarrollo Sostenible
         tags: Palabras clave
         title: Titulo
+  activerecord:
+    models:
+      decidim/challenges/challenge:
+        one: Reto
+        other: Retos
+      decidim/problems/problem:
+        one: Problema
+        other: Problemas
+      decidim/solutions/solution:
+        one: Solución
+        other: Soluciones
   decidim:
     open_data:
       help:
