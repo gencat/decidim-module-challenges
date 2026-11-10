@@ -33,7 +33,7 @@ module Decidim
           Decidim::Problems::Admin::CreateProblem.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("problems.create.success", scope: "decidim.problems.admin")
-              redirect_to problems_path(assembly_slug: -1, component_id: -1)
+              redirect_to problems_path
             end
 
             on(:invalid) do
@@ -50,7 +50,7 @@ module Decidim
           Decidim::Problems::Admin::UpdateProblem.call(@form, problem) do
             on(:ok) do |_problem|
               flash[:notice] = t("problems.update.success", scope: "decidim.problems.admin")
-              redirect_to problems_path(assembly_slug: -1, component_id: -1)
+              redirect_to problems_path
             end
 
             on(:invalid) do
@@ -66,7 +66,7 @@ module Decidim
           Decidim::Problems::Admin::DestroyProblem.call(problem, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("problems.destroy.success", scope: "decidim.problems.admin")
-              redirect_to problems_path(assembly_slug: -1, component_id: -1)
+              redirect_to problems_path
             end
 
             on(:has_solutions) do

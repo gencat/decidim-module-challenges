@@ -1236,6 +1236,7 @@ en:
           edit_documents: Edit documents
         create:
           success: The solution has been created and an administrator will be review it.
+          error: There was a problem creating this solution.
         solutions:
           empty: No solutions could be found
           empty_filters: No solutions could be found

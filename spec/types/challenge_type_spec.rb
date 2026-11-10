@@ -2,7 +2,7 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/api/test/shared_examples/scopable_interface_examples"
 
 module Decidim
   module Challenges

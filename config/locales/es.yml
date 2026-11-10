@@ -1242,6 +1242,7 @@ es:
           edit_documents: Edita documentos
         create:
           success: La solución se ha creado correctamente y será revisada por un administrador.
+          error: Se ha producido un error al crear esta solución.
         solutions:
           empty: No se han podido encontrar soluciones
           empty_filters: No se han podido encontrar soluciones
