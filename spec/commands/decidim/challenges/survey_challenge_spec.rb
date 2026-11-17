@@ -42,12 +42,12 @@ module Decidim::Challenges
           expect { subject.call }.to broadcast(:ok)
         end
 
-        it "saves the answers" do
-          expect { subject.call }.to change(Decidim::Forms::Answer, :count).by(1)
+        it "saves the responses" do
+          expect { subject.call }.to change(Decidim::Forms::Response, :count).by(1)
 
-          answer = Decidim::Forms::Answer.last
-          expect(answer.user).to eq(user)
-          expect(answer.body).to eq("My answer response")
+          response = Decidim::Forms::Response.last
+          expect(response.user).to eq(user)
+          expect(response.body).to eq("My answer response")
         end
 
         it "creates a survey for the challenge and the user" do

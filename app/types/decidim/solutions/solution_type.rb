@@ -13,7 +13,7 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "The title of this solution (same as the component name).", null: false
       field :description, Decidim::Core::TranslatedFieldType, "The description of this solution.", null: true
       field :problem, Decidim::Problems::ProblemType, "The related Problem", null: true
-      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this solution.", null: true
+      field :tags, GraphQL::Types::String, "The tags of this solution.", null: true
       field :indicators, Decidim::Core::TranslatedFieldType, "The indicators of this solution.", null: true
       field :beneficiaries, Decidim::Core::TranslatedFieldType, "The beneficiaries of this solution.", null: true
       field :requirements, Decidim::Core::TranslatedFieldType, "The requirements of this solution.", null: true

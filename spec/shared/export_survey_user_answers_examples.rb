@@ -5,7 +5,7 @@ shared_examples "export survey user answers" do
   let!(:questions) { create_list(:questionnaire_question, 3, questionnaire:) }
   let!(:answers) do
     questions.map do |question|
-      create_list(:answer, 3, questionnaire:, question:)
+      create_list(:response, 3, questionnaire:, question:)
     end.flatten
   end
 
@@ -14,14 +14,12 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Manage questions")
 
-    find(".exports").click
+    click_on "Export all"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "CSV" }
 
-    within ".flash.success" do
-      expect(page).to have_content("in progress")
-    end
+    expect(page).to have_admin_callout("in progress")
 
     expect(last_email.subject).to eq('Your export "answers" is ready')
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -33,14 +31,12 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Manage questions")
 
-    find(".exports").click
+    click_on "Export all"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "JSON" }
 
-    within ".flash.success" do
-      expect(page).to have_content("in progress")
-    end
+    expect(page).to have_admin_callout("in progress")
 
     expect(last_email.subject).to eq('Your export "answers" is ready')
     expect(Decidim::PrivateExport.count).to eq(1)
@@ -52,14 +48,12 @@ shared_examples "export survey user answers" do
     click_on("Survey")
     click_on("Manage questions")
 
-    find(".exports").click
+    click_on "Export all"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "PDF" }
 
-    within ".flash.success" do
-      expect(page).to have_content("in progress")
-    end
+    expect(page).to have_admin_callout("in progress")
 
     expect(last_email.subject).to eq('Your export "answers" is ready')
     expect(Decidim::PrivateExport.count).to eq(1)

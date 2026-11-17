@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe Decidim::Challenges::Admin::ChallengesController do
   routes { Decidim::Challenges::AdminEngine.routes }
+  include_context "with component script name", :admin
 
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:title) do

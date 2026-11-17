@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe Decidim::Solutions::SolutionsController do
   routes { Decidim::Solutions::Engine.routes }
+  include_context "with component script name", :public
 
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:title) { "Títol solució" }

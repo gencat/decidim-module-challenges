@@ -4,7 +4,7 @@
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: problems_path } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
-      <%= present(@problem).title(links: true, html_escape: true) %>
+      <%= present(@problem).title(html_escape: true) %>
     </h1>
   </section>
 

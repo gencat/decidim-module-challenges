@@ -43,7 +43,7 @@ describe "Admin manages challenge survey" do
         visit manage_questions_path
       end
 
-      let!(:answer) { create(:answer, question:, questionnaire:) }
+      let!(:answer) { create(:response, question:, questionnaire:) }
 
       it "allows editing questions" do
         click_on "Expand all"

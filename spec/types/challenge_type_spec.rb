@@ -2,7 +2,7 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/api/test/shared_examples/scopable_interface_examples"
 
 module Decidim
   module Challenges
@@ -44,10 +44,10 @@ module Decidim
       end
 
       describe "tags" do
-        let(:query) { '{ tags { translation(locale: "en")} }' }
+        let(:query) { "{ tags }" }
 
         it "returns the required value" do
-          expect(response["tags"]["translation"]).to eq(model.tags["en"])
+          expect(response["tags"]).to eq(model.tags)
         end
       end
 

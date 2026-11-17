@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe Decidim::Problems::Admin::ProblemsController do
   routes { Decidim::Problems::AdminEngine.routes }
+  include_context "with component script name", :admin
 
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:title) do

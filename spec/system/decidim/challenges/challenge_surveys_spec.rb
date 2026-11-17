@@ -44,7 +44,7 @@ describe "Challenge surveys" do
       it "can't answer the registration form" do
         visit questionnaire_public_path
 
-        expect(page).to have_content("The form is closed and cannot be answered")
+        expect(page).to have_content("The form is closed and cannot be responded")
       end
     end
   end
@@ -58,7 +58,7 @@ describe "Challenge surveys" do
       it "they have the option to sign in" do
         visit questionnaire_public_path
 
-        expect(page).to have_no_css(".form.answer-questionnaire")
+        expect(page).to have_no_css(".form.response-questionnaire")
         expect(page).to have_content("Already have an account?")
       end
     end

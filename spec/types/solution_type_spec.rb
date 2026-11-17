@@ -17,7 +17,7 @@ module Decidim
             title { translation(locale: "en") }
             description { translation(locale: "en") }
             problem { id }
-            tags { translation(locale: "en")}
+            tags
             indicators { translation(locale: "en")}
             beneficiaries { translation(locale: "en")}
             requirements { translation(locale: "en")}
@@ -34,7 +34,7 @@ module Decidim
           expect(response["title"]["translation"]).to eq(model.title["en"])
           expect(response["description"]["translation"]).to eq(model.description["en"])
           expect(response["problem"]["id"]).to eq(model.problem.id.to_s)
-          expect(response["tags"]["translation"]).to eq(model.tags["en"])
+          expect(response["tags"]).to eq(model.tags)
           expect(response["indicators"]["translation"]).to eq(model.indicators["en"])
           expect(response["beneficiaries"]["translation"]).to eq(model.beneficiaries["en"])
           expect(response["requirements"]["translation"]).to eq(model.requirements["en"])

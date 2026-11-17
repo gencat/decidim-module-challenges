@@ -13,7 +13,7 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "The title of this problem (same as the component name).", null: false
       field :description, Decidim::Core::TranslatedFieldType, "The description of this problem.", null: true
       field :challenge, Decidim::Challenges::ChallengeType, "The related Challenge", null: true
-      field :tags, Decidim::Core::TranslatedFieldType, "The tags of this problem.", null: true
+      field :tags, GraphQL::Types::String, "The tags of this problem.", null: true
       field :state, GraphQL::Types::String, "The state for this problem.", null: true
       field :start_date, Decidim::Core::DateType, "The start date", null: true
       field :end_date, Decidim::Core::DateType, "The end date", null: true

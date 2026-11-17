@@ -34,29 +34,29 @@ module Decidim::Challenges
         let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: challenge.questionnaire) }
         let!(:answers) do
           questions.map do |question|
-            create(:answer, questionnaire: challenge.questionnaire, question:, user:)
+            create(:response, questionnaire: challenge.questionnaire, question:, user:)
           end
         end
 
         let!(:multichoice_question) { create(:questionnaire_question, questionnaire: challenge.questionnaire, question_type: "multiple_option") }
-        let!(:multichoice_answer_options) { create_list(:answer_option, 2, question: multichoice_question) }
+        let!(:multichoice_answer_options) { create_list(:response_option, 2, question: multichoice_question) }
         let!(:multichoice_answer) do
-          create(:answer, questionnaire: challenge.questionnaire, question: multichoice_question, user:, body: nil)
+          create(:response, questionnaire: challenge.questionnaire, question: multichoice_question, user:, body: nil)
         end
         let!(:multichoice_answer_choices) do
           multichoice_answer_options.map do |answer_option|
-            create(:answer_choice, answer: multichoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
+            create(:response_choice, response: multichoice_answer, response_option: answer_option, body: answer_option.body[I18n.locale.to_s])
           end
         end
 
         let!(:singlechoice_question) { create(:questionnaire_question, questionnaire: challenge.questionnaire, question_type: "single_option") }
-        let!(:singlechoice_answer_options) { create_list(:answer_option, 2, question: multichoice_question) }
+        let!(:singlechoice_answer_options) { create_list(:response_option, 2, question: multichoice_question) }
         let!(:singlechoice_answer) do
-          create(:answer, questionnaire: challenge.questionnaire, question: singlechoice_question, user:, body: nil)
+          create(:response, questionnaire: challenge.questionnaire, question: singlechoice_question, user:, body: nil)
         end
         let!(:singlechoice_answer_choice) do
           answer_option = singlechoice_answer_options.first
-          create(:answer_choice, answer: singlechoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
+          create(:response_choice, response: singlechoice_answer, response_option: answer_option, body: answer_option.body[I18n.locale.to_s])
         end
 
         subject { described_class.new(survey) }

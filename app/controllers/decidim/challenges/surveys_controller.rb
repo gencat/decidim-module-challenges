@@ -14,7 +14,7 @@ module Decidim
         SurveyChallenge.call(challenge, current_user, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("surveys.create.success", scope: "decidim.challenges")
-            redirect_to after_answer_path
+            redirect_to after_response_path
           end
 
           on(:invalid) do
@@ -23,17 +23,17 @@ module Decidim
           end
 
           on(:invalid_form) do
-            flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
+            flash.now[:alert] = I18n.t("response.invalid", scope: i18n_flashes_scope)
             render template: "decidim/forms/questionnaires/show"
           end
         end
       end
 
-      def allow_answers?
+      def allow_responses?
         challenge.survey_enabled?
       end
 
-      def after_answer_path
+      def after_response_path
         challenge_path(challenge)
       end
 

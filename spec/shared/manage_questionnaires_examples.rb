@@ -54,7 +54,7 @@ shared_examples_for "manage questionnaires" do
 
   context "when the questionnaire is already answered" do
     let!(:question) { create(:questionnaire_question, questionnaire:, body:, question_type: "multiple_option") }
-    let!(:answer) { create(:answer, questionnaire:, question:) }
+    let!(:answer) { create(:response, questionnaire:, question:) }
 
     it "cannot modify questionnaire questions" do
       visit questionnaire_edit_path

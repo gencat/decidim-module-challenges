@@ -41,7 +41,7 @@ module Decidim
           Decidim::Solutions::Admin::CreateSolution.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("solutions.create.success", scope: "decidim.solutions.admin")
-              redirect_to solutions_path(assembly_slug: -1, component_id: -1)
+              redirect_to solutions_path
             end
 
             on(:invalid) do
@@ -58,7 +58,7 @@ module Decidim
           Decidim::Solutions::Admin::UpdateSolution.call(@form, solution) do
             on(:ok) do |_solution|
               flash[:notice] = t("solutions.update.success", scope: "decidim.solutions.admin")
-              redirect_to solutions_path(assembly_slug: -1, component_id: -1)
+              redirect_to solutions_path
             end
 
             on(:invalid) do
@@ -74,12 +74,12 @@ module Decidim
           Decidim::Solutions::Admin::DestroySolution.call(solution, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("solutions.destroy.success", scope: "decidim.solutions.admin")
-              redirect_to solutions_path(assembly_slug: -1, component_id: -1)
+              redirect_to solutions_path
             end
 
             on(:invalid) do
               flash.now[:alert] = t("solutions.destroy.error", scope: "decidim.solutions.admin")
-              redirect_to solutions_path(assembly_slug: -1, component_id: -1)
+              redirect_to solutions_path
             end
           end
         end

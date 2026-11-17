@@ -20,7 +20,7 @@ module Decidim
       attribute :author_id, Integer
       attribute :attachment, AttachmentForm
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       validates :title, :description, presence: true, etiquette: true
       validates :project_status, :coordinating_entity, presence: true
@@ -31,8 +31,7 @@ module Decidim
         self.title = translated_attribute(model.title)
         self.description = translated_attribute(model.description)
 
-        self.documents = model.attachments
-        nil unless model.categorization
+        self.attachments = model.attachments
       end
 
       # Finds the Challenge from the given decidim_challenges_challenge_id

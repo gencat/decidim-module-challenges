@@ -1,25 +1,25 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section">
-      <div class="row column hashtags__container">
-        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.translated :editor, :local_description %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.translated :editor, :global_description %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :tags %>
       </div>
 
       <% if params[:component_id] %>
         <% if Decidim::Component.where(participatory_space: Decidim::Component.find(params[:component_id]).participatory_space).pluck(:manifest_name).include? 'sdgs' %>
-          <div class="row column hashtags__container">
+          <div class="row column">
             <%= form.select :sdg_code,
                             @form.select_sdg_collection,
                             selected: [t_sdg(@form.sdg_code), @form.sdg_code],
@@ -31,15 +31,14 @@
       <div class="row column">
         <%= form.select :state,
                         @form.select_states_collection,
-                        selected: [I18n.t(@form.try(:state), scope: 'decidim.challenges.states'), Decidim::Challenges::Challenge::states[@form.try(:state)]],
                         label: t("models.challenge.fields.state", scope: "decidim.challenges.admin") %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :collaborating_entities %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.text_field :coordinating_entities %>
       </div>
 

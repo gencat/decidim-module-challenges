@@ -17,7 +17,7 @@ module Decidim
             title { translation(locale: "en") }
             description { translation(locale: "en") }
             challenge { id }
-            tags { translation(locale: "en")}
+            tags
             causes
             groupsAffected
             state
@@ -36,7 +36,7 @@ module Decidim
           expect(response["title"]["translation"]).to eq(model.title["en"])
           expect(response["description"]["translation"]).to eq(model.description["en"])
           expect(response["challenge"]["id"]).to eq(model.challenge.id.to_s)
-          expect(response["tags"]["translation"]).to eq(model.tags["en"])
+          expect(response["tags"]).to eq(model.tags)
           expect(response["state"]).to eq(model.state)
           expect(response["startDate"]).to eq(model.start_date.to_date.iso8601)
           expect(response["endDate"]).to eq(model.end_date.to_date.iso8601)

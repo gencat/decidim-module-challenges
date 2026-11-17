@@ -9,9 +9,7 @@ module Decidim
 
       def text_editor_for_description(form)
         options = {
-          class: "js-hashtags",
-          hashtaggable: true,
-          value: form_presenter.description(extras: false).strip,
+          value: form_presenter.description.strip,
         }
 
         text_editor_for(form, :description, options)

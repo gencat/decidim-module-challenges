@@ -2,9 +2,7 @@
 
 module Decidim
   module Challenges
-    class ChallengesType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class ChallengesType < Decidim::Core::ComponentType
       graphql_name "Challenges"
       description "A challenges component of a participatory space."
 

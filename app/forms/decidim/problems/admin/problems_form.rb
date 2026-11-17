@@ -57,7 +57,9 @@ module Decidim
           @challenge ||= @decidim_challenges_challenge_id ? Decidim::Challenges::Challenge.find(@decidim_challenges_challenge_id) : false
         end
 
-        def map_model(model); end
+        def map_model(model)
+          self.state = Decidim::Problems::Problem.states[model.state]
+        end
 
         private
 

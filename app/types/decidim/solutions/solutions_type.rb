@@ -2,9 +2,7 @@
 
 module Decidim
   module Solutions
-    class SolutionsType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class SolutionsType < Decidim::Core::ComponentType
       graphql_name "Solutions"
       description "A solutions component of a participatory space."
 

@@ -69,6 +69,10 @@ module Decidim
         published_at.present?
       end
 
+      def presenter
+        Decidim::Challenges::ChallengePresenter.new(self)
+      end
+
       def remove_card_image; end
     end
   end

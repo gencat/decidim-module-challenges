@@ -3,7 +3,7 @@
 module Decidim
   module CommandUtils
     def parsed_attribute(attribute)
-      Decidim::ContentProcessor.parse_with_processor(:hashtag, form.send(attribute), current_organization: form.current_organization).rewrite
+      Decidim::ContentProcessor.parse(form.send(attribute), current_organization: form.current_organization).rewrite
     end
 
     def challenge_id

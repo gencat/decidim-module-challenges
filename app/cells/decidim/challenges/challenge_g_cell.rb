@@ -12,10 +12,6 @@ module Decidim
 
       private
 
-      def resource_icon
-        icon "challenges", class: "icon--big"
-      end
-
       def resource_image_url
         model.attached_uploader(:card_image).url
       end
@@ -24,17 +20,9 @@ module Decidim
         @has_image ||= model.component.settings.allow_card_image && model.card_image.attached?
       end
 
-      def resource_image_path
-        @resource_image_path ||= has_image? ? model.attached_uploader(:card_image).path : nil
-      end
-
       def description
         text = translated_attribute(model.global_description)
         decidim_sanitize(html_truncate(text, length: 100))
-      end
-
-      def challenge_path
-        resource_locator(model).path
       end
 
       def show
@@ -43,10 +31,6 @@ module Decidim
 
       def resource_path
         resource_locator(model).path
-      end
-
-      def resource_title
-        translated_attribute model.title
       end
 
       def resource_sdg
@@ -59,10 +43,6 @@ module Decidim
 
       def resource_state
         model.state
-      end
-
-      def current_organization
-        current_organization
       end
     end
   end

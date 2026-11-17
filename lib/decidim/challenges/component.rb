@@ -55,11 +55,11 @@ Decidim.register_component(:challenges) do |component|
   component.exports :answers do |exports|
     exports.collection do |_f, _user, resource_id|
       questionnaire = Decidim::Forms::Questionnaire.find(resource_id)
-      Decidim::Forms::QuestionnaireUserAnswers.for(questionnaire)
+      Decidim::Forms::QuestionnaireUserResponses.for(questionnaire)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
 
-    exports.serializer Decidim::Forms::UserAnswersSerializer
+    exports.serializer Decidim::Forms::UserResponsesSerializer
   end
 end

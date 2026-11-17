@@ -12,25 +12,25 @@ module Decidim
             name: resource.author.name,
             email: resource.author.email,
           },
-          survey_form_answers: serialize_answers,
+          survey_form_answers: serialize_responses,
         }
       end
 
       private
 
-      def serialize_answers
+      def serialize_responses
         questions = resource.challenge.questionnaire.questions
-        answers = resource.challenge.questionnaire.answers.where(user: resource.author)
+        responses = resource.challenge.questionnaire.responses.where(user: resource.author)
         questions.each_with_index.inject({}) do |serialized, (question, idx)|
-          answer = answers.find_by(question:)
-          serialized.update("#{idx + 1}. #{translated_attribute(question.body)}" => normalize_body(answer))
+          response = responses.find_by(question:)
+          serialized.update("#{idx + 1}. #{translated_attribute(question.body)}" => normalize_body(response))
         end
       end
 
-      def normalize_body(answer)
-        return "" unless answer
+      def normalize_body(response)
+        return "" unless response
 
-        answer.body || answer.choices.pluck(:body)
+        response.body || response.choices.pluck(:body)
       end
     end
   end
